@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            PageType="{x:Type pages:PromotionPage}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+                            x:Class="HealthCare.Pages.PromotionPage"
+                            BindingContext="{Binding VmPromotion, Source={StaticResource Locator}}"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+                            xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                            Title="{x:Static resx:AppResources.promotion}">
+
+    <controls:TopBarContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:Double" x:Key="HeightRowPromotion"
+                        iOS="96" Android="96" WinPhone="110" />
+            <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonSize"
+                        iOS="32" Android="32" WinPhone="{x:Static helpers:HcStyles.ButtonHeight}" />
+            <OnPlatform x:TypeArguments="x:Double" x:Key="TitleFontSize"
+                        iOS="{x:Static helpers:HcStyles.FontSizeTitle}"
+                        Android="{x:Static helpers:HcStyles.FontSizeTitle}"
+                        WinPhone="{x:Static helpers:HcStyles.FontSizeContent}" />
+            <OnPlatform x:TypeArguments="x:Double" x:Key="PercentCircleSize"
+                        iOS="38" Android="38" WinPhone="50" />
+        </ResourceDictionary>
+    </controls:TopBarContentPage.Resources>
+
+    <behaviors:Interaction.Behaviors>
+        <behaviors:BehaviorCollection>
+            <behaviors:EventToCommand EventName="Loaded"
+                                      Command="{Binding VmPromotion.GetListPromotionCommand, Source={StaticResource Locator}}" />
+        </behaviors:BehaviorCollection>
+    </behaviors:Interaction.Behaviors>
+
+    <controls:HcListView x:TypeArguments="models:PromotionModel"
+                         ItemsSource="{Binding ListItemLoadmore}"
+                         IsPullToRefreshEnabled="True"
+                         RefreshCommand="{Binding PullRefreshCommand}"
+                         IsRefreshing="{Binding IsRefreshing}"
+                         ItemClickCommand="{Binding ItemTappedCommand}"
+                         IsLoadMoreEnabled="True"
+                         LoadMoreCommand="{Binding LoadMoreTappedCommand}"
+                         CanLoadMore="{Binding IsCanLoadMore, Mode=TwoWay}"
+                         ItemCount="{Binding ItemCount, Mode=TwoWay}">
+
+        <controls:HcListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                                 Padding="{x:Static helpers:HcStyles.ViewCellPadding}">
+                        <controls:BorderFrame Padding="1">
+
+                            <Grid BackgroundColor="White">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <forms:CachedImage HeightRequest="{StaticResource HeightRowPromotion}"
+                                                   WidthRequest="{StaticResource HeightRowPromotion}"
+                                                   DownsampleToViewSize="False"
+                                                   TransparencyEnabled="False"
+                                                   Source="{Binding Image, Converter={StaticResource UriToImageLoaderConverter}}"
+                                                   Grid.Column="0" Grid.Row="0"
+                                                   Aspect="AspectFill" />
+
+                                <Grid Grid.Row="0" Grid.Column="1" Padding="4">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Label Text="{Binding Hospital.Name}"
+                                           Style="{StaticResource LabelTitleStyle}"
+                                           FontSize="{StaticResource TitleFontSize}"
+                                           LineBreakMode="TailTruncation"
+                                           TextColor="{x:Static helpers:HcStyles.OrangeColor}"
+                                           FontAttributes="Bold"
+                                           Grid.Column="0" Grid.Row="0" />
+                                    <Label
+                                        Text="{Binding StartDateTime, Converter={StaticResource LocalTimeZoneConverter},
+                     StringFormat='{0:dd/MM/yyyy}'}"
+                                        Style="{StaticResource LabelSubContentStyle}"
+                                        TextColor="{x:Static helpers:HcStyles.LightGrayTextColor}"
+                                        Grid.Column="0" Grid.Row="1" />
+
+                                    <Grid Grid.Column="1"
+                                          Padding="0,0,4,0"
+                                          Grid.Row="0" Grid.RowSpan="2">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Source="ic_rounder.png"
+                                               Aspect="AspectFill"
+                                               WidthRequest="{StaticResource PercentCircleSize}"
+                                               HeightRequest="{StaticResource PercentCircleSize}"
+                                               Grid.Row="0" Grid.Column="0" />
+
+                                        <Label Text="{Binding DiscountPercent, StringFormat='{0}%'}"
+                                               Grid.Row="0" Grid.Column="0"
+                                               Style="{StaticResource LabelSubContentStyle}"
+                                               TextColor="White"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center" />
+                                    </Grid>
+
+                                    <Label Text="{Binding Name}" LineBreakMode="TailTruncation"
+                                           Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                                           Style="{StaticResource LabelContentStyle}"
+                                           VerticalOptions="Center" />
+                                </Grid>
+
+                            </Grid>
+                        </controls:BorderFrame>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </controls:HcListView.ItemTemplate>
+    </controls:HcListView>
+
+</controls:TopBarContentPage>

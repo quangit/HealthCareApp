@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+             x:Class="HealthCare.Controls.ButtonRadiusControl">
+  <Grid VerticalOptions="FillAndExpand"
+        HorizontalOptions="FillAndExpand"
+        x:Name="grdContain">
+
+    <Image Source="button_gui.png"
+           VerticalOptions="FillAndExpand"
+           HorizontalOptions="FillAndExpand"
+           x:Name="imgBackground"/>
+
+    <ContentView VerticalOptions="Center"
+                 HorizontalOptions="Center"
+                 x:Name="ctContent">
+      <Label x:Name="txtText"
+             Text="{Binding MainText}"
+             TextColor="White"
+             FontSize="{x:Static helpers:HcStyles.ButtonFontSize}"
+             FontAttributes="Bold"/>
+    </ContentView>
+  </Grid>
+
+</ContentView>

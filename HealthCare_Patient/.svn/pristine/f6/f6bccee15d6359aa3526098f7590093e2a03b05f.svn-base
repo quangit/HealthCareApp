@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            x:Class="HealthCare.Pages.HealthRecordInformationPage"
+                            BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                            Title="{x:Static resx:AppResources.chbase_title}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+                            PageType="{x:Type pages:HealthRecordInformationPage}"
+                            BindingContext="{Binding VmChBase, Source={StaticResource Locator}}"
+                            Icon="tab_account.png">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="GridLength" x:Key="HeaderHeight"
+                  iOS="80" Android="80" WinPhone="80" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="FontsizeHeader"
+                  iOS="16" Android="20" WinPhone="24" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="FontsizeNameDoctor"
+                  iOS="20" Android="20" WinPhone="28" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="FontsizeNameTitle"
+                  iOS="14" Android="14" WinPhone="18" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SiteImageAvatar"
+                  iOS="50" Android="50" WinPhone="50" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="PaddingButtonHealthRecordDetail"
+                  iOS="4" Android="4" WinPhone="0" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="WidthButtonPayment"
+                 iOS="180" Android="180" WinPhone="220" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="WebViewHeight"
+                Android="600" WinPhone="494" iOS="600"/>
+
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+  <RelativeLayout IsVisible="{Binding LoggedChBase}"  VerticalOptions="FillAndExpand" BackgroundColor="White">
+
+    <Grid VerticalOptions="FillAndExpand" BackgroundColor="White" RowSpacing="0"
+          RelativeLayout.XConstraint="{ConstraintExpression Type=Constant,
+                                        Constant=0}"
+          RelativeLayout.YConstraint="{ConstraintExpression Type=Constant,
+                                        Constant=0}"
+          RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=1 }"
+          RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=1}">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="{StaticResource HeaderHeight}" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+      <Label Grid.Row="0" FontAttributes="Bold" Style="{StaticResource LabelTitleStyle}"
+             FontSize="{StaticResource FontsizeHeader}"
+             VerticalOptions="Center" HorizontalOptions="Center"
+             TextColor="{x:Static helpers:HcStyles.BlackTextColor}"
+             Text="{x:Static resx:AppResources.personal_health_record_information}" />
+
+      <StackLayout VerticalOptions="FillAndExpand"
+                   BackgroundColor="{x:Static helpers:HcStyles.BorderLightGrayColor}" Grid.Row="1" Padding="5">
+        <StackLayout VerticalOptions="Start" BackgroundColor="{x:Static helpers:HcStyles.TextPayment}"
+                     Padding="3,0,0,0">
+          <StackLayout BackgroundColor="White" Padding="5">
+            <Grid HorizontalOptions="Fill">
+              <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+              <Label Style="{StaticResource LabelSubContentStyle}" Grid.Column="0"
+                     TextColor="{x:Static helpers:HcStyles.TextPayment}"
+                     Text="{x:Static resx:AppResources.payment_for_personal_health_record}" />
+              <Label Style="{StaticResource LabelSubContentStyle}" Grid.Column="1"
+                     TextColor="{x:Static helpers:HcStyles.LightBlackTextColor}" HorizontalOptions="End"
+                     Text="{Binding ExpirationDate, Converter={StaticResource LocalTimeZoneConverter},
+                                      StringFormat='{0:dd/MM/yyyy}'}" />
+            </Grid>
+            <Grid Padding="5">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+
+              </Grid.ColumnDefinitions>
+
+              <!--<Image Source="{Binding ImageAvatar}"  Grid.Column="0" WidthRequest="{StaticResource SiteImageAvatar}" HeightRequest="{StaticResource SiteImageAvatar}"></Image>-->
+              <controls:ImageRounderCorner Grid.Row="0" WidthRequest="{StaticResource SiteImageAvatar}"
+                                           HeightRequest="{StaticResource SiteImageAvatar}" Uri=""
+                                           Source="{Binding AvatarImageSource}"
+                                           x:Name="imgAvatar" />
+              <Label Style="{StaticResource LabelTitleStyle}" Grid.Column="1" HorizontalOptions="Center"
+                     VerticalOptions="Center"
+                     TextColor="{x:Static helpers:HcStyles.BlackTextColor}"
+                     FontSize="{StaticResource FontsizeNameDoctor}" Text="{Binding FullNamne}" />
+            </Grid>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+              <Image Source="ic_rounder.png" VerticalOptions="Center" HeightRequest="10"
+                     WidthRequest="10" />
+              <Label Style="{StaticResource LabelSubContentStyle}"
+                     TextColor="{x:Static helpers:HcStyles.BlackTextColor}" VerticalOptions="Center"
+                     Text="{Binding StatusAccount}" />
+            </StackLayout>
+
+
+          </StackLayout>
+        </StackLayout>
+
+        <Button HorizontalOptions="End" Style="{StaticResource ButtonStyle}" Text="{Binding StatusButton}" Command="{Binding ClickPamentCommand}"
+                WidthRequest="{StaticResource WidthButtonPayment}" />
+      </StackLayout>
+
+      <StackLayout BackgroundColor="#bfbfbf" Grid.Row="2" Padding="0,2,0,0">
+        <StackLayout BackgroundColor="#f2f2f2" Padding="{StaticResource PaddingButtonHealthRecordDetail}">
+
+          <Label Style="{StaticResource LabelSubContentStyle}" IsVisible="{Binding VisibleLable}"
+              TextColor="{x:Static helpers:HcStyles.BlackTextColor}" VerticalOptions="Center"
+              Text="{x:Static resx:AppResources.renewal_notice}"/>
+          
+          <Button Style="{StaticResource ButtonSearchBottomStyle}" IsVisible="{Binding VisibleButton}"
+                  Command="{Binding VmChBaseHomePage.GoToChBaseHomePageCommand, Source={StaticResource Locator}}"
+                  BackgroundColor="{x:Static helpers:HcStyles.TextPayment}"
+                  Text="{x:Static resx:AppResources.viewing_personal_health_record_detail}" />
+        </StackLayout>
+      </StackLayout>
+
+    </Grid>
+
+  </RelativeLayout>
+  <controls:ChBaseWebview  VerticalOptions="FillAndExpand" BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                              HeightRequest="{StaticResource WebViewHeight}" x:Name="WebView"
+               Navigating="WebView_OnNavigating"
+               Navigated="WebView_OnNavigated"/>
+</controls:TopBarContentPage>

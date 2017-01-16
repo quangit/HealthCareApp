@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            x:Class="HealthCare.Pages.CardDetailPage"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                            BindingContext="{Binding VmCreditCard, Source={StaticResource Locator}}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            PageType="{x:Type pages:CardDetailPage}"
+                            Title="{x:Static resx:AppResources.cc_detail}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:Double" x:Key="IconInfoSize"
+                        iOS="52" Android="52" WinPhone="100" />
+            <OnPlatform x:TypeArguments="x:Double" x:Key="LogoBankSize"
+                        iOS="60" Android="60" WinPhone="72" />
+            <OnPlatform x:TypeArguments="x:Double" x:Key="LeftLineWidth"
+                        iOS="2" Android="2" WinPhone="4" />
+            <OnPlatform x:TypeArguments="Thickness" x:Key="CellPaddingInside"
+                        iOS="8" Android="8" WinPhone="16" />
+            <OnPlatform x:TypeArguments="x:Double" x:Key="CardNumberFontSize"
+                        iOS="18" Android="18" WinPhone="20" />
+            <OnPlatform x:TypeArguments="Thickness" x:Key="ContentPadding"
+                        iOS="20,30,20,4" Android="20,30,20,8" WinPhone="20,40,20,8" />
+            <OnPlatform x:TypeArguments="x:Double" x:Key="RowSpacing"
+                        iOS="10" Android="10" WinPhone="16" />
+          <OnPlatform x:TypeArguments="x:Double" x:Key="CardDesFontSize"
+                              iOS="12" Android="12" WinPhone="14" />
+
+          <OnPlatform x:TypeArguments="x:Double" x:Key="FontSizePlaceHolder"
+                  iOS="{x:Static helpers:HcStyles.FontSizeTitle}"
+                  Android="{x:Static helpers:HcStyles.FontSizeTitle}"
+                  WinPhone="30" />
+          <OnPlatform x:TypeArguments="Thickness" x:Key="RectangePadding"
+                      iOS="0,8,0,8" Android="0,8,0,8" WinPhone="0,8,0,8" />
+
+          <OnPlatform x:TypeArguments="GridLength" x:Key="ThirdGridLenghtPhone"
+                      iOS="0.3*" Android="0.6*" WinPhone="0.6*" />
+
+          <OnIdiom x:TypeArguments="GridLength" x:Key="ThirdGridLenght"
+                         Phone="{StaticResource ThirdGridLenghtPhone}" Tablet="0.1*" />
+
+          <OnIdiom x:TypeArguments="Thickness" x:Key="CardPadding"
+                         Phone="8,0" Tablet="8" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <StackLayout Orientation="Vertical" Padding="{StaticResource ContentPadding}">
+
+            <!-- card -->
+            <Grid ColumnSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="{x:Static helpers:HcStyles.ViewCellHeight}" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <ContentView x:Name="LeftLine"
+                             Grid.Column="0"
+                             Grid.Row="0"
+                             WidthRequest="{StaticResource LeftLineWidth}"
+                             BackgroundColor="{x:Static helpers:HcStyles.GreenCardColor}" />
+                <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderLightGrayColor}"
+                             Padding="0,1,1,1" Grid.Row="0" Grid.Column="1">
+                    <Grid Padding="{StaticResource CellPaddingInside}" BackgroundColor="White">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="4*" />
+                            <ColumnDefinition Width="{StaticResource ThirdGridLenght}" />
+                        </Grid.ColumnDefinitions>
+
+                        <ContentView Padding="{StaticResource CardPadding}" Grid.Column="0" Grid.RowSpan="2" Grid.Row="0">
+                            <Image Source="ic_info_creditcard.png" WidthRequest="{StaticResource IconInfoSize}" />
+                          </ContentView>
+<!--                        <Label Style="{StaticResource LabelTitleStyle}" Text="{Binding SelectedCard.CardId}"
+                               Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" VerticalOptions="EndAndExpand"
+                               FontSize="{StaticResource CardNumberFontSize}" />
+                        <Label Style="{StaticResource LabelTitleStyle}" Text="{Binding SelectedCard.CardId, Converter={StaticResource PaymentConverter}}" Grid.Column="1"
+                               Grid.Row="1" 
+                               FontSize="{StaticResource CardNumberFontSize}"
+                               FontAttributes="Bold" VerticalOptions="StartAndExpand"
+                               TextColor="{x:Static helpers:HcStyles.DarkerGreenCardColor}" />-->
+
+
+                         <Label Style="{StaticResource LabelTitleStyle}" Text="{Binding SelectedCard.CardId}"
+                               Grid.Column="1" Grid.Row="0" VerticalOptions="EndAndExpand"
+                               FontSize="{StaticResource CardNumberFontSize}" />
+                        <Label Style="{StaticResource LabelTitleStyle}" Text="{Binding SelectedCard.CardId, Converter={StaticResource PaymentConverter}}" 
+                               Grid.Column="1"
+                               Grid.Row="1"
+                               FontSize="{StaticResource CardNumberFontSize}"
+                               FontAttributes="Bold" VerticalOptions="StartAndExpand"
+                               TextColor="{x:Static helpers:HcStyles.DarkerGreenCardColor}" />
+  
+                  
+
+
+                        <Image Source="{Binding SelectedCard.Logo}" IsVisible="False" WidthRequest="{StaticResource LogoBankSize}"
+                               Grid.Column="2" Grid.RowSpan="3" Grid.Row="0" />
+<!--                      <Label Style="{StaticResource LabelTitleStyle}"
+                        Text="{Binding SelectedCard.CardId, Converter={StaticResource PaymentDesConverter}}"
+                        Grid.Column="1" Grid.Row="2"  Grid.ColumnSpan="2" VerticalOptions="EndAndExpand"
+                        FontSize="{StaticResource CardDesFontSize}" LineBreakMode="WordWrap" />-->
+                    </Grid>
+                </ContentView>
+            </Grid>
+
+            <!-- content -->
+            <StackLayout Orientation="Vertical" Padding="{StaticResource ContentPadding}"
+                         BackgroundColor="White" Spacing="{StaticResource RowSpacing}">
+
+                <controls:ContentControl Title="{x:Static resx:AppResources.last_name}" Icon="ic_person.png">
+                    <controls:ContentControl.ViewContent>
+                        <StackLayout>
+                            <Label
+                                Text="{Binding SelectedCard.LastName, Converter={StaticResource StringNullConverter}}"
+                                Style="{x:Static helpers:HcStyles.LabelContentStyle}"
+                                LineBreakMode="WordWrap" />
+                        </StackLayout>
+                    </controls:ContentControl.ViewContent>
+                </controls:ContentControl>
+
+                <controls:ContentControl Title="{x:Static resx:AppResources.first_name}" Icon="ic_person.png">
+                    <controls:ContentControl.ViewContent>
+                        <StackLayout>
+                            <Label
+                                Text="{Binding SelectedCard.FirstName, Converter={StaticResource StringNullConverter}}"
+                                Style="{x:Static helpers:HcStyles.LabelContentStyle}"
+                                LineBreakMode="WordWrap" />
+                        </StackLayout>
+                    </controls:ContentControl.ViewContent>
+                </controls:ContentControl>
+
+                <controls:ContentControl Title="{x:Static resx:AppResources.address}" Icon="ic_address_about.png">
+                    <controls:ContentControl.ViewContent>
+                        <StackLayout>
+                            <Label
+                                Text="{Binding SelectedCard.Address, Converter={StaticResource StringNullConverter}}"
+                                Style="{x:Static helpers:HcStyles.LabelContentStyle}"
+                                LineBreakMode="WordWrap" />
+                        </StackLayout>
+                    </controls:ContentControl.ViewContent>
+                </controls:ContentControl>
+
+                <controls:ContentControl Title="{x:Static resx:AppResources.id_no}" Icon="ic_cc_number.png">
+                    <controls:ContentControl.ViewContent>
+                        <StackLayout>
+                            <Label Text="{Binding SelectedCard.IdNo, Converter={StaticResource StringNullConverter}}"
+                                   Style="{x:Static helpers:HcStyles.LabelContentStyle}"
+                                   LineBreakMode="WordWrap" />
+                        </StackLayout>
+                    </controls:ContentControl.ViewContent>
+                </controls:ContentControl>
+
+                <controls:ContentControl Title="{x:Static resx:AppResources.email}" Icon="ic_mail_about.png">
+                    <controls:ContentControl.ViewContent>
+                        <StackLayout>
+                            <Label Text="{Binding SelectedCard.Email, Converter={StaticResource StringNullConverter}}"
+                                   Style="{x:Static helpers:HcStyles.LabelContentStyle}"
+                                   LineBreakMode="WordWrap" />
+                        </StackLayout>
+                    </controls:ContentControl.ViewContent>
+                </controls:ContentControl>
+
+                <controls:ContentControl Title="{x:Static resx:AppResources.phone_no}" Icon="ic_phone.png">
+                    <controls:ContentControl.ViewContent>
+                        <StackLayout>
+                            <Label
+                                Text="{Binding SelectedCard.PhoneNo, Converter={StaticResource StringNullConverter}}"
+                                Style="{x:Static helpers:HcStyles.LabelContentStyle}"
+                                LineBreakMode="WordWrap" />
+                        </StackLayout>
+                    </controls:ContentControl.ViewContent>
+                </controls:ContentControl>
+
+                <controls:ContentControl Title="{x:Static resx:AppResources.birth_day}" Icon="ic_calendar.png">
+                    <controls:ContentControl.ViewContent>
+                        <StackLayout>
+                            <Label
+                                Text="{Binding SelectedCard.BirthDay,
+                                               Converter={StaticResource TimeStampConverter}, StringFormat='{0:dd/MM/yyyy}'}"
+                                Style="{x:Static helpers:HcStyles.LabelContentStyle}"
+                                LineBreakMode="WordWrap" />
+                        </StackLayout>
+                    </controls:ContentControl.ViewContent>
+                </controls:ContentControl>
+
+                <ContentView HeightRequest="20" />
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+</controls:TopBarContentPage>

@@ -1,0 +1,740 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HealthCare.Win</RootNamespace>
+    <AssemblyName>HealthCare.Win</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>HealthCare.Win_StoreKey.pfx</PackageCertificateKeyFile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
+    <PackageCertificateThumbprint>1463FA3CD6BF7CCEFEA81365D0206553711C2775</PackageCertificateThumbprint>
+    <HockeyAppResourceId>a022ccd0bbae4378993574c05ed9f196</HockeyAppResourceId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="HealthCare.Win_StoreKey.pfx" />
+    <None Include="project.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\HealthCare.Core\Converters\BoolVisValueConverter.cs">
+      <Link>Converter\BoolVisValueConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HealthCare.Core\Converters\MilisecondToDateValueConverter.cs">
+      <Link>Converter\MilisecondToDateValueConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HealthCare.Core\Converters\WeekTopicStatusValueConverter.cs">
+      <Link>Converter\WeekTopicStatusValueConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\ApiRootObject.cs">
+      <Link>Models\ApiRootObject.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HealthCare.Core\Models\BandSetting.cs">
+      <Link>Models\BandSetting.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\Checkup.cs">
+      <Link>Models\Checkup.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\CheckupType.cs">
+      <Link>Models\CheckupType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\City.cs">
+      <Link>Models\City.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\CmeCategory.cs">
+      <Link>Models\CmeCategory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\CmeClass.cs">
+      <Link>Models\CmeClass.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\ConsultRequest.cs">
+      <Link>Models\ConsultRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\ConsultRequestData.cs">
+      <Link>Models\ConsultRequestData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\ConsultResponse.cs">
+      <Link>Models\ConsultResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\Data.cs">
+      <Link>Models\Data.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\District.cs">
+      <Link>Models\District.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\Doctor.cs">
+      <Link>Models\Doctor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\DoctorInfo.cs">
+      <Link>Models\DoctorInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\enums\CheckupStatus.cs">
+      <Link>Models\Enum\CheckupStatus.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\enums\DoctorDayOfWeek.cs">
+      <Link>Models\Enum\DoctorDayOfWeek.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\enums\ErrorCode.cs">
+      <Link>Models\Enum\ErrorCode.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\enums\PatientType.cs">
+      <Link>Models\Enum\PatientType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\enums\ServiceType.cs">
+      <Link>Models\Enum\ServiceType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\enums\UserRole.cs">
+      <Link>Models\Enum\UserRole.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\enums\UserType.cs">
+      <Link>Models\Enum\UserType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\Extensions.cs">
+      <Link>Models\Extensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\Gender.cs">
+      <Link>Models\Gender.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\Hospital.cs">
+      <Link>Models\Hospital.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\LoadMoreData.cs">
+      <Link>Models\LoadMoreData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\LoginResult.cs">
+      <Link>Models\LoginResult.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\NameMap.cs">
+      <Link>Models\NameMap.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\Patient.cs">
+      <Link>Models\Patient.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\Photos.cs">
+      <Link>Models\Photos.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\PushConfig.cs">
+      <Link>Models\PushConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\Schedule.cs">
+      <Link>Models\Schedule.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\SetScheduleObject.cs">
+      <Link>Models\SetScheduleObject.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\Setting.cs">
+      <Link>Models\Setting.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\SignUpInfo.cs">
+      <Link>Models\SignUpInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\SignUpResult.cs">
+      <Link>Models\SignUpResult.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\Topic.cs">
+      <Link>Models\Topic.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\TopicData.cs">
+      <Link>Models\TopicData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\User.cs">
+      <Link>Models\User.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\models\UserAccount.cs">
+      <Link>Models\UserAccount.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HealthCare.Core\Services\BandService.cs">
+      <Link>Services\BandService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\services\CmeService.cs">
+      <Link>Services\CmeService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\services\HealthCareService.cs">
+      <Link>Services\HealthCareService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\services\HttpService.cs">
+      <Link>Services\HttpService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\services\interfaces\IFileService.cs">
+      <Link>Services\Interfaces\IFileService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\services\interfaces\IHttpService.cs">
+      <Link>Services\Interfaces\IHttpService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\services\interfaces\IMessageService.cs">
+      <Link>Services\Interfaces\IMessageService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\services\interfaces\IReporterService.cs">
+      <Link>Services\Interfaces\IReporterService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\services\ReporterService.cs">
+      <Link>Services\ReporterService.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\utils\Util.cs">
+      <Link>Utils\Util.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HealthCare.Core\ViewModels\CheckupViewModel.cs">
+      <Link>ViewModels\CheckupViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HealthCare.Core\ViewModels\CmeCategoryViewModel.cs">
+      <Link>ViewModels\CmeCategoryViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HealthCare.Core\ViewModels\CmeClassViewModel.cs">
+      <Link>ViewModels\CmeClassViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HealthCare.Core\ViewModels\CmeSearchViewModel.cs">
+      <Link>ViewModels\CmeSearchViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HealthCare.Core\ViewModels\ConsultViewModel.cs">
+      <Link>ViewModels\ConsultViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HealthCare.Core\ViewModels\HomeViewModel.cs">
+      <Link>ViewModels\HomeViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HealthCare.Core\ViewModels\ImageZoomViewModel.cs">
+      <Link>ViewModels\ImageZoomViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\healthcare.core\viewmodels\LoginViewModel.cs">
+      <Link>ViewModels\LoginViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HealthCare.Core\ViewModels\ResetPassViewModel.cs">
+      <Link>ViewModels\ResetPassViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HealthCare.Core\ViewModels\ScheduleAddingViewModel.cs">
+      <Link>ViewModels\ScheduleAddingViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HealthCare.Core\ViewModels\SetPasswordViewModel.cs">
+      <Link>ViewModels\SetPasswordViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HealthCare.Core\ViewModels\SignUpViewModel.cs">
+      <Link>ViewModels\SignUpViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HealthCare.Core\ViewModels\UpdateProfileViewModel.cs">
+      <Link>ViewModels\UpdateProfileViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\HealthCare.Core\ViewModels\WeekTopicFileViewModel.cs">
+      <Link>ViewModels\WeekTopicFileViewModel.cs</Link>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BusyIndicator.xaml.cs">
+      <DependentUpon>BusyIndicator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DataRequestBehavior.cs" />
+    <Compile Include="Controls\GridAdaptiveBehavior.cs" />
+    <Compile Include="Controls\ListViewBase.cs" />
+    <Compile Include="Controls\NumberPicker.xaml.cs">
+      <DependentUpon>NumberPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OpenMenuFlyoutAction.cs" />
+    <Compile Include="Controls\TabHeader.xaml.cs">
+      <DependentUpon>TabHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converter\ConsentValueConverter.cs" />
+    <Compile Include="Converter\DateTimeConverter.cs" />
+    <Compile Include="Converter\ItemClickedConverter.cs" />
+    <Compile Include="Converter\SourceToVisibilityConverter.cs" />
+    <Compile Include="IoC.cs" />
+    <Compile Include="MyNotifyPropertyChanged.cs" />
+    <Compile Include="Services\AccountManager.cs" />
+    <Compile Include="Services\FileService.cs" />
+    <Compile Include="Services\MessageService.cs" />
+    <Compile Include="Views\CheckupView.xaml.cs">
+      <DependentUpon>CheckupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CmeSearchView.xaml.cs">
+      <DependentUpon>CmeSearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WeekTopicFileView.xaml.cs">
+      <DependentUpon>WeekTopicFileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CmeCategoryView.xaml.cs">
+      <DependentUpon>CmeCategoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CmeClassView.xaml.cs">
+      <DependentUpon>CmeClassView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConsultView.xaml.cs">
+      <DependentUpon>ConsultView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomeTab\ChbaseView.xaml.cs">
+      <DependentUpon>ChbaseView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomeTab\CheckupsView.xaml.cs">
+      <DependentUpon>CheckupsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomeTab\CmeLibraryView.xaml.cs">
+      <DependentUpon>CmeLibraryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomeTab\ConsultView.xaml.cs">
+      <DependentUpon>ConsultView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomeTab\WeekTopicView.xaml.cs">
+      <DependentUpon>WeekTopicView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ScheduleAddingView.xaml.cs">
+      <DependentUpon>ScheduleAddingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SetPasswordView.xaml.cs">
+      <DependentUpon>SetPasswordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Template10\Behaviors\BackButtonBehavior.cs" />
+    <Compile Include="Template10\Behaviors\CloseFlyoutAction.cs" />
+    <Compile Include="Template10\Behaviors\ConditionalAction.cs" />
+    <Compile Include="Template10\Behaviors\DeviceDispositionBehavior.cs" />
+    <Compile Include="Template10\Behaviors\EllipsisBehavior.cs" />
+    <Compile Include="Template10\Behaviors\EventTriggerBehaviorBase.cs" />
+    <Compile Include="Template10\Behaviors\FocusAction.cs" />
+    <Compile Include="Template10\Behaviors\KeyBehavior.cs" />
+    <Compile Include="Template10\Behaviors\MessageDialogAction.cs" />
+    <Compile Include="Template10\Behaviors\NavButtonBehavior.cs" />
+    <Compile Include="Template10\Behaviors\NavToPageAction.cs" />
+    <Compile Include="Template10\Behaviors\OpenFlyoutAction.cs" />
+    <Compile Include="Template10\Behaviors\TextBoxEnterKeyBehavior.cs" />
+    <Compile Include="Template10\Behaviors\ThrottledEventTriggerBehavior.cs" />
+    <Compile Include="Template10\Behaviors\TimeoutAction.cs" />
+    <Compile Include="Template10\Common\BootStrapper.cs" />
+    <Compile Include="Template10\Common\ChangedEventArgs.cs" />
+    <Compile Include="Template10\Common\Deferral.cs" />
+    <Compile Include="Template10\Common\DispatcherWrapper.cs" />
+    <Compile Include="Template10\Common\EventThrottleHelper.cs" />
+    <Compile Include="Template10\Common\HandledEventArgs.cs" />
+    <Compile Include="Template10\Common\IDispatcherWrapper.cs" />
+    <Compile Include="Template10\Common\IStateItems.cs" />
+    <Compile Include="Template10\Common\ItemPropertyChangedEventArgs.cs" />
+    <Compile Include="Template10\Common\Mdl2.cs" />
+    <Compile Include="Template10\Common\ObservableDictionary.cs" />
+    <Compile Include="Template10\Common\ObservableItemCollection.cs" />
+    <Compile Include="Template10\Common\StateItems.cs" />
+    <Compile Include="Template10\Common\StateKey.cs" />
+    <Compile Include="Template10\Common\TypedEventHandler.cs" />
+    <Compile Include="Template10\Common\WeakReference.cs" />
+    <Compile Include="Template10\Common\WindowWrapper.cs" />
+    <Compile Include="Template10\Controls\CustomTitleBar.cs" />
+    <Compile Include="Template10\Controls\HamburgerButtonInfo.cs" />
+    <Compile Include="Template10\Controls\HamburgerMenu.xaml.cs">
+      <DependentUpon>HamburgerMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Template10\Controls\ModalDialog.cs" />
+    <Compile Include="Template10\Controls\PageHeader.cs" />
+    <Compile Include="Template10\Controls\PiePiece.cs" />
+    <Compile Include="Template10\Controls\Resizer.cs" />
+    <Compile Include="Template10\Controls\RingSegment.cs" />
+    <Compile Include="Template10\Mvvm\BindableBase.cs" />
+    <Compile Include="Template10\Mvvm\IBindable.cs" />
+    <Compile Include="Views\HomeTab\SettingView.xaml.cs">
+      <DependentUpon>SettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ResetPassView.xaml.cs">
+      <DependentUpon>ResetPassView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Template10\Mvvm\AwaitableDelegateCommand.cs" />
+    <Compile Include="Template10\Mvvm\MvxCommand.cs" />
+    <Compile Include="Template10\Mvvm\DependencyBindableBase.cs" />
+    <Compile Include="Template10\Mvvm\ViewModelBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Template10\Services\KeyboardService\KeyboardEventArgs.cs" />
+    <Compile Include="Template10\Services\KeyboardService\KeyboardHelper.cs" />
+    <Compile Include="Template10\Services\KeyboardService\KeyboardService.cs" />
+    <Compile Include="Template10\Services\LoggingService\LoggingService.cs" />
+    <Compile Include="Template10\Services\NavigationService\AlternativeNavigationEventArgs.cs" />
+    <Compile Include="Template10\Services\NavigationService\FrameFacade.cs" />
+    <Compile Include="Template10\Services\NavigationService\INavigable.cs" />
+    <Compile Include="Template10\Services\NavigationService\INavigationService.cs" />
+    <Compile Include="Template10\Services\NavigationService\JournalEntry.cs" />
+    <Compile Include="Template10\Services\NavigationService\NavigatedEventArgs.cs" />
+    <Compile Include="Template10\Services\NavigationService\NavigatingEventArgs.cs" />
+    <Compile Include="Template10\Services\NavigationService\NavigationService.cs" />
+    <Compile Include="Template10\Services\NavigationService\NavigationServiceList.cs" />
+    <Compile Include="Template10\Services\SerializationService\ISerializationService.cs" />
+    <Compile Include="Template10\Services\SerializationService\JsonSerializationService.cs" />
+    <Compile Include="Template10\Services\SerializationService\SerializationService.cs" />
+    <Compile Include="Template10\Services\SettingsService\IPropertyMapping.cs" />
+    <Compile Include="Template10\Services\SettingsService\ISettingsHelper.cs" />
+    <Compile Include="Template10\Services\SettingsService\ISettingsService.cs" />
+    <Compile Include="Template10\Services\SettingsService\IStoreConverter.cs" />
+    <Compile Include="Template10\Services\SettingsService\JsonConverter.cs" />
+    <Compile Include="Template10\Services\SettingsService\JsonMapping.cs" />
+    <Compile Include="Template10\Services\SettingsService\SettingsHelper.cs" />
+    <Compile Include="Template10\Services\SettingsService\SettingsService.cs" />
+    <Compile Include="Template10\Services\SettingsService\SettingsStrategy.cs" />
+    <Compile Include="Template10\Utils\ApiUtils.cs" />
+    <Compile Include="Template10\Utils\AudioUtils.cs" />
+    <Compile Include="Template10\Utils\ColorUtils.cs" />
+    <Compile Include="Template10\Utils\DeviceUtils.cs" />
+    <Compile Include="Template10\Utils\ExpressionUtils.cs" />
+    <Compile Include="Template10\Utils\IEnumerableUtils.cs" />
+    <Compile Include="Template10\Utils\LinqUtils.cs" />
+    <Compile Include="Template10\Utils\MonitorUtils.cs" />
+    <Compile Include="Template10\Utils\Template10Utils.cs" />
+    <Compile Include="Template10\Utils\TypeUtils.cs" />
+    <Compile Include="Template10\Utils\XamlUtils.cs" />
+    <Compile Include="Views\HomeTab\ScheduleView.xaml.cs">
+      <DependentUpon>ScheduleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shell.xaml.cs">
+      <DependentUpon>Shell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SignUpView.xaml.cs">
+      <DependentUpon>SignUpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateProfileView.xaml.cs">
+      <DependentUpon>UpdateProfileView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="HealthCare.Win_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\1536.png" />
+    <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\AppBar\cancel.png" />
+    <Content Include="Assets\AppBar\check.png" />
+    <Content Include="Assets\AppBar\Forward.png" />
+    <Content Include="Assets\AppBar\refresh.png" />
+    <Content Include="Assets\AppBar\Reply.png" />
+    <Content Include="Assets\AppBar\Rotate.png" />
+    <Content Include="Assets\AppBar\save.png" />
+    <Content Include="Assets\ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\ask.png" />
+    <Content Include="Assets\askme.png" />
+    <Content Include="Assets\back-01.png" />
+    <Content Include="Assets\back.png" />
+    <Content Include="Assets\backwithborder.xml" />
+    <Content Include="Assets\BadgeLogo.scale-100.png" />
+    <Content Include="Assets\bandsmalltile.png" />
+    <Content Include="Assets\bandtile.png" />
+    <Content Include="Assets\band_enabled.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\band_disabled.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\burger.png" />
+    <Content Include="Assets\calendar.png" />
+    <Content Include="Assets\calendar_add.png" />
+    <Content Include="Assets\Calendar_edit.png" />
+    <Content Include="Assets\Calendar_icon.png" />
+    <Content Include="Assets\cellphone.png" />
+    <Content Include="Assets\chbase.png" />
+    <Content Include="Assets\cmeback.png" />
+    <Content Include="Assets\cmeclasssearch.png" />
+    <Content Include="Assets\cmeforward.png" />
+    <Content Include="Assets\cmelibrary.png" />
+    <Content Include="Assets\cmestudy.png" />
+    <Content Include="Assets\detail.png" />
+    <Content Include="Assets\Doctor.png" />
+    <Content Include="Assets\doctor_female.jpg" />
+    <Content Include="Assets\doctor_male.jpg" />
+    <Content Include="Assets\done.png" />
+    <Content Include="Assets\handbook.png" />
+    <Content Include="Assets\Header.png" />
+    <Content Include="Assets\home.png" />
+    <Content Include="Assets\Icon.png" />
+    <Content Include="Assets\info.png" />
+    <Content Include="Assets\location.png" />
+    <Content Include="Assets\lock.png" />
+    <Content Include="Assets\logo.png" />
+    <Content Include="Assets\logout.png" />
+    <Content Include="Assets\logo_bs.png" />
+    <Content Include="Assets\main_logo.png" />
+    <Content Include="Assets\map.png" />
+    <Content Include="Assets\menu_icon.png" />
+    <Content Include="Assets\pageicon.png" />
+    <Content Include="Assets\Patient.png" />
+    <Content Include="Assets\patient_female.jpg" />
+    <Content Include="Assets\patient_male.jpg" />
+    <Content Include="Assets\pdf.png" />
+    <Content Include="Assets\phone.png" />
+    <Content Include="Assets\phone_sup.png" />
+    <Content Include="Assets\placeholder.png" />
+    <Content Include="Assets\settings.png" />
+    <Content Include="Assets\Skype.png" />
+    <Content Include="Assets\skype_offline.png" />
+    <Content Include="Assets\skype_online.png" />
+    <Content Include="Assets\splash.png" />
+    <Content Include="Assets\SplashScreen.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-44_altform-unplated.png" />
+    <Content Include="Assets\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\Square48x48Logo.scale-100.png" />
+    <Content Include="Assets\Square48x48Logo.scale-200.png" />
+    <Content Include="Assets\Square620x620Logo.scale-200.png" />
+    <Content Include="Assets\Square71x71Logo.scale-100.png" />
+    <Content Include="Assets\Square71x71Logo.scale-200.png" />
+    <Content Include="Assets\Tiles\1024.png" />
+    <Content Include="Assets\Tiles\300.png" />
+    <Content Include="Assets\Tiles\96.png" />
+    <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileMedium.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileMediumLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\titleBackground.png" />
+    <Content Include="Assets\_logo.png" />
+    <Content Include="VCDCommands.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Package.StoreAssociation.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Controls\BusyIndicator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NumberPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TabHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CheckupView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CmeSearchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WeekTopicFileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CmeCategoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CmeClassView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConsultView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomeTab\ChbaseView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HomeTab\CheckupsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomeTab\CmeLibraryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomeTab\ConsultView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomeTab\WeekTopicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ScheduleAddingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SetPasswordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Template10\Controls\HamburgerMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Template10\Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Template10\Themes\ModalDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Template10\Themes\PageHeader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Template10\Themes\Resizer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HomeTab\SettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ResetPassView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomeTab\ScheduleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Shell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SignUpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UpdateProfileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HealthCare.Core\HealthCare.Win.Core.csproj">
+      <Project>{b281093e-5798-4783-96dc-5365327c2b9c}</Project>
+      <Name>HealthCare.Win.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HealthCare.Win.Service\HealthCare.Win.VoiceCommands.csproj">
+      <Project>{8dab74e8-1e82-4ac9-833b-72a44bb5d4e4}</Project>
+      <Name>HealthCare.Win.VoiceCommands</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Converters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="WindowsMobile, Version=10.0.10586.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
+    </SDKReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

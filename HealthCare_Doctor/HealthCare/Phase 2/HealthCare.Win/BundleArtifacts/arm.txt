@@ -1,0 +1,5 @@
+MainPackage=C:\Dropbox\Projects\Work\HealthCare - Doctor\HealthCare\Phase 2\HealthCare.Win\bin\ARM\Release\HealthCare.Win_1.1.37.0_ARM.appx
+SymbolPackage=C:\Dropbox\Projects\Work\HealthCare - Doctor\HealthCare\Phase 2\HealthCare.Win\AppPackages\HealthCare.Win_1.1.37.0_Test\HealthCare.Win_1.1.37.0_ARM.appxsym
+ResourcePack=C:\Dropbox\Projects\Work\HealthCare - Doctor\HealthCare\Phase 2\HealthCare.Win\bin\ARM\Release\HealthCare.Win_1.1.37.0_language-vi.appx
+ResourcePack=C:\Dropbox\Projects\Work\HealthCare - Doctor\HealthCare\Phase 2\HealthCare.Win\bin\ARM\Release\HealthCare.Win_1.1.37.0_scale-100.appx
+ResourcePack=C:\Dropbox\Projects\Work\HealthCare - Doctor\HealthCare\Phase 2\HealthCare.Win\bin\ARM\Release\HealthCare.Win_1.1.37.0_scale-400.appx

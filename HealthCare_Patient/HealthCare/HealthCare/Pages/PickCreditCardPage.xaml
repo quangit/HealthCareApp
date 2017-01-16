@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+             xmlns:viewCells="clr-namespace:HealthCare.Controls.ViewCells;assembly=HealthCare"
+             xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+             xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+             xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+             x:Class="HealthCare.Pages.PickCreditCardPage"
+             Title="{x:Static resx:AppResources.payment_cc_pick_title}"
+             BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+             BindingContext="{Binding VmCreditCard, Source={StaticResource Locator}}">
+
+  <controls:HcListView x:TypeArguments="models:CreditCardModel"
+                       ItemsSource="{Binding ListCreditCardToPick}"
+                       ItemCount="{Binding ItemCountWithVNPay}"
+                       IsLoadMoreEnabled="False"
+                       CanLoadMore="False"
+                       EmptyText="{x:Static resx:AppResources.empty}"
+                       ItemClickCommand="{Binding PickCardTappedCommand}">
+    <controls:HcListView.ItemTemplate>
+      <DataTemplate>
+        <viewCells:CreditCardViewCell />
+      </DataTemplate>
+    </controls:HcListView.ItemTemplate>
+  </controls:HcListView>
+</ContentPage>

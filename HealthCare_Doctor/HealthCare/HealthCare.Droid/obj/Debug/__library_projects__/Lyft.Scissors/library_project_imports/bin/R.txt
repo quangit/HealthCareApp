@@ -1,0 +1,11 @@
+int attr cropviewMaxScale 0x7f010002
+int attr cropviewMinScale 0x7f010003
+int attr cropviewViewportHeaderFooterColor 0x7f010001
+int attr cropviewViewportHeightRatio 0x7f010000
+int drawable ic_content_add 0x7f020000
+int drawable ic_content_content_cut 0x7f020001
+int[] styleable CropView { 0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003 }
+int styleable CropView_cropviewMaxScale 2
+int styleable CropView_cropviewMinScale 3
+int styleable CropView_cropviewViewportHeaderFooterColor 1
+int styleable CropView_cropviewViewportHeightRatio 0

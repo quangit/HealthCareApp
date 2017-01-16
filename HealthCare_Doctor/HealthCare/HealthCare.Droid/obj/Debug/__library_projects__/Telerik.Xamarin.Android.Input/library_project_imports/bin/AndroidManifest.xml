@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.telerik.widget.calendar"
+    android:versionCode="1"
+    android:versionName="2014.2.0">
+
+    <application android:allowBackup="true">
+
+    </application>
+
+</manifest>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                            BindingContext="{Binding VmCheckup, Source={StaticResource Locator}}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+                            xmlns:viewCells="clr-namespace:HealthCare.Controls.ViewCells;assembly=HealthCare"
+                            xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+                            xmlns:objects="clr-namespace:HealthCare.Objects;assembly=HealthCare"
+                            PageType="{x:Type pages:MedicalRecordPage}"
+                            Title="{x:Static resx:AppResources.medical_record}"
+                            x:Class="HealthCare.Pages.MedicalRecordPage">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="Thickness" x:Key="PickerPadding"
+                  iOS="12,6" Android="12,6" WinPhone="60,8,60,12" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+
+  <behaviors:Interaction.Behaviors>
+    <behaviors:BehaviorCollection>
+      <behaviors:EventToCommand EventName="Loaded"
+                        Command="{Binding VmCheckup.ResetLoadMoreCheckupHistoricalsCommand, Source={StaticResource Locator}}"/>
+    </behaviors:BehaviorCollection>
+  </behaviors:Interaction.Behaviors>
+  
+
+  <StackLayout Orientation="Vertical"
+               BackgroundColor="Transparent"
+               VerticalOptions="FillAndExpand">
+
+    <StackLayout Padding="{StaticResource PickerPadding}">
+      <controls:HcPicker
+          x:TypeArguments="models:UserModel" PickerStyle="4"
+          SelectedItemChangedCommand="{Binding VmUser.SelectedRelatedAccountCommand, Source={StaticResource Locator}}"
+          BindingContext="{Binding VmUser, Source={StaticResource Locator}}"
+          FontSize="{x:Static helpers:HcStyles.FontSizeTitle}"
+          ItemsSource="{Binding RelatedAccountsHistorical}"
+          HorizontalOptions="FillAndExpand"
+          EmptyText="{x:Static resx:AppResources.empty}"
+          TitleText="{x:Static resx:AppResources.pick_related_user}"
+          VerticalOptions="StartAndExpand" />
+    </StackLayout>
+
+    <controls:HcListView x:TypeArguments="objects:ProxyCheckupModel"
+                         ItemsSource="{Binding ListCheckupHistorical}"
+                         ItemCount="{Binding ItemHistoryCount, Mode=TwoWay}"
+                         IsLoadMoreEnabled="True"
+                         LoadMoreCommand="{Binding LoadMoreCheckupHistoricalsCommand}"
+                         CanLoadMore="{Binding IsCanLoadMore}"
+                         IsPullToRefreshEnabled="False"
+                         ItemClickCommand="{Binding ItemTappedCommand}">
+      <controls:HcListView.ItemTemplate>
+        <DataTemplate>
+          <viewCells:CheckupViewCell />
+        </DataTemplate>
+      </controls:HcListView.ItemTemplate>
+    </controls:HcListView>
+  </StackLayout>
+
+</controls:TopBarContentPage>

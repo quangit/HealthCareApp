@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            x:Class="HealthCare.Pages.MoreSupportPage"
+                            BindingContext="{Binding VmMoreSupport, Source={StaticResource Locator}}"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            PageType="{x:Type pages:MoreSupportPage}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            xmlns:enums="clr-namespace:HealthCare.Enums;assembly=HealthCare"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+                            xmlns:healthCare="clr-namespace:HealthCare;assembly=HealthCare"
+                            xmlns:viewModels="clr-namespace:HealthCare.ViewModels;assembly=HealthCare"
+                            BackgroundColor="White" Title="{x:Static resx:AppResources.request_doctor}">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="Thickness" x:Key="MainContentPadding"
+                  iOS="30" Android="24,18" WinPhone="30,10,30,6" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="RowSpacing"
+                  iOS="10" Android="10" WinPhone="3" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SpacingGender"
+                  iOS="25" Android="25" WinPhone="30" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SymptomEditorHeight"
+                  iOS="100" Android="100" WinPhone="180" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="GridColumnWidth"
+                  iOS="300*" Android="300*" WinPhone="30*" />
+      <OnPlatform x:Key="IsShowPlaceHolder" x:TypeArguments="x:Boolean"
+                  iOS="True" Android="False" WinPhone="True" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonHeight"
+                  iOS="60" Android="40" WinPhone="90" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonHeight2"
+                  iOS="60" Android="40" WinPhone="80" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonWidth"
+                  iOS="240" Android="200" WinPhone="380" />
+
+                   <OnIdiom x:TypeArguments="LayoutOptions" x:Key="TlTitleVerticalOption" 
+                            Phone="FillAndExpand" Tablet="StartAndExpand" />
+                  <OnIdiom x:TypeArguments="LayoutOptions" x:Key="TlGenderHorizontalOption" 
+                            Phone="EndAndExpand" Tablet="StartAndExpand" />
+
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+  <ScrollView>
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="{StaticResource GridColumnWidth}" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+      <StackLayout Orientation="Vertical" Grid.Column="1" Padding="{StaticResource MainContentPadding}"
+                   VerticalOptions="StartAndExpand"
+                   Spacing="{StaticResource RowSpacing}">
+
+        <Label Style="{StaticResource LabelContentStyle}" VerticalOptions="{StaticResource TlTitleVerticalOption}"
+               HorizontalOptions="Center"
+               XAlign="Start" YAlign="Center"
+               FontSize="{x:Static viewModels:MoreSupportViewModel2.FontLegalNoticeContent}"
+               TextColor="{x:Static helpers:HcStyles.GreenButtonColor}"
+               Text="{x:Static resx:AppResources.send_support_title}" />
+
+        <controls:HcEntry Source="ic_person.png"
+                          PlaceHolder="{x:Static resx:AppResources.last_name}"
+                          Text="{Binding PersonModel.LastName, Mode=TwoWay}" />
+        <controls:HcEntry Source="ic_person.png"
+                          PlaceHolder="{x:Static resx:AppResources.first_name}"
+                          Text="{Binding PersonModel.FirstName, Mode=TwoWay}" />
+        <controls:HcEntry Source="ic_calendar.png"
+                          PlaceHolder="{x:Static resx:AppResources.age}"
+                          Keyboard="Numeric"
+                          Text="{Binding Age, Mode=TwoWay}" />
+
+        <StackLayout Spacing="{StaticResource SpacingGender}"
+                     Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+          <Label Text="{x:Static resx:AppResources.gender}"
+                 Style="{StaticResource LabelContentStyle}" HorizontalOptions="Start"
+                 VerticalOptions="Center" />
+
+          <controls:HcRadioButton x:TypeArguments="enums:Gender"
+                                  ListItem="{Binding ListGender}"
+                                  VerticalOptions="Center"
+                                  HorizontalOptions="{StaticResource TlGenderHorizontalOption}"
+                                  SelectedItem="{Binding Gender, Mode=TwoWay}" />
+        </StackLayout>
+
+        <controls:HcEntry Source="ic_mail_about.png"
+                          PlaceHolder="{x:Static resx:AppResources.your_email}"
+                          Keyboard="{x:Static Keyboard.Email}"
+                          Text="{Binding PersonModel.Email, Mode=TwoWay}" />
+        <controls:HcEntry Source="ic_doctor.png"
+                          PlaceHolder="{x:Static resx:AppResources.request_doctor_doctor_full_info}"
+                          Text="{Binding DoctorName, Mode=TwoWay}" />
+        <controls:HcEntry Source="ic_hospital.png"
+                          PlaceHolder="{x:Static resx:AppResources.hospital}"
+                          Text="{Binding HospitalName, Mode=TwoWay}" />
+
+        <Label Style="{StaticResource LabelContentStyle}" Text="{x:Static resx:AppResources.symptom}"
+               HorizontalOptions="Start" />
+        <!--<Label IsVisible="{StaticResource IsShowPlaceHolder}"
+                       Text="{x:Static resx:AppResources.if_more_support_vi}" TextColor="#7E7E7E"
+                       FontSize="{x:Static helpers:HcStyles.FontSizeSubContent}" />-->
+
+        <ContentView Padding="1">
+          <healthCare:PlaceholderEditor Placeholder="{x:Static resx:AppResources.if_more_support_vi}"
+                                        HeightRequest="{StaticResource SymptomEditorHeight}"
+                                        BackgroundColor="{x:Static helpers:HcStyles.BorderLightGrayColor}"
+                                        FontSize="{x:Static viewModels:MoreSupportViewModel2.FontLegalNoticeContent}"
+                                        Text="{Binding Symptom, Mode=TwoWay}" />
+        </ContentView>
+
+
+        <StackLayout Orientation="Horizontal">
+          <ContentView Padding="0, 20, 0, 20">
+            <!--<controls:ButtonCustom Text="{x:Static resx:AppResources.more_support_send}"
+                                           Style="{StaticResource ButtonStyle}">
+                        <behaviors:Interaction.Behaviors>
+                            <behaviors:BehaviorCollection>
+                                <behaviors:EventToCommand EventName="SingleClicked"
+                                                          Command="{Binding SubmitCommand}" />
+                            </behaviors:BehaviorCollection>
+                        </behaviors:Interaction.Behaviors>
+                    </controls:ButtonCustom>-->
+            <controls:ButtonRadiusControl Text="{x:Static resx:AppResources.cancel}"
+                                          HorizontalOptions="Center"
+                                          BgHeight="{StaticResource ButtonHeight2}"
+                                          TextPadding="0" BgWidth="{StaticResource ButtonWidth}"
+                                          Command="{Binding GoBackCommand}" />
+          </ContentView>
+
+
+          <!--Button Submit -->
+          <ContentView Padding="0, 20, 0, 20">
+            <!--<controls:ButtonCustom Text="{x:Static resx:AppResources.more_support_send}"
+                                           Style="{StaticResource ButtonStyle}">
+                        <behaviors:Interaction.Behaviors>
+                            <behaviors:BehaviorCollection>
+                                <behaviors:EventToCommand EventName="SingleClicked"
+                                                          Command="{Binding SubmitCommand}" />
+                            </behaviors:BehaviorCollection>
+                        </behaviors:Interaction.Behaviors>
+                    </controls:ButtonCustom>-->
+            <controls:ButtonRadiusControl Text="{x:Static resx:AppResources.send}"
+                                          HorizontalOptions="Center"
+                                          BgHeight="{StaticResource ButtonHeight2}"
+                                          TextPadding="0" BgWidth="{StaticResource ButtonWidth}"
+                                          Command="{Binding SubmitCommand}" />
+          </ContentView>
+
+        </StackLayout>
+      </StackLayout>
+    </Grid>
+  </ScrollView>
+
+</controls:TopBarContentPage>

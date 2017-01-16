@@ -1,0 +1,3 @@
+D:\SVN\HealthcareProject\HealthCare_Doctor\HealthCare\Phase 2\HealthCare.Core\HealthCare.Win.Core.csproj;neutral
+D:\SVN\HealthcareProject\HealthCare_Doctor\HealthCare\Phase 2\HealthCare.Win.Service\HealthCare.Win.VoiceCommands.csproj;neutral
+D:\SVN\HealthcareProject\HealthCare_Doctor\HealthCare\Phase 2\HealthCare.Win\HealthCare.Win.csproj;x86

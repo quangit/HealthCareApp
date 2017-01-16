@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="199" id="cxk-wN-pdQ" customClass="CmeCategoryCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxk-wN-pdQ" id="YTl-1W-gDM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="198"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ilr-VI-sNa">
+                        <rect key="frame" x="5" y="5" width="310" height="188"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LhU-fb-t6G">
+                                <rect key="frame" x="5" y="5" width="300" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yos-qM-wtO">
+                                <rect key="frame" x="5" y="27" width="300" height="156"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="yos-qM-wtO" firstAttribute="leading" secondItem="Ilr-VI-sNa" secondAttribute="leading" constant="5" id="Sbc-ex-41O"/>
+                            <constraint firstAttribute="trailing" secondItem="LhU-fb-t6G" secondAttribute="trailing" constant="5" id="XBu-T1-07p"/>
+                            <constraint firstAttribute="trailing" secondItem="yos-qM-wtO" secondAttribute="trailing" constant="5" id="eXa-Mg-eMb"/>
+                            <constraint firstAttribute="bottom" secondItem="yos-qM-wtO" secondAttribute="bottom" constant="5" id="fCa-RJ-ePT"/>
+                            <constraint firstItem="LhU-fb-t6G" firstAttribute="leading" secondItem="Ilr-VI-sNa" secondAttribute="leading" constant="5" id="hzx-ep-atf"/>
+                            <constraint firstItem="LhU-fb-t6G" firstAttribute="top" secondItem="Ilr-VI-sNa" secondAttribute="top" constant="5" id="lg1-O0-lbW"/>
+                            <constraint firstItem="yos-qM-wtO" firstAttribute="top" secondItem="LhU-fb-t6G" secondAttribute="bottom" constant="5" id="sSm-om-FsZ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Ilr-VI-sNa" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" constant="5" id="2XR-v0-fX9"/>
+                    <constraint firstAttribute="trailing" secondItem="Ilr-VI-sNa" secondAttribute="trailing" constant="5" id="5Kh-JI-jqa"/>
+                    <constraint firstItem="Ilr-VI-sNa" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="5" id="MaD-rC-CIr"/>
+                    <constraint firstAttribute="bottom" secondItem="Ilr-VI-sNa" secondAttribute="bottom" constant="5" id="owD-ey-j8T"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="ClassDescTV" destination="yos-qM-wtO" id="P3A-QF-cxF"/>
+                <outlet property="ClassNameLabel" destination="LhU-fb-t6G" id="4Fk-3d-IBb"/>
+            </connections>
+            <point key="canvasLocation" x="240" y="524.5"/>
+        </tableViewCell>
+    </objects>
+</document>

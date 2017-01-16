@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LocalNotifications.Plugin</name>
+    </assembly>
+    <members>
+        <member name="T:LocalNotifications.Plugin.CrossLocalNotifications">
+            <summary>
+            Cross platform LocalNotifications implementation
+            </summary>
+        </member>
+        <member name="M:LocalNotifications.Plugin.CrossLocalNotifications.CreateLocalNotifier">
+            <summary>
+            Creates the local notifier.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LocalNotifications.Plugin.LocalNotifier">
+            <summary>
+            Implementation of ILocalNotifier for Android
+            </summary>
+        </member>
+        <member name="M:LocalNotifications.Plugin.LocalNotifier.Notify(LocalNotifications.Plugin.Abstractions.LocalNotification)">
+            <summary>
+            Notifies the specified notification.
+            </summary>
+            <param name="notification">The notification.</param>
+        </member>
+        <member name="M:LocalNotifications.Plugin.LocalNotifier.Cancel(System.Int32)">
+            <summary>
+            Cancels the specified notification identifier.
+            </summary>
+            <param name="notificationId">The notification identifier.</param>
+        </member>
+    </members>
+</doc>

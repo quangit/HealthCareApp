@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:viewCells="clr-namespace:HealthCare.Controls.ViewCells;assembly=HealthCare"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            x:Class="HealthCare.Pages.CheckupPage"
+                            BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                            Title="{x:Static resx:AppResources.checkup}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+                            xmlns:objects="clr-namespace:HealthCare.Objects;assembly=HealthCare"
+                            PageType="{x:Type pages:CheckupPage}"
+                            Icon="tab_appointment.png"
+                            BindingContext="{Binding VmCheckup, Source={StaticResource Locator}}">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="x:Double" x:Key="RuleButtonHeight"
+                  iOS="15" Android="15" WinPhone="18" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonSize"
+                  iOS="32" Android="42" WinPhone="{x:Static helpers:HcStyles.ButtonHeight}" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="PickerWidthRequest"
+                  iOS="32" Android="32" WinPhone="240" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="ButtonFilterPadding"
+                  iOS="8,0,8,0" Android="8,0,8,0" WinPhone="-1,-2,-1,-15" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="StackButtonFilterPadding"
+                  iOS="5,0,5,0" Android="1,-2,1,-2" WinPhone="-10,0,-10,0" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonFontSize"
+                  iOS="11"
+                  Android="11"
+                  WinPhone="17" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="GridColumnWidth"
+                  iOS="*" Android="*" WinPhone="*" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="GridColumnWidthLast"
+                    iOS="*" Android="Auto" WinPhone="Auto" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="StackPickerPadding"
+                  iOS="10" Android="10" WinPhone="10,5,10,0" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="StackHeaderWhitePadding"
+                   iOS="0" Android="0,2" WinPhone="0" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+
+  <StackLayout Orientation="Vertical" BackgroundColor="Transparent">
+    <!-- Group picker and button -->
+
+    <StackLayout Orientation="Vertical" BackgroundColor="White" Spacing="0" Padding="{StaticResource StackHeaderWhitePadding}">
+
+      <!--- Group button -->
+      <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+                   Padding="{StaticResource StackPickerPadding}">
+        <controls:HcPicker
+            x:Name="Picker"
+            VerticalOptions="CenterAndExpand"
+            BindingContext="{Binding VmHospital, Source={StaticResource Locator}}"
+            x:TypeArguments="models:HospitalModel" PickerStyle="3"
+            FontSize="{x:Static helpers:HcStyles.FontSizeTitle}"
+            ItemsSource="{Binding ListHospitalFilter}"
+            HorizontalOptions="FillAndExpand" WidthRequest="{StaticResource PickerWidthRequest}"
+            SelectedItem="{Binding SelectedHospitalFilter, Mode=TwoWay}"
+            TitleText="{x:Static resx:AppResources.picker_hospital}"
+            EmptyText="{x:Static resx:AppResources.empty}" />
+        
+        
+        <StackLayout Orientation="Horizontal" Spacing="10" 
+                     VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="EndAndExpand">
+
+          <ContentView HeightRequest="{StaticResource RuleButtonHeight}" WidthRequest="1"
+                                 BackgroundColor="Silver" VerticalOptions="Center" />
+
+          <Button Image="ic_button_add.png" BorderWidth="0" BorderColor="Transparent"
+                  BackgroundColor="Transparent"
+                  Command="{Binding AddCheckupCommand}"
+                  HeightRequest="{StaticResource ButtonSize}" WidthRequest="{StaticResource ButtonSize}" />
+
+          <!--<Button Image="ic_notebook.png" BorderWidth="0" BorderColor="Transparent"
+                  BackgroundColor="Transparent"
+                  Command="{Binding GotoMedicalRecordPageCommand}"
+                  HeightRequest="{StaticResource ButtonSize}" WidthRequest="{StaticResource ButtonSize}" />-->
+        </StackLayout>
+      </StackLayout>
+
+      <!--- Group Filter -->
+      <Grid HorizontalOptions="CenterAndExpand" Padding="{StaticResource ButtonFilterPadding}" ColumnSpacing="0">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="{StaticResource GridColumnWidth}" />
+          <ColumnDefinition Width="{Binding IsExistPendingCard, Converter={StaticResource ColumnCheckupConverter}}" />
+          <ColumnDefinition Width="{StaticResource GridColumnWidth}" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+
+        <StackLayout Grid.Column="0" Padding="{StaticResource StackButtonFilterPadding}">
+          <controls:HcFilterButton Style="{StaticResource ButtonStyle}"
+                                   Text="{x:Static resx:AppResources.checkup_status_pending}"
+                                   FontSize="{StaticResource ButtonFontSize}"
+                                   IsSelected="{Binding IsSelectRedFilter}"
+                                   Command="{Binding RedFilter}"
+                                   BackgroundColor="{x:Static helpers:HcStyles.RedCheckupColor}"
+                                   HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+        <StackLayout Grid.Column="1" Padding="{StaticResource StackButtonFilterPadding}" IsVisible="{Binding IsExistPendingCard}">
+          <controls:HcFilterButton  Style="{StaticResource ButtonStyle}"
+                                   Text="{x:Static resx:AppResources.checkup_status_payment_pending}"
+                                   FontSize="{StaticResource ButtonFontSize}"
+                                   IsSelected="{Binding IsSelectYellowFilter}"
+                                   Command="{Binding YellowFilter}"
+                                   BackgroundColor="{x:Static helpers:HcStyles.YellowCheckupColor}"
+                                   HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+        <StackLayout Grid.Column="2" Padding="{StaticResource StackButtonFilterPadding}">
+          <controls:HcFilterButton Style="{StaticResource ButtonStyle}"
+                                   Text="{x:Static resx:AppResources.checkup_status_accepted}"
+                                   FontSize="{StaticResource ButtonFontSize}"
+                                   IsSelected="{Binding IsSelectGreenFilter}"
+                                   Command="{Binding GreenFilter}"
+                                   BackgroundColor="{x:Static helpers:HcStyles.GreenCheckupColor}"
+                                   HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+
+
+      </Grid>
+    </StackLayout>
+
+    <controls:HcListView x:TypeArguments="objects:ProxyCheckupModel"
+                         ItemsSource="{Binding ListFilteredCheckups}"
+                         CanLoadMore="False"
+                         ItemCount="{Binding ItemCount, Mode=TwoWay}"
+                         EmptyText="{x:Static resx:AppResources.empty_checkup}"
+                         IsPullToRefreshEnabled="True"
+                         IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                         RefreshCommand="{Binding RefreshCommand}"
+                         ItemClickCommand="{Binding ItemTappedCommand}">
+      <controls:HcListView.ItemTemplate>
+        <DataTemplate>
+          <viewCells:CheckupViewCell />
+        </DataTemplate>
+      </controls:HcListView.ItemTemplate>
+    </controls:HcListView>
+  </StackLayout>
+
+</controls:TopBarContentPage>

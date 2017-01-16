@@ -1,0 +1,1068 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ResourceFlowDirection" xml:space="preserve">
+    <value>LeftToRight</value>
+    <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
+  </data>
+  <data name="ResourceLanguage" xml:space="preserve">
+    <value>en</value>
+    <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>MY APPLICATION</value>
+  </data>
+  <data name="AppBarButtonText" xml:space="preserve">
+    <value>add</value>
+  </data>
+  <data name="AppBarMenuItemText" xml:space="preserve">
+    <value>Menu Item</value>
+  </data>
+  <data name="accecpt" xml:space="preserve">
+    <value>Accept</value>
+  </data>
+  <data name="address" xml:space="preserve">
+    <value>Current address</value>
+  </data>
+  <data name="add_checkup" xml:space="preserve">
+    <value>Add checkup</value>
+  </data>
+  <data name="add_checkup_confirm" xml:space="preserve">
+    <value>Confirm checkup</value>
+  </data>
+  <data name="add_checkup_failure" xml:space="preserve">
+    <value>Failed to add checkup</value>
+  </data>
+  <data name="add_checkup_success" xml:space="preserve">
+    <value>Add checkup successfully</value>
+  </data>
+  <data name="age" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="all" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="app_policy" xml:space="preserve">
+    <value>1. I/my relative really needs treatment. The appointment on CLAS Healthcare application is only for medical purposes for me/my relative.
+2. CLAS Healthcare is not responsible for errors in the information that I provide when registering for healthcare.
+3. CLAS Healthcare provides the service for treatment appointment schedule. Therefore CLAS Healthcare is not responsible for the diagnosis or treatment procedure by Doctors/Hospitals/Clinics involved in system</value>
+  </data>
+  <data name="birth_day" xml:space="preserve">
+    <value>Date of birth</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="cannot_access_photo_lib" xml:space="preserve">
+    <value>Can not access to photo gallery</value>
+  </data>
+  <data name="card_add_success" xml:space="preserve">
+    <value>Card added and verified successfully</value>
+  </data>
+  <data name="cc_add_failure" xml:space="preserve">
+    <value>Unexpected error, pending card not found</value>
+  </data>
+  <data name="cc_add_new" xml:space="preserve">
+    <value>Add new card</value>
+  </data>
+  <data name="cc_add_new_success" xml:space="preserve">
+    <value>Congratulations! Card added successfully</value>
+  </data>
+  <data name="cc_detail" xml:space="preserve">
+    <value>Card details</value>
+  </data>
+  <data name="cc_info" xml:space="preserve">
+    <value>Card account information</value>
+  </data>
+  <data name="cc_num" xml:space="preserve">
+    <value>Payment card number</value>
+  </data>
+  <data name="cc_otp_description" xml:space="preserve">
+    <value>The verification code will be sent via SMS to your phone number, please enter the correct code to add payment card</value>
+  </data>
+  <data name="cc_otp_pin" xml:space="preserve">
+    <value>Enter Pin/Otp</value>
+  </data>
+  <data name="cc_password_payment" xml:space="preserve">
+    <value>Payment password</value>
+  </data>
+  <data name="certificate" xml:space="preserve">
+    <value>Certificate</value>
+  </data>
+  <data name="change_password" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="change_password_description" xml:space="preserve">
+    <value>Password is used for login verification</value>
+  </data>
+  <data name="change_password_success" xml:space="preserve">
+    <value>Password changed successfully</value>
+  </data>
+  <data name="change_password_title" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="checkup" xml:space="preserve">
+    <value>Checkup</value>
+  </data>
+  <data name="checkup_address" xml:space="preserve">
+    <value>Address:</value>
+  </data>
+  <data name="checkup_change_schedule_success" xml:space="preserve">
+    <value>Checkup schedule changed successfully</value>
+  </data>
+  <data name="checkup_checkup_type" xml:space="preserve">
+    <value>Speciality:</value>
+  </data>
+  <data name="checkup_city" xml:space="preserve">
+    <value>City:</value>
+  </data>
+  <data name="checkup_delete" xml:space="preserve">
+    <value>Delete checkup</value>
+  </data>
+  <data name="checkup_delete_success" xml:space="preserve">
+    <value>Checkup deleted successfully</value>
+  </data>
+  <data name="checkup_detail" xml:space="preserve">
+    <value>Checkup details</value>
+  </data>
+  <data name="checkup_district" xml:space="preserve">
+    <value>District:</value>
+  </data>
+  <data name="checkup_doctor" xml:space="preserve">
+    <value>Doctor:</value>
+  </data>
+  <data name="checkup_edit_schedule" xml:space="preserve">
+    <value>Edit schedule</value>
+  </data>
+  <data name="checkup_email" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+  <data name="checkup_exam_place" xml:space="preserve">
+    <value>Place:</value>
+  </data>
+  <data name="checkup_firstname" xml:space="preserve">
+    <value>Last name:</value>
+  </data>
+  <data name="checkup_id_no" xml:space="preserve">
+    <value>ID number:</value>
+  </data>
+  <data name="checkup_myselft" xml:space="preserve">
+    <value>I</value>
+  </data>
+  <data name="checkup_patient_name" xml:space="preserve">
+    <value>Patient name:</value>
+  </data>
+  <data name="checkup_payment" xml:space="preserve">
+    <value>Payment</value>
+  </data>
+  <data name="checkup_phone_no" xml:space="preserve">
+    <value>Phone number:</value>
+  </data>
+  <data name="checkup_policy" xml:space="preserve">
+    <value>Policy:</value>
+  </data>
+  <data name="checkup_result" xml:space="preserve">
+    <value>Conclusion:</value>
+  </data>
+  <data name="checkup_schedule" xml:space="preserve">
+    <value>Checkup schedule:</value>
+  </data>
+  <data name="checkup_status_accepted" xml:space="preserve">
+    <value>Paid</value>
+  </data>
+  <data name="checkup_status_payment_pending" xml:space="preserve">
+    <value>Payment pending</value>
+  </data>
+  <data name="checkup_status_pending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="checkup_symptom" xml:space="preserve">
+    <value>Reason for checkup:</value>
+  </data>
+  <data name="city" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="clas_hospital" xml:space="preserve">
+    <value>Checkup at home</value>
+  </data>
+  <data name="confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="confirm_cancel_checkup" xml:space="preserve">
+    <value>Do you want to cancel this checkup?</value>
+  </data>
+  <data name="confirm_delete_checkup" xml:space="preserve">
+    <value>Do you want to delete this checkup?</value>
+  </data>
+  <data name="confirm_logout" xml:space="preserve">
+    <value>Do you want to log out?</value>
+  </data>
+  <data name="contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="copy_right" xml:space="preserve">
+    <value>© Customer Loyalty and Acquistion Services Co., Ltd.</value>
+  </data>
+  <data name="create_avatar" xml:space="preserve">
+    <value>Create profile picture</value>
+  </data>
+  <data name="credit_card" xml:space="preserve">
+    <value>Payment card</value>
+  </data>
+  <data name="deactivated" xml:space="preserve">
+    <value>Deleted</value>
+  </data>
+  <data name="deleted" xml:space="preserve">
+    <value>(Deleted)</value>
+  </data>
+  <data name="detail" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="district" xml:space="preserve">
+    <value>District</value>
+  </data>
+  <data name="doctor" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="doctor_location" xml:space="preserve">
+    <value>Doctor location</value>
+  </data>
+  <data name="doctor_location_error" xml:space="preserve">
+    <value>This doctor location is not available</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="empty" xml:space="preserve">
+    <value>Empty</value>
+  </data>
+  <data name="empty_address" xml:space="preserve">
+    <value>Address may not be empty</value>
+  </data>
+  <data name="empty_age" xml:space="preserve">
+    <value>Age may not be empty</value>
+  </data>
+  <data name="empty_cc_num" xml:space="preserve">
+    <value>Card number may not be empty</value>
+  </data>
+  <data name="empty_cc_pin_otp" xml:space="preserve">
+    <value>Please enter PIN or OTP code</value>
+  </data>
+  <data name="empty_checkup" xml:space="preserve">
+    <value>You have no checkup
+Click + to add checkup</value>
+  </data>
+  <data name="empty_checkup_schedule" xml:space="preserve">
+    <value>Please select checkup schedule</value>
+  </data>
+  <data name="empty_checkup_type" xml:space="preserve">
+    <value>Empty checkup type</value>
+  </data>
+  <data name="empty_city" xml:space="preserve">
+    <value>No city</value>
+  </data>
+  <data name="empty_confirm_password" xml:space="preserve">
+    <value>Password confirm may not be empty</value>
+  </data>
+  <data name="empty_district" xml:space="preserve">
+    <value>No district</value>
+  </data>
+  <data name="empty_doctor_search" xml:space="preserve">
+    <value>No doctor found</value>
+  </data>
+  <data name="empty_doctor_selected" xml:space="preserve">
+    <value>No doctor selected yet</value>
+  </data>
+  <data name="empty_first_name" xml:space="preserve">
+    <value>Middle name and first name may not be empty</value>
+  </data>
+  <data name="empty_hospial_name" xml:space="preserve">
+    <value>Hospital name may not be empty</value>
+  </data>
+  <data name="empty_hospital" xml:space="preserve">
+    <value>No hospital</value>
+  </data>
+  <data name="empty_hospital_selected" xml:space="preserve">
+    <value>No hospital selected yet</value>
+  </data>
+  <data name="empty_last_name" xml:space="preserve">
+    <value>Last name may not be empty</value>
+  </data>
+  <data name="empty_new_password" xml:space="preserve">
+    <value>New password may not be empty</value>
+  </data>
+  <data name="empty_old_password" xml:space="preserve">
+    <value>Old password may not be empty</value>
+  </data>
+  <data name="empty_password" xml:space="preserve">
+    <value>Please enter password</value>
+  </data>
+  <data name="empty_patient_name" xml:space="preserve">
+    <value>Patient name may not be empty</value>
+  </data>
+  <data name="empty_payment_card" xml:space="preserve">
+    <value>Please select card for payment</value>
+  </data>
+  <data name="empty_payment_enter_password" xml:space="preserve">
+    <value>Please enter your payment password</value>
+  </data>
+  <data name="empty_schedule" xml:space="preserve">
+    <value>Emty schedule</value>
+  </data>
+  <data name="empty_schedule_selected" xml:space="preserve">
+    <value>No schedule selected yet</value>
+  </data>
+  <data name="empty_user_name" xml:space="preserve">
+    <value>Please enter patient code, phone number and email</value>
+  </data>
+  <data name="experience" xml:space="preserve">
+    <value>Experience</value>
+  </data>
+  <data name="female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="first_name" xml:space="preserve">
+    <value>Middle name and first name</value>
+  </data>
+  <data name="forgot_password" xml:space="preserve">
+    <value>Forgot password</value>
+  </data>
+  <data name="forgot_password_email" xml:space="preserve">
+    <value>Email to reset password</value>
+  </data>
+  <data name="forgot_password_title" xml:space="preserve">
+    <value>Enter an email to reset your password, the system will automatically send email to your email address.</value>
+  </data>
+  <data name="from" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="go_back" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="go_next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="hospital" xml:space="preserve">
+    <value>Hospital/clinic</value>
+  </data>
+  <data name="hospital_info" xml:space="preserve">
+    <value>Hospital information</value>
+  </data>
+  <data name="id_no" xml:space="preserve">
+    <value>ID number</value>
+  </data>
+  <data name="info" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="invalid_data" xml:space="preserve">
+    <value>Not found</value>
+  </data>
+  <data name="language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="last_name" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="limit_account_checkup_add_message" xml:space="preserve">
+    <value>You are permitted to register {0} checkup per day</value>
+  </data>
+  <data name="limit_device_register_message" xml:space="preserve">
+    <value>This deveice has successfully registered maximum {0} accounts</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="login_access_denied" xml:space="preserve">
+    <value>You have no access to the application</value>
+  </data>
+  <data name="login_fb" xml:space="preserve">
+    <value>Log in with Facebook</value>
+  </data>
+  <data name="login_password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="login_title" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="login_user_name" xml:space="preserve">
+    <value>Patient code/phone number/Email</value>
+  </data>
+  <data name="logout" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="marrital_status" xml:space="preserve">
+    <value>Marrital status</value>
+  </data>
+  <data name="medical_record" xml:space="preserve">
+    <value>Medical record</value>
+  </data>
+  <data name="more_support" xml:space="preserve">
+    <value>More support</value>
+  </data>
+  <data name="more_support_send" xml:space="preserve">
+    <value>Send request for more support</value>
+  </data>
+  <data name="more_support_sent" xml:space="preserve">
+    <value>Request sent successfully</value>
+  </data>
+  <data name="network_not_available" xml:space="preserve">
+    <value>Please check your network connection</value>
+  </data>
+  <data name="notification_description" xml:space="preserve">
+    <value>Enable to get notifications when there's change with your checkup schedule.</value>
+  </data>
+  <data name="notification_setting" xml:space="preserve">
+    <value>Notification setting</value>
+  </data>
+  <data name="not_found_camera" xml:space="preserve">
+    <value>Camera not found</value>
+  </data>
+  <data name="not_have_account" xml:space="preserve">
+    <value>Don't have an account?</value>
+  </data>
+  <data name="not_selected_doctor_search" xml:space="preserve">
+    <value>Search and select a doctor</value>
+  </data>
+  <data name="occupation" xml:space="preserve">
+    <value>Occupatient</value>
+  </data>
+  <data name="off" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="on" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="out_of_date" xml:space="preserve">
+    <value>Out of date</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="password_confirm_not_match" xml:space="preserve">
+    <value>Password confirm do not match</value>
+  </data>
+  <data name="password_current" xml:space="preserve">
+    <value>Current password</value>
+  </data>
+  <data name="password_invalid_format" xml:space="preserve">
+    <value>Passwords must be at least 8 characters in length, and must have: a minimum of 1 lower case letter, 1 upper case letter, 1 numeric character
+</value>
+  </data>
+  <data name="password_new" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="password_new_duplication_old" xml:space="preserve">
+    <value>New password must not be same as old password</value>
+  </data>
+  <data name="password_verify" xml:space="preserve">
+    <value>Verify password</value>
+  </data>
+  <data name="patient_name" xml:space="preserve">
+    <value>Patient name</value>
+  </data>
+  <data name="patient_other" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="payment" xml:space="preserve">
+    <value>Pay</value>
+  </data>
+  <data name="payment_applied_promotion" xml:space="preserve">
+    <value>You have used {0}% promotion, the amount to pay is {1} VNĐ</value>
+  </data>
+  <data name="payment_cc_pick_title" xml:space="preserve">
+    <value>Select payment card here</value>
+  </data>
+  <data name="payment_cc_title" xml:space="preserve">
+    <value>Payment card</value>
+  </data>
+  <data name="payment_change_password" xml:space="preserve">
+    <value>Change payment password</value>
+  </data>
+  <data name="payment_change_password_success" xml:space="preserve">
+    <value>Payment password changed successfully</value>
+  </data>
+  <data name="payment_info" xml:space="preserve">
+    <value>Payment information</value>
+  </data>
+  <data name="payment_schedule_fee" xml:space="preserve">
+    <value>Schedule fee</value>
+  </data>
+  <data name="payment_set_password" xml:space="preserve">
+    <value>Set payment password</value>
+  </data>
+  <data name="payment_set_password_description" xml:space="preserve">
+    <value>Payment password is used for each time paying for checkup</value>
+  </data>
+  <data name="payment_set_password_success" xml:space="preserve">
+    <value>Payment password set successfully</value>
+  </data>
+  <data name="payment_success" xml:space="preserve">
+    <value>Paid successfully</value>
+  </data>
+  <data name="payment_title" xml:space="preserve">
+    <value>Pay for checkup</value>
+  </data>
+  <data name="payment_total_fee" xml:space="preserve">
+    <value>Total amount</value>
+  </data>
+  <data name="payment_treatment_fee" xml:space="preserve">
+    <value>Treatment fee</value>
+  </data>
+  <data name="paymet_enter_password" xml:space="preserve">
+    <value>Enter payment password</value>
+  </data>
+  <data name="phone_no" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="pick_doctor" xml:space="preserve">
+    <value>Select doctor</value>
+  </data>
+  <data name="pick_hospital" xml:space="preserve">
+    <value>Select hospital</value>
+  </data>
+  <data name="pick_photo" xml:space="preserve">
+    <value>Select photo from gallery</value>
+  </data>
+  <data name="pick_schedule" xml:space="preserve">
+    <value>Select schedule</value>
+  </data>
+  <data name="profile_title" xml:space="preserve">
+    <value>Profile information</value>
+  </data>
+  <data name="profile_update_success" xml:space="preserve">
+    <value>Profile updated successfully</value>
+  </data>
+  <data name="profile_user_code" xml:space="preserve">
+    <value>Patient code:</value>
+  </data>
+  <data name="promotion" xml:space="preserve">
+    <value>Promotion</value>
+  </data>
+  <data name="promotion_count_raw" xml:space="preserve">
+    <value>Promotion (0)</value>
+  </data>
+  <data name="promotion_detail" xml:space="preserve">
+    <value>Promotion details</value>
+  </data>
+  <data name="promotion_number" xml:space="preserve">
+    <value>Promotion ({0})</value>
+  </data>
+  <data name="promotion_time" xml:space="preserve">
+    <value>Promotion time</value>
+  </data>
+  <data name="refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="register_success" xml:space="preserve">
+    <value>Congratulations, you have successfully registered, check your email to activate your account</value>
+  </data>
+  <data name="rejected" xml:space="preserve">
+    <value>Rejected</value>
+  </data>
+  <data name="reset_password_success" xml:space="preserve">
+    <value>Password reset successfully, please check your email!</value>
+  </data>
+  <data name="rs_failure_address_empty" xml:space="preserve">
+    <value>Address may not be empty</value>
+  </data>
+  <data name="rs_failure_birthday_empty" xml:space="preserve">
+    <value>Date of birth may not be empty</value>
+  </data>
+  <data name="rs_failure_busy_doctor" xml:space="preserve">
+    <value>This doctor is busy</value>
+  </data>
+  <data name="rs_failure_cannot_delete_ref_data" xml:space="preserve">
+    <value>Failed to delete because of related data</value>
+  </data>
+  <data name="rs_failure_card_enter_otp" xml:space="preserve">
+    <value>Please enter OTP code</value>
+  </data>
+  <data name="rs_failure_card_enter_pin" xml:space="preserve">
+    <value>Please enter PIN code</value>
+  </data>
+  <data name="rs_failure_card_existed" xml:space="preserve">
+    <value>This card already exists</value>
+  </data>
+  <data name="rs_failure_card_id_empty" xml:space="preserve">
+    <value>Card ID may not be empty</value>
+  </data>
+  <data name="rs_failure_card_incorrect_pin" xml:space="preserve">
+    <value>Wrong PIN code</value>
+  </data>
+  <data name="rs_failure_card_not_found" xml:space="preserve">
+    <value>Card not found</value>
+  </data>
+  <data name="rs_failure_checkup_finished" xml:space="preserve">
+    <value>Checkup finished</value>
+  </data>
+  <data name="rs_failure_checkup_id_empty" xml:space="preserve">
+    <value>Checkup ID may not be empty</value>
+  </data>
+  <data name="rs_failure_checkup_not_found" xml:space="preserve">
+    <value>Checkup form not found</value>
+  </data>
+  <data name="rs_failure_checkup_paymented" xml:space="preserve">
+    <value>The checkup form was paid</value>
+  </data>
+  <data name="rs_failure_checkup_type_empty" xml:space="preserve">
+    <value>This type of checkup may not be empty</value>
+  </data>
+  <data name="rs_failure_checkup_type_in_use" xml:space="preserve">
+    <value>This speciality is in use</value>
+  </data>
+  <data name="rs_failure_checkup_type_not_found" xml:space="preserve">
+    <value>Checkup type not found</value>
+  </data>
+  <data name="rs_failure_city_empty" xml:space="preserve">
+    <value>City may not be empty</value>
+  </data>
+  <data name="rs_failure_content_empty" xml:space="preserve">
+    <value>Content may not be empty</value>
+  </data>
+  <data name="rs_failure_data_in_use" xml:space="preserve">
+    <value>Data are in use</value>
+  </data>
+  <data name="rs_failure_deactive_reference" xml:space="preserve">
+    <value>Disabled error</value>
+  </data>
+  <data name="rs_failure_disable_user" xml:space="preserve">
+    <value>Your account not yet activated</value>
+  </data>
+  <data name="rs_failure_doctor_id_empty" xml:space="preserve">
+    <value>Doctor ID may not be empty</value>
+  </data>
+  <data name="rs_failure_doctor_not_found" xml:space="preserve">
+    <value>Doctor not found</value>
+  </data>
+  <data name="rs_failure_email_empty" xml:space="preserve">
+    <value>Email may not be empty</value>
+  </data>
+  <data name="rs_failure_email_existed" xml:space="preserve">
+    <value>This email is already in use</value>
+  </data>
+  <data name="rs_failure_exception" xml:space="preserve">
+    <value>Unexpected error</value>
+  </data>
+  <data name="rs_failure_facebookid_existed" xml:space="preserve">
+    <value>This FacebookId is already in use</value>
+  </data>
+  <data name="rs_failure_facebook_id_empty" xml:space="preserve">
+    <value>Facebook ID may not be empty</value>
+  </data>
+  <data name="rs_failure_fb_access_token_invalid" xml:space="preserve">
+    <value>Facebook login session has expired</value>
+  </data>
+  <data name="rs_failure_firstname_empty" xml:space="preserve">
+    <value>Firstname may not be empty</value>
+  </data>
+  <data name="rs_failure_first_name_empty" xml:space="preserve">
+    <value>Lastname may not me empty</value>
+  </data>
+  <data name="rs_failure_gender_empty" xml:space="preserve">
+    <value>Gender may not be empty</value>
+  </data>
+  <data name="rs_failure_gtm_time_not_empty" xml:space="preserve">
+    <value>Timeline may not be empty</value>
+  </data>
+  <data name="rs_failure_gtm_time_not_valid" xml:space="preserve">
+    <value>Invalid timeline</value>
+  </data>
+  <data name="rs_failure_hash_expired" xml:space="preserve">
+    <value>Hash code expired</value>
+  </data>
+  <data name="rs_failure_hospitalid_empty" xml:space="preserve">
+    <value>Hospital ID may not be empty</value>
+  </data>
+  <data name="rs_failure_hospital_not_found" xml:space="preserve">
+    <value>No hospital found</value>
+  </data>
+  <data name="rs_failure_hospital_not_registered_payment" xml:space="preserve">
+    <value>Payment not yet set for the hospital</value>
+  </data>
+  <data name="rs_failure_hospital_registered" xml:space="preserve">
+    <value>The hospital has been registered</value>
+  </data>
+  <data name="rs_failure_idno_empty" xml:space="preserve">
+    <value>ID number may not be empty</value>
+  </data>
+  <data name="rs_failure_idno_existed" xml:space="preserve">
+    <value>The ID number already exists</value>
+  </data>
+  <data name="rs_failure_id_empty" xml:space="preserve">
+    <value>ID may not be empty</value>
+  </data>
+  <data name="rs_failure_invalid_appointment_date" xml:space="preserve">
+    <value>Invalid registration date, please choose a different date</value>
+  </data>
+  <data name="rs_failure_invalid_card" xml:space="preserve">
+    <value>Invalid card</value>
+  </data>
+  <data name="rs_failure_invalid_checkup_type" xml:space="preserve">
+    <value>Invalid checkup type</value>
+  </data>
+  <data name="rs_failure_invalid_doctor" xml:space="preserve">
+    <value>Invalid doctor</value>
+  </data>
+  <data name="rs_failure_invalid_email" xml:space="preserve">
+    <value>Invalid Email</value>
+  </data>
+  <data name="rs_failure_invalid_enddate" xml:space="preserve">
+    <value>Invalid end date</value>
+  </data>
+  <data name="rs_failure_invalid_gender" xml:space="preserve">
+    <value>Invalid gender</value>
+  </data>
+  <data name="rs_failure_invalid_hospital" xml:space="preserve">
+    <value>Invalid hospital</value>
+  </data>
+  <data name="rs_failure_invalid_idno" xml:space="preserve">
+    <value>Invalid ID number</value>
+  </data>
+  <data name="rs_failure_invalid_location" xml:space="preserve">
+    <value>Invalid location</value>
+  </data>
+  <data name="rs_failure_invalid_old_password" xml:space="preserve">
+    <value>Wrong old password</value>
+  </data>
+  <data name="rs_failure_invalid_params" xml:space="preserve">
+    <value>Lack of information</value>
+  </data>
+  <data name="rs_failure_invalid_password_length" xml:space="preserve">
+    <value>Invalid length of password</value>
+  </data>
+  <data name="rs_failure_invalid_patient" xml:space="preserve">
+    <value>Invalid patient</value>
+  </data>
+  <data name="rs_failure_invalid_patient_type" xml:space="preserve">
+    <value>Invalid patient type</value>
+  </data>
+  <data name="rs_failure_invalid_payment_password" xml:space="preserve">
+    <value>Wrong payment password</value>
+  </data>
+  <data name="rs_failure_invalid_phone" xml:space="preserve">
+    <value>Invalid phone number</value>
+  </data>
+  <data name="rs_failure_invalid_price" xml:space="preserve">
+    <value>Invalid price</value>
+  </data>
+  <data name="rs_failure_invalid_roles" xml:space="preserve">
+    <value>Invalid role</value>
+  </data>
+  <data name="rs_failure_invalid_service_type" xml:space="preserve">
+    <value>Invalid service type</value>
+  </data>
+  <data name="rs_failure_invalid_startdate" xml:space="preserve">
+    <value>Invalid start date</value>
+  </data>
+  <data name="rs_failure_invalid_username" xml:space="preserve">
+    <value>Invalid username</value>
+  </data>
+  <data name="rs_failure_invalid_user_type" xml:space="preserve">
+    <value>Invalid user type</value>
+  </data>
+  <data name="rs_failure_invalid_zero_money" xml:space="preserve">
+    <value>Invalid amount</value>
+  </data>
+  <data name="rs_failure_lastname_empty" xml:space="preserve">
+    <value>Last name may not be empty</value>
+  </data>
+  <data name="rs_failure_last_name_empty" xml:space="preserve">
+    <value>First name may not be empty</value>
+  </data>
+  <data name="rs_failure_login_fail" xml:space="preserve">
+    <value>Login failed, please check your phone number and password</value>
+  </data>
+  <data name="rs_failure_name_empty" xml:space="preserve">
+    <value>First name may not be empty</value>
+  </data>
+  <data name="rs_failure_name_existed" xml:space="preserve">
+    <value>This name already exists</value>
+  </data>
+  <data name="rs_failure_not_enough_money_for_payment" xml:space="preserve">
+    <value>Insufficient balance for payment</value>
+  </data>
+  <data name="rs_failure_no_doctor_for_checkup_type" xml:space="preserve">
+    <value>No doctor found for this checkup type</value>
+  </data>
+  <data name="rs_failure_object_not_found" xml:space="preserve">
+    <value>Not found</value>
+  </data>
+  <data name="rs_failure_overlap_time" xml:space="preserve">
+    <value>This schedule is in use</value>
+  </data>
+  <data name="rs_failure_password_empty" xml:space="preserve">
+    <value>Password may not be empty</value>
+  </data>
+  <data name="rs_failure_patient_id_empty" xml:space="preserve">
+    <value>Patient ID may not be empty</value>
+  </data>
+  <data name="rs_failure_patient_type_empty" xml:space="preserve">
+    <value>Patient type may not be empty</value>
+  </data>
+  <data name="rs_failure_payment_password_not_set" xml:space="preserve">
+    <value>Payment password not set</value>
+  </data>
+  <data name="rs_failure_permission_deny" xml:space="preserve">
+    <value>No access</value>
+  </data>
+  <data name="rs_failure_phone_empty" xml:space="preserve">
+    <value>Phone number may not be empty</value>
+  </data>
+  <data name="rs_failure_phone_existed" xml:space="preserve">
+    <value>This phone number is already in use</value>
+  </data>
+  <data name="rs_failure_photo_empty" xml:space="preserve">
+    <value>Photo may not be empty</value>
+  </data>
+  <data name="rs_failure_pin_or_otp_empty" xml:space="preserve">
+    <value>PIN or OTP may not be empty</value>
+  </data>
+  <data name="rs_failure_promotion_not_found" xml:space="preserve">
+    <value>Promotion not found</value>
+  </data>
+  <data name="rs_failure_scb_mid_empty" xml:space="preserve">
+    <value>SCB MID may not be empty</value>
+  </data>
+  <data name="rs_failure_scb_tid_empty" xml:space="preserve">
+    <value>SCD TID may not be empty</value>
+  </data>
+  <data name="rs_failure_service_type_empty" xml:space="preserve">
+    <value>Service type may not be empty</value>
+  </data>
+  <data name="rs_failure_session_invalid" xml:space="preserve">
+    <value>Session expired</value>
+  </data>
+  <data name="rs_failure_small_money" xml:space="preserve">
+    <value>Failed to pay because of too small amount</value>
+  </data>
+  <data name="rs_failure_store_mid_not_found" xml:space="preserve">
+    <value>Store MID not found</value>
+  </data>
+  <data name="rs_failure_store_registered" xml:space="preserve">
+    <value>Store is already in use</value>
+  </data>
+  <data name="rs_failure_symptom_empty" xml:space="preserve">
+    <value>Symptom may not be empty</value>
+  </data>
+  <data name="rs_failure_type_empty" xml:space="preserve">
+    <value>Type may not be empty</value>
+  </data>
+  <data name="rs_failure_username_empty" xml:space="preserve">
+    <value>Username may not be empty</value>
+  </data>
+  <data name="rs_failure_username_existed" xml:space="preserve">
+    <value>This username is already in use</value>
+  </data>
+  <data name="rs_failure_user_existed" xml:space="preserve">
+    <value>This user already exists</value>
+  </data>
+  <data name="rs_failure_user_not_found" xml:space="preserve">
+    <value>This user does not exist</value>
+  </data>
+  <data name="rs_success" xml:space="preserve">
+    <value>Successful</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="schedule_of" xml:space="preserve">
+    <value>Schedule for {0}</value>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="searching" xml:space="preserve">
+    <value>Searching ...</value>
+  </data>
+  <data name="search_hint" xml:space="preserve">
+    <value>Please type symptoms, the doctor or specialist that you want to visit local matched</value>
+  </data>
+  <data name="search_placeholder" xml:space="preserve">
+    <value>Symptom, Doctor, speciality</value>
+  </data>
+  <data name="send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="setting" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="setting_notification" xml:space="preserve">
+    <value>Get notifications</value>
+  </data>
+  <data name="short_day" xml:space="preserve">
+    <value>d</value>
+  </data>
+  <data name="short_hour" xml:space="preserve">
+    <value>h</value>
+  </data>
+  <data name="short_minute" xml:space="preserve">
+    <value>m</value>
+  </data>
+  <data name="short_month" xml:space="preserve">
+    <value>m</value>
+  </data>
+  <data name="suggest_not_found" xml:space="preserve">
+    <value>No suggestion</value>
+  </data>
+  <data name="symptom" xml:space="preserve">
+    <value>Symptom</value>
+  </data>
+  <data name="take_photo" xml:space="preserve">
+    <value>Take a photo</value>
+  </data>
+  <data name="time_left" xml:space="preserve">
+    <value>Time left:</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="user_city_deleted" xml:space="preserve">
+    <value>Your city is deleted, please update your information</value>
+  </data>
+  <data name="user_district_deleted" xml:space="preserve">
+    <value>Your district is deleted, please update your information</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>Version 1.1</value>
+  </data>
+  <data name="view_location" xml:space="preserve">
+    <value>View location</value>
+  </data>
+  <data name="view_more" xml:space="preserve">
+    <value>More</value>
+  </data>
+  <data name="work_place" xml:space="preserve">
+    <value>Work place</value>
+  </data>
+  <data name="your_position" xml:space="preserve">
+    <value>Your position</value>
+  </data>
+  <data name="invalid_chbase_account" xml:space="preserve">
+    <value>Tài khoản CHBase không đúng với tài khoản đã kết nối</value>
+  </data>
+</root>

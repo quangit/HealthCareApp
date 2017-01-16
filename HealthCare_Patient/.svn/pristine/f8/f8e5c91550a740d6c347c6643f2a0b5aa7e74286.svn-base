@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            PageType="{x:Type chBases:ImmunizationPage}"
+                            xmlns:chBases="clr-namespace:HealthCare.Pages.CHBases;assembly=HealthCare"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:chBaseModel="clr-namespace:HealthCare.Models.ChBaseModel;assembly=HealthCare"
+                            xmlns:viewCells="clr-namespace:HealthCare.Controls.ViewCells;assembly=HealthCare"
+                            xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+                            x:Class="HealthCare.Pages.CHBases.ProcedurePage"
+                            Title="{x:Static resx:AppResources.procedure}"
+                            BindingContext="{Binding VmProcedure, Source={StaticResource Locator}}"
+                           BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="GridLength" x:Key="GridColumnWidth"
+                      iOS="10*" Android="10*" WinPhone="30*" />
+      <OnPlatform x:Key="PagePadding"
+                x:TypeArguments="Thickness"
+                iOS="-25,8,-25,8"
+                Android="-30,8,-30,8"
+                WinPhone="0,8,-5,8" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+
+  <behaviors:Interaction.Behaviors>
+    <behaviors:BehaviorCollection>
+      <behaviors:EventToCommand EventName="Loaded"
+                                Command="{Binding VmProcedure.GetListProcedureCommand, Source={StaticResource Locator}}" />
+    </behaviors:BehaviorCollection>
+  </behaviors:Interaction.Behaviors>
+
+  <ScrollView VerticalOptions="FillAndExpand"
+             HorizontalOptions="FillAndExpand"
+             Padding="{StaticResource PagePadding}" >
+
+
+    <Grid Padding="0" >
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="{StaticResource GridColumnWidth}" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+      <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="0" Grid.Column="1">
+
+
+        <controls:HcListView x:TypeArguments="chBaseModel:ProcedureModel"
+                             ItemsSource="{Binding ListProcedure}"
+                             ItemCount="10"
+                             ItemClickCommand="{Binding GoToDetailPageCommand}"
+                             IsLoadMoreEnabled="True"
+                             CanLoadMore="False"
+                             IsPullToRefreshEnabled="False">
+          <controls:HcListView.ItemTemplate>
+            <DataTemplate>
+
+              <viewCells:CHBaseViewCell Title1="{x:Static resx:AppResources.time_title}"
+                                        Content1="{Binding When, Converter={StaticResource DateTimeToStringConverter}}"
+                                        Title2="{x:Static resx:AppResources.procedure_name}"
+                                        Content2="{Binding Name}" />
+
+            </DataTemplate>
+          </controls:HcListView.ItemTemplate>
+        </controls:HcListView>
+      </StackLayout>
+
+      <!--<ScrollView VerticalOptions="FillAndExpand"
+             HorizontalOptions="FillAndExpand"
+             Padding="{StaticResource PagePadding}" >
+
+
+    <Grid Padding="0" >
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="{StaticResource GridColumnWidth}" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="0" Grid.Column="1">
+        <StackLayout Orientation="Horizontal" Spacing="{StaticResource SpacingRowMainContent}">
+          <controls:ButtonCustom  Text="{x:Static resx:AppResources.procedure}"
+                                   Style="{StaticResource ButtonStyle}"
+                                  HorizontalOptions="Start"
+                                  Command="{Binding AddProcedure}">
+
+          </controls:ButtonCustom>
+        </StackLayout>
+        -->
+      <!--Listview-->
+      <!--
+        <StackLayout VerticalOptions="FillAndExpand" Padding="0,5">
+          <StackLayout VerticalOptions="Start" BackgroundColor="{x:Static helpers:HcStyles.GreenCheckupColor}" Padding="3,0,0,0" >
+            <StackLayout  BackgroundColor="White" Padding="5">
+              <Grid HorizontalOptions="Fill" ColumnSpacing="25">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="Auto"></ColumnDefinition>
+                  <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                  <RowDefinition></RowDefinition>
+                  <RowDefinition></RowDefinition>
+                  <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Style="{StaticResource LabelSubContentStyle}" Grid.Row="0"  Grid.Column="0"
+                       TextColor="{x:Static helpers:HcStyles.GreenCheckupColor}"
+                        Text="{x:Static resx:AppResources.procedure}"></Label>
+                <Label Style="{StaticResource LabelSubContentStyle}"
+                       Grid.Row="0" Grid.Column="1" TextColor="{x:Static helpers:HcStyles.LightBlackTextColor}"
+                       HorizontalOptions="Start" Text="7/18/2016"></Label>
+
+                <Label Style="{StaticResource LabelSubContentStyle}" Grid.Row="1"  Grid.Column="0"
+                       TextColor="{x:Static helpers:HcStyles.GreenCheckupColor}"
+                       Text="{x:Static resx:AppResources.procedure_name}"></Label>
+
+                <Label Style="{StaticResource LabelSubContentStyle}"
+                       Grid.Column="1" Grid.Row="1" TextColor="{x:Static helpers:HcStyles.LightBlackTextColor}"
+                       HorizontalOptions="Start" Text="Nhổ răng sâu ngà số 6"></Label>
+
+                <Label Style="{StaticResource LabelSubContentStyle}" Grid.Row="2"  Grid.Column="0"
+                       TextColor="{x:Static helpers:HcStyles.GreenCheckupColor}"
+                       Text="{x:Static resx:AppResources.location}"></Label>
+                <Label Style="{StaticResource LabelSubContentStyle}"
+                       Grid.Column="1" Grid.Row="2" TextColor="{x:Static helpers:HcStyles.LightBlackTextColor}"
+                       HorizontalOptions="Start" Text="Phòng khám khu vực Đà Nẵng"></Label>
+
+              </Grid>
+
+            </StackLayout>
+          </StackLayout>
+
+          
+
+        </StackLayout>
+
+
+      </StackLayout>
+    </Grid>
+  </ScrollView>-->
+    </Grid>
+  </ScrollView>
+</controls:TopBarContentPage>

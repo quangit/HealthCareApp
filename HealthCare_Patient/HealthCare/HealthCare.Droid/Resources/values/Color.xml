@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <item name="BaseColor" type="color">#464646</item>
+  <item name="BrandColor" type="color">#4169E1</item>
+  <item name="DarkColor" type="color">#747474</item>
+  <item name="LightGrayColor" type="color">#9E9E9E</item>
+  <item name="BaseBackground" type="color">#eae9e9</item>
+  <item name="LightBlueColor" type="color">#3b5998</item>
+  <item name="OrignalColor" type="color">#f4931f</item>
+  <item name="GreenColor" type="color">#2CBE71</item>
+  <item name="GreenBarColor" type="color">#04d967</item>
+  <item name="RebecacapurrleColor" type="color">#663399</item>
+  <item name="ShadowBackgroundColor" type="color">#D8D6D3</item>
+  <item name="ShadowColor" type="color">#A3A29F</item>
+  <item name="WhiteButtonColor" type="color">#F8F8F5</item>
+  <item name="BlackColor" type="color">#333333</item>
+  <item name="OrganceColor" type="color">#ff5722</item>
+
+</resources>

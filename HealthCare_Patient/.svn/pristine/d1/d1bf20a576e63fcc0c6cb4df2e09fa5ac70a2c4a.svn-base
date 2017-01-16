@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            x:Class="HealthCare.Pages.PaymentPage"
+                            BindingContext="{Binding VmCreditCard, Source={StaticResource Locator}}"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            PageType="{x:Type pages:PaymentPage}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                            Title="{x:Static resx:AppResources.payment_title}">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="x:Double" x:Key="CheckupInfoHeight"
+                  iOS="72" Android="72" WinPhone="140" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="IconInfoSize"
+                  iOS="52" Android="52" WinPhone="100" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="LogoBankSize"
+                  iOS="30" Android="30" WinPhone="40" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="LeftLineWidth"
+                  iOS="2" Android="2" WinPhone="4" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="CellPaddingInside"
+                  iOS="8" Android="8" WinPhone="10" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="CardNumberFontSize"
+                  iOS="18" Android="18" WinPhone="20" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="ContentPadding"
+                  iOS="20,5,20,0" Android="20,5,20,0" WinPhone="20,5,20,0" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="BottomBlockPadding"
+                  iOS="0,5,0,0" Android="0,5,0,0" WinPhone="0,5,0,0" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="BillContentPadding"
+                  iOS="20" Android="20" WinPhone="20" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="BottomPadding"
+                  iOS="30, 10, 20, 20" Android="30, 10, 20, 20" WinPhone="25, 10, 10, 20" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonWidth"
+                  iOS="85" Android="110" WinPhone="160" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonFontSize"
+                  iOS="{x:Static helpers:HcStyles.ButtonFontSize}"
+                  Android="{x:Static helpers:HcStyles.ButtonFontSize}"
+                  WinPhone="{x:Static helpers:HcStyles.FontSizeSubContent}" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="ViewCellHeight"
+                  iOS="84" Android="80" WinPhone="90" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="CardDesFontSize"
+                              iOS="12" Android="12" WinPhone="14" />  
+      <OnPlatform x:TypeArguments="x:Double" x:Key="FontSizePlaceHolder"
+                  iOS="{x:Static helpers:HcStyles.FontSizeTitle}"
+                  Android="{x:Static helpers:HcStyles.FontSizeTitle}"
+                  WinPhone="30" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="RectangePadding"
+                  iOS="0,8,0,8" Android="0,8,0,8" WinPhone="0,8,0,8" />
+
+      <OnPlatform x:TypeArguments="GridLength" x:Key="ThirdGridLenghtPhone"
+                  iOS="0.3*" Android="0.6*" WinPhone="0.6*" />
+
+      <OnIdiom x:TypeArguments="GridLength" x:Key="ThirdGridLenght"
+                     Phone="{StaticResource ThirdGridLenghtPhone}" Tablet="0.1*" />
+
+      <OnIdiom x:TypeArguments="Thickness" x:Key="CardPadding"
+                     Phone="8,0" Tablet="8" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+
+  <StackLayout Orientation="Vertical">
+
+    <ScrollView >
+      <StackLayout Orientation="Vertical" >
+        <!-- Card -->
+        <Grid Padding="{StaticResource ContentPadding}" ColumnSpacing="0" >
+          <Grid.RowDefinitions>
+            <RowDefinition Height="{StaticResource ViewCellHeight}" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+
+          <Grid.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding GoPickCardCommand}" />
+          </Grid.GestureRecognizers>
+
+          <ContentView x:Name="LeftLine"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       WidthRequest="{StaticResource LeftLineWidth}"
+                       BackgroundColor="{x:Static helpers:HcStyles.GreenCardColor}" />
+
+          <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderLightGrayColor}"
+                       Padding="0,1,1,1" Grid.Row="0" Grid.Column="1">
+            <Grid Padding="{StaticResource CellPaddingInside}" BackgroundColor="White">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="{StaticResource ThirdGridLenght}" />
+              </Grid.ColumnDefinitions>
+
+              <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding GoPickCardCommand}" />
+              </Grid.GestureRecognizers>
+
+              <ContentView Padding="{StaticResource CardPadding}" Grid.Column="0" Grid.RowSpan="2" Grid.Row="0">
+                <Image Source="ic_info_creditcard.png" WidthRequest="{StaticResource IconInfoSize}" />
+              </ContentView>
+              <Label Style="{StaticResource LabelTitleStyle}"
+                     Text="{Binding ChoosenCard.CardId, Converter={StaticResource HideCardIdConverter}}"
+                     Grid.Column="1" Grid.Row="0"
+                     FontSize="{StaticResource CardNumberFontSize}"
+                     IsVisible="{Binding ChoosenCard.IsChoosePayByOtherMethod, Converter={StaticResource BoolRevertConverter}}"
+                     VerticalOptions="EndAndExpand" />
+              <Label Style="{StaticResource LabelTitleStyle}" Text="{Binding ChoosenCard.CardId, 
+                     Converter={StaticResource PaymentConverter}}" Grid.Column="1"
+
+                     Grid.Row="1"
+                     FontSize="{StaticResource CardNumberFontSize}"
+                     FontAttributes="Bold" VerticalOptions="StartAndExpand"
+                     IsVisible="{Binding ChoosenCard.IsChoosePayByOtherMethod, Converter={StaticResource BoolRevertConverter}}"
+                     TextColor="{x:Static helpers:HcStyles.DarkerGreenCardColor}" />
+
+              <Label Style="{StaticResource LabelTitleStyle}" Text="{Binding ChoosenCard.CardId, 
+                     Converter={StaticResource PaymentConverter}}" Grid.Column="1"
+                    Grid.Row="0"
+                    Grid.RowSpan="2"
+                    FontSize="{StaticResource CardNumberFontSize}"
+                    FontAttributes="Bold" VerticalOptions="Center"
+                    IsVisible="{Binding ChoosenCard.IsChoosePayByOtherMethod}"
+                    TextColor="{x:Static helpers:HcStyles.DarkerGreenCardColor}" />
+
+              <!--<ContentView Grid.Column="2" Grid.RowSpan="2" Grid.Row="0" Padding="8,0,8,0">
+                <Image Source="ic_triangle_green.png"
+                       WidthRequest="{StaticResource LogoBankSize}"
+                       HeightRequest="{StaticResource LogoBankSize}"/>
+              </ContentView>-->
+
+              <ContentView Grid.ColumnSpan="3" Grid.RowSpan="2" Grid.Column="0" Grid.Row="0"
+                           BackgroundColor="White"
+                           IsVisible="{Binding IsBackCardVisible}">
+                <ContentView.GestureRecognizers>
+                  <TapGestureRecognizer Command="{Binding GoPickCardCommand}" />
+                </ContentView.GestureRecognizers>
+                <Label Text="{x:Static resx:AppResources.payment_cc_pick_title}" 
+                       Style="{StaticResource LabelTitleStyle}"
+                       FontSize="{StaticResource FontSizePlaceHolder}"
+                       Opacity="0.5" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+              </ContentView>
+
+              <ContentView Grid.Column="2" Grid.RowSpan="2" Grid.Row="0" Padding="{StaticResource RectangePadding}">
+                <Image Source="ic_triangle_green.png"
+                       WidthRequest="{StaticResource LogoBankSize}"
+                       HeightRequest="{StaticResource LogoBankSize}"/>
+              </ContentView>
+            </Grid>
+          </ContentView>
+        </Grid>
+
+        <!-- Bill -->
+        <ContentView Padding="{StaticResource ContentPadding}"
+                     BindingContext="{Binding VmCheckup, Source={StaticResource Locator}}">
+          <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderLightGrayColor}" Padding="1">
+            <Grid BackgroundColor="White" Padding="{StaticResource BillContentPadding}" RowSpacing="3">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="1" />
+                <RowDefinition Height="*" />
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+              <controls:ContentControl Title="{x:Static resx:AppResources.payment_info} " Icon="ic_medkit.png" Grid.Row="0"
+                                       Grid.ColumnSpan="2" />
+              <Label Style="{StaticResource LabelContentStyle}" Text="{x:Static resx:AppResources.payment_schedule_fee}" Grid.Column="0"
+                     Grid.Row="1" />
+              <Label Style="{StaticResource LabelContentStyle}" Text="{x:Static resx:AppResources.payment_treatment_fee}" Grid.Column="0"
+                     Grid.Row="2" />
+              <Label Style="{StaticResource LabelContentStyle}" Text="{x:Static resx:AppResources.payment_total_fee}" Grid.Column="0"
+                     Grid.Row="4" />
+
+              <Label Style="{StaticResource LabelContentStyle}"
+                     Text="{Binding SelectedItem.SchedulingFee}"
+                     Grid.Column="1" Grid.Row="1"
+                     HorizontalOptions="End" />
+              <Label Style="{StaticResource LabelContentStyle}"
+                     Text="{Binding SelectedItem.CheckupFee}" Grid.Column="1" Grid.Row="2"
+                     HorizontalOptions="End" />
+              <Label Style="{StaticResource LabelContentStyle}" Text="{Binding SelectedItem.TotalFee}"
+                     Grid.Column="1" Grid.Row="4"
+                     HorizontalOptions="End" TextColor="{x:Static helpers:HcStyles.YellowCheckupColor}"
+                     FontAttributes="Bold" />
+
+              <ContentView BackgroundColor="{x:Static helpers:HcStyles.GreenLineColor}" Grid.Column="1"
+                           Grid.Row="3" />
+            </Grid>
+          </ContentView>
+        </ContentView>
+      </StackLayout>
+    </ScrollView>
+
+    <!-- Bottom group-->
+    <StackLayout Orientation="Vertical" VerticalOptions="End"
+                 Padding="{StaticResource BottomBlockPadding}" Spacing="0">
+      <ContentView HeightRequest="1" BackgroundColor="{x:Static helpers:HcStyles.BorderLightGrayColor}" />
+      <StackLayout Orientation="Vertical" BackgroundColor="White" Padding="{StaticResource BottomPadding}">
+
+        <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     BindingContext="{Binding VmCheckup, Source={StaticResource Locator}}">
+          <Label Text="{x:Static resx:AppResources.checkup_doctor}" Style="{StaticResource LabelSubContentStyle}"
+                 TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                 FontAttributes="Bold" />
+          <Label Text="{Binding SelectedItem.Schedule.Doctor.FullName}"
+                 Style="{StaticResource LabelSubContentStyle}"
+                 TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                 FontAttributes="Bold" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+          <ScrollView HeightRequest="{StaticResource CheckupInfoHeight}" HorizontalOptions="StartAndExpand"
+                      Padding="5,0,0,0"
+                      BindingContext="{Binding VmCheckup, Source={StaticResource Locator}}">
+            <StackLayout Orientation="Vertical">
+              <Label Text="{x:Static resx:AppResources.checkup_schedule}" Style="{StaticResource LabelSubContentStyle}" />
+              <Label Text="{Binding SelectedItem.ScheduleTimeString}"
+                     Style="{StaticResource LabelSubContentStyle}" />
+              <!--<Label Text="Ngày khám:" Style="{StaticResource LabelSubContentStyle}" />
+                            <Label Text="{Binding SelectedItem.Schedule.AsDate}"
+                                   Style="{StaticResource LabelSubContentStyle}" />-->
+              <Label Text="{x:Static resx:AppResources.checkup_exam_place}" Style="{StaticResource LabelSubContentStyle}" />
+              <Label Text="{Binding SelectedItem.Schedule.Hospital.AsString}"
+                     Style="{StaticResource LabelSubContentStyle}" />
+            </StackLayout>
+          </ScrollView>
+          <Button Style="{StaticResource ButtonStyle}" Text="{x:Static resx:AppResources.payment}"
+                  IsVisible="False"
+                  WidthRequest="{StaticResource ButtonWidth}"
+                  FontSize="{StaticResource ButtonFontSize}"
+                  Command="{Binding DoPaymentCommand}"
+                  VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" />
+        </StackLayout>
+
+      </StackLayout>
+    </StackLayout>
+  </StackLayout>
+</controls:TopBarContentPage>

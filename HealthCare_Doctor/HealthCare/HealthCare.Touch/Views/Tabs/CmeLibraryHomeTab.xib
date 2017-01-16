@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CmeLibraryHomeTab">
+            <connections>
+                <outlet property="CategoryCollection" destination="OQr-hv-3Hk" id="ayu-dh-mbN"/>
+                <outlet property="CategorySearchBar" destination="hVy-nn-liq" id="OQg-S2-SfO"/>
+                <outlet property="ClassSearchButton" destination="egT-yK-U1G" id="pAL-P8-nBe"/>
+                <outlet property="EmptyLabel" destination="EWN-ZC-FWG" id="BzT-m1-y0h"/>
+                <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="OQr-hv-3Hk">
+                    <rect key="frame" x="5" y="44" width="365" height="579"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="Zad-zr-iCL">
+                        <size key="itemSize" width="120" height="150"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There are no Featured Deals " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWN-ZC-FWG">
+                    <rect key="frame" x="50" y="322" width="275" height="24"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="hVy-nn-liq">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HHU-sc-6FP">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <items>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="U0S-7K-ogN"/>
+                        <barButtonItem image="cmeclasssearch.png" id="egT-yK-U1G"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="qBM-vr-WMx"/>
+                    </items>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="barTintColor" red="0.16078431369999999" green="0.70588235290000001" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                </toolbar>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="hVy-nn-liq" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="1Fe-ql-z2f"/>
+                <constraint firstItem="OQr-hv-3Hk" firstAttribute="top" secondItem="hVy-nn-liq" secondAttribute="bottom" id="E9r-hc-x4h"/>
+                <constraint firstItem="EWN-ZC-FWG" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="50" id="FCQ-w7-b75"/>
+                <constraint firstAttribute="trailing" secondItem="EWN-ZC-FWG" secondAttribute="trailing" constant="50" id="Gkv-hM-KnN"/>
+                <constraint firstAttribute="bottom" secondItem="HHU-sc-6FP" secondAttribute="bottom" id="Hst-lT-sp9"/>
+                <constraint firstAttribute="trailing" secondItem="OQr-hv-3Hk" secondAttribute="trailing" constant="5" id="Id7-xS-W4W"/>
+                <constraint firstAttribute="trailing" secondItem="hVy-nn-liq" secondAttribute="trailing" id="P1U-EE-TLc"/>
+                <constraint firstItem="EWN-ZC-FWG" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="50" id="Peg-j2-uHD"/>
+                <constraint firstAttribute="trailing" secondItem="EWN-ZC-FWG" secondAttribute="trailing" constant="50" id="Phs-le-cmd"/>
+                <constraint firstItem="EWN-ZC-FWG" firstAttribute="centerY" secondItem="OQr-hv-3Hk" secondAttribute="centerY" id="a11-nJ-aou"/>
+                <constraint firstItem="hVy-nn-liq" firstAttribute="top" secondItem="2" secondAttribute="top" id="aox-NE-8u9"/>
+                <constraint firstAttribute="trailing" secondItem="HHU-sc-6FP" secondAttribute="trailing" id="b5Z-gx-Xye"/>
+                <constraint firstItem="OQr-hv-3Hk" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="5" id="g6V-iW-mED"/>
+                <constraint firstAttribute="bottom" secondItem="OQr-hv-3Hk" secondAttribute="bottom" constant="50" id="gzg-dx-f35"/>
+                <constraint firstItem="EWN-ZC-FWG" firstAttribute="centerX" secondItem="OQr-hv-3Hk" secondAttribute="centerX" id="jdt-YB-RP9"/>
+                <constraint firstItem="EWN-ZC-FWG" firstAttribute="centerY" secondItem="OQr-hv-3Hk" secondAttribute="centerY" id="mim-8l-lMe"/>
+                <constraint firstItem="HHU-sc-6FP" firstAttribute="top" secondItem="OQr-hv-3Hk" secondAttribute="bottom" id="nx2-BH-AAm"/>
+                <constraint firstItem="OQr-hv-3Hk" firstAttribute="top" secondItem="2" secondAttribute="top" constant="100" id="s0g-4j-lGz"/>
+                <constraint firstItem="HHU-sc-6FP" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="uae-3L-LNW"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="gzg-dx-f35"/>
+                    <exclude reference="s0g-4j-lGz"/>
+                    <exclude reference="FCQ-w7-b75"/>
+                    <exclude reference="Gkv-hM-KnN"/>
+                    <exclude reference="a11-nJ-aou"/>
+                    <exclude reference="jdt-YB-RP9"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="245.5" y="427.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="cmeclasssearch.png" width="32" height="32"/>
+    </resources>
+</document>

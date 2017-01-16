@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+    xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+    xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+    xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+    PageType="{x:Type pages:DoctorDetailPage}"
+    xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+    BindingContext="{Binding VmSearch, Source={StaticResource Locator}}"
+    Title="{x:Static resx:AppResources.doctor_info}" BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+    x:Class="HealthCare.Pages.PhotoEditPage">
+
+    <controls:TopBarContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="Thickness" x:Key="MainContentPadding"
+                        iOS="20" Android="20" WinPhone="20" />
+        </ResourceDictionary>
+    </controls:TopBarContentPage.Resources>
+
+    
+  
+</controls:TopBarContentPage>

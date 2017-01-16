@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectView>ProjectFiles</ProjectView>
+    <AppxPackageIsForStore>True</AppxPackageIsForStore>
+    <AppxShowAllApps>False</AppxShowAllApps>
+    <AppxBuildConfigurationSelection>x86|x64|arm</AppxBuildConfigurationSelection>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <RemoteDebugMachine>192.168.1.105:4020 (DESKTOP-L9HFPMB)</RemoteDebugMachine>
+    <AuthenticationMode>Windows</AuthenticationMode>
+    <RemoteDebugEnabled>false</RemoteDebugEnabled>
+    <DeviceId>721A4141-313A-42D6-9C47-7FE224046E9B</DeviceId>
+    <UseEmulator>true</UseEmulator>
+    <UseSimulator>false</UseSimulator>
+    <CreateCleanLayout>false</CreateCleanLayout>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DeviceId>30F105C9-681E-420b-A277-7C086EAD8A4E</DeviceId>
+    <UseEmulator>true</UseEmulator>
+    <RemoteDebugMachine>192.168.1.108</RemoteDebugMachine>
+    <AuthenticationMode>None</AuthenticationMode>
+    <RemoteDebugEnabled>false</RemoteDebugEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <DeviceId>30F105C9-681E-420b-A277-7C086EAD8A4E</DeviceId>
+    <UseEmulator>true</UseEmulator>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,80 @@
+﻿<Page x:Class="HealthCare.Win.Views.ResetPassView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:HealthCare.Win.Views"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:viewModels="using:HealthCare.Core.ViewModels"
+      mc:Ignorable="d">
+    <Page.DataContext>
+        <viewModels:ResetPassViewModel />
+    </Page.DataContext>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0">
+            <StackPanel.Background>
+                <ImageBrush Stretch="UniformToFill"
+                            ImageSource="/Assets/Header.png" />
+            </StackPanel.Background>
+            <Image Source="/Assets/logo.png"
+                   Stretch="None"
+                   Height="100"
+                   HorizontalAlignment="Center"
+                   Margin="12"></Image>
+            <TextBlock Text="{Binding Source={StaticResource LocalizedStrings},Path=LocalizedResources.SignIn_Title}"
+                       Margin="12,0,24,12"
+                       FontWeight="Bold"
+                       FontSize="22"
+                       Style="{StaticResource TitleTextBlockStyle}"
+                       Foreground="Black" />
+            <Border Height="2"
+                    Margin="12,0"
+                    Background="{StaticResource MainBrush}" />
+        </StackPanel>
+        <Grid x:ConnectionId='1' x:Name="ContentPanel"
+              Background="White"
+              Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <StackPanel Margin="12"
+                            VerticalAlignment="Top">
+                    <TextBox Text="{Binding Email,Mode=TwoWay}"
+                             PlaceholderText="Email"
+                             Style="{StaticResource TextBoxStyle}"
+                             Header="M20,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6A2,2 0 0,0 20,4M20,18H4V8L12,13L20,8V18M20,6L12,11L4,6V6H20V6Z" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Button Content="{Binding Source={StaticResource LocalizedStrings},Path=LocalizedResources.SignIn_Login}"
+                                Background="Gray"
+                                Foreground="White"
+                                BorderThickness="0"
+                                Padding="10"
+                                Margin="0,0,6,0"
+                                HorizontalAlignment="Stretch"
+                                Command="{Binding BackCommand}" />
+                        <Button Content="{Binding Source={StaticResource LocalizedStrings},Path=LocalizedResources.ResetPass_Reset}"
+                                Background="{StaticResource MainBrush}"
+                                Foreground="White"
+                                BorderThickness="0"
+                                Padding="10"
+                                Margin="6,0,0,0"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                Command="{Binding ResetPassCommand}" />
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
+

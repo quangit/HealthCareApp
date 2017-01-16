@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            x:Class="HealthCare.Pages.PasswordPage"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            BindingContext="{Binding VmPassword, Source={StaticResource Locator}}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+                            PageType="{x:Type pages:PasswordPage}"
+                            Title="{Binding Title}"
+                            BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}">
+
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="x:Double" x:Key="RowSpacing"
+                  iOS="10" Android="10" WinPhone="20" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="DesciptionFontSize"
+                  iOS="12" Android="12" WinPhone="{x:Static helpers:HcStyles.FontSizeContent}" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="HeightConstraintFactor"
+                  iOS="1" Android="1" WinPhone="1" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="HeightConstraintConstant"
+                  iOS="0" Android="0" WinPhone="-8" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="YConstraintFactor"
+                  iOS="0.1" Android="0.1" WinPhone="0" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonSize"
+                  iOS="32" Android="32" WinPhone="{x:Static helpers:HcStyles.ButtonHeight}" />
+    </ResourceDictionary>
+  </ContentPage.Resources>
+    <ScrollView>
+      <ContentView IsVisible="{Binding IsNotChangePin}" x:Name="idContainer" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                     BackgroundColor="Transparent">
+      <ContentView x:Name="idFrame" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"
+                  >
+        <StackLayout x:Name="idContent" Orientation="Vertical" BackgroundColor="White" Padding="10,10,10,10"
+                     VerticalOptions="StartAndExpand" Spacing="{StaticResource RowSpacing}">
+
+          <Label Text="{Binding Title}" Style="{StaticResource LabelTitleStyle}"
+                            TextColor="{x:Static helpers:HcStyles.GreenColor}" HorizontalOptions="Start"
+                            FontAttributes="Bold" />
+          <Label Text="{Binding Description}" Style="{StaticResource LabelContentStyle}"
+                 FontSize="{StaticResource DesciptionFontSize}"
+                 HorizontalOptions="FillAndExpand" />
+          <Label Text="{Binding ErrorMsg}"
+                 FontSize="{StaticResource DesciptionFontSize}" TextColor="Red" HorizontalOptions="FillAndExpand" />
+          <controls:HcEntry PlaceHolder="{x:Static resx:AppResources.password_current}" Source="ic_key.png"
+                            Text="{Binding CurPassword}" IsVisible="{Binding IsCurPwdVisible}"
+                            BackgroundColor="White" Padding="0, 10, 0, 0" IsPassword="true" />
+          <controls:HcEntry PlaceHolder="{x:Static resx:AppResources.password_new}" Source="ic_key.png"
+                            Text="{Binding NewPassword}" IsVisible="{Binding IsNewPwdVisible}"
+                            BackgroundColor="White" IsPassword="true" />
+          <controls:HcEntry PlaceHolder="{x:Static resx:AppResources.password_verify}" Source="ic_key.png"
+                            Text="{Binding ConfirmPassword}" IsVisible="{Binding IsConfirmPwdVisible}"
+                            BackgroundColor="White" Padding="0, 0, 0, 15" IsPassword="true" />
+
+          <Grid HorizontalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Style="{StaticResource ButtonStyle}" Text="{x:Static resx:AppResources.cancel}"
+                    Grid.Column="0"
+                    BackgroundColor="{x:Static helpers:HcStyles.DarkGreenButtonColor}"
+                    Command="{Binding CancelCommand}" />
+            <Button Style="{StaticResource ButtonStyle}" Text="{x:Static resx:AppResources.accecpt}"
+                    Grid.Column="1"
+                    BackgroundColor="{x:Static helpers:HcStyles.GreenButtonColor}"
+                    Command="{Binding OkCommand}" />
+          </Grid>
+        </StackLayout>
+      </ContentView>
+    </ContentView>
+    </ScrollView>
+  <controls:WebViewCustom  IsVisible="{Binding IsChangePin}" Source="{Binding UrlSetPass, Mode=OneWay}"  x:Name="WebView" Navigating="WebView_OnNavigating">
+    <behaviors:Interaction.Behaviors>
+      <behaviors:BehaviorCollection>
+        <behaviors:EventToCommand EventName="Navigated"
+                                  Command="{Binding SetPassWebViewNavigatedCommand}" />
+      </behaviors:BehaviorCollection>
+    </behaviors:Interaction.Behaviors>
+  </controls:WebViewCustom>
+</controls:TopBarContentPage>

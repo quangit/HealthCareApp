@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/titleBackground"
+            android:scaleType="centerCrop" />
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textColor="@android:color/black"
+            android:layout_gravity="left|bottom"
+            local:MvxBind="Text [Consult_Title]"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="2dp"
+            android:textStyle="bold"
+            android:textSize="20dp" />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@color/ButtonGreenMainColor"
+            android:layout_gravity="bottom" />
+    </FrameLayout>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <MvxListView
+                android:layout_margin="10dp"
+                android:id="@+id/consultList"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="0dp"
+                local:MvxBind="ItemsSource ConsultRequests; ItemClick ShowConsultCommand"
+                local:MvxItemTemplate="@layout/consulttemplate" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:textSize="18dp"
+                android:id="@+id/EmptyTextView"
+                android:textColor="@android:color/black"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                local:MvxBind="Visible ConsultRequests, Converter=ListVis; Text [Consult_Empty]" />
+        </FrameLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

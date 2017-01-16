@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<RelativeLayout xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="HealthCare.Controls.HcImageButton"
+                xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                HeightRequest="{x:Static helpers:HcStyles.ButtonHeight}">
+
+    <RelativeLayout.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="BgDimmension"
+                        x:TypeArguments="x:Double"
+                        iOS="0"
+                        Android="0"
+                        WinPhone="-24" />
+            <OnPlatform x:Key="BgConstant"
+                        x:TypeArguments="x:Double"
+                        iOS="0"
+                        Android="0"
+                        WinPhone="10" />
+            <OnPlatform x:Key="ButtonOpacity"
+                        x:TypeArguments="x:Double"
+                        iOS="1"
+                        Android="1"
+                        WinPhone="0" />
+        </ResourceDictionary>
+    </RelativeLayout.Resources>
+
+    <ContentView
+        x:Name="idBackground"
+        RelativeLayout.XConstraint="{ConstraintExpression Type=Constant,
+                                        Constant={StaticResource BgConstant}}"
+        RelativeLayout.YConstraint="{ConstraintExpression Type=Constant,
+                                        Constant={StaticResource BgConstant}}"
+        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                        Property=Width,
+                                        Constant= {StaticResource BgDimmension},
+                                        Factor=1 }"
+        RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                        Property=Height,
+                                        Constant= {StaticResource BgDimmension},
+                                        Factor=1}">
+        <StackLayout x:Name="stlContent" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+            <Image x:Name="idImage" VerticalOptions="Center" />
+            <Label x:Name="idLabel" VerticalOptions="Center" FontAttributes="Bold"
+                   FontSize="{x:Static helpers:HcStyles.ButtonFontSize}" />
+        </StackLayout>
+    </ContentView>
+
+    <controls:ButtonCustom x:Name="idButton" BackgroundColor="Transparent" HorizontalOptions="Start"
+                           Opacity="{StaticResource ButtonOpacity}"
+                           RelativeLayout.XConstraint="{ConstraintExpression Type=Constant,
+                                        Constant=0}"
+                           RelativeLayout.YConstraint="{ConstraintExpression Type=Constant,
+                                        Constant=0}"
+                           RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                        Property=Width,
+                                        Factor=1 }"
+                           RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                        Property=Height,
+                                        Factor=1}" />
+</RelativeLayout>

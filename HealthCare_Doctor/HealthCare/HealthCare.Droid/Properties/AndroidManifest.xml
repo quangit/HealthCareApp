@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.clas.healthcare.dr" android:versionName="1.2.9" android:installLocation="auto" android:versionCode="30">
+	<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="15" />
+	<application android:largeHeap="true" android:label="BacSi24x7 BS" android:theme="@style/AppTheme" android:icon="@drawable/logo_bs"></application>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+	<uses-permission android:name="com.clas.healthcare.dr.permission.C2D_MESSAGE" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<uses-permission android:name="android.permission.BLUETOOTH" />
+</manifest>

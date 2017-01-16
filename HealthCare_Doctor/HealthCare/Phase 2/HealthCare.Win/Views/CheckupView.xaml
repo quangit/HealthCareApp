@@ -1,0 +1,182 @@
+﻿<Page x:Class="HealthCare.Win.Views.CheckupView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:HealthCare.Win.Views"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:converters="using:HealthCare.Core.Converters"
+      xmlns:viewModels="using:HealthCare.Core.ViewModels"
+      mc:Ignorable="d">
+    <Page.Resources>
+        <converters:MilisecondToDateValueConverter x:Key="MilisecondToDateConverter" />
+    </Page.Resources>
+    <Page.DataContext>
+        <viewModels:CheckupViewModel />
+    </Page.DataContext>
+    <Grid x:Name="RootLayout"
+          Background="{ThemeResource GrayBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <!--  header  -->
+        <Grid Background="{StaticResource MainBrush}"
+              Height="48">
+            <TextBlock Style="{StaticResource TitleTextBlockStyle}"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Margin="12,0"
+                       FontSize="22"
+                       Text="{Binding LocalizedResources.ApplicationTitle,
+                                          Source={StaticResource LocalizedStrings}}" />
+        </Grid>
+        <CommandBar Background="{StaticResource MainBrush}"
+                    HorizontalAlignment="Right"
+                    RequestedTheme="Dark">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Label="{Binding Source={StaticResource LocalizedStrings},Path=LocalizedResources.CallSupport}"
+                              Command="{Binding Source={StaticResource RootCommand}, Path=CallCommand}">
+                    <AppBarButton.Icon>
+                        <SymbolIcon Symbol="Phone" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+        <ScrollViewer Grid.Row="1">
+            <Grid Background="White"
+                  Margin="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="{Binding Path=LocalizedResources.CheckupView_Doctor, Source={StaticResource LocalizedStrings}}"
+                           Margin="0,3,12,3"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource MainBrush}" />
+                <TextBlock Text="{Binding Checkup.Doctor.Name}"
+                           Margin="0,3,12,3"
+                           Grid.Column="1" />
+                <TextBlock Text="{Binding Path=LocalizedResources.CheckupView_Appoint, Source={StaticResource LocalizedStrings}}"
+                           Margin="0,3,12,3"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource MainBrush}"
+                           Grid.Row="1" />
+                <TextBlock Text="{Binding Checkup.Date}"
+                           Margin="12,3,12,3"
+                           Grid.Column="1"
+                           Grid.Row="1" />
+                <Border Grid.Row="2"
+                        Margin="0,6"
+                        Grid.ColumnSpan="2"
+                        Height="4"
+                        Background="{StaticResource GrayBrush}" />
+                <TextBlock Text="{Binding Path=LocalizedResources.CheckupView_Hospital, Source={StaticResource LocalizedStrings}}"
+                           Grid.Row="3"
+                           Margin="0,3,12,3"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource MainBrush}" />
+                <TextBlock Text="{Binding Checkup.Hospital.Name}"
+                           Margin="0,3,12,3"
+                           Grid.Column="1"
+                           Grid.Row="3" />
+                <TextBlock Text="{Binding Path=LocalizedResources.CheckupView_CheckType, Source={StaticResource LocalizedStrings}}"
+                           Grid.Row="4"
+                           Margin="0,3,12,3"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource MainBrush}" />
+                <TextBlock Text="{Binding Checkup.CheckupType}"
+                           Margin="0,3,12,3"
+                           Grid.Column="1"
+                           Grid.Row="4" />
+                <Border Grid.Row="5"
+                        Grid.ColumnSpan="2"
+                        Margin="0,6"
+                        Height="4"
+                        Background="{StaticResource GrayBrush}" />
+                <TextBlock Text="{Binding Path=LocalizedResources.CheckupView_Sym, Source={StaticResource LocalizedStrings}}"
+                           Grid.Row="6"
+                           Margin="0,3,12,0"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource MainBrush}" />
+                <TextBox Grid.Row="7"
+                         BorderBrush="Black"
+                         FontSize="16"
+                         MinHeight="100"
+                         AcceptsReturn="True"
+                         Padding="6"
+                         Text="{Binding Checkup.Symptom}"
+                         BorderThickness="1"
+                         Background="Transparent"
+                         IsEnabled="False"
+                         Grid.ColumnSpan="2" />
+                <TextBlock Text="{Binding Path=LocalizedResources.CheckupView_Patient, Source={StaticResource LocalizedStrings}}"
+                           Grid.Row="8"
+                           Margin="0,0,12,3"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource MainBrush}" />
+                <StackPanel Grid.Row="8"
+                            HorizontalAlignment="Right"
+                            Grid.Column="1">
+                    <TextBlock Text="{Binding Checkup.Patient}"
+                               Margin="12,0,12,3"
+                               TextAlignment="Right"/>
+                    <TextBlock Text="{Binding Checkup.AppointmentNoStr}"
+                               TextAlignment="Right"
+                               FontSize="12"
+                               Margin="12,0,12,3" />
+                </StackPanel>
+                <Grid Grid.Row="9"
+                      Grid.ColumnSpan="2">
+                    <StackPanel>
+                        <TextBox Text="{Binding Checkup.Patient.Name,Mode=TwoWay}"
+                                 PlaceholderText="{Binding Source={StaticResource LocalizedStrings},Path=LocalizedResources.SignUp_FirstName}"
+                                 Header="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"
+                                 Style="{StaticResource TextBoxStyle}"
+                                 IsReadOnly="True"
+                                 
+                                 InputScope="PersonalFullName" />
+                        <TextBox Text="{Binding Checkup.Patient.Phone,Mode=TwoWay}"
+                                 Style="{StaticResource TextBoxStyle}"
+                                 PlaceholderText="{Binding Source={StaticResource LocalizedStrings},Path=LocalizedResources.SignUp_Phone}"
+                                 IsReadOnly="True"
+                                 
+                                 Header="M17.25,18H6.75V4H17.25M14,21H10V20H14M16,1H8A3,3 0 0,0 5,4V20A3,3 0 0,0 8,23H16A3,3 0 0,0 19,20V4A3,3 0 0,0 16,1Z"
+                                 InputScope="TelephoneNumber" />
+                        <TextBox Text="{Binding Checkup.Patient.IdNo,Mode=TwoWay}"
+                                 Style="{StaticResource TextBoxStyle}"
+                                 PlaceholderText="{Binding Source={StaticResource LocalizedStrings},Path=LocalizedResources.SignUp_SID}"
+                                 IsReadOnly="True"
+                                 
+                                 Header="M20,8H4V6H20M20,18H4V12H20M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"
+                                 InputScope="Number" />
+                        <TextBox Text="{Binding Checkup.Patient.Address,Mode=TwoWay}"
+                                 Style="{StaticResource TextBoxStyle}"
+                                 PlaceholderText="{Binding Source={StaticResource LocalizedStrings},Path=LocalizedResources.SignUp_Address}"
+                                 IsReadOnly="True"
+                                 Header="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"
+                                 InputScope="Number" />
+                        <!--<TextBox Text="{Binding Checkup.Patient.Email,Mode=TwoWay}"
+                                 Style="{StaticResource TextBoxStyle}"
+                                 PlaceholderText="{Binding Source={StaticResource LocalizedStrings},Path=LocalizedResources.SignUp_Email}"
+                                 IsReadOnly="True"
+                                 Header="M20,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6A2,2 0 0,0 20,4M20,18H4V8L12,13L20,8V18M20,6L12,11L4,6V6H20V6Z"
+                                 InputScope="EmailSmtpAddress" />-->
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayout"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="10dp">
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        local:MvxBind="Text [ConsultView_Reply]"
+        android:textStyle="bold"
+        android:textSize="17dp" />
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:lines="5"
+        android:gravity="top|left"
+        android:textColor="@android:color/black"
+        local:MvxBind="Text Request.ReplyContent, Mode=TwoWay; Hint [Consult_DoctorDesc]"
+        android:layout_marginBottom="10dp" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            local:MvxBind="Text [Message_Cancel];"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cancelBut"
+            android:textColor="@android:color/white"
+            android:background="@drawable/borderbut_g"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1" />
+        <Button
+            local:MvxBind="Text [Consult_Send]; Click ReplyCommand; "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/borderbut"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+</LinearLayout>

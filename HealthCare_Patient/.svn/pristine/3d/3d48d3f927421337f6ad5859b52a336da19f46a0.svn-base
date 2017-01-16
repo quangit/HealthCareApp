@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:viewCells="clr-namespace:HealthCare.Controls.ViewCells;assembly=HealthCare"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            x:Class="HealthCare.Pages.CreditCardPage"
+                            BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                            Title="{x:Static resx:AppResources.payment_cc_title}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+                            PageType="{x:Type pages:CreditCardPage}"
+                            Icon="tab_account.png"
+                            BindingContext="{Binding VmCreditCard, Source={StaticResource Locator}}">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="x:Double" x:Key="RuleButtonHeight"
+                  iOS="15" Android="15" WinPhone="18" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="LabelTitleFontsize"
+                  iOS="{x:Static helpers:HcStyles.FontSizeTitle}"
+                  Android="{x:Static helpers:HcStyles.FontSizeTitle}"
+                  WinPhone="{x:Static helpers:HcStyles.FontSizeContent}" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonSize"
+                  iOS="32" Android="42" WinPhone="{x:Static helpers:HcStyles.ButtonHeight}" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="FilterHeight"
+                  iOS="52" Android="52" WinPhone="80" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonPadding"
+                    iOS="10" Android="10" WinPhone="6" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+
+  <StackLayout Orientation="Vertical" BackgroundColor="Transparent">
+    <!-- Group picker and button -->
+    <StackLayout Orientation="Vertical" BackgroundColor="White">
+
+      <!--- Group button -->
+      <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10">
+        <Label Style="{StaticResource LabelTitleStyle}"
+               FontSize="{StaticResource LabelTitleFontsize}"
+               Text="{x:Static resx:AppResources.cc_info}" VerticalOptions="CenterAndExpand" />
+        <StackLayout Orientation="Horizontal" Spacing="{StaticResource ButtonPadding}" HorizontalOptions="EndAndExpand">
+          <Button Image="ic_password_button.png" BorderWidth="0" BorderColor="Transparent"
+                  BackgroundColor="Transparent"
+                  Command="{Binding SetOrChangePassword}"
+                  HeightRequest="{StaticResource ButtonSize}" WidthRequest="{StaticResource ButtonSize}" />
+          <ContentView HeightRequest="{StaticResource RuleButtonHeight}" WidthRequest="1"
+                       BackgroundColor="Silver" VerticalOptions="Center" />
+          <Button Image="ic_button_add.png" BorderWidth="0" BorderColor="Transparent"
+                  Command="{Binding GoAddCard}"
+                  BackgroundColor="Transparent"
+                  HeightRequest="{StaticResource ButtonSize}" WidthRequest="{StaticResource ButtonSize}" />
+        </StackLayout>
+      </StackLayout>
+
+    </StackLayout>
+
+    <controls:HcListView x:TypeArguments="models:CreditCardModel"
+                         ItemsSource="{Binding ListCreditCardNoVnPay}"
+                         ItemCount="{Binding ItemCount,Mode=TwoWay}"
+                         IsLoadMoreEnabled="False"
+                         IsPullToRefreshEnabled="False"
+                         ItemClickCommand="{Binding CardTappedCommand}"
+                         EmptyText="{x:Static resx:AppResources.empty}" >
+      <controls:HcListView.ItemTemplate>
+        <DataTemplate>
+          <viewCells:CreditCardViewCell />
+        </DataTemplate>
+      </controls:HcListView.ItemTemplate>
+    </controls:HcListView>
+
+  </StackLayout>
+
+</controls:TopBarContentPage>

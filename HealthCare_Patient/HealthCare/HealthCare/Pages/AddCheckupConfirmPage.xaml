@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<controls:BaseAddCheckupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                             xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                             xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                             xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                             xmlns:healthCare="clr-namespace:HealthCare;assembly=HealthCare"
+                             BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                             Title="{x:Static resx:AppResources.add_checkup_confirm}"
+                             CancelText="{x:Static resx:AppResources.go_back}"
+                             NextText="{x:Static resx:AppResources.accecpt}"
+                             CancelCommand="{Binding GoBackCommand}"
+                             NextCommand="{Binding AddCheckupCommand}"
+                             BindingContext="{Binding VmAddCheckup, Source={StaticResource Locator}}"
+                             x:Class="HealthCare.Pages.AddCheckupConfirmPage">
+
+
+  <controls:BaseAddCheckupPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SeparatorLineHeight"
+                  iOS="1" Android="1" WinPhone="1" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="StackLevel2Padding"
+                  iOS="8,0,8,10" Android="8,0,8,10" WinPhone="8,0,8,8" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="ContentPadding"
+                  iOS="8,8" Android="0,8" WinPhone="8,0" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="PageSidePadding"
+              iOS="18,0" Android="18,0" WinPhone="18,0" />
+      <OnPlatform x:Key="SwithPadding" x:TypeArguments="Thickness"
+                       iOS="0" Android="0" WinPhone="0,-20" />"
+    </ResourceDictionary>
+  </controls:BaseAddCheckupPage.Resources>
+
+  <controls:BaseAddCheckupPage.PageContent>
+    <StackLayout Padding="{StaticResource PageSidePadding}"
+                 BindingContext="{Binding VmAddCheckup.CheckupAdding, Source={StaticResource Locator}}">
+      <StackLayout Padding="0,0">
+        <ScrollView>
+          <StackLayout Orientation="Vertical"
+                       Spacing="12">
+            <!--First block-->
+            <StackLayout Orientation="Vertical" BackgroundColor="White"
+                         Padding="{StaticResource StackLevel2Padding}">
+
+              <Grid Padding="{StaticResource ContentPadding}">
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="{x:Static resx:AppResources.checkup_doctor}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                       Style="{StaticResource LabelContentStyle}" />
+
+                <Label Text="{x:Static resx:AppResources.checkup_schedule}"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                       Style="{StaticResource LabelContentStyle}" />
+
+                <!--Content-->
+                <Label Text="{Binding Schedule.Doctor.FullName}"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Style="{StaticResource LabelContentWordWrapStyle}" />
+
+                <Label Text="{Binding Schedule.AsTime}"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       Style="{StaticResource LabelContentWordWrapStyle}" />
+              </Grid>
+
+              <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderGrayColor}"
+                           HeightRequest="{StaticResource SeparatorLineHeight}"
+                           HorizontalOptions="FillAndExpand" />
+
+              <Grid Padding="{StaticResource ContentPadding}">
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="{x:Static resx:AppResources.checkup_exam_place}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                       Style="{StaticResource LabelContentStyle}" />
+
+                <Label Text="{x:Static resx:AppResources.checkup_checkup_type}"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                       Style="{StaticResource LabelContentStyle}" />
+
+                <!--Content-->
+                <!--Bug: Schedule.Hospital.Name-->
+                <Label Text="{Binding Schedule.Hospital.AsString}"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Style="{StaticResource LabelContentWordWrapStyle}" />
+
+                <Label Text="{Binding Schedule.CheckupType.Name}"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       Style="{StaticResource LabelContentWordWrapStyle}" />
+              </Grid>
+
+              <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderGrayColor}"
+                           HeightRequest="{StaticResource SeparatorLineHeight}"
+                           HorizontalOptions="FillAndExpand" />
+
+              <StackLayout Orientation="Vertical"
+                           Padding="{StaticResource ContentPadding}">
+
+                <Label Text="{x:Static resx:AppResources.checkup_symptom}"
+                       FontAttributes="Bold"
+                       TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                       Style="{StaticResource LabelContentStyle}" />
+
+                <Label
+                    Text="{Binding Symptom, Converter={StaticResource StringNullConverter}, ConverterParameter={x:Reference lbSymptom}}"
+                    x:Name="lbSymptom"
+                    Style="{StaticResource LabelContentWordWrapStyle}" />
+
+              </StackLayout>
+
+            </StackLayout>
+
+
+            <!--Second block-->
+            <StackLayout Orientation="Vertical" BackgroundColor="White"
+                         Padding="{StaticResource StackLevel2Padding}">
+
+              <Grid Padding="{StaticResource ContentPadding}">
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="{x:Static resx:AppResources.profile_user_code}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                       Style="{StaticResource LabelContentStyle}" />
+
+                <Label Text="{x:Static resx:AppResources.checkup_patient_name}"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                       Style="{StaticResource LabelContentStyle}" />
+
+                <Label Text="{x:Static resx:AppResources.checkup_address}"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                       Style="{StaticResource LabelContentStyle}" />
+
+                <Label Text="{x:Static resx:AppResources.checkup_id_no}"
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                       Style="{StaticResource LabelContentStyle}" />
+
+                <Label Text="{x:Static resx:AppResources.checkup_phone_no}"
+                       Grid.Row="4"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                       Style="{StaticResource LabelContentStyle}" />
+
+                <Label Text="{x:Static resx:AppResources.checkup_email}"
+                       Grid.Row="5"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                       Style="{StaticResource LabelContentStyle}" />
+
+                <Label Text="{x:Static resx:AppResources.checkup_city}"
+                       Grid.Row="6"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                       Style="{StaticResource LabelContentStyle}" />
+
+                <Label Text="{x:Static resx:AppResources.checkup_district}"
+                       Grid.Row="7"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                       Style="{StaticResource LabelContentStyle}" />
+
+                <!--Content-->
+                <Label
+                    Text="{Binding DataUser.UserCode, Converter={StaticResource StringNullConverter}, ConverterParameter={x:Reference lbUserCode}}"
+                    x:Name="lbUserCode"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Style="{StaticResource LabelContentWordWrapStyle}" />
+
+                <Label
+                    Text="{Binding DataUser.FullName}"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Style="{StaticResource LabelContentWordWrapStyle}" />
+
+                <Label
+                    Text="{Binding DataUser.Address}"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Style="{StaticResource LabelContentWordWrapStyle}" />
+
+
+                <Label
+                    Text="{Binding DataUser.IdNo, Converter={StaticResource StringNullConverter}, ConverterParameter={x:Reference lbIdNo}}"
+                    x:Name="lbIdNo"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Style="{StaticResource LabelContentWordWrapStyle}" />
+
+                <Label
+                    Text="{Binding DataUser.PhoneNo, Converter={StaticResource StringNullConverter}, ConverterParameter={x:Reference lbPhoneNo}}"
+                    x:Name="lbPhoneNo"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Style="{StaticResource LabelContentWordWrapStyle}" />
+
+                <Label
+                    Text="{Binding DataUser.Email, Converter={StaticResource StringNullConverter}, ConverterParameter={x:Reference lbEmail}}"
+                    x:Name="lbEmail"
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    Style="{StaticResource LabelContentWordWrapStyle}" />
+
+                <Label
+                    Text="{Binding DataUser.City.Name, Converter={StaticResource StringNullConverter}, ConverterParameter={x:Reference lbCity}}"
+                    x:Name="lbCity"
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    Style="{StaticResource LabelContentWordWrapStyle}" />
+
+                <Label
+                    Text="{Binding DataUser.District.Name, Converter={StaticResource StringNullConverter}, ConverterParameter={x:Reference lbDistrict}}"
+                    x:Name="lbDistrict"
+                    Grid.Row="7"
+                    Grid.Column="1"
+                    Style="{StaticResource LabelContentWordWrapStyle}" />
+
+              </Grid>
+
+            </StackLayout>
+
+
+            <!--Fourth block-->
+            <StackLayout Orientation="Vertical" BackgroundColor="White"
+                        Padding="{StaticResource StackLevel2Padding}">
+
+              <Grid Padding="{StaticResource ContentPadding}">
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="{x:Static resx:AppResources.use_insurance}"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       LineBreakMode="WordWrap"
+                       VerticalOptions="Center"
+                       TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                       Style="{StaticResource LabelContentStyle}" />
+
+                <!--Content-->
+                <Label
+                    Text="{Binding IsHealthInsuranceString}"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Style="{StaticResource LabelContentWordWrapStyle}" />
+                <!--<ContentView Grid.Row="0" Grid.Column="1" Padding="{StaticResource SwithPadding}">
+                  <Switch IsToggled="{Binding IsHealthInsurance}"
+                          HorizontalOptions="End"
+                          IsEnabled="False"
+                          VerticalOptions="Center"/>
+                </ContentView>-->
+              </Grid>
+
+            </StackLayout>
+
+            <!--Fith block-->
+            <StackLayout Orientation="Vertical" BackgroundColor="White"
+                         Padding="{StaticResource StackLevel2Padding}">
+
+              <StackLayout
+                  BindingContext="{Binding VmUser.SelectedRelatedAccount, Source={StaticResource Locator}}"
+                  Padding="{StaticResource ContentPadding}">
+
+                <Label Text="{x:Static resx:AppResources.checkup_policy}"
+                       FontAttributes="Bold"
+                       TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                       Style="{StaticResource LabelContentStyle}" />
+
+                <Label
+                    Text="{x:Static resx:AppResources.app_policy}"
+                    Style="{StaticResource LabelContentWordWrapStyle}" />
+              </StackLayout>
+
+            </StackLayout>
+
+            <ContentView HeightRequest="20" />
+          </StackLayout>
+        </ScrollView>
+      </StackLayout>
+    </StackLayout>
+  </controls:BaseAddCheckupPage.PageContent>
+</controls:BaseAddCheckupPage>

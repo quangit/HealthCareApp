@@ -1,0 +1,494 @@
+﻿<Page x:Class="HealthCare.Win.Views.HomeTab.ConsultView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:HealthCare.Win.Views.HomeTab"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:converters="using:HealthCare.Core.Converters"
+      xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:controls="using:HealthCare.Win.Controls"
+     NavigationCacheMode="Required"
+      mc:Ignorable="d">
+    <Page.Resources>
+        <converters:MilisecondToDateValueConverter x:Key="MilisecondToDate" />
+        <converters:WeekTopicStatusValueConverter x:Key="WeekTopicStatus" />
+        <Style x:Key="AppBarButtonStyle"
+               TargetType="AppBarButton">
+            <Setter Property="Background"
+                    Value="Transparent" />
+            <Setter Property="Foreground"
+                    Value="{ThemeResource SystemControlForegroundBaseHighBrush}" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Left" />
+            <Setter Property="VerticalAlignment"
+                    Value="Top" />
+            <Setter Property="FontFamily"
+                    Value="{ThemeResource ContentControlThemeFontFamily}" />
+            <Setter Property="FontWeight"
+                    Value="Normal" />
+            <Setter Property="UseSystemFocusVisuals"
+                    Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="AppBarButton">
+                        <Grid x:Name="Root"
+                              Background="{TemplateBinding Background}"
+                              MaxWidth="{TemplateBinding MaxWidth}"
+                              MinWidth="{TemplateBinding MinWidth}"
+                              Loaded="AppBarButtonLoaded"
+                              Width="68">
+                            <Grid.Resources>
+                                <Storyboard x:Name="Storyboard"
+                                            x:Key="Storyboard"
+                                            RepeatBehavior="Forever">
+                                    <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)"
+                                                                   Storyboard.TargetName="Content">
+                                        <EasingDoubleKeyFrame KeyTime="0"
+                                                              Value="0" />
+                                        <EasingDoubleKeyFrame KeyTime="0:0:1"
+                                                              Value="360" />
+                                    </DoubleAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </Grid.Resources>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="ApplicationViewStates">
+                                    <VisualState x:Name="FullSize" />
+                                    <VisualState x:Name="Compact">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility"
+                                                                           Storyboard.TargetName="TextLabel">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="Collapsed" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="LabelOnRight">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Width"
+                                                                           Storyboard.TargetName="Root">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="NaN" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Margin"
+                                                                           Storyboard.TargetName="Content">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="12,14,0,14" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="MinHeight"
+                                                                           Storyboard.TargetName="ContentRoot">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="{ThemeResource AppBarThemeCompactHeight}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Row)"
+                                                                           Storyboard.TargetName="TextLabel">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="0" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Column)"
+                                                                           Storyboard.TargetName="TextLabel">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="1" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="TextAlignment"
+                                                                           Storyboard.TargetName="TextLabel">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="Left" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Margin"
+                                                                           Storyboard.TargetName="TextLabel">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="8,15,12,17" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="LabelCollapsed">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="MinHeight"
+                                                                           Storyboard.TargetName="ContentRoot">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="{ThemeResource AppBarThemeCompactHeight}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility"
+                                                                           Storyboard.TargetName="TextLabel">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="Collapsed" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Overflow">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Width"
+                                                                           Storyboard.TargetName="Root">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="NaN" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility"
+                                                                           Storyboard.TargetName="ContentRoot">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="Collapsed" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility"
+                                                                           Storyboard.TargetName="OverflowTextLabel">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="Visible" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="OverflowWithToggleButtons">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Width"
+                                                                           Storyboard.TargetName="Root">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="NaN" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility"
+                                                                           Storyboard.TargetName="ContentRoot">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="Collapsed" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility"
+                                                                           Storyboard.TargetName="OverflowTextLabel">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="Visible" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Margin"
+                                                                           Storyboard.TargetName="OverflowTextLabel">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="38,0,12,0" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="OverflowTextLabel" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background"
+                                                                           Storyboard.TargetName="Root">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="{ThemeResource SystemControlHighlightListLowBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground"
+                                                                           Storyboard.TargetName="Content">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground"
+                                                                           Storyboard.TargetName="TextLabel">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground"
+                                                                           Storyboard.TargetName="OverflowTextLabel">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="OverflowTextLabel" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background"
+                                                                           Storyboard.TargetName="Root">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="{ThemeResource SystemControlHighlightListMediumBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground"
+                                                                           Storyboard.TargetName="Content">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground"
+                                                                           Storyboard.TargetName="TextLabel">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground"
+                                                                           Storyboard.TargetName="OverflowTextLabel">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <PointerDownThemeAnimation Storyboard.TargetName="OverflowTextLabel" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground"
+                                                                           Storyboard.TargetName="Content">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="{ThemeResource SystemControlDisabledBaseMediumLowBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground"
+                                                                           Storyboard.TargetName="TextLabel">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="{ThemeResource SystemControlDisabledBaseMediumLowBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground"
+                                                                           Storyboard.TargetName="OverflowTextLabel">
+                                                <DiscreteObjectKeyFrame KeyTime="0"
+                                                                        Value="{ThemeResource SystemControlDisabledBaseMediumLowBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="InputModeStates">
+                                    <VisualState x:Name="InputModeDefault" />
+                                    <VisualState x:Name="TouchInputMode">
+                                        <VisualState.Setters>
+                                            <Setter Target="OverflowTextLabel.Padding"
+                                                    Value="0,11,0,13" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid x:Name="ContentRoot"
+                                  MinHeight="{ThemeResource AppBarThemeMinHeight}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <ContentPresenter x:Name="Content"
+                                                  AutomationProperties.AccessibilityView="Raw"
+                                                  Content="{TemplateBinding Icon}"
+                                                  Foreground="{TemplateBinding Foreground}"
+                                                  HorizontalAlignment="Stretch"
+                                                  Height="20"
+                                                  Margin="0,14,0,4"
+                                                  RenderTransformOrigin="0.5,0.5">
+                                    <ContentPresenter.RenderTransform>
+                                        <CompositeTransform />
+                                    </ContentPresenter.RenderTransform>
+                                </ContentPresenter>
+                                <TextBlock x:Name="TextLabel"
+                                           Foreground="{TemplateBinding Foreground}"
+                                           FontSize="12"
+                                           FontFamily="{TemplateBinding FontFamily}"
+                                           Margin="2,0,2,6"
+                                           Grid.Row="1"
+                                           TextAlignment="Center"
+                                           TextWrapping="Wrap"
+                                           Text="{TemplateBinding Label}" />
+                            </Grid>
+                            <TextBlock x:Name="OverflowTextLabel"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       FontSize="15"
+                                       FontFamily="{TemplateBinding FontFamily}"
+                                       HorizontalAlignment="Stretch"
+                                       Margin="12,0,12,0"
+                                       Padding="0,5,0,7"
+                                       TextAlignment="Left"
+                                       TextWrapping="NoWrap"
+                                       Text="{TemplateBinding Label}"
+                                       TextTrimming="Clip"
+                                       Visibility="Collapsed"
+                                       VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid x:Name="LayoutRoot"
+          Background="{StaticResource GrayBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <!--  header  -->
+        <Grid Background="{StaticResource MainBrush}"
+              Height="48">
+            <TextBlock Style="{StaticResource TitleTextBlockStyle}"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       Margin="12,0"
+                       FontSize="22"
+                       Text="{Binding Source={StaticResource LocalizedStrings},Path=LocalizedResources.Consult_Title}" />
+        </Grid>
+        <CommandBar Background="{StaticResource MainBrush}"
+                    HorizontalAlignment="Right"
+                    RequestedTheme="Dark">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Label="{Binding Source={StaticResource LocalizedStrings},Path=LocalizedResources.CallSupport}"
+                              Command="{Binding Source={StaticResource RootCommand}, Path=CallCommand}">
+                    <AppBarButton.Icon>
+                        <SymbolIcon Symbol="Phone" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+        <Grid Grid.Row="1"
+              Margin="0,6">
+            <GridView Padding="12,0"
+                      controls:ListViewBase.Command="{x:Bind ViewModel.ShowConsultCommand}"
+                      IsItemClickEnabled="True">
+                <interactivity:Interaction.Behaviors>
+                    <controls:DataRequestBehavior DataRequested="OnDataRequested"
+                                                  ItemsSource="{x:Bind ViewModel.ConsultRequests,Mode=OneWay}" />
+                </interactivity:Interaction.Behaviors>
+                <GridView.ItemContainerStyle>
+                    <Style TargetType="GridViewItem">
+                        <Setter Property="HorizontalContentAlignment"
+                                Value="Stretch" />
+                        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                        <Setter Property="Margin"
+                                Value="6" />
+                        <Setter Property="Padding"
+                                Value="0" />
+                    </Style>
+                </GridView.ItemContainerStyle>
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid  Orientation="Horizontal"
+                                        UseLayoutRounding="True">
+                            <interactivity:Interaction.Behaviors>
+                                <controls:GridAdaptiveBehavior ItemMinWidth="400"
+                                                               ItemMaxHeight="150" />
+                            </interactivity:Interaction.Behaviors>
+                        </ItemsWrapGrid>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,0,0,0"
+                              MinHeight="120"
+                              Background="White">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="12" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid Margin="0,6,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="62" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Border Width="50"
+                                            Margin="6,6,6,0"
+                                            VerticalAlignment="Top"
+                                            Height="50"
+                                            CornerRadius="10">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="{Binding PatientPhoto}"></ImageBrush>
+                                        </Border.Background>
+                                    </Border>
+                                    <StackPanel Grid.Column="1"
+                                                VerticalAlignment="Top">
+                                        <TextBlock FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                                   FontSize="16"
+                                                   FontWeight="Bold"
+                                                   Foreground="Black"
+                                                   TextWrapping="Wrap"
+                                                   Text="{Binding PatientName}" />
+                                        <TextBlock FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                                   FontSize="12"
+                                                   FontWeight="Normal"
+                                                   Foreground="Black"
+                                                   Text="{Binding PatientDesc}" />
+                                        <TextBlock FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                                   FontSize="12"
+                                                   FontWeight="Normal"
+                                                   Foreground="Black"
+                                                   Text="{Binding WhenCreated,
+                                                              Converter={StaticResource MilisecondToDate}}" />
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Column="2"
+                                      Margin="0,6,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="62" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0"
+                                                VerticalAlignment="Top">
+                                        <TextBlock FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                                   FontSize="16"
+                                                   FontWeight="Bold"
+                                                   Foreground="Black"
+                                                   TextWrapping="Wrap"
+                                                   Text="{Binding LatestDoctorFullName}"
+                                                   TextAlignment="Right" />
+                                        <TextBlock FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                                   FontSize="12"
+                                                   FontWeight="Normal"
+                                                   Foreground="Black"
+                                                   Text="{Binding ReplyCountStr}"
+                                                   TextAlignment="Right" />
+                                        <TextBlock FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                                   FontSize="12"
+                                                   FontWeight="Normal"
+                                                   Foreground="Black"
+                                                   Text="{Binding LatestReplyTime,
+                                                              Converter={StaticResource MilisecondToDate}}"
+                                                   TextAlignment="Right" />
+                                    </StackPanel>
+                                    <Border Width="50"
+                                            Height="50"
+                                            Margin="6,0"
+                                            Grid.Column="1"
+                                            VerticalAlignment="Top"
+                                            CornerRadius="10">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="{Binding LatestDoctorPhoto}" />
+                                        </Border.Background>
+                                    </Border>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="1"
+                                 >
+                                <TextBlock MaxHeight="84"
+                                           Margin="28,6"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                           FontSize="16"
+                                           FontWeight="Bold"
+                                           Foreground="#8A8A8A"
+                                           LineHeight="28"
+                                           LineStackingStrategy="BlockLineHeight"
+                                           Text="{Binding Symptom}"
+                                           TextAlignment="Left"
+                                           TextTrimming="WordEllipsis"
+                                           TextWrapping="Wrap" />
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+            <TextBlock Margin="12"
+                       VerticalAlignment="Center"
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"
+                       Visibility="{x:Bind ViewModel.ConsultRequests,Converter={StaticResource SourceToVisibilityConverter}, Mode=OneWay}"
+                       Text="{Binding Source={StaticResource LocalizedStrings},Path=LocalizedResources.Consult_Empty}" />
+        </Grid>
+        <CommandBar Background="{StaticResource MainBrush}"
+                    Grid.Row="2"
+                    RequestedTheme="Dark">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Label="{Binding Source={StaticResource LocalizedStrings},Path=LocalizedResources.Refresh}"
+                              Click="RefreshClick"
+                              Style="{StaticResource AppBarButtonStyle}">
+                    <AppBarButton.Icon>
+                        <SymbolIcon Symbol="Refresh"
+                                    RenderTransformOrigin="0.5,0.5" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Grid>
+</Page>

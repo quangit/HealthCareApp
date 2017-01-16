@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+             x:Class="HealthCare.Pages.CHBases.DetailTransfer">
+
+  <StackLayout BackgroundColor="White" Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="400" Padding="10">
+    <Label TextColor="Green" HorizontalOptions="Center" Text="{x:Static resx:AppResources.thanksfor}"></Label>
+    <Label TextColor="Gray" Text="{x:Static resx:AppResources.note_transfer_payment}"></Label>
+    <StackLayout Padding="5,0,0,0">
+      <Label TextColor="Gray" Text="{x:Static resx:AppResources.account_holder}"></Label>
+      <Label TextColor="Gray" Text="{x:Static resx:AppResources.account_number}"></Label>
+      <Label TextColor="Gray" Text="{x:Static resx:AppResources.vietcombank}"></Label>
+      <Label TextColor="Gray" Text="{x:Static resx:AppResources.writing_chbase_email_address}"></Label>
+    </StackLayout>
+  <Button x:Name="BtnDismiss" Clicked="BtnDismiss_OnClicked" Style="{StaticResource ButtonStyle}"  Text="{x:Static resx:AppResources.ok}"></Button>
+  </StackLayout>
+</ContentPage>

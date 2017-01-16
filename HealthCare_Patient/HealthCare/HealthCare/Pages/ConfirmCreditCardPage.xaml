@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            x:Class="HealthCare.Pages.ConfirmCreditCardPage"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:enums="clr-namespace:HealthCare.Enums;assembly=HealthCare"
+                            xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+                            xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            PageType="{x:Type pages:ConfirmCreditCardPage}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            Title="{x:Static resx:AppResources.cc_add_new}"
+                            BindingContext="{Binding VmCreditCard, Source={StaticResource Locator}}"
+                            BackgroundColor="White">
+
+    <controls:TopBarContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:Double" x:Key="ContentSpacing"
+                        iOS="15" Android="15" WinPhone="15" />
+            <OnPlatform x:TypeArguments="Thickness" x:Key="ContentPadding"
+                        iOS="20, 30, 20, 0" Android="20, 30, 20, 0" WinPhone="20, 30, 20, 0" />
+        </ResourceDictionary>
+    </controls:TopBarContentPage.Resources>
+
+    <StackLayout Orientation="Vertical" Spacing="{StaticResource ContentSpacing}"
+                 Padding="{StaticResource ContentPadding}">
+        <Label Style="{StaticResource LabelSubContentStyle}" Text="{x:Static resx:AppResources.cc_add_new_success}"
+               TextColor="{x:Static helpers:HcStyles.GreenCardColor}" />
+        <Label Style="{StaticResource LabelSubContentStyle}"
+               Text="{x:Static resx:AppResources.cc_otp_description}" />
+        <controls:HcEntry Source="ic_cvv_num.png" PlaceHolder="{x:Static resx:AppResources.cc_otp_pin}" 
+                          Text="{Binding PinOtpNumber}" />
+        <Button Style="{StaticResource ButtonStyle}" Text="{x:Static resx:AppResources.confirm}" HorizontalOptions="FillAndExpand"
+                Command="{Binding ConfirmPinOtpCommand}" />
+    </StackLayout>
+
+
+</controls:TopBarContentPage>

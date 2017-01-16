@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+             BindingContext="{Binding VmMoreSupport2, Source={StaticResource Locator}}"
+             x:Class="HealthCare.Pages.ImagePopupPage" >
+  <Grid BackgroundColor="Black">
+    <Grid.GestureRecognizers>
+      <TapGestureRecognizer Command="{Binding GoBackCommand}"></TapGestureRecognizer>
+    </Grid.GestureRecognizers>
+    <Grid >
+      <Image Source="{Binding SupportQuestionSelectedItem.LandscapeImage}" Aspect="AspectFit" HorizontalOptions="FillAndExpand" />
+    </Grid>
+  
+  </Grid>
+</ContentPage>

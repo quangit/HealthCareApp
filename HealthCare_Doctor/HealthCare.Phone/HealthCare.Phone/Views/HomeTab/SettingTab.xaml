@@ -1,0 +1,153 @@
+﻿<UserControl x:Class="HealthCare.Phone.Views.HomeTab.SettingTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+             mc:Ignorable="d"
+             FontFamily="{StaticResource PhoneFontFamilyNormal}"
+             FontSize="{StaticResource PhoneFontSizeNormal}"
+             Foreground="{StaticResource PhoneForegroundBrush}"
+             d:DesignHeight="480"
+             d:DesignWidth="480">
+
+    <Grid x:Name="LayoutRoot"
+          Background="{StaticResource GrayBrush}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0">
+            <StackPanel.Background>
+                <ImageBrush Stretch="UniformToFill"
+                            ImageSource="/Assets/Header.png" />
+            </StackPanel.Background>
+
+            <TextBlock Text="{Binding LocalizedResources.Settings, Source={StaticResource LocalizedStrings}}"
+                       Margin="12"
+                       FontWeight="Bold"
+                       Foreground="Black"
+                       FontSize="{StaticResource PhoneFontSizeMedium}" />
+            <Border Height="2"
+                    Margin="12,0"
+                    Background="{StaticResource MainBrush}" />
+        </StackPanel>
+        <Grid Grid.Row="1"
+              Margin="24">
+            <StackPanel Background="White"
+                        VerticalAlignment="Top">
+                <StackPanel Margin="12,12,0,12">
+                    <!--<TextBlock Text="{Binding Source={StaticResource LocalizedStrings},Path=LocalizedResources.Setting_Noti}"
+                               Grid.Row="0"
+                               VerticalAlignment="Center"
+                               FontWeight="Bold"
+                               Style="{StaticResource PhoneTextTitle3Style}"
+                               Margin="0" />-->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="{Binding Settings.PushConsent,Converter={StaticResource ConsentValueConverter} }"
+                                   VerticalAlignment="Center"
+                                   Margin="0,-8,0,0"
+                                   FontWeight="ExtraBold"
+                                   Style="{StaticResource PhoneTextTitle3Style}"></TextBlock>
+
+                        <toolkit:ToggleSwitch IsChecked="{Binding Settings.PushConsent,Mode=TwoWay}"
+                                              Margin="0,0,0,-24"
+                                              FontSize="28"
+                                              Content=""
+                                              HorizontalAlignment="Right"
+                                              VerticalContentAlignment="Center">
+
+                        </toolkit:ToggleSwitch>
+                    </Grid>
+                    <TextBlock TextWrapping="Wrap"
+                               Margin="12,0"
+                               FontSize="{StaticResource PhoneFontSizeSmall}"
+                               Text="{Binding Source={StaticResource LocalizedStrings},Path=LocalizedResources.Setting_NotificationInfo}" />
+                </StackPanel>
+                <Border Background="{StaticResource GrayBrush}"
+                        Height="6" />
+                <Grid Margin="12">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="{Binding Source={StaticResource LocalizedStrings},Path=LocalizedResources.UpdateProfile_Profile}"
+                               Grid.Row="0"
+                               VerticalAlignment="Center"
+                               FontWeight="Bold"
+                               Style="{StaticResource PhoneTextTitle3Style}"
+                               Margin="0" />
+
+                    <Grid Margin="0,12"
+                          Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Border Width="100"
+                                CornerRadius="10"
+                                Height="100"
+                                Tap="UIElement_OnTap"
+                                BorderThickness="1"
+                                Margin="0,0,0,0"
+                                BorderBrush="{StaticResource MainBrush}">
+                            <Border.Background>
+                                <ImageBrush ImageSource="{Binding Doctor.Photo,TargetNullValue=/Assets/placeholder.png}"
+                                            x:Name="imageProfile"></ImageBrush>
+                            </Border.Background>
+                        </Border>
+
+                        <!--<Viewbox Width="48"
+                                 VerticalAlignment="Bottom"
+                                 HorizontalAlignment="Right"
+                                 Height="48">
+                            <Canvas Width="24"
+                                    Height="24">
+                                <Path Data="M19,3A2,2 0 0,1 21,5V19C21,20.11 20.1,21 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H19M16.7,9.35C16.92,9.14 16.92,8.79 16.7,8.58L15.42,7.3C15.21,7.08 14.86,7.08 14.65,7.3L13.65,8.3L15.7,10.35L16.7,9.35M7,14.94V17H9.06L15.12,10.94L13.06,8.88L7,14.94Z"
+                                      Fill="{StaticResource MainBrush}" />
+                            </Canvas>
+                        </Viewbox>-->
+                        <Grid Grid.Column="1"
+                              Tap="UIElement_OnTap">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <StackPanel Margin="0">
+                                <TextBlock Text="{Binding Doctor.Name}"
+                                           Style="{StaticResource PhoneTextNormalStyle}"
+                                           FontWeight="Bold" />
+                                <TextBlock Text="{Binding Doctor.Desc}"
+                                           TextTrimming="WordEllipsis"
+                                           Style="{StaticResource PhoneTextNormalStyle}"
+                                           FontWeight="Normal" />
+                            </StackPanel>
+                            <Button Grid.Row="1"
+                                    Margin="-12"
+                                    Command="{Binding ChangePassCommand}"
+                                    Padding="12,3"
+                                    Foreground="White"
+                                    BorderThickness="0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    Background="{StaticResource MainBrush}"
+                                    Content="{Binding  Path=LocalizedResources.SetPassword_Title, Source={StaticResource LocalizedStrings}}" />
+                        </Grid>
+
+                    </Grid>
+                </Grid>
+
+            </StackPanel>
+        </Grid>
+        
+        <TextBlock  Grid.Row="1" VerticalAlignment="Bottom" x:Name="versionText" HorizontalAlignment="Right" Margin="6" Foreground="LightGray"></TextBlock>
+    </Grid>
+</UserControl>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            x:Class="HealthCare.Pages.CHBases.VtcPayPaymentPage"
+                            BindingContext="{Binding VmCreditCard, Source={StaticResource Locator}}"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            PageType="{x:Type pages:VnPayPaymentPage}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+                            BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                            Title="{x:Static resx:AppResources.pay_for_chbase}">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="x:Double" x:Key="CheckupInfoHeight"
+                  iOS="72" Android="72" WinPhone="140" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="IconInfoSize"
+                  iOS="52" Android="52" WinPhone="100" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="LogoBankSize"
+                  iOS="64" Android="64" WinPhone="72" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="LeftLineWidth"
+                  iOS="2" Android="2" WinPhone="4" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="CellPaddingInside"
+                  iOS="8" Android="8" WinPhone="10" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="CardNumberFontSize"
+                  iOS="18" Android="18" WinPhone="20" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="ContentPadding"
+                  iOS="20,5,20,0" Android="20,5,20,0" WinPhone="20,5,20,0" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="BottomBlockPadding"
+                  iOS="0,5,0,0" Android="0,5,0,0" WinPhone="0,5,0,0" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="BillContentPadding"
+                  iOS="20" Android="20" WinPhone="20" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="BottomPadding"
+                  iOS="30, 10, 20, 20" Android="30, 10, 20, 20" WinPhone="25, 10, 10, 20" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonWidth"
+                  iOS="85" Android="110" WinPhone="160" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonFontSize"
+                  iOS="{x:Static helpers:HcStyles.ButtonFontSize}"
+                  Android="{x:Static helpers:HcStyles.ButtonFontSize}"
+                  WinPhone="{x:Static helpers:HcStyles.FontSizeSubContent}" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="ViewCellHeight"
+                  iOS="{x:Static helpers:HcStyles.ViewCellHeight}"
+                  Android="{x:Static helpers:HcStyles.ViewCellHeight}" WinPhone="90" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+    <controls:WebViewVtcPay Source="{Binding UrlVtcPay}" HeightRequest="600" x:Name="WebView" Navigating="WebView_OnNavigating">
+    <behaviors:Interaction.Behaviors>
+      <behaviors:BehaviorCollection>
+        <behaviors:EventToCommand EventName="Navigated"
+                                  Command="{Binding VtcPayNavigatedCommand}" />
+      </behaviors:BehaviorCollection>
+    </behaviors:Interaction.Behaviors>
+  </controls:WebViewVtcPay>
+</StackLayout>
+</controls:TopBarContentPage>

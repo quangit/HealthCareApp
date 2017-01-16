@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+             xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+             xmlns:pages="clr-namespace:HealthCare.Pages.CHBases;assembly=HealthCare"
+             xmlns:models="clr-namespace:HealthCare.Models.ChBaseModel;assembly=HealthCare"
+             xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+             PageType="{x:Type pages:PaymentCheckupRecordPage}"
+             x:Class="HealthCare.Pages.CHBases.PaymentCheckupRecordPage"
+             BindingContext="{Binding VmPayment, Source={StaticResource Locator}}"
+             BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+             Title="{x:Static resx:AppResources.pay_for_chbase}">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="x:Double" x:Key="FontsizeFullName"
+                  iOS="20" Android="20" WinPhone="30" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="ButtonWidth"
+                  iOS="60" Android="70" WinPhone="140" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonHeight"
+                        iOS="30" Android="30" WinPhone="80" />
+      <OnPlatform x:Key="FontSizeNumberOfCheckup" x:TypeArguments="x:Double"
+      iOS="14" Android="14" WinPhone="20" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+
+  <StackLayout Padding="10">
+    <StackLayout BackgroundColor="White"  Orientation="Vertical" Padding="3">
+      <Label Style="{StaticResource LabelContentStyle}" FontAttributes="Bold" FontSize="{StaticResource FontsizeFullName}" TextColor="Gray" HorizontalOptions="Center" Text="{Binding FullName}"></Label>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+          <ColumnDefinition Width="Auto"></ColumnDefinition>
+          <ColumnDefinition Width="Auto"></ColumnDefinition>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="1" Style="{StaticResource LabelContentStyle}" TextColor="{x:Static helpers:HcStyles.TextPayment}" HorizontalOptions="Center" Text="{x:Static resx:AppResources.account}"></Label>
+        <Label Grid.Column="2" Style="{StaticResource LabelContentStyle}" TextColor="Gray" HorizontalOptions="Center" Text="{Binding Email}"></Label>
+      </Grid>
+      <Grid Padding=" 8, 0, 8, 0">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto"></ColumnDefinition>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Column="0" Source="ic_occupation.png"  WidthRequest="{x:Static helpers:HcStyles.ImageInEntryWidth}" HeightRequest="{x:Static helpers:HcStyles.ImageInEntryHeight}" HorizontalOptions="Start"></Image>
+        <Label Grid.Column="1" FontSize="{x:Static helpers:HcStyles.EntryLoginFontSizeContent}" TextColor="{x:Static helpers:HcStyles.BlackTextColor}" HorizontalOptions="StartAndExpand" Text="{x:Static resx:AppResources.payment_info}"></Label>
+      </Grid>
+      <StackLayout Padding="0,0,0,1" BackgroundColor="{x:Static helpers:HcStyles.GreenButtonColor}"></StackLayout>
+      
+      <!--<controls:HcEntry Source="ic_occupation.png"  Text="{x:Static resx:AppResources.payment_info}" IsEnabled="False" CanEdit="False" TextColor="Black"></controls:HcEntry>-->
+
+      <Label TextColor="Gray" Style="{StaticResource LabelContentStyle}" Text="{x:Static resx:AppResources.pick_package_fee}"></Label>
+      <controls:HcPicker  x:TypeArguments="models:FeeModel" PickerStyle="2"
+                             FontSize="13"
+                             ItemsSource="{Binding Fees}"
+                             SelectedItemChangedCommand="{Binding ChangeSelectedPackageFee}"
+                             TitleText="{x:Static resx:AppResources.pick_package_fee}"
+                             EmptyText="{x:Static resx:AppResources.empty}" />
+      <Grid Padding="0, 5" IsVisible="False">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition></ColumnDefinition>
+          <ColumnDefinition Width="{StaticResource ButtonWidth}"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <controls:HcEntry VerticalOptions="Center" Text="{Binding Promotion, Mode=TwoWay}" PlaceHolder="{x:Static resx:AppResources.promotion_code}" Source="ic_promotion.png"></controls:HcEntry>
+        <Button Grid.Column="1" VerticalOptions="Center" Style="{StaticResource ButtonStyle}"  Command="{Binding ApplyPromotionCommand}" Text="{x:Static resx:AppResources.apply}" ></Button>
+      </Grid> 
+
+      <Grid >
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto"></ColumnDefinition>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+          <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label VerticalOptions="Center" Style="{StaticResource LabelContentStyle}" HorizontalOptions="Start" Grid.Column="0" TextColor="{x:Static helpers:HcStyles.TextPayment}" Text="{x:Static resx:AppResources.payment_total_fee}"></Label>
+        <Label VerticalOptions="Center" Style="{StaticResource LabelContentStyle}" HorizontalOptions="End"  Grid.Column="1" TextColor="Gray" Text="{Binding DetailPackageFee.TotalAmount}"></Label>
+        <Label VerticalOptions="Center" Style="{StaticResource LabelContentStyle}" HorizontalOptions="End" Grid.Column="2" TextColor="Gray" Text=" VND"></Label>
+      </Grid>
+
+      <!--<Label Style="{StaticResource LabelSubContentStyle}" TextColor="Gray" Text="{x:Static resx:AppResources.voucher}"></Label>-->
+
+      <Grid  BackgroundColor="White" VerticalOptions="FillAndExpand" ColumnSpacing="0">
+        <Grid.ColumnDefinitions>  
+          <ColumnDefinition Width="Auto"></ColumnDefinition>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+          <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" VerticalOptions="End" HorizontalOptions="Start" Style="{StaticResource LabelContentStyle}" TextColor="{x:Static helpers:HcStyles.TextPayment}" Text="{x:Static resx:AppResources.discountPercent}"></Label>
+        <Label Grid.Column="1" VerticalOptions="End" HorizontalOptions="End" Style="{StaticResource LabelContentStyle}"   TextColor="Gray" Text="{Binding DetailPackageFee.DiscountPercent}"></Label>
+        <Label Grid.Column="2" VerticalOptions="End" HorizontalOptions="End" Style="{StaticResource LabelContentStyle}"   TextColor="Gray" Text=" %  "></Label>
+      </Grid>
+
+      <Grid  BackgroundColor="White" VerticalOptions="FillAndExpand" ColumnSpacing="0">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto"></ColumnDefinition>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+          <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" VerticalOptions="End" HorizontalOptions="Start" Style="{StaticResource LabelContentStyle}" TextColor="{x:Static helpers:HcStyles.TextPayment}" Text="{x:Static resx:AppResources.discount}"></Label>
+        <Label Grid.Column="1" VerticalOptions="End" HorizontalOptions="End" Style="{StaticResource LabelContentStyle}"   TextColor="Gray" Text="{Binding DetailPackageFee.DiscountMoney}"></Label>
+        <Label Grid.Column="2" VerticalOptions="End" HorizontalOptions="End" Style="{StaticResource LabelContentStyle}"   TextColor="Gray" Text=" VND"></Label>
+      </Grid>
+
+
+      <StackLayout Padding="0,0,0,1" BackgroundColor="{x:Static helpers:HcStyles.GreenButtonColor}"></StackLayout>
+
+
+      <Grid >
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+          <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" Style="{StaticResource LabelContentStyle}" TextColor="{x:Static helpers:HcStyles.TextPayment}" Text="{x:Static resx:AppResources.payment_total_fee}"></Label>
+        <Label Grid.Column="1" Style="{StaticResource LabelContentStyle}" VerticalOptions="Center" HorizontalOptions="End" TextColor="Gray" Text="{Binding DetailPackageFee.Amount}"></Label>
+        <Label Grid.Column="2" Style="{StaticResource LabelContentStyle}" VerticalOptions="Center"  HorizontalOptions="End"  TextColor="Gray" Text=" VND"></Label>
+      </Grid>
+
+
+      <Button x:Name="btnTransfer" Clicked="BtnTransfer_OnClicked" Style="{StaticResource ButtonStyle}"  Text="{x:Static resx:AppResources.payment}"></Button>
+      <!--<Button x:Name="btnPayment" Style="{StaticResource ButtonStyle}"  Text="{x:Static resx:AppResources.card_payments}" Command="{Binding PaymentByVTCCommand}"></Button>-->
+    </StackLayout>
+  </StackLayout>
+</controls:TopBarContentPage>

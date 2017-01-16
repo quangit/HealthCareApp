@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            x:Class="HealthCare.Pages.AskDoctorDetailPage"
+                            BindingContext="{Binding VmMoreSupport2, Source={StaticResource Locator}}"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            PageType="{x:Type pages:AskDoctorDetailPage}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            xmlns:enums="clr-namespace:HealthCare.Enums;assembly=HealthCare"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+                            xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+                            xmlns:healthCare="clr-namespace:HealthCare;assembly=HealthCare"
+                            xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                            BackgroundColor="White" Title="{x:Static resx:AppResources.more_support}">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="x:Double" x:Key="AnswerContentHeight"
+                  iOS="20" Android="20" WinPhone="40" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SlideHeight"
+                      iOS="110" Android="120" WinPhone="170" />
+      <OnPlatform x:Key="ButtonPadding" x:TypeArguments="Thickness"
+                 iOS="0,10,0,0" Android="0,20,0,20" WinPhone="0,20,0,20" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonHeight"
+                 iOS="60" Android="70" WinPhone="40" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonWidth"
+                  iOS="250" Android="250" WinPhone="150" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+
+
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition />
+    </Grid.RowDefinitions>
+    <ContentView Grid.Row="0">
+      <ContentView.GestureRecognizers>
+        <TapGestureRecognizer Command="{Binding ZoomImageCommand}"></TapGestureRecognizer>
+      </ContentView.GestureRecognizers>
+      <!--<Image HeightRequest="{x:Static healthCare:AppConstant.Height9X16}" 
+                   Source="{Binding SupportQuestionSelectedItem.LandscapeImage}" Aspect="AspectFill" HorizontalOptions="FillAndExpand" />-->
+
+      <ContentView>      
+        
+        <forms:CachedImage HeightRequest="{x:Static healthCare:AppConstant.Height9X16}" WidthRequest="{x:Static healthCare:AppConstant.ScreenWidth}"
+                                       Source="{Binding SupportQuestionSelectedItem.LandscapeImage}" Aspect="AspectFill" HorizontalOptions="FillAndExpand"
+                                       DownsampleToViewSize="True"
+                                       TransparencyEnabled="False"
+                                       Transformations="{Binding Path=VmMoreSupport2.ListTranformsCrop, Source={StaticResource Locator}}"/>      
+      </ContentView>
+
+    </ContentView>
+    
+    <!--<ContentView 
+                 HorizontalOptions="EndAndExpand"
+                 IsVisible="{Binding SupportQuestionSelectedItem.IsCreateByUser}" 
+                 Grid.Row="1">
+      <controls:ButtonRadiusControl Text="{Binding SupportQuestionSelectedItem.StatusRevertString}" HorizontalOptions="Center"
+                                    BgHeight="{StaticResource ButtonHeight}"
+                                    TextPadding="0" BgWidth="{StaticResource ButtonWidth}"
+                                    Command="{Binding ChangeQuestionStatusCommand}" />
+    </ContentView>-->
+    
+    <StackLayout Grid.Row="1" Padding="0" VerticalOptions="Start">
+      <!--<controls:QADetailControl VerticalOptions="Start" IsQuestion="True"
+                                          Text="{Binding SupportQuestionSelectedItem.Symptom}"
+                                          Gender="{Binding SupportQuestionSelectedItem.Gender}"
+                                          Avatar="{Binding SupportQuestionSelectedItem.PatientPhoto}"
+                                          DateTime="{Binding SupportQuestionSelectedItem.WhenCreated}"
+                                          Old="{Binding SupportQuestionSelectedItem.Age}"
+                                          BasicInfo="{Binding SupportQuestionSelectedItem.BasicInfo}"
+                                          Name="{Binding SupportQuestionSelectedItem.FullName}" />-->
+
+      <!--<ContentView BackgroundColor="#5bb947" HeightRequest="{StaticResource AnswerContentHeight}"
+                             HorizontalOptions="FillAndExpand" Padding="10,5,0,5">
+                    <Label Text="{Binding SupportQuestionSelectedItem.ReplyCountString}" FontAttributes="Bold"
+                           VerticalOptions="Center" FontSize="{x:Static helpers:HcStyles.FontSizeContent}"
+                           TextColor="Color.White" />
+                </ContentView>-->
+      <controls:HcListView VerticalOptions="Start" ItemsSource="{Binding ListAnswer}"
+                           x:TypeArguments="models:SupportResponsesModel"
+                           IsPullToRefreshEnabled="False"
+                           ItemCount="{Binding ItemCount2}"
+                           LoadMoreCommand="{Binding GetAnswerListLoadMoreCommand}"
+                           IsLoadMoreEnabled="True"
+                           CanLoadMore="{Binding IsCanLoadMore2}">
+
+        <controls:HcListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <ContentView>
+                <controls:QADetailControl VerticalOptions="Start"
+                                          CreatedByUserId ="{Binding CreatedByUserId}"
+                                          
+                                          IsShowchangeStatusQuestion="{Binding VmMoreSupport2.SupportQuestionSelectedItem.IsCreateByUser, Source={StaticResource Locator}}"
+                                          StatusString="{Binding VmMoreSupport2.SupportQuestionSelectedItem.StatusRevertString, Source={StaticResource Locator}, Mode=TwoWay}"
+                                          ChangeStatusCommand="{Binding VmMoreSupport2.ChangeQuestionStatusCommand, Source={StaticResource Locator}}"
+                                          
+                                          DateTime="{Binding WhenCreated, Converter={StaticResource LocalTimeZoneConverter}} " Text="{Binding Comment}"
+                                          Command="{Binding AskCommand}"
+                                          Name="{Binding Doctor.FullName}"
+                                          Gender="{Binding Doctor.Gender}"
+                                          Avatar="{Binding Doctor.Photo}"
+                                          ReadMoreCommand="{Binding VmMoreSupport2.ReadMoreCommand, Source={StaticResource Locator}}"/>
+
+              </ContentView>
+            </ViewCell>
+          </DataTemplate>
+        </controls:HcListView.ItemTemplate>
+      </controls:HcListView>
+    </StackLayout>
+
+  </Grid>
+</controls:TopBarContentPage>

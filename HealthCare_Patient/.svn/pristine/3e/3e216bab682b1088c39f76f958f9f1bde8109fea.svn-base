@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            x:Class="HealthCare.Pages.AddQuestionPage"
+                            BindingContext="{Binding VmAskDoctor, Source={StaticResource Locator}}"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            PageType="{x:Type pages:AddQuestionPage}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            xmlns:enums="clr-namespace:HealthCare.Enums;assembly=HealthCare"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            Title="{x:Static resx:AppResources.more_support}"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+                            xmlns:healthCare="clr-namespace:HealthCare;assembly=HealthCare"
+                            xmlns:viewModels="clr-namespace:HealthCare.ViewModels;assembly=HealthCare"
+                            BackgroundColor="White">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="Thickness" x:Key="MainContentPadding"
+                  iOS="20" Android="20" WinPhone="10,20,10,10" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="RowSpacing"
+                  iOS="10" Android="10" WinPhone="10" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SpacingGender"
+                  iOS="25" Android="25" WinPhone="30" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SymptomEditorHeight"
+                  iOS="90" Android="150" WinPhone="300" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonHeight"
+                  iOS="60" Android="70" WinPhone="85" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonWidth"
+                  iOS="250" Android="250" WinPhone="350" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="GridColumnWidth"
+                  iOS="300*" Android="300*" WinPhone="30*" />
+      <OnPlatform x:Key="ButtonOpacity" x:TypeArguments="x:Double"
+                  iOS="1" Android="1" WinPhone="0" />
+      <OnPlatform x:Key="CameraIcon" x:TypeArguments="x:Double"
+                  iOS="50" Android="40" WinPhone="80" />
+      <OnPlatform x:Key="IsShowPlaceHolder" x:TypeArguments="x:Boolean"
+                  iOS="False" Android="False" WinPhone="True" />
+      <OnPlatform x:Key="AttachLabelPadding" x:TypeArguments="Thickness"
+                  iOS="0,0,0,5" Android="0,0,0,0" WinPhone="0,0,0,2" />
+      <OnPlatform x:Key="ButtonPadding" x:TypeArguments="Thickness"
+                  iOS="0,10,0,0" Android="0,20,0,20" WinPhone="0,20,0,20" />
+      <OnPlatform x:Key="ButtonRemoveAttachSize" x:TypeArguments="x:Double"
+                  iOS="30" Android="30" WinPhone="30" />
+      <OnPlatform x:Key="GridType" x:TypeArguments="GridLength"
+        iOS="*" Android="*" WinPhone="Auto" />
+      <OnPlatform x:Key="GridTypeColumn2" x:TypeArguments="GridLength"
+                  iOS="Auto" Android="Auto" WinPhone="*" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="IconProfilePadding"
+                  iOS="5, 0, 5 ,0" Android="20, 0, 20 ,0" WinPhone="10, 0, 10 ,0" />
+          <OnPlatform x:TypeArguments="Thickness" x:Key="SwitchPadding"
+                  iOS="2,6" Android="4,8" WinPhone="4,-20" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+  <ScrollView>
+
+
+    <StackLayout Orientation="Vertical" Grid.Column="1" Padding="{StaticResource MainContentPadding}"
+                 Spacing="0">
+
+      <StackLayout Padding="0,-10,0,10" Spacing="0">
+        <Label Style="{StaticResource LabelGreenStyle}" Text="{x:Static resx:AppResources.having_problem}"
+               FontSize="{x:Static viewModels:MoreSupportViewModel2.FontLegalNoticeContent}"
+               HorizontalOptions="Start" />
+        <Label Style="{StaticResource LabelGreenStyle}" Text="{x:Static resx:AppResources.dont_hesitate}"
+               FontSize="{x:Static viewModels:MoreSupportViewModel2.FontLegalNoticeContent}"
+               HorizontalOptions="Start" />
+        <Label>
+          <Label.FormattedText>
+            <FormattedString>
+              <FormattedString.Spans>
+                <Span ForegroundColor="{x:Static helpers:HcStyles.RedLabelColor }"
+                      FontAttributes="Bold"
+                      FontSize="{x:Static viewModels:MoreSupportViewModel2.FontLegalNoticeContent}"
+                      Text="{x:Static resx:AppResources.note}" />
+                <Span ForegroundColor="{x:Static helpers:HcStyles.GreenLabelColor }"
+                      FontSize="{x:Static viewModels:MoreSupportViewModel2.FontLegalNoticeContent}"
+                      Text="{x:Static resx:AppResources.information_presented}" />
+              </FormattedString.Spans>
+            </FormattedString>
+          </Label.FormattedText>
+        </Label>
+      </StackLayout>
+      <!--<controls:EditorCustom Text="{Binding Symptom}" SymptomEditorHeight="{StaticResource SymptomEditorHeight}" PlaceHolder="{x:Static resx:AppResources.if_question_vn}">
+              </controls:EditorCustom>-->
+      <!--<Label IsVisible="{StaticResource IsShowPlaceHolder}" Text="{x:Static resx:AppResources.if_question_vn}" TextColor="#7E7E7E" FontSize="{x:Static helpers:HcStyles.FontSizeSubContent}"></Label>-->
+      <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <healthCare:PlaceholderEditor x:Name="PlaceholderEditor"
+                                      FontSize="{x:Static viewModels:MoreSupportViewModel2.FontLegalNoticeContent}"
+                                      Placeholder="{x:Static resx:AppResources.if_question_vn}"
+                                      VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                                      HeightRequest="{StaticResource SymptomEditorHeight}"
+                                      BackgroundColor="{x:Static helpers:HcStyles.QAColor}"
+                                      Text="{Binding Symptom, Mode=TwoWay, Path=Symptom}" />
+
+        <!--<Editor  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="{StaticResource SymptomEditorHeight}"
+                          BackgroundColor="{x:Static helpers:HcStyles.QAColor}"
+                          Text="{Binding Symptom, Mode=TwoWay, Path=Symptom}"
+                            />-->
+        <!--<Grid Padding="10,8,10,10" >
+                  <Label IsVisible="False" Text="{x:Static resx:AppResources.if_question_vn}" TextColor="#7E7E7E" FontSize="{x:Static helpers:HcStyles.FontSizeContent}"></Label>
+                </Grid>-->
+      </Grid>
+
+      <Grid ColumnSpacing="10" Padding="{StaticResource SwitchPadding}"
+            HorizontalOptions="FillAndExpand" BackgroundColor="White">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="{StaticResource GridType}" />
+          <ColumnDefinition Width="{StaticResource GridTypeColumn2}" />
+        </Grid.ColumnDefinitions>
+
+        <ContentView HorizontalOptions="FillAndExpand"
+                     Grid.Column="0" Padding="{StaticResource IconProfilePadding}" >
+          <Label Style="{StaticResource LabelContentStyle}" FontAttributes="Bold"
+                 HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+                 Text="{x:Static resx:AppResources.is_hide_question}" />
+        </ContentView>
+
+        <Switch IsToggled="{Binding Shared, Mode=TwoWay}"
+                Grid.Row="0" HorizontalOptions="End" Grid.Column="1" VerticalOptions="Center"/>
+
+      </Grid>
+
+      <Grid Padding="0,10,0,0">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Image Grid.Column="0" Aspect="AspectFill" Source="{Binding ImageSource}"
+               HeightRequest="{StaticResource CameraIcon}" />
+        <ContentView Grid.Column="1" Padding="{StaticResource AttachLabelPadding}">
+          <Label TextColor="{x:Static helpers:HcStyles.BlackTextColor}"
+                 FontSize="{x:Static viewModels:MoreSupportViewModel2.FontLegalNoticeContent}"
+                 VerticalOptions="End" Text="{Binding AttachPhoto}" />
+        </ContentView>
+        <Button Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="Transparent"
+                Opacity="{StaticResource ButtonOpacity}">
+          <behaviors:Interaction.Behaviors>
+            <behaviors:BehaviorCollection>
+              <behaviors:EventToCommand EventName="Clicked"
+                                        Command="{Binding AttachCommand}" />
+            </behaviors:BehaviorCollection>
+          </behaviors:Interaction.Behaviors>
+        </Button>
+        <ContentView Grid.Column="2" Padding="10,0,0,0">
+          <Image Source="ic_clear_search.png" HeightRequest="{StaticResource ButtonRemoveAttachSize}"
+                 Grid.Column="1" IsVisible="{Binding IsShowRemoveAttach}"
+                 WidthRequest="{StaticResource ButtonRemoveAttachSize}"
+                 HorizontalOptions="Start">
+            <Image.GestureRecognizers>
+              <TapGestureRecognizer Command="{Binding RemoveAttachCommand}" />
+            </Image.GestureRecognizers>
+          </Image>
+          <!--<Label IsVisible="{Binding IsShowRemoveAttach}" TextColor="{x:Static helpers:HcStyles.BlackTextColor}" FontSize="{x:Static helpers:HcStyles.FontSizeContent}" VerticalOptions="End" Text="X"></Label>-->
+        </ContentView>
+
+      </Grid>      
+
+      <StackLayout Orientation="Horizontal">
+
+        <ContentView Padding="{StaticResource ButtonPadding}">
+          <controls:ButtonRadiusControl Text="{x:Static resx:AppResources.cancel}" HorizontalOptions="Center"
+                                        BgHeight="{StaticResource ButtonHeight}"
+                                        TextPadding="0" BgWidth="{StaticResource ButtonWidth}"
+                                        Command="{Binding GoCommand}" />
+        </ContentView>
+
+        <!--Button Submit -->
+        <ContentView Padding="{StaticResource ButtonPadding}">
+          <controls:ButtonRadiusControl Text="{x:Static resx:AppResources.send}" HorizontalOptions="Center"
+                                        BgHeight="{StaticResource ButtonHeight}"
+                                        TextPadding="0" BgWidth="{StaticResource ButtonWidth}"
+                                        Command="{Binding SubmitCommand}" />
+        </ContentView>
+
+
+      </StackLayout>
+
+    </StackLayout>
+  </ScrollView>
+
+</controls:TopBarContentPage>

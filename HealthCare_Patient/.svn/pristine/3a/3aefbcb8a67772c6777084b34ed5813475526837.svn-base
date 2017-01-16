@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                            BindingContext="{Binding VmHospital.SelectedHospitalDetail, Source={StaticResource Locator}}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            PageType="{x:Type pages:HospitalDetailPage}"
+                            Title="{x:Static resx:AppResources.hospital_info}"
+                            x:Class="HealthCare.Pages.HospitalDetailPage">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SpacingRowMainContent"
+                  iOS="10" Android="10" WinPhone="8" />
+      <OnPlatform x:Key="ContentPadding"
+                  x:TypeArguments="Thickness"
+                  iOS="8"
+                  Android="8"
+                  WinPhone="18" />
+      <OnPlatform x:Key="AvatarWidth"
+                  x:TypeArguments="x:Double"
+                  iOS="80"
+                  Android="100"
+                  WinPhone="140" />
+      <OnPlatform x:Key="AvatarHeight"
+                  x:TypeArguments="x:Double"
+                  iOS="50"
+                  Android="80"
+                  WinPhone="120" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SpacingGender"
+                  iOS="25" Android="25" WinPhone="30" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SeparatorLineHeight"
+                  iOS="1" Android="1" WinPhone="1" />
+      <OnPlatform x:TypeArguments="Aspect" x:Key="AvatarAspect"
+                  iOS="AspectFit" Android="AspectFit" WinPhone="AspectFit" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+
+
+  <RelativeLayout Padding="24,20,24,0"
+                  BackgroundColor="Transparent"
+                  VerticalOptions="FillAndExpand">
+
+    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                 Orientation="Vertical"
+                 Padding="{StaticResource ContentPadding}"
+                 RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=24}"
+
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=20}"
+
+                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                         Property=Width,
+                                                         Constant=-48,
+                                                         Factor=1}"
+                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                         Property=Height,
+                                                         Constant=-40,
+                                                         Factor=1}"
+                 BackgroundColor="White">
+
+
+      <!-- avatar -->
+      <StackLayout Orientation="Horizontal"
+                   VerticalOptions="FillAndExpand">
+
+        <Image Source="{Binding Photos.Logo}"
+               Aspect="{StaticResource AvatarAspect}"
+               HeightRequest="{StaticResource AvatarHeight}"
+               WidthRequest="{StaticResource AvatarWidth}" />
+
+        <Label Text="{Binding AsString}"
+               TextColor="{x:Static helpers:HcStyles.GreenColor}"
+               LineBreakMode="WordWrap"
+               VerticalOptions="CenterAndExpand"
+               FontAttributes="Bold"
+               Style="{StaticResource LabelTitleStyle}" />
+
+      </StackLayout>
+
+      <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderGrayColor}"
+                   HeightRequest="{StaticResource SeparatorLineHeight}"
+                   HorizontalOptions="FillAndExpand" />
+
+      <StackLayout Orientation="Vertical"
+                   Spacing="6"
+                   BackgroundColor="Transparent" VerticalOptions="StartAndExpand">
+        <!--Address-->
+        <StackLayout Orientation="Vertical">
+
+          <Label Text="{x:Static resx:AppResources.address}"
+                 Style="{StaticResource LabelSubTitleStyle}"
+                 TextColor="{x:Static helpers:HcStyles.GreenColor}" />
+
+          <Label Text="{Binding Address}"
+                 Style="{StaticResource LabelContentWordWrapStyle}" />
+          <Label Text="{Binding LocationAsString}"
+                   Style="{StaticResource LabelContentWordWrapStyle}" />
+
+        </StackLayout>
+
+        <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderGrayColor}"
+                     HeightRequest="{StaticResource SeparatorLineHeight}"
+                     HorizontalOptions="FillAndExpand" />
+
+        <!--Phone no-->
+        <StackLayout Orientation="Vertical">
+
+          <Label Text="{x:Static resx:AppResources.phone_no}"
+                 Style="{StaticResource LabelSubTitleStyle}"
+                 TextColor="{x:Static helpers:HcStyles.GreenColor}" />
+
+          <Label Text="{Binding PhoneNo, Converter={StaticResource ArrayToFirstItemConverter}}"
+                 Style="{StaticResource LabelContentWordWrapStyle}" />
+
+        </StackLayout>
+
+        <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderGrayColor}"
+                     HeightRequest="{StaticResource SeparatorLineHeight}"
+                     HorizontalOptions="FillAndExpand" />
+
+        <!--Email-->
+        <StackLayout Orientation="Vertical">
+
+          <Label Text="{x:Static resx:AppResources.email}"
+                 Style="{StaticResource LabelSubTitleStyle}"
+                 TextColor="{x:Static helpers:HcStyles.GreenColor}" />
+
+          <Label Text="{Binding Email, Converter={StaticResource ArrayToFirstItemConverter}}"
+                 Style="{StaticResource LabelContentWordWrapStyle}" />
+
+        </StackLayout>
+      </StackLayout>
+    </StackLayout>
+  </RelativeLayout>
+</controls:TopBarContentPage>

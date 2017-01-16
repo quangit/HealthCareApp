@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp">
+<!--Doctor?-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        tools:text="Doctor"
+        local:MvxBind="Text Doctor.DoctorName"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/ButtonGreenMainColor"
+        android:layout_marginBottom="5dp" />
+<!--Answer-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        tools:text="Subject"
+        local:MvxBind="Text Desc"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/black" />
+</LinearLayout>

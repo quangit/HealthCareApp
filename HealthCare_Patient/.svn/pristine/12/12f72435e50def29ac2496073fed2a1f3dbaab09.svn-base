@@ -1,0 +1,631 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7A8D6E31-40B4-443C-BFF9-37E3C57498C6}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HealthCare.WinPhone</RootNamespace>
+    <AssemblyName>HealthCare.WinPhone</AssemblyName>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <SilverlightVersion>
+    </SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>vi-VN%3ben</SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>HealthCare.WinPhone_$(Configuration)_$(Platform).xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>HealthCare.WinPhone.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <DefaultLanguage>vi-vn</DefaultLanguage>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>3</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>
+    </PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>
+    </PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>
+    </PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>
+    </PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\CustomFacebookUriMapper.cs" />
+    <Compile Include="Converters\DateTimeNullableConverter.cs" />
+    <Compile Include="DependencyServices\ChBaseHash.cs" />
+    <Compile Include="DependencyServices\ClearCacheWebView.cs" />
+    <Compile Include="DependencyServices\DialPhone.cs" />
+    <Compile Include="DependencyServices\ImageResizer.cs" />
+    <Compile Include="DependencyServices\Localize.cs" />
+    <Compile Include="DependencyServices\LocalNotifier.cs" />
+    <Compile Include="DependencyServices\PushNotificationRegister.cs" />
+    <Compile Include="DependencyServices\SHA256.cs" />
+    <Compile Include="DependencyServices\WPFacebookHelper.cs" />
+    <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renderer\ButtonCustomRenderer.cs" />
+    <Compile Include="Renderer\ChBaseWebviewRenderer.cs" />
+    <Compile Include="Renderer\CheckBoxRenderer.cs" />
+    <Compile Include="Renderer\CropImagePageRenderer.cs" />
+    <Compile Include="Renderer\CropUserControl.xaml.cs">
+      <DependentUpon>CropUserControl.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Renderer\DatePickerCustomRenderer.cs" />
+    <Compile Include="Renderer\EntryLoginRenderer.cs" />
+    <Compile Include="Renderer\ImageCircleRenderer.cs" />
+    <Compile Include="Renderer\ImageRounderCornerRenderer.cs" />
+    <Compile Include="Renderer\Page1.xaml.cs">
+      <DependentUpon>Page1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Renderer\PickerCustomRenderer.cs" />
+    <Compile Include="Renderer\PlaceholderEditorRenderer.cs" />
+    <Compile Include="Renderer\RadCalendarRenderer.cs" />
+    <Compile Include="Renderer\RatingControlRenderer.cs" />
+    <Compile Include="Renderer\SwitchCustomRenderer.cs" />
+    <Compile Include="Renderer\TabbedPageCustomRenderer.cs" />
+    <Compile Include="Renderer\TimePickerCustomRenderer.cs" />
+    <Compile Include="Renderer\WebViewJavascriptRenderer.cs" />
+    <Compile Include="Renderer\WPCropPhotoControl.xaml.cs">
+      <DependentUpon>WPCropPhotoControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Renderer\WPRatingControl.xaml.cs">
+      <DependentUpon>WPRatingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\AppResources.Designer.cs" />
+    <Compile Include="ThemeManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Renderer\CropUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Renderer\Page1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Renderer\WPCropPhotoControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Renderer\WPRatingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <EmbeddedResource Include="HealthCareCHBase.pem">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HealthCareCHBase.pfx" />
+    <None Include="LaunchScreen.storyboard" />
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\ApplicationIcon.png" />
+    <Content Include="Assets\BadgeLogo.png" />
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\SquareTile150x150.png" />
+    <Content Include="Assets\SquareTile71x71.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Tiles\FlipCycleTileLarge.png" />
+    <Content Include="Assets\Tiles\FlipCycleTileMedium.png" />
+    <Content Include="Assets\Tiles\FlipCycleTileSmall.png" />
+    <Content Include="Assets\Tiles\IconicTileMediumLarge.png" />
+    <Content Include="Assets\Tiles\IconicTileSmall.png" />
+    <Content Include="Assets\WideLogo.png" />
+    <Content Include="avatar_doctor_female.jpg" />
+    <Content Include="avatar_doctor_male.jpg" />
+    <Content Include="avatar_patient_female.jpg" />
+    <Content Include="avatar_patient_male.jpg" />
+    <Content Include="banner_logo.png" />
+    <Content Include="banner_promotion.png" />
+    <Content Include="banner_promotion_shine.png" />
+    <Content Include="bgAskdoctor.png" />
+    <Content Include="bg_green_flat.png" />
+    <Content Include="bg_login.png" />
+    <Content Include="bg_tab_normal.png" />
+    <Content Include="bg_tab_selected.png" />
+    <Content Include="bg_top_bar.png" />
+    <Content Include="btLogin.png" />
+    <Content Include="btnQuestion.png" />
+    <Content Include="btnQuestion_big.png" />
+    <Content Include="bt_add.png" />
+    <Content Include="bt_add_press.png" />
+    <Content Include="bt_add_shine.png" />
+    <Content Include="bt_restore.png" />
+    <Content Include="bt_restore_press.png" />
+    <Content Include="button_gui.png" />
+    <Content Include="cameraIcon.png" />
+    <Content Include="cancel.png" />
+    <Content Include="checkbox_off.png" />
+    <Content Include="checkbox_on.png" />
+    <Content Include="crop.png" />
+    <Content Include="FacebookConfig.xml" />
+    <Content Include="fb.png" />
+    <Content Include="fb_btn.png" />
+    <Content Include="ic-rounder.png" />
+    <Content Include="icon.png" />
+    <Content Include="ic_account_circle_white_36dp.png" />
+    <Content Include="ic_add.png" />
+    <Content Include="ic_address_about.png" />
+    <Content Include="ic_alert.png" />
+    <Content Include="ic_ambulance.png" />
+    <Content Include="ic_arrow.png" />
+    <Content Include="ic_arrow_dropdown.png" />
+    <Content Include="ic_avatar_placeholder.png" />
+    <Content Include="ic_back.png" />
+    <Content Include="ic_blue.png" />
+    <Content Include="ic_button_add.png" />
+    <Content Include="ic_calendar.png" />
+    <Content Include="ic_calendar_brown.png" />
+    <Content Include="ic_calendar_green.png" />
+    <Content Include="ic_calendar_red.png" />
+    <Content Include="ic_calendar_yellow.png" />
+    <Content Include="ic_call.png" />
+    <Content Include="ic_call_header.png" />
+    <Content Include="ic_camera.PNG" />
+    <Content Include="ic_cc_jcb.png" />
+    <Content Include="ic_cc_jcb_small.png" />
+    <Content Include="ic_cc_mastercard.png" />
+    <Content Include="ic_cc_mastercard_small.png" />
+    <Content Include="ic_cc_number.png" />
+    <Content Include="ic_cc_visa.png" />
+    <Content Include="ic_cc_visa_small.png" />
+    <Content Include="ic_certificate.png" />
+    <Content Include="ic_check.png" />
+    <Content Include="ic_checkcell.png" />
+    <Content Include="ic_choray.png" />
+    <Content Include="ic_circle.png" />
+    <Content Include="ic_clear_search.png" />
+    <Content Include="ic_clock_green.png" />
+    <Content Include="ic_close.png" />
+    <Content Include="ic_close_press.png" />
+    <Content Include="ic_config.png" />
+    <Content Include="ic_cvv_num.png" />
+    <Content Include="ic_date.png" />
+    <Content Include="ic_date_payment.png" />
+    <Content Include="ic_description.png" />
+    <Content Include="ic_doctor.png" />
+    <Content Include="ic_exit_to_app_white_36dp.png" />
+    <Content Include="ic_expand_less_black_48dp.png" />
+    <Content Include="ic_expand_more_black.png" />
+    <Content Include="ic_expand_more_black_48dp.png" />
+    <Content Include="ic_fax.png" />
+    <Content Include="ic_gender.png" />
+    <Content Include="ic_giadinh.png" />
+    <Content Include="ic_hc_record.png" />
+    <Content Include="ic_hoanmy.png" />
+    <Content Include="ic_hospital.png" />
+    <Content Include="ic_Image_50.png" />
+    <Content Include="ic_info.png" />
+    <Content Include="ic_info_creditcard.png" />
+    <Content Include="ic_info_hospital.png" />
+    <Content Include="ic_key.png" />
+    <Content Include="ic_language_doctor.png" />
+    <Content Include="ic_location.png" />
+    <Content Include="ic_lock.png" />
+    <Content Include="ic_logout.png" />
+    <Content Include="ic_mail_about.png" />
+    <Content Include="ic_medical.png" />
+    <Content Include="ic_medical_reading.png" />
+    <Content Include="ic_medkit.png" />
+    <Content Include="ic_notebook.png" />
+    <Content Include="ic_notification.PNG" />
+    <Content Include="ic_occupation.png" />
+    <Content Include="ic_operator.png" />
+    <Content Include="ic_password.png" />
+    <Content Include="ic_password_button.png" />
+    <Content Include="ic_pencil_green.png" />
+    <Content Include="ic_pencil_red.png" />
+    <Content Include="ic_pencil_yellow.png" />
+    <Content Include="ic_person.png" />
+    <Content Include="ic_phone.png" />
+    <Content Include="ic_phone_about.png" />
+    <Content Include="ic_plug.png" />
+    <Content Include="ic_plus.png" />
+    <Content Include="ic_profile.png" />
+    <Content Include="ic_promotion.png" />
+    <Content Include="ic_promotion_toolbar.png" />
+    <Content Include="ic_purchase_red.png" />
+    <Content Include="ic_purchase_yellow.png" />
+    <Content Include="ic_question_mark.png" />
+    <Content Include="ic_radio_checked.png" />
+    <Content Include="ic_radio_uncheck.png" />
+    <Content Include="ic_rectangle.png" />
+    <Content Include="ic_red.png" />
+    <Content Include="ic_refresh.png" />
+    <Content Include="ic_reload.png" />
+    <Content Include="ic_rounder.png" />
+    <Content Include="ic_safeoff.png" />
+    <Content Include="ic_safeoff1.png" />
+    <Content Include="ic_safeoff2.png" />
+    <Content Include="ic_safeoff3.png" />
+    <Content Include="ic_safeoff4.png" />
+    <Content Include="ic_sale_50.png" />
+    <Content Include="ic_search.png" />
+    <Content Include="ic_search_radius.png" />
+    <Content Include="ic_search_white.png" />
+    <Content Include="ic_setting.png" />
+    <Content Include="ic_share.png" />
+    <Content Include="ic_sign_out.png" />
+    <Content Include="ic_tick_accepted.png" />
+    <Content Include="ic_tick_brown.png" />
+    <Content Include="ic_tick_done.png" />
+    <Content Include="ic_top_bar.png" />
+    <Content Include="ic_triangle_black.png" />
+    <Content Include="ic_triangle_green.png" />
+    <Content Include="ic_username.png" />
+    <Content Include="ic_yellow.png" />
+    <Content Include="Images\DateTimePickerCancel.png" />
+    <Content Include="Images\DateTimePickerOK.png" />
+    <Content Include="img_backofcard.png" />
+    <Content Include="line_saleoff_color1.png" />
+    <Content Include="line_saleoff_color2.png" />
+    <Content Include="line_saleoff_color3.png" />
+    <Content Include="line_saleoff_color4.png" />
+    <Content Include="logo.png" />
+    <Content Include="logo_scb_card.jpg" />
+    <Content Include="logo_scb_card.png" />
+    <Content Include="logo_vietcombank.png" />
+    <Content Include="navibar.png" />
+    <Content Include="next.png" />
+    <Content Include="placeholder.png" />
+    <Content Include="PluginsHelp\ConnectivityReadme.txt" />
+    <Content Include="Properties\_SettingsStarted.txt" />
+    <Content Include="README_FIRST.txt" />
+    <Content Include="round.png" />
+    <Content Include="skype_icon.png" />
+    <Content Include="sologan_n_logo.png" />
+    <Content Include="SplashScreenImage.jpg" />
+    <Content Include="SplashScreenImage.screen-720p.jpg" />
+    <Content Include="SplashScreenImage.screen-WVGA.jpg" />
+    <Content Include="SplashScreenImage.screen-WXGA.jpg" />
+    <Content Include="tab_about.png" />
+    <Content Include="tab_account.png" />
+    <Content Include="tab_account_green.png" />
+    <Content Include="tab_appointment.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
+    <Content Include="topbar.png" />
+    <Content Include="top_bar_bg.png" />
+    <Content Include="top_bar_ic.png" />
+    <Content Include="logoHeathCare.png" />
+    <Content Include="logoHeathCare_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HealthCare\HealthCare.csproj">
+      <Name>HealthCare</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Acr.UserDialogs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Acr.UserDialogs.4.3.4\lib\wp8\Acr.UserDialogs.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Acr.UserDialogs.Interface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Acr.UserDialogs.4.3.4\lib\wp8\Acr.UserDialogs.Interface.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Connectivity.Plugin">
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.2\lib\wp8\Connectivity.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Connectivity.Plugin.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.2\lib\wp8\Connectivity.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Portable.BouncyCastle.1.8.1.1\lib\netstandard1.0\crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExifLib, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ExifLib.PCL.1.0.1\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Facebook.7.0.6\lib\wp81\Facebook.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Facebook.Client">
+      <HintPath>..\..\packages\Facebook.Client.1.0.4\lib\wp8\Facebook.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FFImageLoading.Windows.2.0.6\lib\portable-wp8\FFImageLoading.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FFImageLoading.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.Forms.2.0.6\lib\portable-wp8\FFImageLoading.Forms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FFImageLoading.Forms.WinSL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.Forms.2.0.6\lib\portable-wp8\FFImageLoading.Forms.WinSL.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FFImageLoading.Transformations, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.Transformations.2.0.6\lib\portable-wp8\FFImageLoading.Transformations.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FFImageLoading.WinSL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FFImageLoading.Windows.2.0.6\lib\portable-wp8\FFImageLoading.WinSL.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.2.0.37222, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MvvmLightLibs.5.2.0.0\lib\wp81\GalaSoft.MvvmLight.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.2.0.37222, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MvvmLightLibs.5.2.0.0\lib\wp81\GalaSoft.MvvmLight.Extras.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.2.0.37227, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MvvmLightLibs.5.2.0.0\lib\wp81\GalaSoft.MvvmLight.Platform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Geolocator.Plugin">
+      <HintPath>..\..\libs\wp8\Geolocator.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Geolocator.Plugin.Abstractions">
+      <HintPath>..\..\libs\wp8\Geolocator.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Media.Plugin, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Media.1.0.3\lib\wp8\Media.Plugin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Media.Plugin.Abstractions, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Media.1.0.3\lib\wp8\Media.Plugin.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=8.0.1.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Messaging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WindowsAzure.Messaging.Managed.0.1.7.9\lib\windowsphone8\Microsoft.WindowsAzure.Messaging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Refractored.Xam.Settings">
+      <HintPath>..\..\packages\Xam.Plugins.Settings.1.5.1\lib\wp8\Refractored.Xam.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Refractored.Xam.Settings.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugins.Settings.1.5.1\lib\wp8\Refractored.Xam.Settings.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat, Version=1.6.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Splat.1.6.2\lib\wp8\Splat.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\sl4-windowsphone71\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\sl4-windowsphone71\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\sl4-windowsphone71\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MvvmLightLibs.5.2.0.0\lib\wp81\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Chart, Version=2015.3.1028.3040, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Telerik.UI.for.Xamarin.2015.3.1028\lib\WP80\Telerik.Windows.Controls.Chart.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2015.3.1028.3040, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Telerik.UI.for.Xamarin.2015.3.1028\lib\WP80\Telerik.Windows.Controls.Input.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Primitives, Version=2015.3.1028.3040, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Telerik.UI.for.Xamarin.2015.3.1028\lib\WP80\Telerik.Windows.Controls.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Core, Version=2015.3.1028.3040, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Telerik.UI.for.Xamarin.2015.3.1028\lib\WP80\Telerik.Windows.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Chart, Version=2015.3.1028.151, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Telerik.UI.for.Xamarin.2015.3.1028\lib\WP80\Telerik.XamarinForms.Chart.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.ChartRenderer.WinPhone, Version=2015.3.1028.151, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Telerik.UI.for.Xamarin.2015.3.1028\lib\WP80\Telerik.XamarinForms.ChartRenderer.WinPhone.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Common, Version=2015.3.1028.151, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Telerik.UI.for.Xamarin.2015.3.1028\lib\WP80\Telerik.XamarinForms.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Common.WinPhone, Version=2015.3.1028.151, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Telerik.UI.for.Xamarin.2015.3.1028\lib\WP80\Telerik.XamarinForms.Common.WinPhone.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Input, Version=2015.3.1028.151, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Telerik.UI.for.Xamarin.2015.3.1028\lib\WP80\Telerik.XamarinForms.Input.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.InputRenderer.WinPhone, Version=2015.3.1028.151, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Telerik.UI.for.Xamarin.2015.3.1028\lib\WP80\Telerik.XamarinForms.InputRenderer.WinPhone.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WPControls, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WPControls.1.5.2\lib\wp8\WPControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WriteableBitmapExWinPhone, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WriteableBitmapEx.1.5.0.0\lib\WindowsPhone8\WriteableBitmapExWinPhone.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WriteableBitmapExWinPhoneXnaDependant, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WriteableBitmapEx.1.5.0.0\lib\WindowsPhone8\WriteableBitmapExWinPhoneXnaDependant.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Auth">
+      <HintPath>..\..\packages\Xamarin.Auth.0.0.2-alpha\lib\wp8\Xamarin.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.Forms.1.5.1.6471\lib\WP80\Xamarin.Forms.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Maps, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.Forms.Maps.1.5.1.6471\lib\WP80\Xamarin.Forms.Maps.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Maps.WP8, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.Forms.Maps.1.5.1.6471\lib\WP80\Xamarin.Forms.Maps.WP8.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.Forms.1.5.1.6471\lib\WP80\Xamarin.Forms.Platform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform.WP8, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.Forms.1.5.1.6471\lib\WP80\Xamarin.Forms.Platform.WP8.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.Forms.1.5.1.6471\lib\WP80\Xamarin.Forms.Xaml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="XLabs.Core">
+      <HintPath>..\..\packages\XLabs.Core.2.0.5610.2\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\XLabs.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AppResources.en.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\AppResources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\AppResources.vi-VN.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <Import Project="..\..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets'))" />
+  </Target>
+</Project>

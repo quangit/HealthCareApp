@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="HealthCare.Pages.ProfilePage"
+    xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+    xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+    xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+    xmlns:enums="clr-namespace:HealthCare.Enums;assembly=HealthCare"
+    xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+    xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+    PageType="{x:Type pages:ProfilePage}"
+    Title="{x:Static resx:AppResources.profile_title}"
+    BindingContext="{Binding VmUser, Source={StaticResource Locator}}"
+    BackgroundColor="White"
+    xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SpacingRowMainContent"
+                  iOS="10" Android="10" WinPhone="8" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonSize"
+                  iOS="32" Android="32" WinPhone="{x:Static helpers:HcStyles.ButtonHeight}" />
+      <OnPlatform x:Key="PagePadding"
+                  x:TypeArguments="Thickness"
+                  iOS="0,8,0,0"
+                  Android="0,8,0,0"
+                  WinPhone="0,12,0,0" />
+      <OnPlatform x:Key="AvatarWidth"
+                  x:TypeArguments="x:Double"
+                  iOS="80"
+                  Android="80"
+                  WinPhone="120" />
+      <OnPlatform x:Key="AvatarHeight"
+                  x:TypeArguments="x:Double"
+                  iOS="80"
+                  Android="80"
+                  WinPhone="120" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SpacingGender"
+                  iOS="25" Android="25" WinPhone="30" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="GridColumnWidth"
+                  iOS="10*" Android="10*" WinPhone="25*" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="UserCodePadding"
+                  iOS="15" Android="15" WinPhone="15" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonFontSize"
+                  iOS="{x:Static helpers:HcStyles.ButtonFontSize}"
+                  Android="{x:Static helpers:HcStyles.ButtonFontSize}"
+                  WinPhone="17" />
+      <OnPlatform x:TypeArguments="LayoutOptions" x:Key="LayoutOptionName"
+                  iOS="FillAndExpand"
+                  Android="FillAndExpand"
+                  WinPhone="FillAndExpand" />
+      <OnIdiom x:TypeArguments="LayoutOptions" x:Key="TlLayoutOptionName"
+            Phone="{StaticResource LayoutOptionName}" Tablet="FillAndExpand" />
+
+      <OnIdiom x:TypeArguments="x:Double" x:Key="TlAvatarWidth"
+                 Phone="{StaticResource AvatarWidth}" Tablet="160" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+
+  <ScrollView VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand"
+              Padding="{StaticResource PagePadding}">
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="{StaticResource GridColumnWidth}" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+      <!-- Main content -->
+      <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Vertical" Spacing="10" Grid.Column="1">
+
+        <StackLayout Orientation="Vertical"
+                     HorizontalOptions="CenterAndExpand"
+                     Padding="{StaticResource UserCodePadding}"
+                     BackgroundColor="Transparent">
+          <Label Text="{x:Static resx:AppResources.profile_user_code}" HorizontalOptions="CenterAndExpand"
+                 Style="{StaticResource LabelTitleStyle}" />
+          <Label Text="{Binding CloneCurrentUser.UserCode}"
+                 FontAttributes="Bold" HorizontalOptions="CenterAndExpand"
+                 Style="{StaticResource LabelTitleStyle}" />
+        </StackLayout>
+
+        <Grid VerticalOptions="FillAndExpand">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+
+          </Grid.ColumnDefinitions>
+          <!-- avatar -->
+          <Grid Grid.Column="0" HeightRequest="{StaticResource AvatarHeight}"
+                WidthRequest="{StaticResource TlAvatarWidth}">
+
+            <Grid.GestureRecognizers>
+              <TapGestureRecognizer
+                  Command="{Binding VmUser.AvatarTappedCommand, Source={StaticResource Locator}}" />
+            </Grid.GestureRecognizers>
+
+            <controls:ImageRounderCorner Uri="" Source="{Binding AvatarImageSource}"
+                                         x:Name="imgAvatar" />
+
+            <StackLayout Orientation="Horizontal"
+                         WidthRequest="{StaticResource AvatarWidth}"
+                         VerticalOptions="End"
+                         BackgroundColor="#80363636"
+                         HorizontalOptions="FillAndExpand"
+                         Padding="4">
+              <Image Source="ic_camera.png"
+                     Aspect="AspectFill" />
+
+              <!--              <Label Text="{x:Static resx:AppResources.create_avatar}"
+                     TextColor="White"
+                     VerticalOptions="Center"
+                     FontSize="12"
+                     Style="{StaticResource LabelSubContentStyle}" />-->
+            </StackLayout>
+
+          </Grid>
+
+          <StackLayout Grid.Column="1" x:Name="StackProfile" Orientation="Vertical"
+                       VerticalOptions="EndAndExpand"
+                       HorizontalOptions="{StaticResource TlLayoutOptionName}">
+            <controls:HcEntry Source="ic_person.png"
+                              PlaceHolder="{x:Static resx:AppResources.last_name}"
+                              Text="{Binding CloneCurrentUser.LastName, Mode=TwoWay}" />
+
+            <controls:HcEntry Source="ic_person.png"
+                              PlaceHolder="{x:Static resx:AppResources.first_name}"
+                              Text="{Binding CloneCurrentUser.FirstName, Mode=TwoWay}" />
+          </StackLayout>
+        </Grid>
+
+        <controls:DatePickerWithImageBox Source="ic_calendar.png"
+                                         SelectedValue="{Binding CloneCurrentUser.BirthDay,
+                                               Mode=TwoWay}"
+                                         IsSelected="{Binding CloneCurrentUser.IsBirthDaySet,
+                                               Mode=TwoWay}"
+                                         PlaceHolderText="{x:Static resx:AppResources.empty}"
+                                         ValidateDateTimeType="BirthDay" />
+
+        <controls:HcEntry Source="ic_phone.png"
+                          PlaceHolder="{x:Static resx:AppResources.phone_no}"
+                          Text="{Binding CloneCurrentUser.PhoneNo, Mode=TwoWay}" />
+
+        <controls:HcEntry Source="ic_cc_number.png"
+                          PlaceHolder="{x:Static resx:AppResources.id_no}"
+                          Text="{Binding CloneCurrentUser.IdNo, Mode=TwoWay}" />
+
+        <controls:HcEntry Source="ic_mail_about.png"
+                          PlaceHolder="{x:Static resx:AppResources.email}"
+                          Text="{Binding CloneCurrentUser.Email, Mode=TwoWay}" />
+
+        <controls:HcEntry Source="skype_icon.png"
+                          PlaceHolder="Skype"
+                          Text="{Binding CloneCurrentUser.SkypeId, Mode=TwoWay}" />
+
+        <StackLayout Spacing="{StaticResource SpacingGender}"
+                     Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+          <Label Text="{x:Static resx:AppResources.gender}"
+                 Style="{StaticResource LabelContentStyle}" HorizontalOptions="StartAndExpand"
+                 VerticalOptions="Center" />
+
+          <controls:HcRadioButton x:TypeArguments="enums:Gender"
+                                  ListItem="{Binding VmUser.ListGender, Source={StaticResource Locator}}"
+                                  VerticalOptions="Center"
+                                  HorizontalOptions="EndAndExpand"
+                                  SelectedItem="{Binding CloneCurrentUser.Gender, Mode=TwoWay}" />
+        </StackLayout>
+
+        <controls:HcEntry Source="ic_address_about.png"
+                          PlaceHolder="{x:Static resx:AppResources.address}"
+                          Text="{Binding CloneCurrentUser.Address, Mode=TwoWay}" />
+
+        <StackLayout Orientation="Horizontal">
+          <StackLayout Orientation="Vertical" Spacing="{StaticResource SpacingRowMainContent}"
+                       VerticalOptions="FillAndExpand">
+            <Label Text="{x:Static resx:AppResources.city}"
+                   Style="{StaticResource LabelContentStyle}"
+                   VerticalOptions="CenterAndExpand" />
+
+            <Label Text="{x:Static resx:AppResources.district}"
+                   Style="{StaticResource LabelContentStyle}"
+                   VerticalOptions="CenterAndExpand" />
+          </StackLayout>
+          <StackLayout Orientation="Vertical" Spacing="{StaticResource SpacingRowMainContent}"
+                       BindingContext="{Binding VmCommon, Source={StaticResource Locator}}"
+                       HorizontalOptions="FillAndExpand">
+            <controls:HcPicker x:TypeArguments="models:CityModel" PickerStyle="1"
+                               SelectedItem="{Binding SelectedCity, Mode=TwoWay}"
+                               ItemsSource="{Binding ListCity, Mode=TwoWay}"
+                               HorizontalOptions="FillAndExpand"
+                               TitleText="{x:Static resx:AppResources.pick_city}"
+                               EmptyText="{x:Static resx:AppResources.empty}">
+
+              <behaviors:Interaction.Behaviors>
+                <behaviors:BehaviorCollection>
+                  <behaviors:EventToCommand EventName="Loaded"
+                                            BindingContext="{Binding VmCommon, Source={StaticResource Locator}}"
+                                            Command="{Binding GetAndUpdateCitiesDistrictsCommand}" />
+                </behaviors:BehaviorCollection>
+              </behaviors:Interaction.Behaviors>
+            </controls:HcPicker>
+            <controls:HcPicker x:TypeArguments="models:DistrictModel" PickerStyle="1"
+                               SelectedItem="{Binding SelectedDistrict, Mode=TwoWay}"
+                               ItemsSource="{Binding SelectedCity.Districts, Mode=TwoWay}"
+                               HorizontalOptions="FillAndExpand"
+                               TitleText="{x:Static resx:AppResources.pick_district}"
+                               EmptyText="{x:Static resx:AppResources.empty}" />
+          </StackLayout>
+        </StackLayout>
+
+        <Label Text="{x:Static resx:AppResources.marrital_status}" Style="{StaticResource LabelContentStyle}" />
+        <controls:HcRadioButton x:TypeArguments="enums:MaritalStatus"
+                                SelectedItem="{Binding CloneCurrentUser.MaritalStatus, Mode=TwoWay}"
+                                ListItem="{Binding ListMaritalStatus}"
+                                Padding="8,0,0,0"
+                                HorizontalOptions="FillAndExpand" />
+
+        <controls:HcEntry Source="ic_occupation.png"
+                          PlaceHolder="{x:Static resx:AppResources.occupation}"
+                          Text="{Binding CloneCurrentUser.Occupation, Mode=TwoWay}" />
+
+        <!--Group Button -->
+        <Grid Padding="0, 20, 0, 20" HorizontalOptions="Center">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <controls:ButtonCustom Text="{x:Static resx:AppResources.change_password_title}" Grid.Column="1"
+                                 Style="{StaticResource ButtonStyle}"
+                                 FontSize="{StaticResource ButtonFontSize}"
+                                 HeightRequest="{StaticResource ButtonSize}"
+                                 IsVisible="{Binding IsShowChangePwd}"
+                                 BackgroundColor="{x:Static helpers:HcStyles.DarkGreenButtonColor}">
+            <behaviors:Interaction.Behaviors>
+              <behaviors:BehaviorCollection>
+                <behaviors:EventToCommand EventName="SingleClicked"
+                                          Command="{Binding ChangePwdCommand}" />
+              </behaviors:BehaviorCollection>
+            </behaviors:Interaction.Behaviors>
+          </controls:ButtonCustom>
+          <controls:ButtonCustom Text="{x:Static resx:AppResources.save}" Grid.Column="2"
+                                 HeightRequest="{StaticResource ButtonSize}"
+                                 FontSize="{StaticResource ButtonFontSize}"
+                                 Style="{StaticResource ButtonStyle}">
+            <behaviors:Interaction.Behaviors>
+              <behaviors:BehaviorCollection>
+                <behaviors:EventToCommand EventName="SingleClicked"
+                                          CommandParameter="{x:Reference imgAvatar}"
+                                          Command="{Binding SaveProfileCommand}" />
+              </behaviors:BehaviorCollection>
+            </behaviors:Interaction.Behaviors>
+          </controls:ButtonCustom>
+        </Grid>
+
+      </StackLayout>
+    </Grid>
+  </ScrollView>
+
+</controls:TopBarContentPage>

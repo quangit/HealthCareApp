@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="HealthCare/HealthCare.iOS/HealthCare.iOS.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Iphone" />
+  <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="HealthCare/HealthCare.iOS/Info.plist" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>HealthCare/HealthCare.Droid/HealthCare.Droid.csproj</String>
+  </DisabledProjects>
+</Properties>

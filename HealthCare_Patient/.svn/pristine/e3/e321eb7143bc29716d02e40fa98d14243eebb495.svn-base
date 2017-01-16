@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthCare.Pages.CHBases.BloodPressurePage"
+             xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+             xmlns:enums="clr-namespace:HealthCare.Enums;assembly=HealthCare"
+             xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+             xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+             PageType="{x:Type chBases:BloodPressurePage}"
+             xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+             xmlns:chBases="clr-namespace:HealthCare.Pages.CHBases;assembly=HealthCare"
+             xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+             xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+             xmlns:viewCells="clr-namespace:HealthCare.Controls.ViewCells;assembly=HealthCare"
+             xmlns:objects="clr-namespace:HealthCare.Models.ChBaseModel;assembly=HealthCare"
+             xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+             Title="{x:Static resx:AppResources.blood_pressure}"
+             BindingContext="{Binding VmBloodPressure, Source={StaticResource Locator}}"
+              BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}">
+  <controls:TopBarContentPage.ToolbarItems>
+    <ToolbarItem Text="{x:Static resx:AppResources.add_checkup}" Icon="ic_plus.png"  Command="{Binding GotoPageAdd}"/>
+  </controls:TopBarContentPage.ToolbarItems>
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="GridLength" x:Key="GridColumnWidth"
+                      iOS="10*" Android="10*" WinPhone="30*" />
+      <OnPlatform x:Key="PagePadding"
+                x:TypeArguments="Thickness"
+                iOS="-25,8,-25,8"
+                Android="-30,8,-30,8"
+                WinPhone="0,8,-5,8" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+  <ScrollView VerticalOptions="FillAndExpand"
+             HorizontalOptions="FillAndExpand"
+             Padding="{StaticResource PagePadding}" >
+
+    <Grid Padding="0" >
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="{StaticResource GridColumnWidth}" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+      <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="0" Grid.Column="1">
+        <controls:HcListView x:TypeArguments="objects:BloodPressureModel"
+                             ItemsSource="{Binding BloodPressureModels}"
+                             ItemCount="{Binding ItemCount, Mode=TwoWay}"
+                             IsLoadMoreEnabled="True"
+                             IsPullToRefreshEnabled="False"
+                             ItemClickCommand="{Binding GotoPageDetail}">
+          <controls:HcListView.ItemTemplate>
+            <DataTemplate>
+              <viewCells:CHBaseViewCell Title1="{x:Static resx:AppResources.pulse}" Title2="Time" Content1="{Binding Pulse}" Content2="{Binding When, Converter={StaticResource DateTimeToStringConverter}}" />
+            </DataTemplate>
+          </controls:HcListView.ItemTemplate>
+        </controls:HcListView>
+      </StackLayout>
+    </Grid>
+  </ScrollView>
+</controls:TopBarContentPage>

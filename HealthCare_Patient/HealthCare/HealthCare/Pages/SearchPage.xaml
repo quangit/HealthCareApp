@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:enums="clr-namespace:HealthCare.Enums;assembly=HealthCare"
+                            xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+                            xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            xmlns:cells="clr-namespace:HealthCare.Controls.ViewCells;assembly=HealthCare"
+                            x:Class="HealthCare.Pages.SearchPage"
+                            BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                            Title="{x:Static resx:AppResources.search}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:objects="clr-namespace:HealthCare.Objects;assembly=HealthCare"
+                            PageType="{x:Type pages:SearchPage}"
+                            BindingContext="{Binding VmSearch, Source={StaticResource Locator}}"
+                            Icon="tab_about.png">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <!-- NOTE: InverseListSuggestionHeight = -(SearchControlHeight + ButtonGroupHeight) -->
+      <OnPlatform x:TypeArguments="x:Double" x:Key="InverseListSuggestionHeight"
+                  iOS="-134" Android="-134" WinPhone="-200" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SearchControlHeight"
+                  iOS="38" Android="38" WinPhone="100" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ListSuggestYConstraint"
+                  iOS="43" Android="46" WinPhone="66" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SearchControlFontSize"
+                  iOS="12" Android="12" WinPhone="18" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="SearchControlPadding"
+                  iOS="5,0,5,0" Android="5,0,5,0" WinPhone="8,0,8,0" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="SearchControlMargin"
+                  iOS="14,0" Android="14,0" WinPhone="20" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonSearchSize"
+                  iOS="16" Android="16" WinPhone="20" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonClearSize"
+                  iOS="32" Android="32" WinPhone="40" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="SearchAreaPadding"
+                  iOS="20,0,20,0" Android="20,0,20,0" WinPhone="20,0,20,0" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="ListDoctorPadding"
+                  iOS="{StaticResource SearchAreaPadding}" Android="{StaticResource SearchAreaPadding}"
+                  WinPhone="8,0,8,0" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="FilterPadding"
+                  iOS="10,45,10,5" Android="20,45,20,5" WinPhone="20,90,20,5" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="FilterSpacing"
+                  iOS="30" Android="0" WinPhone="0" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="LeftLineWidth"
+                  iOS="1.5" Android="1.5" WinPhone="1.5" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="ButtonGroupPadding"
+                  iOS="20,10,20,10" Android="20,5" WinPhone="0" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonGroupHeight"
+                  iOS="96" Android="90" WinPhone="120" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonFontSize"
+                  iOS="13" Android="15" WinPhone="16" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="SearchControlLeftPadding"
+                  iOS="20" Android="16" WinPhone="16" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="SearchControlRightPadding"
+                  iOS="24" Android="24" WinPhone="24" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="CellSuggestionLeftPadding"
+                  iOS="24" Android="24" WinPhone="34" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="CellSuggestionPadding"
+                  iOS="0" Android="0" WinPhone="0,-2,100,-2" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="GridColumnDefinition"
+                  iOS="*" Android="*" WinPhone="*" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="GridRowDefinition"
+                  iOS="Auto" Android="*" WinPhone="Auto" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="ButonPadding"
+                  iOS="0" Android="0" WinPhone="-10" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="LoadSuggestionHeight"
+                  iOS="35" Android="35" WinPhone="60" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="HeightButton"
+                  iOS="45" Android="70" WinPhone="100" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="WidthButton"
+                  iOS="200" Android="250" WinPhone="250" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="SearchGridColumWidth1"
+                  iOS="30" Android="30" WinPhone="70" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="AddButtonPadding"
+                  iOS="0,2,0,0" Android="-8,0,0,0" WinPhone="-16,-8,0,0" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="GridSearchEntryContainerPadding"
+                  iOS="0" Android="-4,0" WinPhone="0,0,-20,0" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonSize"
+                  iOS="32" Android="42" WinPhone="{x:Static helpers:HcStyles.ButtonHeight}" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ColumnSpacing"
+                  iOS="0" Android="0" WinPhone="-8" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="SearchHintPadding"
+                  iOS="5" Android="25" WinPhone="25" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+  <RelativeLayout>
+    <StackLayout Orientation="Vertical"
+                 RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                         Property=Width,
+                                                         Factor=1}"
+                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                         Property=Height,
+                                                         Factor=1}">
+
+      <!-- Search Filter -->
+      <StackLayout Orientation="Vertical" BackgroundColor="White" Padding="{StaticResource SearchAreaPadding}">
+        <Grid BindingContext="{Binding VmCommon, Source={StaticResource Locator}}" VerticalOptions="End"
+              HorizontalOptions="FillAndExpand" ColumnSpacing="{StaticResource FilterSpacing}"
+              Padding="{StaticResource FilterPadding}">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+          <controls:HcPicker x:TypeArguments="models:CityModel" PickerStyle="2"
+                             Grid.Column="0"
+                             SelectedItem="{Binding SelectedCityForSearch, Mode=TwoWay}"
+                             ItemsSource="{Binding ListCitiesForSearch}"
+                             SelectedItemChangedCommand="{Binding VmSearch.CityDistrictSelectionChangedCommand, Source={StaticResource Locator}}"
+                             TitleText="{x:Static resx:AppResources.pick_city}"
+                             EmptyText="{x:Static resx:AppResources.empty_city}" />
+
+          <controls:HcPicker x:TypeArguments="models:DistrictModel" PickerStyle="2"
+                             Grid.Column="1"
+                             SelectedItem="{Binding SelectedDistrictForSearch, Mode=TwoWay}"
+                             ItemsSource="{Binding SelectedCityForSearch.Districts}"
+                             TitleText="{x:Static resx:AppResources.pick_district}"
+                             SelectedItemChangedCommand="{Binding VmSearch.CityDistrictSelectionChangedCommand, Source={StaticResource Locator}}"
+                             EmptyText="{x:Static resx:AppResources.empty_district}" />
+        </Grid>
+      </StackLayout>
+
+      <!-- List Of Doctor -->
+      <Grid Padding="{StaticResource SearchAreaPadding}">
+        <controls:HcListView ItemsSource="{Binding ListDoctorBySearch}"
+                             ItemClickCommand="{Binding TapDoctorListCommand}"
+                             x:TypeArguments="objects:ProxyDoctorModel"
+                             ItemCount="{Binding Path=ItemCount, Mode=TwoWay}"
+                             IsPullToRefreshEnabled="False"
+                             IsLoadMoreEnabled="True"
+                             LoadMoreCommand="{Binding LoadMoreDoctorListCommand}"
+                             CanLoadMore="{Binding IsCanLoadMore}"
+                             EmptyText=" ">
+
+          <controls:HcListView.ItemTemplate>
+            <DataTemplate>
+              <cells:CheckCell>
+                <cells:CheckCell.Content>
+                  <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand">
+                    <ContentView WidthRequest="{StaticResource LeftLineWidth}"
+                                 VerticalOptions="FillAndExpand"
+                                 BackgroundColor="{x:Static helpers:HcStyles.GreenCardColor}" />
+                    <StackLayout Padding="10" HorizontalOptions="FillAndExpand"
+                                 Orientation="Vertical">
+                      <Label Style="{StaticResource LabelContentStyle}"
+                             Text="{Binding FullName}"
+                             FontAttributes="Bold" />
+                      <Label Style="{StaticResource LabelSubContentStyle}"
+                             Text="{Binding CheckupType.Name}" />
+                    </StackLayout>
+                  </StackLayout>
+                </cells:CheckCell.Content>
+              </cells:CheckCell>
+            </DataTemplate>
+          </controls:HcListView.ItemTemplate>
+        </controls:HcListView>
+        <ContentView  IsVisible="{Binding IsShowHint}">
+          <StackLayout Padding="{StaticResource SearchHintPadding}">
+            <Label Style="{StaticResource LabelContentStyle}" VerticalOptions="FillAndExpand"
+                   HorizontalOptions="FillAndExpand"
+                   XAlign="Center" YAlign="Center"
+                   TextColor="{x:Static helpers:HcStyles.GreenButtonColor}"
+                   Text="{x:Static resx:AppResources.search_hint}" />
+          </StackLayout>
+        </ContentView>
+        <ContentView Padding="25" IsVisible="{Binding IsShowEmpty}">
+          <Label Style="{StaticResource LabelContentStyle}" VerticalOptions="FillAndExpand"
+                 HorizontalOptions="Center"
+                 XAlign="Center" YAlign="Center" Opacity="0.3"
+                 Text="{x:Static resx:AppResources.empty_doctor_search}" />
+        </ContentView>
+      </Grid>
+
+      <!-- Button Group -->
+      <Grid HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" RowSpacing="5" ColumnSpacing="5"
+            Padding="{StaticResource ButtonGroupPadding}" HeightRequest="{StaticResource ButtonGroupHeight}">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="{StaticResource GridColumnDefinition}" />
+          <ColumnDefinition Width="{StaticResource GridColumnDefinition}" />
+          <ColumnDefinition Width="{StaticResource GridColumnDefinition}" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="{StaticResource GridRowDefinition}" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Column="0" Grid.Row="0" Padding="{StaticResource ButonPadding}" Spacing="0">
+          <Button Style="{StaticResource ButtonSearchBottomStyle}" Text="{x:Static resx:AppResources.info}"
+                  FontSize="{StaticResource ButtonFontSize}" Opacity="0.8"
+                  Command="{Binding GoDetailDoctorCommand}" IsVisible="{Binding IsShowGroupButton}"
+                  BackgroundColor="{x:Static helpers:HcStyles.DarkGreenButtonColor}" />
+        </StackLayout>
+        <StackLayout Grid.Column="1" Grid.Row="0" Padding="{StaticResource ButonPadding}" Spacing="0">
+          <Button Style="{StaticResource ButtonSearchBottomStyle}"
+                  Text="{x:Static resx:AppResources.view_location}"
+                  FontSize="{StaticResource ButtonFontSize}" Opacity="0.8"
+                  Command="{Binding GoLocationDoctorCommand}" IsVisible="{Binding IsShowGroupButton}"
+                  BackgroundColor="{x:Static helpers:HcStyles.DarkGreenButtonColor}" />
+        </StackLayout>
+        <StackLayout Grid.Column="2" Grid.Row="0" Padding="{StaticResource ButonPadding}" Spacing="0">
+          <Button Style="{StaticResource ButtonSearchBottomStyle}"
+                  Text="{x:Static resx:AppResources.pick_doctor}"
+                  FontSize="{StaticResource ButtonFontSize}" Opacity="0.8"
+                  Command="{Binding ChooseDoctorCommand}" IsVisible="{Binding IsShowGroupButton}"
+                  BackgroundColor="{x:Static helpers:HcStyles.DarkGreenButtonColor}" />
+        </StackLayout>
+        <!--<StackLayout Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Spacing="0">
+          <controls:ButtonRadiusControl Text="{x:Static resx:AppResources.request_doctor}"
+                                        VerticalOptions="FillAndExpand"
+                                        HorizontalOptions="Center"
+                                        Command="{Binding GoSupportCommand}"
+                                        BgHeight="{StaticResource HeightButton}"
+                                        BgWidth="{StaticResource WidthButton}"
+                                        FontSize="{StaticResource ButtonFontSize}" />
+        </StackLayout>-->
+      </Grid>
+    </StackLayout>
+
+    <!-- Search Entry -->
+    <ContentView VerticalOptions="StartAndExpand" Padding="{StaticResource SearchControlMargin}"
+                 HorizontalOptions="Center"
+                 BackgroundColor="White"
+                 RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=5}"
+                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                         Property=Width,
+                                                         Factor=1}"
+                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=Constant, 
+                                                Constant={StaticResource SearchControlHeight}}">
+
+      <Grid Padding="{StaticResource GridSearchEntryContainerPadding}">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="{StaticResource SearchGridColumWidth1}" />
+        </Grid.ColumnDefinitions>
+
+        <Frame HorizontalOptions="FillAndExpand" OutlineColor="{Binding SearchBorderColor}" Padding="1"
+               HasShadow="False" Grid.Column="0">
+          <Grid BackgroundColor="Transparent" Padding="{StaticResource SearchControlPadding}"
+                ColumnSpacing="{StaticResource ColumnSpacing}">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="{StaticResource SearchControlLeftPadding}" />
+              <ColumnDefinition Width="{StaticResource GridColumnDefinition}" />
+              <ColumnDefinition Width="{StaticResource SearchControlRightPadding}" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Image Source="ic_search.png" HeightRequest="{StaticResource ButtonSearchSize}"
+                   Grid.Column="0"
+                   WidthRequest="{StaticResource ButtonSearchSize}"
+                   HorizontalOptions="Start" />
+            <controls:EntryLogin Text="{Binding Keyword.Name, Mode=TwoWay}"
+                                 Placeholder="{x:Static resx:AppResources.search_placeholder}"
+                                 HorizontalOptions="FillAndExpand"
+                                 Grid.Column="1" IsPassword="False"
+                                 TextColor="{x:Static helpers:HcStyles.BlackTextColor}"
+                                 HideKeyboard="{Binding KeyboardHidden}"
+                                 PlaceHolderColor="{x:Static helpers:HcStyles.LightBlackTextColor}"
+                                 FontSize="{StaticResource SearchControlFontSize}" IsLogin="False"
+                                 VerticalOptions="Center"
+                                 IsFocused="{Binding IsFocusSearch, Mode=TwoWay}">
+              <behaviors:Interaction.Behaviors>
+                <behaviors:BehaviorCollection>
+                  <behaviors:EventToCommand EventName="TextChanged"
+                                            Command="{Binding VmSearch.TextChangeCommand, Source={StaticResource Locator}}" />
+                </behaviors:BehaviorCollection>
+              </behaviors:Interaction.Behaviors>
+            </controls:EntryLogin>
+            <Image Source="ic_clear_search.png" HeightRequest="{StaticResource ButtonClearSize}"
+                   Grid.Column="2" IsVisible="{Binding IsShowClearSearch, Mode=TwoWay}"
+                   WidthRequest="24"
+                   HorizontalOptions="End">
+              <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ClearSearchCommand}" />
+              </Image.GestureRecognizers>
+            </Image>
+          </Grid>
+        </Frame>
+
+        <StackLayout Grid.Column="1" Padding="{StaticResource AddButtonPadding}">
+          <Button BackgroundColor="Transparent" Image="ic_button_add.png" BorderWidth="0"
+                  BorderColor="Transparent"
+                  HeightRequest="{StaticResource ButtonSize}" WidthRequest="{StaticResource ButtonSize}"
+                  HorizontalOptions="End"
+                  Command="{Binding GoSupportCommand}" />
+        </StackLayout>
+      </Grid>
+    </ContentView>
+    <!-- Suggestion List -->
+    <Grid IsVisible="{Binding IsShowSuggestion}" Padding="{StaticResource SearchControlMargin}"
+          BackgroundColor="Transparent"
+          RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+          RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, 
+                                            Constant={StaticResource ListSuggestYConstraint}}"
+          RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                         Property=Width,
+                                                         Factor=1}"
+          RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                         Property=Height,
+                                                         Factor=1,
+                                                         Constant={StaticResource InverseListSuggestionHeight}}">
+
+      <ContentView HeightRequest="{StaticResource LoadSuggestionHeight}" VerticalOptions="Start"
+                   IsVisible="{Binding IsShowSuggestion}" BackgroundColor="White" />
+
+      <controls:ListViewCustom ItemsSource="{Binding ListSuggestion}" HasUnevenRows="true"
+                               VerticalOptions="StartAndExpand"
+                               BackgroundColor="Transparent"
+                               ItemClickCommand="{Binding TapListSuggestionCommand}">
+        <controls:ListViewCustom.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <ContentView BackgroundColor="White" Padding="{StaticResource CellSuggestionPadding}">
+                <Grid HorizontalOptions="StartAndExpand">
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                  </Grid.RowDefinitions>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{StaticResource CellSuggestionLeftPadding}" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="{StaticResource CellSuggestionLeftPadding}" />
+                  </Grid.ColumnDefinitions>
+                  <StackLayout Grid.Column="1" Orientation="Vertical" Spacing="2" Padding="3">
+                    <Label Style="{StaticResource LabelSubContentStyle}"
+                           HorizontalOptions="Start"
+                           Opacity="0.8"
+                           FontAttributes="Bold"
+                           Text="{Binding TypeAsString}"
+                           VerticalOptions="Center" />
+                    <Label Style="{StaticResource LabelContentStyle}" Text="{Binding Name}"
+                           HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+                  </StackLayout>
+                </Grid>
+              </ContentView>
+            </ViewCell>
+          </DataTemplate>
+        </controls:ListViewCustom.ItemTemplate>
+      </controls:ListViewCustom>
+
+      <Label Style="{StaticResource LabelContentStyle}" VerticalOptions="StartAndExpand"
+             XAlign="Center" YAlign="Center" HeightRequest="{StaticResource LoadSuggestionHeight}"
+             IsVisible="{Binding IsShowSuggestLoading}" Opacity="0.3"
+             HorizontalOptions="FillAndExpand" Text="{x:Static resx:AppResources.searching}" />
+
+      <Label Style="{StaticResource LabelContentStyle}" VerticalOptions="StartAndExpand"
+             XAlign="Center" YAlign="Center" HeightRequest="{StaticResource LoadSuggestionHeight}"
+             IsVisible="{Binding IsShowNotFound}" Opacity="0.3"
+             HorizontalOptions="FillAndExpand" Text="{x:Static resx:AppResources.suggest_not_found}" />
+    </Grid>
+  </RelativeLayout>
+
+</controls:TopBarContentPage>

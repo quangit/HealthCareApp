@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<repositories>
+  <repository path="../HealthCare/HealthCare.Droid/packages.config" />
+  <repository path="../HealthCare/HealthCare.iOS/packages.config" />
+  <repository path="../HealthCare/HealthCare/packages.config" />
+  <repository path="..\HealthCare\HealthCare.Droid\packages.config" />
+  <repository path="..\HealthCare\HealthCare.iOS\packages.config" />
+  <repository path="..\HealthCare\HealthCare.WinPhone\packages.config" />
+  <repository path="..\HealthCare\HealthCare\packages.config" />
+</repositories>

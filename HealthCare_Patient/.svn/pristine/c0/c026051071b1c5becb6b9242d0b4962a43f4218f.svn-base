@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:chBases="clr-namespace:HealthCare.Pages.CHBases;assembly=HealthCare"
+                            PageType="{x:Type chBases:CHBaseShareHealthInfomationPage}"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            xmlns:chBaseModel="clr-namespace:HealthCare.Models.ChBaseModel;assembly=HealthCare"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            Title="{x:Static resx:AppResources.share_health_infomation}"
+                            BindingContext="{Binding VmChBaseHomePage, Source={StaticResource Locator}}"
+                            x:Class="HealthCare.Pages.CHBases.CHBaseShareHealthInfomationPage"
+                            Icon="ic_share.png">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="x:Double" x:Key="LeftLineWidth"
+            iOS="1.5" Android="1.5" WinPhone="1.5" />
+
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+
+  <StackLayout Orientation="Vertical" BackgroundColor="Transparent">
+
+
+    <controls:HcListView x:TypeArguments="chBaseModel:CHBaseHomePageFeatureModel"
+                         CanLoadMore="False"
+                         IsPullToRefreshEnabled="False"
+                         ItemCount="2"
+                         ItemClickCommand="{Binding ItemClickCommand}"
+                         ItemsSource="{Binding ListFeatureShareHealthInfomation}">
+      <controls:HcListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <ViewCell.View>
+              <ContentView Padding="0,5,0,5">
+                <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderLightGrayColor}" Padding="1">
+                  <Grid BackgroundColor="White">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+                                                  VerticalOptions="FillAndExpand">
+                      <ContentView WidthRequest="{StaticResource LeftLineWidth}"
+                                   VerticalOptions="FillAndExpand"
+                                   BackgroundColor="{x:Static helpers:HcStyles.GreenCardColor}" />
+                      <StackLayout Padding="10" HorizontalOptions="FillAndExpand"
+                                   Orientation="Vertical">
+                        <Label Style="{StaticResource LabelContentStyle}"
+                               Text="{Binding Name}"
+                               FontAttributes="Bold" />
+                      </StackLayout>
+                    </StackLayout>
+                  </Grid>
+                </ContentView>
+              </ContentView>
+            </ViewCell.View>
+          </ViewCell>
+        </DataTemplate>
+      </controls:HcListView.ItemTemplate>
+    </controls:HcListView>
+
+  </StackLayout>
+
+
+</controls:TopBarContentPage>

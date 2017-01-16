@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:BaseAddCheckupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                             xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                             xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                             xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                             xmlns:cells="clr-namespace:HealthCare.Controls.ViewCells;assembly=HealthCare"
+                             xmlns:b="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+                             xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+                             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                             x:Class="HealthCare.Pages.PickHospitalPage"
+                             Title="{x:Static resx:AppResources.pick_hospital}"
+                             PageTitle="{x:Static resx:AppResources.pick_hospital}"
+                             BindingContext="{Binding VmAddCheckup, Source={StaticResource Locator}}"
+                             NextCommand="{Binding GoToPickDoctorPageCommand}"
+                             NextCommandParam="{Binding SelectedHospital.Id}"
+                             CancelCommand="{Binding GoBackCommand}"
+                             BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="x:Double" x:Key="LogoHospitalSize"
+                  iOS="74" Android="74" WinPhone="100" />
+      <OnPlatform x:TypeArguments="Style" x:Key="LabelStyle"
+                  iOS="{StaticResource LabelTitleStyle}" Android="{StaticResource LabelTitleStyle}"
+                  WinPhone="{StaticResource LabelContentStyle}" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+
+  <b:Interaction.Behaviors>
+    <b:BehaviorCollection>
+      <b:EventToCommand EventName="Appearing"
+                        Command="{Binding VmHospital.LoadAllHospitalCommand, Source={StaticResource Locator}}" />
+      <b:EventToCommand EventName="Appearing"
+                        Command="{Binding VmAddCheckup.ResetSelectedsCommand, Source={StaticResource Locator}}" />
+    </b:BehaviorCollection>
+  </b:Interaction.Behaviors>
+
+  <controls:BaseAddCheckupPage.PageContent>
+    <StackLayout Padding="8,8">
+      <RelativeLayout>
+        <controls:HcListView x:TypeArguments="models:HospitalModel"
+                             ItemCount="{Binding VmHospital.HospitalCount, Mode=TwoWay, Source={StaticResource Locator}}"
+                             ItemsSource="{Binding VmHospital.ListAllOfHospitalLoadMore, Source={StaticResource Locator}}"
+                             IsPullToRefreshEnabled="False"
+                             IsLoadMoreEnabled="True"
+                             LoadMoreCommand="{Binding VmHospital.LoadMoreHospitalCommand, Source={StaticResource Locator}}"
+                             CanLoadMore="{Binding VmHospital.IsCanLoadMore, Source={StaticResource Locator}}"
+                             EmptyText="{x:Static resx:AppResources.empty}"
+                             ItemClickCommand="{Binding ListViewHospitalClickCommand}"
+                             RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+
+                             RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+
+                             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                        Property=Width, Factor=1}"
+                             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                        Property=Height, Factor=1}">
+          <controls:HcListView.ItemTemplate>
+            <DataTemplate>
+              <cells:CheckCell>
+                <cells:CheckCell.Content>
+                  <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <forms:CachedImage
+                          DownsampleToViewSize="true"
+                          TransparencyEnabled="False"
+                          Source="{Binding Photos.Logo, Converter={StaticResource UriToImageLoaderConverter}}"
+                          HeightRequest="{StaticResource LogoHospitalSize}"
+                          WidthRequest="{StaticResource LogoHospitalSize}" />
+                    <Label Style="{StaticResource LabelStyle}" Text="{Binding AsString}"
+                           VerticalOptions="Center"
+                           TextColor="{x:Static helpers:HcStyles.DarkerGreenCardColor}"
+                           FontAttributes="Bold" />
+                  </StackLayout>
+                </cells:CheckCell.Content>
+              </cells:CheckCell>
+            </DataTemplate>
+          </controls:HcListView.ItemTemplate>
+        </controls:HcListView>
+      </RelativeLayout>
+    </StackLayout>
+  </controls:BaseAddCheckupPage.PageContent>
+
+</controls:BaseAddCheckupPage>

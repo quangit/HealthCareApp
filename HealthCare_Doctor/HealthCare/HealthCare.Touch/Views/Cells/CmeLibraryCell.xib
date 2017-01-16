@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cZE-iV-UFb" customClass="CmeLibraryCell">
+            <rect key="frame" x="0.0" y="0.0" width="182" height="166"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="182" height="166"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDm-fc-PNa">
+                        <rect key="frame" x="5" y="5" width="172" height="156"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gug-CZ-Dpn">
+                                <rect key="frame" x="5" y="5" width="162" height="146"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="gug-CZ-Dpn" firstAttribute="leading" secondItem="cDm-fc-PNa" secondAttribute="leading" constant="5" id="AES-uS-zo5"/>
+                            <constraint firstAttribute="trailing" secondItem="gug-CZ-Dpn" secondAttribute="trailing" constant="5" id="KNQ-kb-ng1"/>
+                            <constraint firstAttribute="bottom" secondItem="gug-CZ-Dpn" secondAttribute="bottom" constant="5" id="er7-WE-YjT"/>
+                            <constraint firstItem="gug-CZ-Dpn" firstAttribute="top" secondItem="cDm-fc-PNa" secondAttribute="top" constant="5" id="ml7-oS-tfD"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="cDm-fc-PNa" firstAttribute="leading" secondItem="cZE-iV-UFb" secondAttribute="leading" constant="5" id="H8Y-an-g5K"/>
+                <constraint firstItem="cDm-fc-PNa" firstAttribute="top" secondItem="cZE-iV-UFb" secondAttribute="top" constant="5" id="Kim-h7-VCR"/>
+                <constraint firstAttribute="trailingMargin" secondItem="cDm-fc-PNa" secondAttribute="trailingMargin" constant="5" id="XMQ-7h-xea"/>
+                <constraint firstAttribute="bottomMargin" secondItem="cDm-fc-PNa" secondAttribute="bottomMargin" constant="5" id="ZGz-a7-SAw"/>
+            </constraints>
+            <size key="customSize" width="182" height="166"/>
+            <connections>
+                <outlet property="CategoryName" destination="gug-CZ-Dpn" id="FVE-zR-3iN"/>
+            </connections>
+            <point key="canvasLocation" x="306" y="505"/>
+        </collectionViewCell>
+    </objects>
+</document>

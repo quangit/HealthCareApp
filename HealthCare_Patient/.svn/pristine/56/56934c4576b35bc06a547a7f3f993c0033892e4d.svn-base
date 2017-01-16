@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthCare.Pages.CHBases.AddProcedurePage"
+             xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+             xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+             xmlns:enums="clr-namespace:HealthCare.Enums;assembly=HealthCare"
+             xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+             xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+             xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+             xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+             xmlns:chpages="clr-namespace:HealthCare.Pages.CHBases;assembly=HealthCare"
+             PageType="{x:Type chpages:AddProcedurePage}"
+             xmlns:controls1="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             Title="{x:Static resx:AppResources.procedure}"
+             BindingContext="{Binding VmProcedure, Source={StaticResource Locator}}"
+             BackgroundColor="White">
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="x:Double" x:Key="GalleryHeight"
+                 iOS="100" Android="150" WinPhone="150" />
+    <OnPlatform x:TypeArguments="x:Double" x:Key="ImageCancelHeight"
+              iOS="20" Android="50" WinPhone="50" />
+      </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+  <ScrollView>
+    <StackLayout Padding="5">
+      <controls:HcEntry  PlaceHolder="{x:Static resx:AppResources.procedure_name}"
+                         IsVisibleImage="False"
+                         Text="{Binding ProcedureAdding.Name}"></controls:HcEntry>
+      <controls:HcEntry PlaceHolder="{x:Static resx:AppResources.location}" 
+                        IsVisibleImage="False"
+                        Text="{Binding ProcedureAdding.Location}" ></controls:HcEntry>
+      <controls:HcEntry PlaceHolder="{x:Static resx:AppResources.provider}" 
+                        IsVisibleImage="False"
+                        Text="{Binding ProcedureAdding.PrimaryProvider.Name}"></controls:HcEntry>
+      <controls:HcEntry PlaceHolder="{x:Static resx:AppResources.role}" 
+                        IsVisibleImage="False"
+                        Text="{Binding ProcedureAdding.PrimaryProvider.Type}" ></controls:HcEntry>
+
+      <Label Style="{StaticResource LabelSubContentStyle}" Text="{x:Static resx:AppResources.note}"></Label>
+      <StackLayout BackgroundColor="{x:Static helpers:HcStyles.GreenLineColor}" Padding="0,0,0,1">
+        <StackLayout BackgroundColor="White">
+          <Editor HeightRequest="150" Text="{Binding ProcedureAdding.SecondaryProvider.Name}"></Editor>
+        </StackLayout>
+      </StackLayout>
+      <StackLayout Padding="0,0,0,1" HeightRequest="50" >
+        <Grid BackgroundColor="White">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+          </Grid.ColumnDefinitions>
+          <Label Style="{StaticResource LabelSubContentStyle}" VerticalOptions="Center" Grid.Column="0" Text="{x:Static resx:AppResources.choose_a_photo}" ></Label>
+          <Grid Grid.Column="1" VerticalOptions="Start">
+            <Grid.GestureRecognizers>
+              <TapGestureRecognizer Command="{Binding GetImage}" />
+            </Grid.GestureRecognizers>
+            <Image Source="ic_Image_50.png" HeightRequest="50" WidthRequest="50"></Image>
+          </Grid>
+        </Grid>
+      </StackLayout>
+      <!--<ListView VerticalOptions="Start" HorizontalOptions="" ItemsSource="{Binding ListImage}">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+             <Label Text="{Binding}"></Label>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>-->
+      <!--<controls:ImageRounderCorner Source="{Binding ImageSource}" HorizontalOptions="Start" HeightRequest="100" WidthRequest="100"/>-->
+      <controls:ImageGallery  ItemsSource="{Binding Images}">
+        <controls:ImageGallery.ItemTemplate>
+          <DataTemplate>
+            <Grid  HeightRequest="{x:StaticResource GalleryHeight}"
+              WidthRequest="{x:StaticResource GalleryHeight}">
+            <Image
+              HeightRequest="{x:StaticResource GalleryHeight}"
+              WidthRequest="{x:StaticResource GalleryHeight}"
+							Source="{Binding Source}"
+							Aspect="AspectFit">
+             
+            </Image>
+              <Grid Padding="0,-10,10,0">
+                <Image HeightRequest="{x:StaticResource ImageCancelHeight}" WidthRequest="{x:StaticResource ImageCancelHeight}" VerticalOptions="Start" HorizontalOptions="End"  Source="cancel.png">
+                  <Image.GestureRecognizers>
+                <TapGestureRecognizer
+									Command="{Binding VmProcedure.RemoveImageCommand, Source={StaticResource Locator}}"
+									CommandParameter="{Binding ImageId}" />
+              </Image.GestureRecognizers>
+                  </Image>
+              </Grid>
+            </Grid>
+          </DataTemplate>
+        </controls:ImageGallery.ItemTemplate>
+      </controls:ImageGallery>
+      <StackLayout Orientation="Horizontal" Padding="{StaticResource PaddingRowMainContent}">
+        <controls:ButtonCustom  Text="{x:Static resx:AppResources.ok}"
+                                 Style="{StaticResource ButtonStyle}"
+                                HorizontalOptions="FillAndExpand"
+                                Command="{Binding SubmitAddCommand}"></controls:ButtonCustom>
+      </StackLayout>
+    </StackLayout>
+  </ScrollView>
+</controls:TopBarContentPage>

@@ -1,0 +1,868 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="FailureCardNotFound" xml:space="preserve">
+    <value>Vui lòng nhập thẻ của bạn!</value>
+  </data>
+  <data name="FailureInvalidEndMorningMinute" xml:space="preserve">
+    <value>TODO: Update AppResource 'FailureInvalidEndMorningMinute'</value>
+  </data>
+  <data name="AppBarButtonText" xml:space="preserve">
+    <value>Thêm</value>
+  </data>
+  <data name="SetPasswrod_Success" xml:space="preserve">
+    <value>Mật khẩu của bạn đã được thay đổi.</value>
+  </data>
+  <data name="Consult_Empty" xml:space="preserve">
+    <value>Hiện tại không có câu hỏi nào cần tư vấn trong hệ thống</value>
+  </data>
+  <data name="SignUp_RetypePassword" xml:space="preserve">
+    <value>Nhập lại mật khẩu</value>
+  </data>
+  <data name="Consult_Title" xml:space="preserve">
+    <value>Tư vấn</value>
+  </data>
+  <data name="FailureInvalidServiceType" xml:space="preserve">
+    <value>Loại dịch vụ không hợp lệ</value>
+  </data>
+  <data name="ConsultView_PatientDesc" xml:space="preserve">
+    <value>Thông tin:</value>
+  </data>
+  <data name="ResourceLanguage" xml:space="preserve">
+    <value>vi-VN</value>
+  </data>
+  <data name="ScheduleAdding_PopupHeader" xml:space="preserve">
+    <value>Chọn ngày trong tuần</value>
+  </data>
+  <data name="FailureInvalidStartMorningMinute" xml:space="preserve">
+    <value>TODO: Update AppResource 'FailureInvalidStartMorningMinute'</value>
+  </data>
+  <data name="Exit_Promp" xml:space="preserve">
+    <value>Bạn có muốn thoát hay không?</value>
+  </data>
+  <data name="ScheduleAdding_HosTitle" xml:space="preserve">
+    <value>Bệnh viện:</value>
+  </data>
+  <data name="SignUp_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="FailureObjectNotFound" xml:space="preserve">
+    <value>TODO: Update AppResource 'FailureObjectNotFound'</value>
+  </data>
+  <data name="SignUp_Title" xml:space="preserve">
+    <value>Đăng ký</value>
+  </data>
+  <data name="SignUp_Phone" xml:space="preserve">
+    <value>Số điện thoại</value>
+  </data>
+  <data name="WeekTopics_Organisers" xml:space="preserve">
+    <value>Đơn vị tổ chức: </value>
+  </data>
+  <data name="SignIn_Register" xml:space="preserve">
+    <value>Đăng ký</value>
+  </data>
+  <data name="SignIn_Login" xml:space="preserve">
+    <value>Đăng nhập</value>
+  </data>
+  <data name="FailureIdEmpty" xml:space="preserve">
+    <value>ID bị trống!</value>
+  </data>
+  <data name="Setting_NotificationEnabled" xml:space="preserve">
+    <value>Nhận Thông Báo</value>
+  </data>
+  <data name="SignIn_Title" xml:space="preserve">
+    <value>Đăng nhập</value>
+  </data>
+  <data name="SignIn_Phone" xml:space="preserve">
+    <value>Số điện thoại/Email</value>
+  </data>
+  <data name="ScheduleAdding_DownButton" xml:space="preserve">
+    <value>Giảm</value>
+  </data>
+  <data name="ScheduleAdding_RepeatTitle" xml:space="preserve">
+    <value>Lặp lại:</value>
+  </data>
+  <data name="SignUp_SaveButton" xml:space="preserve">
+    <value>Lưu</value>
+  </data>
+  <data name="Messsage_Loading" xml:space="preserve">
+    <value>Đang tải...</value>
+  </data>
+  <data name="FailureBirthdayEmpty" xml:space="preserve">
+    <value>Bạn chưa nhập ngày sinh.</value>
+  </data>
+  <data name="ConsultView_Reply" xml:space="preserve">
+    <value>Trả lời</value>
+  </data>
+  <data name="Schedule_Title" xml:space="preserve">
+    <value>Lịch khám</value>
+  </data>
+  <data name="Schedule_Empty" xml:space="preserve">
+    <value>Không có lịch khám trong ngày</value>
+  </data>
+  <data name="ScheduleAdding_DateTitle" xml:space="preserve">
+    <value>Ngày:</value>
+  </data>
+  <data name="ScheduleAdding_UpButton" xml:space="preserve">
+    <value>Tăng</value>
+  </data>
+  <data name="CallSupport" xml:space="preserve">
+    <value>Hỗ trợ</value>
+  </data>
+  <data name="FailureIdnoEmpty" xml:space="preserve">
+    <value>số ID bị trống!</value>
+  </data>
+  <data name="Message_Cancel" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
+  <data name="ListPullToRefreshLoading" xml:space="preserve">
+    <value>đang tải</value>
+  </data>
+  <data name="FailureInvalidEndMorningHour" xml:space="preserve">
+    <value>TODO: Update AppResource 'FailureInvalidEndMorningHour'</value>
+  </data>
+  <data name="DoctorDayOfWeek_Wednesday" xml:space="preserve">
+    <value>Thứ tư</value>
+  </data>
+  <data name="Message_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Đăng xuất</value>
+  </data>
+  <data name="FailureCheckupPaid" xml:space="preserve">
+    <value>Phiếu khám chưa được thanh toán</value>
+  </data>
+  <data name="FailureUserExisted" xml:space="preserve">
+    <value>Người dùng đã tồn tại</value>
+  </data>
+  <data name="Examination" xml:space="preserve">
+    <value>Lịch khám</value>
+  </data>
+  <data name="FailureInvalidDoctorCheckupType" xml:space="preserve">
+    <value>Vui lòng hoàn thiện thông tin cá nhân trước khi sử dụng tính năng này</value>
+  </data>
+  <data name="FailureFbAccessTokenInvalid" xml:space="preserve">
+    <value>Facebook Access Token không hợp lệ!</value>
+  </data>
+  <data name="SignUp_UserName" xml:space="preserve">
+    <value>Số điện thoại / Email</value>
+  </data>
+  <data name="SignUp_Gender" xml:space="preserve">
+    <value>Giới tính</value>
+  </data>
+  <data name="AppBar_CallMessage" xml:space="preserve">
+    <value>Bạn có muốn gọi đến tổng đài BacSi24x7 hỗ trợ?</value>
+  </data>
+  <data name="FailureDoctorIdEmpty" xml:space="preserve">
+    <value>Id của bác sĩ bị trống</value>
+  </data>
+  <data name="SignUp_District" xml:space="preserve">
+    <value>Quận</value>
+  </data>
+  <data name="SignUp_Female" xml:space="preserve">
+    <value>Nữ</value>
+  </data>
+  <data name="Cme_CategoryEmpty" xml:space="preserve">
+    <value>Hiện tại không có mục CME nào</value>
+  </data>
+  <data name="SignUp_Birthday" xml:space="preserve">
+    <value>Ngày sinh</value>
+  </data>
+  <data name="MainPage_ExitMessageBox" xml:space="preserve">
+    <value>Bạn muốn thoát ứng dụng?</value>
+  </data>
+  <data name="FailureCheckupFinished" xml:space="preserve">
+    <value>Phiếu Khám đã hoàn thành</value>
+  </data>
+  <data name="SignUp_LastName" xml:space="preserve">
+    <value>Họ</value>
+  </data>
+  <data name="FailureEmailEmpty" xml:space="preserve">
+    <value>Vui lòng nhập email.</value>
+  </data>
+  <data name="FailureInvalidUsername" xml:space="preserve">
+    <value>Tên đăng nhập không hợp lệ</value>
+  </data>
+  <data name="FailureChannelEmpty" xml:space="preserve">
+    <value>Kênh bị thiếu</value>
+  </data>
+  <data name="FailureInvalidUserType" xml:space="preserve">
+    <value>loại người dùng không hợp lệ</value>
+  </data>
+  <data name="UpdateProfile_Profile" xml:space="preserve">
+    <value>Thông tin cá nhân</value>
+  </data>
+  <data name="FailureCardIncorrectPin" xml:space="preserve">
+    <value>Pin thẻ của bạn không hợp lệ!</value>
+  </data>
+  <data name="FailureInvalidStartAfternoonMinute" xml:space="preserve">
+    <value>TODO: Update AppResource 'FailureInvalidStartAfternoonMinute'</value>
+  </data>
+  <data name="FailureInvalidRegularPatientThreshold" xml:space="preserve">
+    <value>TODO: Update AppResource 'FailureInvalidRegularPatientThreshold'</value>
+  </data>
+  <data name="Cme_ClassEmpty" xml:space="preserve">
+    <value>Hiện tại không có lớp trong mục CME bạn đã chọn </value>
+  </data>
+  <data name="FailureInvalidEnddate" xml:space="preserve">
+    <value>Ngày kết thúc không hợp lệ</value>
+  </data>
+  <data name="ListReleaseToRefresh" xml:space="preserve">
+    <value>thả ra để cập nhật</value>
+  </data>
+  <data name="FailureServiceTypeEmpty" xml:space="preserve">
+    <value>Loại dịch vụ bị trống!</value>
+  </data>
+  <data name="Setting_BandConnect" xml:space="preserve">
+    <value>Kết nối tới Band mới</value>
+  </data>
+  <data name="DoctorDayOfWeek_Tuesday" xml:space="preserve">
+    <value>Thứ ba</value>
+  </data>
+  <data name="DoctorDayOfWeek_Thursday" xml:space="preserve">
+    <value>Thứ năm</value>
+  </data>
+  <data name="FailureEmailExisted" xml:space="preserve">
+    <value>Email này đã tồn tại.</value>
+  </data>
+  <data name="FailureAddressEmpty" xml:space="preserve">
+    <value>Bạn chưa nhập địa chỉ.</value>
+  </data>
+  <data name="SignUp_Male" xml:space="preserve">
+    <value>Nam</value>
+  </data>
+  <data name="SignUp_City" xml:space="preserve">
+    <value>Thành phố</value>
+  </data>
+  <data name="FailureInvalidIdno" xml:space="preserve">
+    <value>Số ID kông hợp lệ!</value>
+  </data>
+  <data name="FailurePhoneEmpty" xml:space="preserve">
+    <value> Số điện thoại bị trống</value>
+  </data>
+  <data name="Setting_BandSyncSuccess" xml:space="preserve">
+    <value>Dữ liệu lịch hẹn đã được đồng bộ hóa với thiết bị Band của bạn</value>
+  </data>
+  <data name="FailureInvalidStartMorningHour" xml:space="preserve">
+    <value>TODO: Update AppResource 'FailureInvalidStartMorningHour'</value>
+  </data>
+  <data name="SignUp_FirstName" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="ScheduleAdding_StartTitle" xml:space="preserve">
+    <value>Bắt đầu: </value>
+  </data>
+  <data name="WeekTopic_Empty" xml:space="preserve">
+    <value>Hiện tại chưa có lớp CME mới nào được cập nhật trong hệ thống. Vui lòng kéo xuống để cập nhật hoặc kiểm tra lại sau. Cảm ơn sự quan tâm của Bác sĩ.</value>
+  </data>
+  <data name="SetPassword_NotMatch" xml:space="preserve">
+    <value>Mật khẩu xác nhận không khớp.</value>
+  </data>
+  <data name="FailurePasswordEmpty" xml:space="preserve">
+    <value>Bạn chưa nhập mật khẩu.</value>
+  </data>
+  <data name="FailureInvalidCheckupType" xml:space="preserve">
+    <value>Loại phiếu khám không hợp lệ!</value>
+  </data>
+  <data name="FailureUsernameExisted" xml:space="preserve">
+    <value>Tên đăng nhập đã tồn tại</value>
+  </data>
+  <data name="FailureLastnameEmpty" xml:space="preserve">
+    <value>Họ và tên lót bị trống!</value>
+  </data>
+  <data name="FailureGenderEmpty" xml:space="preserve">
+    <value>Giới tính bị trống!</value>
+  </data>
+  <data name="Sign_UpSuccess" xml:space="preserve">
+    <value>Tài khoản đã được tạo thành công, vui lòng vào email kích hoạt tài khoản trước khi sử dụng</value>
+  </data>
+  <data name="CheckupView_Hospital" xml:space="preserve">
+    <value>Nơi khám:</value>
+  </data>
+  <data name="Messsage_No" xml:space="preserve">
+    <value>Không</value>
+  </data>
+  <data name="FailurePinOrOtpEmpty" xml:space="preserve">
+    <value>Pin hay OTP bị trống!</value>
+  </data>
+  <data name="FailureInvalidStartAfternoonHour" xml:space="preserve">
+    <value>TODO: Update AppResource 'FailureInvalidStartAfternoonHour'</value>
+  </data>
+  <data name="SearchClass" xml:space="preserve">
+    <value>tìm lớp</value>
+  </data>
+  <data name="FailureInvalidParams" xml:space="preserve">
+    <value>Biến truyền không hợp lệ</value>
+  </data>
+  <data name="FailureUsernameEmpty" xml:space="preserve">
+    <value>Chưa nhập Tên đăng nhập</value>
+  </data>
+  <data name="FailureIdnoExisted" xml:space="preserve">
+    <value>số ID đã tồn tại</value>
+  </data>
+  <data name="Exit_titleMessageBox" xml:space="preserve">
+    <value>Thoát</value>
+  </data>
+  <data name="Messsage_Yes" xml:space="preserve">
+    <value>Có</value>
+  </data>
+  <data name="ScheduleAdding_EndTitle" xml:space="preserve">
+    <value>Kết thúc: </value>
+  </data>
+  <data name="FailureUserNotFound" xml:space="preserve">
+    <value>Xin lỗi, không tìm thấy thành viên.</value>
+  </data>
+  <data name="FailureInvalidLocation" xml:space="preserve">
+    <value>Vị trí không hợp lệ!</value>
+  </data>
+  <data name="Consult_DoctorDesc" xml:space="preserve">
+    <value>Nếu trả lời bằng Tiếng Việt, vui lòng nhập Tiếng Việt có dấu!</value>
+  </data>
+  <data name="FailureHospitalRegistered" xml:space="preserve">
+    <value>Bênh viện này đã được đăng kí</value>
+  </data>
+  <data name="ResetPass_Reset" xml:space="preserve">
+    <value>Khôi phục</value>
+  </data>
+  <data name="Checkups_Empty" xml:space="preserve">
+    <value>Hiện tại bác sĩ không có phiếu khám</value>
+  </data>
+  <data name="Checkups_Title" xml:space="preserve">
+    <value>Phiếu khám</value>
+  </data>
+  <data name="Home_More" xml:space="preserve">
+    <value>Khác</value>
+  </data>
+  <data name="Home_Menu" xml:space="preserve">
+    <value>Chức năng</value>
+  </data>
+  <data name="Message_InternetFailed" xml:space="preserve">
+    <value>Không thể kết nối đến máy chủ, vui lòng thử lại sau.</value>
+  </data>
+  <data name="ConsultView_Address" xml:space="preserve">
+    <value>Địa chỉ:</value>
+  </data>
+  <data name="WeakTopics_HistoryTitle" xml:space="preserve">
+    <value>Lịch sử sự kiện</value>
+  </data>
+  <data name="Setting_BandEmpty" xml:space="preserve">
+    <value>Hiện tại không kết nối đến thiết bị Microsoft Band nào</value>
+  </data>
+  <data name="FailureHospitalNotFound" xml:space="preserve">
+    <value>Bệnh viện này không tồn tại!</value>
+  </data>
+  <data name="Setting_WinHelloDisable" xml:space="preserve">
+    <value>Disable</value>
+  </data>
+  <data name="FailureSymptomEmpty" xml:space="preserve">
+    <value>chuẩn đoán bị trống</value>
+  </data>
+  <data name="FailureUnknown" xml:space="preserve">
+    <value>Không rõ</value>
+  </data>
+  <data name="ScheduleAdding_WeekCount" xml:space="preserve">
+    <value>Lặp lại trong bao nhiêu tuần?</value>
+  </data>
+  <data name="FailureInvalidDoctor" xml:space="preserve">
+    <value>Bác sĩ không hợp lệ!</value>
+  </data>
+  <data name="SignUp_Invalid" xml:space="preserve">
+    <value>Vui lòng nhập đầy đủ các thông tin</value>
+  </data>
+  <data name="FailureSessionInvalid" xml:space="preserve">
+    <value>Phiên đăng nhập đã hết hạn!</value>
+  </data>
+  <data name="FailurePermissionDeny" xml:space="preserve">
+    <value> Quyền truy cập bị từ chối</value>
+  </data>
+  <data name="FailureInvalidRoles" xml:space="preserve">
+    <value>Quyền không hợp lệ!</value>
+  </data>
+  <data name="DoctorDayOfWeek_Sunday" xml:space="preserve">
+    <value>Chủ nhật</value>
+  </data>
+  <data name="FailureInvalidPhone" xml:space="preserve">
+    <value>Bạn chưa nhập số điện thoại.</value>
+  </data>
+  <data name="MainPage_logoutAppBar" xml:space="preserve">
+    <value>Đăng xuất</value>
+  </data>
+  <data name="FailureInvalidEmail" xml:space="preserve">
+    <value>Email của bạn không đúng</value>
+  </data>
+  <data name="ConsultView_InviteSuccess" xml:space="preserve">
+    <value>Email mời trả lời tư vấn đã được gửi thành công.</value>
+  </data>
+  <data name="SignIn_NoAccess" xml:space="preserve">
+    <value>Bạn phải đăng ký tài khoản Bác sĩ để đăng nhập</value>
+  </data>
+  <data name="SetPassword_Confirm" xml:space="preserve">
+    <value>Nhắc lại mật khẩu</value>
+  </data>
+  <data name="Setting_NotificationDisabled" xml:space="preserve">
+    <value>Không Nhận Thông Báo</value>
+  </data>
+  <data name="FailureInvalidGender" xml:space="preserve">
+    <value>Vui lòng chọn giới tính.</value>
+  </data>
+  <data name="SignUp_FillForm" xml:space="preserve">
+    <value>Vui lòng nhập tên truy cập và mật khẩu</value>
+  </data>
+  <data name="FailureNameEmpty" xml:space="preserve">
+    <value>Tên bị trống!</value>
+  </data>
+  <data name="FailureFacebookidExisted" xml:space="preserve">
+    <value>ID Facebook này bị trống!</value>
+  </data>
+  <data name="Setting_WinHelloDesc" xml:space="preserve">
+    <value>Good news, your device supports Windows Hello and you can use it to authenticate with the BacSi24/7 app. With Windows Hello, you can log in to BacSi24/7 app on this PC without a password.</value>
+  </data>
+  <data name="FailurePhotoEmpty" xml:space="preserve">
+    <value>Hình ảnh bị trống!</value>
+  </data>
+  <data name="LocationNotFound" xml:space="preserve">
+    <value>Không tìm thấy địa điểm trên bản đồ</value>
+  </data>
+  <data name="SignUp_CheckUp" xml:space="preserve">
+    <value>Chuyên khoa</value>
+  </data>
+  <data name="ConsultView_Invite" xml:space="preserve">
+    <value>Mời trả lời</value>
+  </data>
+  <data name="SetPassword_Title" xml:space="preserve">
+    <value>Đổi mật khẩu</value>
+  </data>
+  <data name="FailureInvalidOldPassword" xml:space="preserve">
+    <value>Mật khẩu cũ không đúng.</value>
+  </data>
+  <data name="Message_InternetSettings" xml:space="preserve">
+    <value>Ứng dụng yêu cầu kết nối internet</value>
+  </data>
+  <data name="Setting_WinHelloEnabled" xml:space="preserve">
+    <value>Windows Hello Enabled</value>
+  </data>
+  <data name="FailureInvalidPasswordLength" xml:space="preserve">
+    <value>Mật khẩu của bạn quá ngắn.</value>
+  </data>
+  <data name="FailureFirstnameEmpty" xml:space="preserve">
+    <value>Tên bị trống!</value>
+  </data>
+  <data name="Schedule_Confirm" xml:space="preserve">
+    <value>Lịch khám này đang được lặp lại theo tuần, bạn có muốn xóa toàn bộ?</value>
+  </data>
+  <data name="CheckupView_Patient" xml:space="preserve">
+    <value>Bệnh nhân:</value>
+  </data>
+  <data name="Consult_Answer" xml:space="preserve">
+    <value> câu trả lời</value>
+  </data>
+  <data name="CmeClass_Home" xml:space="preserve">
+    <value>Nhà</value>
+  </data>
+  <data name="CmeClass_Back" xml:space="preserve">
+    <value>Quay lại</value>
+  </data>
+  <data name="FailureInvalidCheckupInterval" xml:space="preserve">
+    <value>Thời gian của phiếu khám không hợp lệ!</value>
+  </data>
+  <data name="FailureCardExisted" xml:space="preserve">
+    <value>'FailureCardExisted'</value>
+  </data>
+  <data name="HomeViewModel_Offline_meeting" xml:space="preserve">
+    <value>Thảo luận offline</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Cài đặt</value>
+  </data>
+  <data name="FailureOverlapTime" xml:space="preserve">
+    <value>Thời gian không phù hợp do đã tồn tại lịch hẹn khác</value>
+  </data>
+  <data name="FailureContentEmpty" xml:space="preserve">
+    <value>Bạn chưa nhập nội dung.</value>
+  </data>
+  <data name="WeakTopics_Title" xml:space="preserve">
+    <value>Học CME</value>
+  </data>
+  <data name="FailureLoginFail" xml:space="preserve">
+    <value>Đăng nhập thất bại! Vui lòng kiểm tra Username và Password</value>
+  </data>
+  <data name="CheckupView_Sym" xml:space="preserve">
+    <value>Lý do khám bệnh:</value>
+  </data>
+  <data name="Dialog_SetDate" xml:space="preserve">
+    <value>Chọn ngày</value>
+  </data>
+  <data name="FailureCardEnterPin" xml:space="preserve">
+    <value>'FailureCardEnterPin'</value>
+  </data>
+  <data name="FailureCardEnterOtp" xml:space="preserve">
+    <value>'FailureCardEnterPin'</value>
+  </data>
+  <data name="Setting_WinHelloQuest" xml:space="preserve">
+    <value>Do you want to enable Windows Hello for your next sign in?</value>
+  </data>
+  <data name="ScheduleAdding_OnlyOne" xml:space="preserve">
+    <value>Trong ngày đã chọn</value>
+  </data>
+  <data name="ResetPass_Success" xml:space="preserve">
+    <value>Mật khẩu mới đã được gửi đến email của bạn. Vui lòng kiểm tra hộp thư tại </value>
+  </data>
+  <data name="SetPassword_New" xml:space="preserve">
+    <value>Mật khẩu mới</value>
+  </data>
+  <data name="SetPassword_Old" xml:space="preserve">
+    <value>Mật khẩu cũ</value>
+  </data>
+  <data name="ConsultView_ReplyMessage" xml:space="preserve">
+    <value>Trả lời:</value>
+  </data>
+  <data name="ListPullToRefresh" xml:space="preserve">
+    <value>kéo xuống để cập nhật</value>
+  </data>
+  <data name="FailureInvalidPatientType" xml:space="preserve">
+    <value>Loại bệnh không hợp lệ!</value>
+  </data>
+  <data name="DoctorDayOfWeek_Friday" xml:space="preserve">
+    <value>Thứ sáu</value>
+  </data>
+  <data name="Consult_Answers" xml:space="preserve">
+    <value> câu trả lời</value>
+  </data>
+  <data name="Consult_Send" xml:space="preserve">
+    <value>Gửi</value>
+  </data>
+  <data name="UpdateProfile_Success" xml:space="preserve">
+    <value>Hồ sơ của bạn đã được cập nhật thành công</value>
+  </data>
+  <data name="Setting_NotificationInfo" xml:space="preserve">
+    <value>Bật chế độ thông báo  Push để nhận lịch khám và các thông tin mới nhất.</value>
+  </data>
+  <data name="ConsultView_SentSuccessfuly" xml:space="preserve">
+    <value>Câu trả lời đã được gửi đi thành công.</value>
+  </data>
+  <data name="WeekTopic_MapNotSupported" xml:space="preserve">
+    <value>Ứng dụng Bản đồ không được hỗ trợ trên thiết bị này.</value>
+  </data>
+  <data name="FailureCheckupTypeNotFound" xml:space="preserve">
+    <value>Không tìm thấy chuyên khoa</value>
+  </data>
+  <data name="WeakTopicsFile_Title" xml:space="preserve">
+    <value>Danh sách tập tin</value>
+  </data>
+  <data name="HomeViewModel_GoToMap" xml:space="preserve">
+    <value>Buổi thảo luận bắt đầu lúc '{0}' tại '{1}'.
+Bạn có muốn xem địa điểm trên Bản đồ?</value>
+  </data>
+  <data name="DoctorDayOfWeek_Monday" xml:space="preserve">
+    <value>Thứ hai</value>
+  </data>
+  <data name="FailurePatientIdEmpty" xml:space="preserve">
+    <value>ID bệnh nhân bị trống!</value>
+  </data>
+  <data name="SignUp_WrongEmail" xml:space="preserve">
+    <value>Email không đúng, vui lòng kiểm tra lại.</value>
+  </data>
+  <data name="FailureException" xml:space="preserve">
+    <value>Truy vấn gặp sự cố (Failure_Exception)</value>
+  </data>
+  <data name="CHbase_Title" xml:space="preserve">
+    <value>Hồ sơ bệnh nhân</value>
+  </data>
+  <data name="SignUp_SID" xml:space="preserve">
+    <value>Số CMND</value>
+  </data>
+  <data name="AppBarMenuItemText" xml:space="preserve">
+    <value>Menu Item</value>
+  </data>
+  <data name="WeekTopic_Happened" xml:space="preserve">
+    <value>Buổi thảo luận này đã kết thúc, vui lòng tham gia buổi thảo luận của tuần hiện tại.</value>
+  </data>
+  <data name="ScheduleAdding_AppointmentTitle" xml:space="preserve">
+    <value>Số lượng bệnh</value>
+  </data>
+  <data name="FailureCheckupIdEmpty" xml:space="preserve">
+    <value>Id Phiếu khám bị trống!</value>
+  </data>
+  <data name="SignUp_Password" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="SignUp_PassMatch" xml:space="preserve">
+    <value>Mật khẩu không khớp, vui lòng kiểm tra lại.</value>
+  </data>
+  <data name="FailurePromotionNotFound" xml:space="preserve">
+    <value> Mã khuyến mãi không tìm thấy</value>
+  </data>
+  <data name="ImageRotate" xml:space="preserve">
+    <value>Xoay</value>
+  </data>
+  <data name="SetPasswrod_Change" xml:space="preserve">
+    <value>Thay đổi</value>
+  </data>
+  <data name="WeekTopicFile_Empty" xml:space="preserve">
+    <value>Hiện tại không có tập tin.</value>
+  </data>
+  <data name="Consult_And" xml:space="preserve">
+    <value>và</value>
+  </data>
+  <data name="CheckupView_CheckType" xml:space="preserve">
+    <value>Chuyên khoa:</value>
+  </data>
+  <data name="CmeSearch_Hint" xml:space="preserve">
+    <value>Tìm lớp học CME</value>
+  </data>
+  <data name="Consult_AndAnswered" xml:space="preserve">
+    <value> bác sĩ khác đã trả lời.</value>
+  </data>
+  <data name="FailureObjectReferred" xml:space="preserve">
+    <value>Không xóa được, vì bệnh nhân đã hẹn theo lịch này.</value>
+  </data>
+  <data name="FailureInvalidStartdate" xml:space="preserve">
+    <value>Ngày bắt đầu phải là ngày trong tương lai và không phải hôm nay.</value>
+  </data>
+  <data name="Setting_BandNotPaired" xml:space="preserve">
+    <value>Không có thiết bị Microsoft Band devices được kết nối</value>
+  </data>
+  <data name="FailurePhoneExisted" xml:space="preserve">
+    <value>Số điện thoại đã được sử dụng.</value>
+  </data>
+  <data name="FailureInvalidEndAfternoonMinute" xml:space="preserve">
+    <value>TODO: Update AppResource 'FailureInvalidEndAfternoonMinute'</value>
+  </data>
+  <data name="FailureHospitalIdEmpty" xml:space="preserve">
+    <value>Vui lòng chọn bệnh viện.</value>
+  </data>
+  <data name="SignUp_Address" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="WeekTopic_All" xml:space="preserve">
+    <value>Tất cả</value>
+  </data>
+  <data name="ResourceFlowDirection" xml:space="preserve">
+    <value>LeftToRight</value>
+  </data>
+  <data name="WeakTopics_NotNow" xml:space="preserve">
+    <value>Buổi thảo luận chưa diễn ra, vui lòng quay lại sau.</value>
+  </data>
+  <data name="FailureInvalidEndAfternoonHour" xml:space="preserve">
+    <value>TODO: Update AppResource 'FailureInvalidEndAfternoonHour'</value>
+  </data>
+  <data name="Setting_BandChooseTitle" xml:space="preserve">
+    <value>Vui lòng chọn thiết bị Band để kết nối</value>
+  </data>
+  <data name="Logout_contentMessageBox" xml:space="preserve">
+    <value>Bạn có muốn đăng xuất không?</value>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>BacSi24x7</value>
+  </data>
+  <data name="ListPullToRefreshTime" xml:space="preserve">
+    <value>cập nhật lần cuối: {0:H:mm}</value>
+  </data>
+  <data name="FailureInvalidSupportRequestReplied" xml:space="preserve">
+    <value>Bạn đã trả lời câu hỏi trên thiết bị này hoặc một thiết bị khác.</value>
+  </data>
+  <data name="FailureCheckupTypeEmpty" xml:space="preserve">
+    <value>Vui lòng chọn chuyên khoa.</value>
+  </data>
+  <data name="Consult_Answered" xml:space="preserve">
+    <value> đã trả lời</value>
+  </data>
+  <data name="DoctorDayOfWeek_Saturday" xml:space="preserve">
+    <value>Thứ bảy</value>
+  </data>
+  <data name="CmeSearch_Empty" xml:space="preserve">
+    <value>Nhập hoặc điều chỉnh từ khóa của bạn ở trên để tìm nội dung lớp học CME.</value>
+  </data>
+  <data name="FailureSmallInterval" xml:space="preserve">
+    <value>Thời gian lịch hẹn quá ngắn.</value>
+  </data>
+  <data name="CmeLibrary_Title" xml:space="preserve">
+    <value>Thư viện CME</value>
+  </data>
+  <data name="Setting_Noti" xml:space="preserve">
+    <value>Nhận thông báo</value>
+  </data>
+  <data name="FailureCheckupNotFound" xml:space="preserve">
+    <value>Không tìm thấy phiếu khám.</value>
+  </data>
+  <data name="FailurePatientTypeEmpty" xml:space="preserve">
+    <value>Loại bênh nhân bị trống!</value>
+  </data>
+  <data name="SignIn_Remeber" xml:space="preserve">
+    <value>Ghi nhớ</value>
+  </data>
+  <data name="FailureDoctorNotFound" xml:space="preserve">
+    <value> bác sĩ này không tồn tại</value>
+  </data>
+  <data name="FailureDisableUser" xml:space="preserve">
+    <value>Tài khoản này đã bị khóa.</value>
+  </data>
+  <data name="CheckupView_Appoint" xml:space="preserve">
+    <value>Số lượng bệnh:</value>
+  </data>
+  <data name="Button_Delete" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="FailureCardIdEmpty" xml:space="preserve">
+    <value>'FailureCardIdEmpty'</value>
+  </data>
+  <data name="FailureCityEmpty" xml:space="preserve">
+    <value>Vui lòng chọn thành phố.</value>
+  </data>
+  <data name="Consult_DoctorEmail" xml:space="preserve">
+    <value>Email bác sĩ được mời</value>
+  </data>
+  <data name="CheckupView_Title" xml:space="preserve">
+    <value>Phiếu khám</value>
+  </data>
+  <data name="FailureInvalidAppointmentDate" xml:space="preserve">
+    <value>Ngày hẹn không hợp lệ!</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Thông báo</value>
+  </data>
+  <data name="CmeClass_Forward" xml:space="preserve">
+    <value>Tiếp</value>
+  </data>
+  <data name="ScheduleAdding_Title" xml:space="preserve">
+    <value>Thêm lịch khám</value>
+  </data>
+  <data name="CheckupView_Doctor" xml:space="preserve">
+    <value>Bác sĩ:</value>
+  </data>
+  <data name="WeekTopic_Maps" xml:space="preserve">
+    <value>Bản đồ</value>
+  </data>
+  <data name="ConsultView_InviteContent" xml:space="preserve">
+    <value>Thông điệp</value>
+  </data>
+  <data name="CheckupView_appointmentno" xml:space="preserve">
+    <value>Số phiếu #</value>
+  </data>
+  <data name="ConsultView_Content" xml:space="preserve">
+    <value>Nội dung cần tư vấn:</value>
+  </data>
+  <data name="Consult_Of" xml:space="preserve">
+    <value> trong </value>
+  </data>
+  <data name="LoginView_ResetPass" xml:space="preserve">
+    <value>Khôi phục mật khẩu</value>
+  </data>
+</root>

@@ -1,0 +1,132 @@
+﻿<views:MvxPhonePage x:Class="HealthCare.Phone.Views.SignUpView"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:HealthCare.Phone.Controls"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+                    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+                    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+                    xmlns:viewModels="clr-namespace:HealthCare.Core.ViewModels;assembly=HealthCare.Core"
+                    xmlns:views="clr-namespace:Cirrious.MvvmCross.WindowsPhone.Views;assembly=Cirrious.MvvmCross.WindowsPhone"
+                    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+                    FontSize="{StaticResource PhoneFontSizeNormal}"
+                    Foreground="{StaticResource PhoneForegroundBrush}"
+                    Orientation="Portrait"
+                    SupportedOrientations="Portrait"
+                    shell:SystemTray.BackgroundColor="#2CBE71"
+                    shell:SystemTray.ForegroundColor="WhiteSmoke"
+                    shell:SystemTray.IsVisible="True"
+                    mc:Ignorable="d">
+
+    <ScrollViewer>
+        <!--  LayoutRoot is the root grid where all page content is placed  -->
+        <Grid x:Name="LayoutRoot">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/back-01.png" Stretch="Fill" />
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <toolkit:ListPicker x:Name="ListPicker"
+                                Height="0"
+                                ExpansionMode="FullScreenOnly">
+                <toolkit:ListPicker.FullModeItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Margin="0,6"
+                                   Style="{StaticResource PhoneTextTitle2Style}"
+                                   Text="{Binding Name}" />
+                    </DataTemplate>
+                </toolkit:ListPicker.FullModeItemTemplate>
+            </toolkit:ListPicker>
+            <!--  TitlePanel contains the name of the application and page title  -->
+            <StackPanel Grid.Row="0">
+                <StackPanel.Background>
+                    <ImageBrush ImageSource="/Assets/Header.png" Stretch="UniformToFill" />
+                </StackPanel.Background>
+                <Image Height="100"
+                       Margin="12"
+                       HorizontalAlignment="Center"
+                       Source="../Assets/logo.png"
+                       Stretch="Uniform" />
+                <TextBlock Margin="12,0,24,12"
+                           FontSize="{StaticResource PhoneFontSizeMedium}"
+                           FontWeight="Bold"
+                           Foreground="Black"
+                           Text="{Binding Source={StaticResource LocalizedStrings},
+                                          Path=LocalizedResources.SignUp_Title}" />
+                <Border Height="2"
+                        Margin="12,0"
+                        Background="{StaticResource MainBrush}" />
+            </StackPanel>
+
+            <!--  ContentPanel - place additional content here  -->
+            <Grid x:Name="ContentPanel"
+                  Grid.Row="1"
+                  Background="White">
+
+                <StackPanel Margin="12" VerticalAlignment="Top">
+                    <controls:MyTextBox Hint="{Binding Source={StaticResource LocalizedStrings},
+                                                       Path=LocalizedResources.SignUp_Phone}"
+                                        InputScope="TelephoneNumber"
+                                        Path="M17.25,18H6.75V4H17.25M14,21H10V20H14M16,1H8A3,3 0 0,0 5,4V20A3,3 0 0,0 8,23H16A3,3 0 0,0 19,20V4A3,3 0 0,0 16,1Z"
+                                        Text="{Binding Account.Phone,
+                                                       Mode=TwoWay}" />
+
+                    <controls:MyPasswordBox Hint="{Binding Source={StaticResource LocalizedStrings},
+                                                           Path=LocalizedResources.SignUp_Password}"
+                                            Path="M12,17C10.89,17 10,16.1 10,15C10,13.89 10.89,13 12,13A2,2 0 0,1 14,15A2,2 0 0,1 12,17M18,20V10H6V20H18M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V10C4,8.89 4.89,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z"
+                                            Text="{Binding Account.Password,
+                                                           Mode=TwoWay}" />
+                    <controls:MyPasswordBox Hint="{Binding Source={StaticResource LocalizedStrings},
+                                                           Path=LocalizedResources.SignUp_RetypePassword}"
+                                            Path="M12,17C10.89,17 10,16.1 10,15C10,13.89 10.89,13 12,13A2,2 0 0,1 14,15A2,2 0 0,1 12,17M18,20V10H6V20H18M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V10C4,8.89 4.89,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z"
+                                            Text="{Binding Account.RePass,
+                                                           Mode=TwoWay}" />
+                    <controls:MyTextBox Hint="{Binding Source={StaticResource LocalizedStrings},
+                                                       Path=LocalizedResources.SignUp_FirstName}"
+                                        InputScope="PersonalGivenName"
+                                        Path="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"
+                                        Text="{Binding Account.FirstName,
+                                                       Mode=TwoWay}" />
+                    <controls:MyTextBox Hint="{Binding Source={StaticResource LocalizedStrings},
+                                                       Path=LocalizedResources.SignUp_LastName}"
+                                        InputScope="PersonalSurname"
+                                        Path="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"
+                                        Text="{Binding Account.LastName,
+                                                       Mode=TwoWay}" />
+
+                    <controls:MyTextBox Hint="{Binding Source={StaticResource LocalizedStrings},
+                                                       Path=LocalizedResources.SignUp_Email}"
+                                        InputScope="EmailUserName"
+                                        Path="M20,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6A2,2 0 0,0 20,4M20,18H4V8L12,13L20,8V18M20,6L12,11L4,6V6H20V6Z"
+                                        Text="{Binding Account.Email,
+                                                       Mode=TwoWay}" />
+
+
+                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                        <Button HorizontalAlignment="Right"
+                                Background="{StaticResource MainBrush}"
+                                BorderThickness="0"
+                                Command="{Binding SignUpCommand}"
+                                Content="{Binding Source={StaticResource LocalizedStrings},
+                                                  Path=LocalizedResources.SignUp_Title}"
+                                Foreground="White"
+                                Padding="50,8" />
+
+                    </StackPanel>
+
+                </StackPanel>
+
+                <Border Background="#99FFFFFF"
+                        Visibility="{Binding Loading,
+                                             Converter={StaticResource BoolVisValueConverter}}"
+                        d:IsHidden="True">
+                    <ProgressBar Foreground="{StaticResource MainBrush}" IsIndeterminate="True" />
+                </Border>
+
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</views:MvxPhonePage>

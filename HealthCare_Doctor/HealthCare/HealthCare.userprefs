@@ -1,0 +1,36 @@
+﻿<Properties StartupConfiguration="{F79995D2-8BF3-4608-9ED6-ACAC776C1421}|Default">
+  <MonoDevelop.Ide.ItemProperties.Phase_2201.HealthCare.Droid AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.Nexus 10 (KitKat) 1" AndroidDesignerPreferredTheme="Theme.DeviceDefault" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="HealthCare.Core/ViewModels/LoginViewModel.cs">
+    <Files>
+      <File FileName="HealthCare.Touch/Info.plist" />
+      <File FileName="HealthCare.Droid/Views/ConsultView.cs" Line="72" Column="59" />
+      <File FileName="HealthCare.Droid/Views/ReplyDetailDialog.cs" Line="23" Column="98" />
+      <File FileName="HealthCare.Droid/Views/ConsultDetailDialog.cs" Line="24" Column="108" />
+      <File FileName="HealthCare.Core/Services/HealthCareService.cs" Line="133" Column="4" />
+      <File FileName="HealthCare.Core/ViewModels/LoginViewModel.cs" Line="103" Column="1" />
+      <File FileName="HealthCare.Droid/Services/MessageService.cs" Line="30" Column="129" />
+      <File FileName="HealthCare.Droid/Setup.cs" Line="131" Column="38" />
+      <File FileName="HealthCare.Droid/Resources/values/themes.xml" Line="10" Column="39" />
+      <File FileName="HealthCare.Droid/Properties/AndroidManifest.xml" Line="1" Column="1" />
+      <File FileName="HealthCare.Droid/Views/LoginView.cs" Line="23" Column="81" />
+      <File FileName="HealthCare.Core/Services/ReporterService.cs" Line="34" Column="14" />
+      <File FileName="HealthCare.Droid/Resources/Resource.Designer.cs" Line="1" Column="1" />
+      <File FileName="HealthCare.Droid/Resources/values/MvxBindingAttributes.xml" Line="23" Column="1" />
+      <File FileName="HealthCare.Droid/DebugTrace.cs" Line="1" Column="1" />
+      <File FileName="HealthCare.Droid/DisposableTypedArray.cs" Line="1" Column="1" />
+      <File FileName="HealthCare.Droid/ContextExtensions.cs" Line="1" Column="1" />
+      <File FileName="HealthCare.Droid/Utilities/MyGCMBootReceiver.cs" Line="1" Column="1" />
+      <File FileName="HealthCare.Droid/Utilities/MyGCMBroadcastReceiver.cs" Line="15" Column="21" />
+      <File FileName="HealthCare.Droid/Utilities/MyIntentService.cs" Line="19" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Phase_2201.HealthCare.Touch PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.416FF25C-0CE0-4CAE-A97A-E8EE26CC46A6" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>Phase 2/HealthCare.Core/HealthCare.Core.csproj</String>
+  </DisabledProjects>
+</Properties>

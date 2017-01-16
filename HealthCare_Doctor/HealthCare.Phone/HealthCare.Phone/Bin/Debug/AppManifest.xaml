@@ -1,0 +1,45 @@
+﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="HealthCare.Phone" EntryPointType="HealthCare.Phone.App" RuntimeVersion="4.7.50308.0">
+  <Deployment.Parts>
+    <AssemblyPart x:Name="HealthCare.Phone" Source="HealthCare.Phone.dll" />
+    <AssemblyPart x:Name="Acr.UserDialogs" Source="Acr.UserDialogs.dll" />
+    <AssemblyPart x:Name="Acr.UserDialogs.Interface" Source="Acr.UserDialogs.Interface.dll" />
+    <AssemblyPart x:Name="Cirrious.CrossCore" Source="Cirrious.CrossCore.dll" />
+    <AssemblyPart x:Name="Cirrious.CrossCore.WindowsPhone" Source="Cirrious.CrossCore.WindowsPhone.dll" />
+    <AssemblyPart x:Name="Cirrious.MvvmCross" Source="Cirrious.MvvmCross.dll" />
+    <AssemblyPart x:Name="Cirrious.MvvmCross.Localization" Source="Cirrious.MvvmCross.Localization.dll" />
+    <AssemblyPart x:Name="Cirrious.MvvmCross.Plugins.Color" Source="Cirrious.MvvmCross.Plugins.Color.dll" />
+    <AssemblyPart x:Name="Cirrious.MvvmCross.Plugins.Color.WindowsPhone" Source="Cirrious.MvvmCross.Plugins.Color.WindowsPhone.dll" />
+    <AssemblyPart x:Name="Cirrious.MvvmCross.Plugins.DownloadCache" Source="Cirrious.MvvmCross.Plugins.DownloadCache.dll" />
+    <AssemblyPart x:Name="Cirrious.MvvmCross.Plugins.File" Source="Cirrious.MvvmCross.Plugins.File.dll" />
+    <AssemblyPart x:Name="Cirrious.MvvmCross.Plugins.File.WindowsPhone" Source="Cirrious.MvvmCross.Plugins.File.WindowsPhone.dll" />
+    <AssemblyPart x:Name="Cirrious.MvvmCross.Plugins.Json" Source="Cirrious.MvvmCross.Plugins.Json.dll" />
+    <AssemblyPart x:Name="Cirrious.MvvmCross.Plugins.Location" Source="Cirrious.MvvmCross.Plugins.Location.dll" />
+    <AssemblyPart x:Name="Cirrious.MvvmCross.Plugins.Location.WindowsPhone" Source="Cirrious.MvvmCross.Plugins.Location.WindowsPhone.dll" />
+    <AssemblyPart x:Name="Cirrious.MvvmCross.Plugins.Messenger" Source="Cirrious.MvvmCross.Plugins.Messenger.dll" />
+    <AssemblyPart x:Name="Cirrious.MvvmCross.Plugins.Network" Source="Cirrious.MvvmCross.Plugins.Network.dll" />
+    <AssemblyPart x:Name="Cirrious.MvvmCross.Plugins.Network.WindowsPhone" Source="Cirrious.MvvmCross.Plugins.Network.WindowsPhone.dll" />
+    <AssemblyPart x:Name="Cirrious.MvvmCross.Plugins.PictureChooser" Source="Cirrious.MvvmCross.Plugins.PictureChooser.dll" />
+    <AssemblyPart x:Name="Cirrious.MvvmCross.Plugins.PictureChooser.WindowsPhone" Source="Cirrious.MvvmCross.Plugins.PictureChooser.WindowsPhone.dll" />
+    <AssemblyPart x:Name="Cirrious.MvvmCross.Plugins.Visibility" Source="Cirrious.MvvmCross.Plugins.Visibility.dll" />
+    <AssemblyPart x:Name="Cirrious.MvvmCross.Plugins.Visibility.WindowsPhone" Source="Cirrious.MvvmCross.Plugins.Visibility.WindowsPhone.dll" />
+    <AssemblyPart x:Name="Cirrious.MvvmCross.WindowsPhone" Source="Cirrious.MvvmCross.WindowsPhone.dll" />
+    <AssemblyPart x:Name="HealthCare.Core" Source="HealthCare.Core.dll" />
+    <AssemblyPart x:Name="JeffWilcox.PhoneThemeManager" Source="JeffWilcox.PhoneThemeManager.dll" />
+    <AssemblyPart x:Name="Microsoft.Phone.Controls.Toolkit" Source="Microsoft.Phone.Controls.Toolkit.dll" />
+    <AssemblyPart x:Name="ModernHttpClient" Source="ModernHttpClient.dll" />
+    <AssemblyPart x:Name="Newtonsoft.Json" Source="Newtonsoft.Json.dll" />
+    <AssemblyPart x:Name="Splat" Source="Splat.dll" />
+    <AssemblyPart x:Name="System.Net.Http" Source="System.Net.Http.dll" />
+    <AssemblyPart x:Name="System.Net.Http.Extensions" Source="System.Net.Http.Extensions.dll" />
+    <AssemblyPart x:Name="System.Net.Http.Primitives" Source="System.Net.Http.Primitives.dll" />
+    <AssemblyPart x:Name="Telerik.Windows.Controls.Input" Source="Telerik.Windows.Controls.Input.dll" />
+    <AssemblyPart x:Name="Telerik.Windows.Controls.Primitives" Source="Telerik.Windows.Controls.Primitives.dll" />
+    <AssemblyPart x:Name="Telerik.Windows.Core" Source="Telerik.Windows.Core.dll" />
+    <AssemblyPart x:Name="Telerik.Windows.Data" Source="Telerik.Windows.Data.dll" />
+    <AssemblyPart x:Name="WriteableBitmapExWinPhone" Source="WriteableBitmapExWinPhone.dll" />
+    <AssemblyPart x:Name="WriteableBitmapExWinPhoneXnaDependant" Source="WriteableBitmapExWinPhoneXnaDependant.dll" />
+    <AssemblyPart x:Name="System.Windows.Interactivity" Source="System.Windows.Interactivity.dll" />
+    <AssemblyPart Source="vi-VN/HealthCare.Core.resources.dll" />
+    <AssemblyPart Source="vi-VN/Microsoft.Phone.Controls.Toolkit.resources.dll" />
+  </Deployment.Parts>
+</Deployment>

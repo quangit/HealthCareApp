@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthCare.Pages.CHBases.AddWeightPage"
+             xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+             xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+             xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+             xmlns:enums="clr-namespace:HealthCare.Enums;assembly=HealthCare"
+             xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+             xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+             PageType="{x:Type chBases:AddWeightPage}"
+             xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+             xmlns:chBases="clr-namespace:HealthCare.Pages.CHBases;assembly=HealthCare"
+             xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+             Title="{x:Static resx:AppResources.weight}"
+             BindingContext="{Binding VmWeight, Source={StaticResource Locator}}"
+             BackgroundColor="White">
+  <StackLayout>
+    <controls:HcEntry IsVisibleImage="False" PlaceHolder="{x:Static resx:AppResources.weight}" Text="{Binding Value}"></controls:HcEntry>
+    <StackLayout Orientation="Horizontal" Padding="{StaticResource PaddingRowMainContent}">
+      <controls:ButtonCustom  Text="{x:Static resx:AppResources.ok}"
+                               Style="{StaticResource ButtonStyle}"
+                              HorizontalOptions="FillAndExpand"
+                              Command="{Binding AddWeightCommand}"></controls:ButtonCustom>
+    </StackLayout>
+  </StackLayout>
+</controls:TopBarContentPage>

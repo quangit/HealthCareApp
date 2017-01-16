@@ -1,0 +1,1 @@
+<android.support.v7.widget.Toolbar android:id="@+id/bot_toolbar" local:theme="@style/ThemeOverlay.AppCompat.ActionBar" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="40dp" android:background="@color/ButtonGreenMainColor" xmlns:local="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android" />

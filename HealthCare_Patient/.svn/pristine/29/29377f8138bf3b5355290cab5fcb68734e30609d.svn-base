@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+    xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+    xmlns:enums="clr-namespace:HealthCare.Enums;assembly=HealthCare"
+    xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+    xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+    xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+    PageType="{x:Type pages:DoctorDetailPage}"
+    xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+    xmlns:viewModels="clr-namespace:HealthCare.ViewModels;assembly=HealthCare"
+    xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    BindingContext="{Binding VmSearch, Source={StaticResource Locator}}"
+    Title="{x:Static resx:AppResources.doctor_info}" BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+    x:Class="HealthCare.Pages.DoctorDetailPage">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="Thickness" x:Key="MainContentPadding"
+                  iOS="20" Android="20" WinPhone="20" />
+      <OnPlatform x:Key="AvatarWidth" x:TypeArguments="x:Double"
+                  iOS="80" Android="80" WinPhone="115" />
+      <OnPlatform x:Key="AvatarHeight" x:TypeArguments="x:Double"
+                  iOS="80" Android="80" WinPhone="95" />
+      <OnPlatform x:Key="RatingWidth" x:TypeArguments="GridLength"
+                  iOS="110" Android="100" WinPhone="212" />
+      <OnPlatform x:Key="RatingPadding" x:TypeArguments="Thickness"
+                  iOS="0,0,0,16" Android="0,0,0,20" WinPhone="0" />
+      <OnPlatform x:Key="FontSizeRatingValue" x:TypeArguments="x:Double"
+                  iOS="{x:Static helpers:HcStyles.FontSizeContent}"
+                  Android="{x:Static helpers:HcStyles.FontSizeContent}"
+                  WinPhone="30" />
+      <OnPlatform x:Key="FontSizeNumberOfCheckup" x:TypeArguments="x:Double"
+      iOS="14" Android="14" WinPhone="20" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+
+  <behaviors:Interaction.Behaviors>
+    <behaviors:BehaviorCollection>
+      <behaviors:EventToCommand EventName="Appearing"
+                                Command="{Binding VmDoctorLocation.GetCurrentLocationCommand, Source={StaticResource Locator}}" />
+    </behaviors:BehaviorCollection>
+  </behaviors:Interaction.Behaviors>
+
+  <RelativeLayout>
+    <ScrollView RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=10}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=10}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                         Property=Width,
+                                                         Factor=1,
+                                                         Constant=-20}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                         Property=Height,
+                                                         Factor=1,
+                                                         Constant=-20}">
+      <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderLightGrayColor}" Padding="1">
+        <StackLayout Orientation="Vertical" BackgroundColor="White"
+                     Padding="{StaticResource MainContentPadding}">
+
+          <StackLayout Orientation="Horizontal" Spacing="15" Padding="5">
+            <forms:CachedImage
+                Source="{Binding SelectedDoctor.Avatar, Converter={StaticResource UriToImageLoaderConverter}}"
+                Aspect="AspectFill"
+                DownsampleToViewSize="False"
+                TransparencyEnabled="False"
+                HeightRequest="{StaticResource AvatarHeight}"
+                WidthRequest="{StaticResource AvatarWidth}" HorizontalOptions="Start" />
+            <StackLayout Orientation="Vertical"
+                         VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+              <Label Style="{StaticResource LabelTitleStyle}" Text="{x:Static resx:AppResources.doctor}"
+                     FontAttributes="Bold"
+                     TextColor="{x:Static helpers:HcStyles.GreenColor}" />
+              <Label Style="{StaticResource LabelTitleStyle}"
+                     Text="{Binding SelectedDoctor.FullName}" />
+
+              <StackLayout Orientation="Horizontal">
+                <Label Style="{StaticResource LabelTitleStyle}" Text="{x:Static resx:AppResources.the_number_of_checkup}"
+                       TextColor="{x:Static helpers:HcStyles.GreenColor}" FontSize="{StaticResource FontSizeNumberOfCheckup}"></Label>
+                <Label Style="{StaticResource LabelTitleStyle}" Text="{Binding NumberOfCheckup}" FontSize="{StaticResource FontSizeNumberOfCheckup}"></Label>
+              </StackLayout>
+            </StackLayout>
+            
+          </StackLayout>
+          <controls:ContentControl Title="{x:Static resx:AppResources.checkup_type}" Icon="ic_medkit.png">
+            <controls:ContentControl.ViewContent>
+              <StackLayout>
+                <Label x:Name="lbName"
+                       Text="{Binding SelectedDoctor.CheckupType.Name, Converter={StaticResource StringNullConverter}, ConverterParameter={x:Reference lbName}}"
+                       Style="{x:Static helpers:HcStyles.LabelContentStyle}"
+                       LineBreakMode="WordWrap" />
+              </StackLayout>
+            </controls:ContentControl.ViewContent>
+          </controls:ContentControl>
+          <controls:ContentControl Title="{x:Static resx:AppResources.language}"
+                                   Icon="ic_language_doctor.png">
+            <controls:ContentControl.ViewContent>
+              <StackLayout>
+                <Label x:Name="lbLanguages"
+                       Text="{Binding SelectedDoctor.Languages, Converter={StaticResource StringNullConverter}, ConverterParameter={x:Reference lbLanguages}}"
+                       Style="{x:Static helpers:HcStyles.LabelContentStyle}"
+                       LineBreakMode="WordWrap" />
+              </StackLayout>
+            </controls:ContentControl.ViewContent>
+          </controls:ContentControl>
+          <controls:ContentControl Title="{x:Static resx:AppResources.experience}" Icon="ic_doctor.png">
+            <controls:ContentControl.ViewContent>
+              <StackLayout>
+                <Label x:Name="lbExperience"
+                       Text="{Binding SelectedDoctor.Experience, Converter={StaticResource StringNullConverter}, ConverterParameter={x:Reference lbExperience}}"
+                       Style="{x:Static helpers:HcStyles.LabelContentStyle}"
+                       LineBreakMode="WordWrap" />
+              </StackLayout>
+            </controls:ContentControl.ViewContent>
+          </controls:ContentControl>
+          <controls:ContentControl Title="{x:Static resx:AppResources.work_place}" Icon="ic_location.png">
+            <controls:ContentControl.ViewContent>
+              <StackLayout>
+                <Label x:Name="lbHospitals"
+                       Text="{Binding SelectedDoctor.AsHospitalString, Converter={StaticResource StringNullConverter}, ConverterParameter={x:Reference lbHospitals}}"
+                       Style="{x:Static helpers:HcStyles.LabelContentStyle}"
+                       LineBreakMode="WordWrap" />
+              </StackLayout>
+            </controls:ContentControl.ViewContent>
+          </controls:ContentControl>
+          <controls:ContentControl Title="{x:Static resx:AppResources.certificate}" Icon="ic_certificate.png">
+            <controls:ContentControl.ViewContent>
+              <StackLayout>
+                <Label x:Name="lbCertification"
+                       Text="{Binding SelectedDoctor.Certification, Converter={StaticResource StringNullConverter}, ConverterParameter={x:Reference lbCertification}}"
+                       Style="{x:Static helpers:HcStyles.LabelContentStyle}"
+                       LineBreakMode="WordWrap" />
+              </StackLayout>
+            </controls:ContentControl.ViewContent>
+          </controls:ContentControl>
+        </StackLayout>
+      </ContentView>
+    </ScrollView>
+  </RelativeLayout>
+</controls:TopBarContentPage>

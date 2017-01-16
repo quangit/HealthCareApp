@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageEditor">
+            <connections>
+                <outlet property="ConfirmBarButton" destination="182-4A-nHs" id="ZOz-79-gkF"/>
+                <outlet property="CropBarButton" destination="kBM-Ch-f0o" id="576-Sa-hTI"/>
+                <outlet property="RotateBarButton" destination="QgS-UL-4AA" id="kli-a0-t4X"/>
+                <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <subviews>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ay9-XD-lge">
+                    <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                    <items>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="fYM-E7-72l"/>
+                        <barButtonItem image="Rotate.png" id="QgS-UL-4AA">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem image="Crop.png" id="kBM-Ch-f0o">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem image="Check.png" id="182-4A-nHs">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="3wg-B6-Xst"/>
+                    </items>
+                    <color key="barTintColor" red="0.16078431369999999" green="0.70588235290000001" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                </toolbar>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="ay9-XD-lge" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="CUI-s2-Ss2"/>
+                <constraint firstAttribute="bottom" secondItem="ay9-XD-lge" secondAttribute="bottom" id="r0G-NI-ySi"/>
+                <constraint firstAttribute="trailing" secondItem="ay9-XD-lge" secondAttribute="trailing" id="z8u-Qa-A2C"/>
+            </constraints>
+            <point key="canvasLocation" x="332" y="430"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Check.png" width="48" height="48"/>
+        <image name="Crop.png" width="48" height="48"/>
+        <image name="Rotate.png" width="48" height="48"/>
+    </resources>
+</document>

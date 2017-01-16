@@ -1,0 +1,1078 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="FailureCardNotFound" xml:space="preserve">
+    <value>Please enter Card'</value>
+  </data>
+  <data name="FailureInvalidEndMorningMinute" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureInvalidEndMorningMinute</value>
+  </data>
+  <data name="AppBarButtonText" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="SetPasswrod_Success" xml:space="preserve">
+    <value>Your password was successfully changed.</value>
+  </data>
+  <data name="Consult_Empty" xml:space="preserve">
+    <value>There are currently no Questions that need to be consulted</value>
+  </data>
+  <data name="FailureCheckupTypeReferred" xml:space="preserve">
+    <value>CheckupTypeReferred</value>
+  </data>
+  <data name="SignUp_RetypePassword" xml:space="preserve">
+    <value>Retype password</value>
+  </data>
+  <data name="Consult_Title" xml:space="preserve">
+    <value>Consultancy</value>
+  </data>
+  <data name="FailureInvalidServiceType" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureInvalidServiceType</value>
+  </data>
+  <data name="FailureTitleEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: TitleEmpty</value>
+  </data>
+  <data name="ConsultView_PatientDesc" xml:space="preserve">
+    <value>Info:</value>
+  </data>
+  <data name="ResourceLanguage" xml:space="preserve">
+    <value>en-US</value>
+  </data>
+  <data name="ScheduleAdding_PopupHeader" xml:space="preserve">
+    <value>REPEATS ON</value>
+  </data>
+  <data name="FailureInvalidStartMorningMinute" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureInvalidStartMorningMinute</value>
+  </data>
+  <data name="Exit_Promp" xml:space="preserve">
+    <value>Do you want to exit?</value>
+  </data>
+  <data name="ScheduleAdding_HosTitle" xml:space="preserve">
+    <value>Hospital: </value>
+  </data>
+  <data name="SignUp_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="FailureObjectNotFound" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureObjectNotFound</value>
+  </data>
+  <data name="SignUp_Title" xml:space="preserve">
+    <value>Sign Up</value>
+  </data>
+  <data name="SignUp_Phone" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="WeekTopics_Organisers" xml:space="preserve">
+    <value>Organisers: </value>
+  </data>
+  <data name="SignIn_Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="SignIn_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="FailureIdEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureIdEmpty</value>
+  </data>
+  <data name="FailureCityIdEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: CityIdEmpty</value>
+  </data>
+  <data name="Setting_NotificationEnabled" xml:space="preserve">
+    <value>Notification Enabled</value>
+  </data>
+  <data name="SignIn_Title" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
+  <data name="SignIn_Phone" xml:space="preserve">
+    <value>Phone number/Email</value>
+  </data>
+  <data name="ScheduleAdding_DownButton" xml:space="preserve">
+    <value>Down</value>
+  </data>
+  <data name="ScheduleAdding_RepeatTitle" xml:space="preserve">
+    <value>Repeats:</value>
+  </data>
+  <data name="SignUp_SaveButton" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Messsage_Loading" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="FailureBirthdayEmpty" xml:space="preserve">
+    <value>Please enter your birthday!</value>
+  </data>
+  <data name="ConsultView_Reply" xml:space="preserve">
+    <value>Reply</value>
+  </data>
+  <data name="Schedule_Title" xml:space="preserve">
+    <value>Schedules</value>
+  </data>
+  <data name="FailureInvalidTimeSpan" xml:space="preserve">
+    <value>Error: Invalid TimeSpan</value>
+  </data>
+  <data name="FailureInvalidTimezone" xml:space="preserve">
+    <value>Error: Invalid Timezone</value>
+  </data>
+  <data name="Schedule_Empty" xml:space="preserve">
+    <value>There are no schedules for the selected date.</value>
+  </data>
+  <data name="ScheduleAdding_DateTitle" xml:space="preserve">
+    <value>Date:</value>
+  </data>
+  <data name="FailureNoDoctorForCheckupType" xml:space="preserve">
+    <value>No Doctor For Checkup Type</value>
+  </data>
+  <data name="ScheduleAdding_UpButton" xml:space="preserve">
+    <value>Up</value>
+  </data>
+  <data name="CallSupport" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="FailureIdnoEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureIdnoEmpty</value>
+  </data>
+  <data name="FailureScheduleEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: ScheduleEmpty</value>
+  </data>
+  <data name="Message_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ListPullToRefreshLoading" xml:space="preserve">
+    <value>loading</value>
+  </data>
+  <data name="FailureInvalidCheckupFee" xml:space="preserve">
+    <value>Error: Invalid Checkup Fee</value>
+  </data>
+  <data name="FailureInvalidMaxRegistrationPerDevice" xml:space="preserve">
+    <value>Error: Invalid Max Registration Per Device</value>
+  </data>
+  <data name="FailureDoctorNameEmpty" xml:space="preserve">
+    <value>Please enter Doctor Name!</value>
+  </data>
+  <data name="CheckUps_NoItemText" xml:space="preserve">
+    <value>There are no Checkups</value>
+  </data>
+  <data name="FailureInvalidEndMorningHour" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureInvalidEndMorningHour</value>
+  </data>
+  <data name="DoctorDayOfWeek_Wednesday" xml:space="preserve">
+    <value>Wednesday</value>
+  </data>
+  <data name="Message_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="FailureUrlEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: UrlEmpty</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="FailureCheckupPaid" xml:space="preserve">
+    <value>CheckupPaid</value>
+  </data>
+  <data name="FailureUserExisted" xml:space="preserve">
+    <value>This user already exists!</value>
+  </data>
+  <data name="Examination" xml:space="preserve">
+    <value>Schedule</value>
+  </data>
+  <data name="FailureInvalidDoctorCheckupType" xml:space="preserve">
+    <value>Please complete your profile details in order to use this feature</value>
+  </data>
+  <data name="FailureFbAccessTokenInvalid" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureFbAccessTokenInvalid</value>
+  </data>
+  <data name="SignUp_UserName" xml:space="preserve">
+    <value>Phone number / Email</value>
+  </data>
+  <data name="SignUp_Gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="FailureKeywordEmpty" xml:space="preserve">
+    <value>Please enter your Keyword!</value>
+  </data>
+  <data name="AppBar_CallMessage" xml:space="preserve">
+    <value>Do you want to call BacSi24x7 support line?</value>
+  </data>
+  <data name="FailureDoctorIdEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureDoctorIdEmpty</value>
+  </data>
+  <data name="SignUp_District" xml:space="preserve">
+    <value>District</value>
+  </data>
+  <data name="SignUp_Female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="Cme_CategoryEmpty" xml:space="preserve">
+    <value>There are currently no CME categories</value>
+  </data>
+  <data name="SignUp_Birthday" xml:space="preserve">
+    <value>Birthday</value>
+  </data>
+  <data name="MainPage_ExitMessageBox" xml:space="preserve">
+    <value>Do you want to exit?</value>
+  </data>
+  <data name="FailureCheckupFinished" xml:space="preserve">
+    <value>Checkup Finished</value>
+  </data>
+  <data name="FailureHashExpired" xml:space="preserve">
+    <value>Error: Hash Expired</value>
+  </data>
+  <data name="SignUp_LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="FailureNameExisted" xml:space="preserve">
+    <value>This Name already exists!</value>
+  </data>
+  <data name="FailureHospitalNotRegisteredPayment" xml:space="preserve">
+    <value>Error: Hospital Not Registered Payment</value>
+  </data>
+  <data name="FailureEmailEmpty" xml:space="preserve">
+    <value>Please enter your Email!</value>
+  </data>
+  <data name="Setting_HelloOptions" xml:space="preserve">
+    <value>To proceed, Windows Hello needs to be configured in Windows Settings (Accounts -&gt; Sign-in options)</value>
+  </data>
+  <data name="FailureInvalidUsername" xml:space="preserve">
+    <value>Error: Invalid Username! Please check your Username!</value>
+  </data>
+  <data name="FailureChannelEmpty" xml:space="preserve">
+    <value>Error: Channel Empty</value>
+  </data>
+  <data name="FailureInvalidUserType" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureInvalidUserType</value>
+  </data>
+  <data name="UpdateProfile_Title" xml:space="preserve">
+    <value>Update profile</value>
+  </data>
+  <data name="FailureHospitalReferred" xml:space="preserve">
+    <value>Error: Hospital Referred</value>
+  </data>
+  <data name="UpdateProfile_Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="FailureCardIncorrectPin" xml:space="preserve">
+    <value>Error: your Card have incorrect Pin!</value>
+  </data>
+  <data name="FailureScbTidEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: ScbTidEmpty</value>
+  </data>
+  <data name="FailureInvalidStartAfternoonMinute" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail:  FailureInvalidStartAfternoonMinute</value>
+  </data>
+  <data name="FailureInvalidRegularPatientThreshold" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureInvalidRegularPatientThreshold</value>
+  </data>
+  <data name="FailureParentIdEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: ParentIdEmpty</value>
+  </data>
+  <data name="Cme_ClassEmpty" xml:space="preserve">
+    <value>There are currently no classes in the chosen CME category</value>
+  </data>
+  <data name="FailureInvalidEnddate" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureInvalidEnddate</value>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value>FailureInvalidExcludedDate</value>
+  </data>
+  <data name="ListReleaseToRefresh" xml:space="preserve">
+    <value>release to refresh</value>
+  </data>
+  <data name="FailureServiceTypeEmpty" xml:space="preserve">
+    <value>Please enter your ServiceType!</value>
+  </data>
+  <data name="Setting_BandConnect" xml:space="preserve">
+    <value>Connect to a new Band</value>
+  </data>
+  <data name="DoctorDayOfWeek_Tuesday" xml:space="preserve">
+    <value>Tuesday</value>
+  </data>
+  <data name="DoctorDayOfWeek_Thursday" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
+  <data name="FailureEmailExisted" xml:space="preserve">
+    <value>This Email already exists</value>
+  </data>
+  <data name="FailureAddressEmpty" xml:space="preserve">
+    <value>Please enter your address!</value>
+  </data>
+  <data name="SignUp_Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="SignUp_City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="FailureInvalidYear" xml:space="preserve">
+    <value>Error: Invalid Year</value>
+  </data>
+  <data name="FailureInvalidDate" xml:space="preserve">
+    <value>Error: Invalid Date</value>
+  </data>
+  <data name="FailureInvalidCard" xml:space="preserve">
+    <value>Error: Invalid Card</value>
+  </data>
+  <data name="FailureInvalidCity" xml:space="preserve">
+    <value>Error: Invalid City</value>
+  </data>
+  <data name="FailureInvalidIdno" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureInvalidIdno</value>
+  </data>
+  <data name="FailurePhoneEmpty" xml:space="preserve">
+    <value>Please enter your Phone!</value>
+  </data>
+  <data name="Setting_BandSyncSuccess" xml:space="preserve">
+    <value>Schedule data have been synced to your Band successfully</value>
+  </data>
+  <data name="FailureCityNotFound" xml:space="preserve">
+    <value>Error: City Not Found</value>
+  </data>
+  <data name="FailureSmallMoney" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: SmallMoney</value>
+  </data>
+  <data name="FailureInvalidStartMorningHour" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail:  FailureInvalidStartMorningHour</value>
+  </data>
+  <data name="SignUp_FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="ScheduleAdding_StartTitle" xml:space="preserve">
+    <value>Start time:</value>
+  </data>
+  <data name="WeekTopic_Empty" xml:space="preserve">
+    <value>Currently, there are no CME classes running in the system. Please pull to refresh or check back later. Thank you for your attention.</value>
+  </data>
+  <data name="SetPassword_NotMatch" xml:space="preserve">
+    <value>Password does not match the confirm password.</value>
+  </data>
+  <data name="FailurePasswordEmpty" xml:space="preserve">
+    <value>Please enter your password!</value>
+  </data>
+  <data name="FailureInvalidCheckupType" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureInvalidCheckupType</value>
+  </data>
+  <data name="FailureUsernameExisted" xml:space="preserve">
+    <value>This username already exists. Please choose a different username.</value>
+  </data>
+  <data name="FailureLastnameEmpty" xml:space="preserve">
+    <value>Please enter your Last Name!</value>
+  </data>
+  <data name="FailureGenderEmpty" xml:space="preserve">
+    <value>Please enter your Gender!</value>
+  </data>
+  <data name="Sign_UpSuccess" xml:space="preserve">
+    <value>You have successfully registered. This account must be activated before it is used to login, please check your email.</value>
+  </data>
+  <data name="CheckupView_Hospital" xml:space="preserve">
+    <value>Hospital:</value>
+  </data>
+  <data name="Messsage_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="FailurePinOrOtpEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailurePinOrOtpEmpty</value>
+  </data>
+  <data name="FailureInvalidStartAfternoonHour" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureInvalidStartAfternoonHour</value>
+  </data>
+  <data name="SearchClass" xml:space="preserve">
+    <value>search class</value>
+  </data>
+  <data name="FailureInvalidParams" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureInvalidParams</value>
+  </data>
+  <data name="FailureUsernameEmpty" xml:space="preserve">
+    <value>Please enter your username.</value>
+  </data>
+  <data name="FailureIdnoExisted" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureIdnoExisted</value>
+  </data>
+  <data name="FailureFirstNameEmpty1" xml:space="preserve">
+    <value>Please enter your First Name!</value>
+  </data>
+  <data name="Exit_titleMessageBox" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="Messsage_Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="ScheduleAdding_EndTitle" xml:space="preserve">
+    <value>End time:</value>
+  </data>
+  <data name="FailureUserNotFound" xml:space="preserve">
+    <value>Sorry, we were not able to find a user with that username</value>
+  </data>
+  <data name="FailureInvalidLocation" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureInvalidLocation</value>
+  </data>
+  <data name="Consult_DoctorDesc" xml:space="preserve">
+    <value>Nếu trả lời bằng Tiếng Việt, vui lòng nhập Tiếng Việt có dấu!</value>
+  </data>
+  <data name="FailureInvalidStatus" xml:space="preserve">
+    <value>Error: Invalid Status</value>
+  </data>
+  <data name="FailureHospitalRegistered" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureHospitalRegistered</value>
+  </data>
+  <data name="ResetPass_Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="Checkups_Empty" xml:space="preserve">
+    <value>There are currently no Checkups for you</value>
+  </data>
+  <data name="Checkups_Title" xml:space="preserve">
+    <value>Checkups</value>
+  </data>
+  <data name="FailureInvalidKeyword" xml:space="preserve">
+    <value>Error: Invalid Keyword</value>
+  </data>
+  <data name="Home_More" xml:space="preserve">
+    <value>More</value>
+  </data>
+  <data name="Home_Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="Message_InternetFailed" xml:space="preserve">
+    <value>Can't connect to server, please try again later</value>
+  </data>
+  <data name="ConsultView_Address" xml:space="preserve">
+    <value>Address:</value>
+  </data>
+  <data name="WeakTopics_HistoryTitle" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="FailureHospitalNameEmpty" xml:space="preserve">
+    <value>Error: Hospital Name Empty</value>
+  </data>
+  <data name="Error_NoInternet" xml:space="preserve">
+    <value>No internet connectivity please reconnect and try again</value>
+  </data>
+  <data name="Setting_BandEmpty" xml:space="preserve">
+    <value>No Microsoft Band device is Connected currently</value>
+  </data>
+  <data name="FailureHospitalNotFound" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureHospitalNotFound</value>
+  </data>
+  <data name="Setting_WinHelloDisable" xml:space="preserve">
+    <value>Disable</value>
+  </data>
+  <data name="FailureSymptomEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureSymptomEmpty</value>
+  </data>
+  <data name="FailureUnknown" xml:space="preserve">
+    <value>Sorry, something went wrong. We're working on getting this fixed as soon as we can.</value>
+  </data>
+  <data name="ScheduleAdding_WeekCount" xml:space="preserve">
+    <value>Number of weeks?</value>
+  </data>
+  <data name="FailureInvalidDoctor" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureInvalidDoctor</value>
+  </data>
+  <data name="SignUp_Invalid" xml:space="preserve">
+    <value>Please enter all required fields</value>
+  </data>
+  <data name="FailureSessionInvalid" xml:space="preserve">
+    <value>Session has been expired</value>
+  </data>
+  <data name="FailureKeywordIdEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: KeywordIdEmpty</value>
+  </data>
+  <data name="FailureTimeSpanEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: TimeSpanEmpty</value>
+  </data>
+  <data name="FailurePermissionDeny" xml:space="preserve">
+    <value>Error: Permission Deny! Please call support!</value>
+  </data>
+  <data name="FailureInvalidRoles" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureInvalidRoles</value>
+  </data>
+  <data name="DoctorDayOfWeek_Sunday" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
+  <data name="FailureInvalidPhone" xml:space="preserve">
+    <value>Please enter your phone number!</value>
+  </data>
+  <data name="FailureInvalidZeroMoney" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: InvalidZeroMoney</value>
+  </data>
+  <data name="FailureInvalidPrice" xml:space="preserve">
+    <value>Error: Invalid Price</value>
+  </data>
+  <data name="MainPage_logoutAppBar" xml:space="preserve">
+    <value>Log Out</value>
+  </data>
+  <data name="FailureInvalidEmail" xml:space="preserve">
+    <value>Your email address is invalid.</value>
+  </data>
+  <data name="ConsultView_InviteSuccess" xml:space="preserve">
+    <value>The invitation Email for consulting has been sent successfully</value>
+  </data>
+  <data name="FailureInvalidMonth" xml:space="preserve">
+    <value>Error InvalidMonth</value>
+  </data>
+  <data name="SignIn_NoAccess" xml:space="preserve">
+    <value>You have to sign up for a Doctor account to sign in</value>
+  </data>
+  <data name="SetPassword_Confirm" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="Setting_NotificationDisabled" xml:space="preserve">
+    <value>Notification Disabled</value>
+  </data>
+  <data name="FailureInvalidGender" xml:space="preserve">
+    <value>Please choose your gender!</value>
+  </data>
+  <data name="FailureHashUsed" xml:space="preserve">
+    <value>Error: Hash Used</value>
+  </data>
+  <data name="SignUp_FillForm" xml:space="preserve">
+    <value>You need enter username and password</value>
+  </data>
+  <data name="FailureMonthEmpty" xml:space="preserve">
+    <value>Please enter Month Text Field!</value>
+  </data>
+  <data name="FailureFacebookIdExisted1" xml:space="preserve">
+    <value>Error: Facebook Id existed</value>
+  </data>
+  <data name="FailureNameEmpty" xml:space="preserve">
+    <value>Please enter your Name!</value>
+  </data>
+  <data name="FailureFacebookidExisted" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureFacebookidExisted</value>
+  </data>
+  <data name="FailureInvalidHospital" xml:space="preserve">
+    <value>Error: Invalid Hospital</value>
+  </data>
+  <data name="Setting_WinHelloDesc" xml:space="preserve">
+    <value>Good news, your device supports Windows Hello and you can use it to authenticate with the BacSi24/7 app. With Windows Hello, you can log in to BacSi24/7 app on this PC without a password.</value>
+  </data>
+  <data name="FailurePhotoEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailurePhotoEmpty</value>
+  </data>
+  <data name="LocationNotFound" xml:space="preserve">
+    <value>Location not found in maps</value>
+  </data>
+  <data name="SignUp_CheckUp" xml:space="preserve">
+    <value>Checkup type</value>
+  </data>
+  <data name="ConsultView_Invite" xml:space="preserve">
+    <value>Invite</value>
+  </data>
+  <data name="SetPassword_Title" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="FailureNotEnoughMoneyForPayment" xml:space="preserve">
+    <value>Sorry, your Account have not enough money for this payment!</value>
+  </data>
+  <data name="FailureInvalidOldPassword" xml:space="preserve">
+    <value>Old password does not match.</value>
+  </data>
+  <data name="Message_InternetSettings" xml:space="preserve">
+    <value>This application requires internet connection. Would you connect to internet?</value>
+  </data>
+  <data name="Setting_WinHelloEnabled" xml:space="preserve">
+    <value>Windows Hello Enabled</value>
+  </data>
+  <data name="FailureInvalidQuality" xml:space="preserve">
+    <value>Error: Invalid Quality</value>
+  </data>
+  <data name="FailureNotificationTimeIdEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: NotificationTimeIdEmpty</value>
+  </data>
+  <data name="FailureInvalidPasswordLength" xml:space="preserve">
+    <value>Your password is too short.</value>
+  </data>
+  <data name="FailureFirstnameEmpty" xml:space="preserve">
+    <value>Please enter your First Name! </value>
+  </data>
+  <data name="Schedule_Confirm" xml:space="preserve">
+    <value>This is a recurring schedule. Do you want to delete all including future occurrences?</value>
+  </data>
+  <data name="CheckupView_Patient" xml:space="preserve">
+    <value>Patient:</value>
+  </data>
+  <data name="Consult_Answer" xml:space="preserve">
+    <value> answer</value>
+  </data>
+  <data name="CmeClass_Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="CmeClass_Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="FailureInvalidCheckupInterval" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureInvalidCheckupInterval</value>
+  </data>
+  <data name="FailureCardExisted" xml:space="preserve">
+    <value>Sorry, something went wrong. Card Existed</value>
+  </data>
+  <data name="HomeViewModel_Offline_meeting" xml:space="preserve">
+    <value>Offline meeting</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="FailureOverlapTime" xml:space="preserve">
+    <value>Your schedule(s) overlap.</value>
+  </data>
+  <data name="FailureDeactiveReference" xml:space="preserve">
+    <value>DeactiveReference</value>
+  </data>
+  <data name="FailureContentEmpty" xml:space="preserve">
+    <value>Please enter Content!</value>
+  </data>
+  <data name="WeakTopics_Title" xml:space="preserve">
+    <value>Study CME</value>
+  </data>
+  <data name="FailureInvalidScheduling" xml:space="preserve">
+    <value>Error: Invalid Scheduling</value>
+  </data>
+  <data name="FailureLoginFail" xml:space="preserve">
+    <value>Log in failed. Please check Username and Password</value>
+  </data>
+  <data name="CheckupView_Sym" xml:space="preserve">
+    <value>Symptom:</value>
+  </data>
+  <data name="Dialog_SetDate" xml:space="preserve">
+    <value>Select Date</value>
+  </data>
+  <data name="FailureCardEnterPin" xml:space="preserve">
+    <value>Sorry, something went wrong. Invalid Card Enter Pin</value>
+  </data>
+  <data name="FailureCardEnterOtp" xml:space="preserve">
+    <value>Sorry, something went wrong. Invalid Card Enter Otp</value>
+  </data>
+  <data name="FailureInvalidPaymentPassword" xml:space="preserve">
+    <value>Error: Invalid Payment Password</value>
+  </data>
+  <data name="Setting_WinHelloQuest" xml:space="preserve">
+    <value>Do you want to enable Windows Hello for your next sign in?</value>
+  </data>
+  <data name="ScheduleAdding_OnlyOne" xml:space="preserve">
+    <value>Only one</value>
+  </data>
+  <data name="ResetPass_Success" xml:space="preserve">
+    <value>A new password has been generated and sent to your email. Please check your inbox at </value>
+  </data>
+  <data name="SetPassword_New" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="SetPassword_Old" xml:space="preserve">
+    <value>Old password</value>
+  </data>
+  <data name="ConsultView_ReplyMessage" xml:space="preserve">
+    <value>Reply:</value>
+  </data>
+  <data name="FailureIsOnlineEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: IsOnlineEmpty</value>
+  </data>
+  <data name="ListPullToRefresh" xml:space="preserve">
+    <value>pull to refresh</value>
+  </data>
+  <data name="FailureInvalidPatientType" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureInvalidPatientType</value>
+  </data>
+  <data name="DoctorDayOfWeek_Friday" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="FailurePlatformEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: PlatformEmpty</value>
+  </data>
+  <data name="FailureScbMidEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: ScbMidEmpty</value>
+  </data>
+  <data name="Consult_Answers" xml:space="preserve">
+    <value> answers</value>
+  </data>
+  <data name="Consult_Send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="UpdateProfile_Success" xml:space="preserve">
+    <value>Your profile has been updated successfully</value>
+  </data>
+  <data name="Setting_NotificationInfo" xml:space="preserve">
+    <value>Enable Push Notification to receive the latest Schedules and Checkup information</value>
+  </data>
+  <data name="ConsultView_SentSuccessfuly" xml:space="preserve">
+    <value>Your answer has been sent successfully</value>
+  </data>
+  <data name="FailurePaymentPasswordNotSet" xml:space="preserve">
+    <value>Please update your Payment Password!</value>
+  </data>
+  <data name="WeekTopic_MapNotSupported" xml:space="preserve">
+    <value>Map is not supported on this device</value>
+  </data>
+  <data name="FailureInvalidFee" xml:space="preserve">
+    <value>Error: Invalid Fee</value>
+  </data>
+  <data name="FailureInvalidAge" xml:space="preserve">
+    <value>Error: Invalid Age</value>
+  </data>
+  <data name="FailureCheckupTypeNotFound" xml:space="preserve">
+    <value>Please enter CheckupType!</value>
+  </data>
+  <data name="WeakTopicsFile_Title" xml:space="preserve">
+    <value>File List</value>
+  </data>
+  <data name="HomeViewModel_GoToMap" xml:space="preserve">
+    <value>The meeting began at '{0}' in '{1}'.
+Do you want to see location on map?</value>
+  </data>
+  <data name="DoctorDayOfWeek_Monday" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="FailurePatientIdEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailurePatientIdEmpty</value>
+  </data>
+  <data name="SignUp_WrongEmail" xml:space="preserve">
+    <value>Your email address is invalid. Please enter a valid address</value>
+  </data>
+  <data name="FailureException" xml:space="preserve">
+    <value>Can't connect to server</value>
+  </data>
+  <data name="CHbase_Title" xml:space="preserve">
+    <value>Patient Records</value>
+  </data>
+  <data name="SignUp_SID" xml:space="preserve">
+    <value>National card number</value>
+  </data>
+  <data name="FailureStoreRegistered" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: StoreRegistered</value>
+  </data>
+  <data name="AppBarMenuItemText" xml:space="preserve">
+    <value>Menu Item</value>
+  </data>
+  <data name="WeekTopic_Happened" xml:space="preserve">
+    <value>This conference has already ended, please try the current week's topic.</value>
+  </data>
+  <data name="FailureInvalidDistrict" xml:space="preserve">
+    <value>Error: Invalid District</value>
+  </data>
+  <data name="FailureInvalidPatient" xml:space="preserve">
+    <value>Error: Invalid Patient</value>
+  </data>
+  <data name="FailureFacebookIdEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FacebookIdEmpty</value>
+  </data>
+  <data name="ScheduleAdding_AppointmentTitle" xml:space="preserve">
+    <value>Number of case</value>
+  </data>
+  <data name="FailureCheckupIdEmpty" xml:space="preserve">
+    <value>Error: Checkup Id Empty</value>
+  </data>
+  <data name="SignUp_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="SignUp_PassMatch" xml:space="preserve">
+    <value>Password does not match the confirm password</value>
+  </data>
+  <data name="FailurePromotionNotFound" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailurePromotionNotFound</value>
+  </data>
+  <data name="FailureInvalidMaxCheckupPerDate" xml:space="preserve">
+    <value>Error: Invalid Max Checkup Per Date</value>
+  </data>
+  <data name="ImageRotate" xml:space="preserve">
+    <value>rotate</value>
+  </data>
+  <data name="SetPasswrod_Change" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="WeekTopicFile_Empty" xml:space="preserve">
+    <value>There are currently no Study CME File.</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Consult_And" xml:space="preserve">
+    <value>and</value>
+  </data>
+  <data name="CheckupView_CheckType" xml:space="preserve">
+    <value>Checkup type:</value>
+  </data>
+  <data name="CmeSearch_Hint" xml:space="preserve">
+    <value>Search for CME Classes</value>
+  </data>
+  <data name="Consult_AndAnswered" xml:space="preserve">
+    <value> other doctors answered.</value>
+  </data>
+  <data name="FailureObjectReferred" xml:space="preserve">
+    <value>Can't delete object, this schedule has been booked.</value>
+  </data>
+  <data name="FailureDistrictIdEmpty" xml:space="preserve">
+    <value> District IdEmpty</value>
+  </data>
+  <data name="FailureInvalidStartdate" xml:space="preserve">
+    <value>The start date must be in the future and not today.</value>
+  </data>
+  <data name="FailureUserIdEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: UserIdEmpty</value>
+  </data>
+  <data name="FailureSearchedForDoctorsEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: SearchedForDoctorsEmpty</value>
+  </data>
+  <data name="Setting_BandNotPaired" xml:space="preserve">
+    <value>No Microsoft Band devices paired</value>
+  </data>
+  <data name="FailurePhoneExisted" xml:space="preserve">
+    <value>Phone number already exists</value>
+  </data>
+  <data name="FailureInvalidEndAfternoonMinute" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureInvalidEndAfternoonMinute</value>
+  </data>
+  <data name="FailureHospitalIdEmpty" xml:space="preserve">
+    <value>Please choose your hospital!</value>
+  </data>
+  <data name="SignUp_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="WeekTopic_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="ResourceFlowDirection" xml:space="preserve">
+    <value>LeftToRight</value>
+  </data>
+  <data name="WeakTopics_NotNow" xml:space="preserve">
+    <value>This conference has not started yet, please come back later.</value>
+  </data>
+  <data name="FailureInvalidEndAfternoonHour" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureInvalidEndAfternoonHour</value>
+  </data>
+  <data name="Setting_BandChooseTitle" xml:space="preserve">
+    <value>Please choose a Band device below to connect</value>
+  </data>
+  <data name="Logout_contentMessageBox" xml:space="preserve">
+    <value>Do you really want to log out</value>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>BacSi24x7</value>
+  </data>
+  <data name="FailureInvalidSchedulingFee" xml:space="preserve">
+    <value>Error: Invalid Scheduling Fee</value>
+  </data>
+  <data name="ListPullToRefreshTime" xml:space="preserve">
+    <value>last refresh time: {0:H:mm}</value>
+  </data>
+  <data name="FailureInvalidSupportRequestReplied" xml:space="preserve">
+    <value>You have already answered this question on this or another device</value>
+  </data>
+  <data name="FailureCheckupTypeEmpty" xml:space="preserve">
+    <value>Please enter CheckupType!</value>
+  </data>
+  <data name="Consult_Answered" xml:space="preserve">
+    <value> answered.</value>
+  </data>
+  <data name="FailureBusyDoctor" xml:space="preserve">
+    <value>Busy Doctor</value>
+  </data>
+  <data name="DoctorDayOfWeek_Saturday" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="CmeSearch_Empty" xml:space="preserve">
+    <value>Enter or modify your Search query above to search for CME Classes online.</value>
+  </data>
+  <data name="FailureSmallInterval" xml:space="preserve">
+    <value>Your schedule's interval is so small</value>
+  </data>
+  <data name="FailureResultEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: ResultEmpty</value>
+  </data>
+  <data name="CmeLibrary_Title" xml:space="preserve">
+    <value>CME Library</value>
+  </data>
+  <data name="FailureHashEmpty" xml:space="preserve">
+    <value>Error: Hash Empty</value>
+  </data>
+  <data name="Setting_Noti" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="FailureCheckupNotFound" xml:space="preserve">
+    <value>Please enter Checkup!</value>
+  </data>
+  <data name="FailurePatientTypeEmpty" xml:space="preserve">
+    <value>Please enter your Patient Type!</value>
+  </data>
+  <data name="SignIn_Remeber" xml:space="preserve">
+    <value>Remember me</value>
+  </data>
+  <data name="FailureDoctorNotFound" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: 'FailureDoctorNotFound'</value>
+  </data>
+  <data name="FailureStoreMidNotFound" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: StoreMidNotFound</value>
+  </data>
+  <data name="FailureDisableUser" xml:space="preserve">
+    <value>User has been blocked or not activated</value>
+  </data>
+  <data name="CheckupView_Appoint" xml:space="preserve">
+    <value>Number of case:</value>
+  </data>
+  <data name="Button_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="FailureCardIdEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureCardIdEmpty</value>
+  </data>
+  <data name="FailureCityEmpty" xml:space="preserve">
+    <value>Please enter City!</value>
+  </data>
+  <data name="Consult_DoctorEmail" xml:space="preserve">
+    <value>The invited doctor's email</value>
+  </data>
+  <data name="FailureTypeEmpty" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: TypeEmpty</value>
+  </data>
+  <data name="CheckupView_Title" xml:space="preserve">
+    <value>Checkup</value>
+  </data>
+  <data name="FailureInvalidAppointmentDate" xml:space="preserve">
+    <value>Sorry, something went wrong. Technical Detail: FailureInvalidAppointmentDate</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="CmeClass_Forward" xml:space="preserve">
+    <value>Forward</value>
+  </data>
+  <data name="ScheduleAdding_Title" xml:space="preserve">
+    <value>Add Schedule</value>
+  </data>
+  <data name="CheckupView_Doctor" xml:space="preserve">
+    <value>Doctor:</value>
+  </data>
+  <data name="WeekTopic_Maps" xml:space="preserve">
+    <value>Maps</value>
+  </data>
+  <data name="ConsultView_InviteContent" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="CheckupView_appointmentno" xml:space="preserve">
+    <value>Appointment #</value>
+  </data>
+  <data name="ConsultView_Content" xml:space="preserve">
+    <value>Question:</value>
+  </data>
+  <data name="Consult_Of" xml:space="preserve">
+    <value> of </value>
+  </data>
+  <data name="LoginView_ResetPass" xml:space="preserve">
+    <value>Reset password</value>
+  </data>
+  <data name="FailureYearEmpty" xml:space="preserve">
+    <value>Please enter Year Text Field!</value>
+  </data>
+</root>

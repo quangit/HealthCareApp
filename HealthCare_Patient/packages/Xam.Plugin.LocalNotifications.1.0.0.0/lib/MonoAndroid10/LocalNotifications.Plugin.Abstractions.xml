@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LocalNotifications.Plugin.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="T:LocalNotifications.Plugin.Abstractions.ILocalNotifier">
+            <summary>
+            Interface for LocalNotifier
+            </summary>
+        </member>
+        <member name="M:LocalNotifications.Plugin.Abstractions.ILocalNotifier.Notify(LocalNotifications.Plugin.Abstractions.LocalNotification)">
+            <summary>
+            Notifies the specified notification.
+            </summary>
+            <param name="notification">The notification.</param>
+        </member>
+        <member name="M:LocalNotifications.Plugin.Abstractions.ILocalNotifier.Cancel(System.Int32)">
+            <summary>
+            Cancels the specified notification identifier.
+            </summary>
+            <param name="notificationId">The notification identifier.</param>
+        </member>
+        <member name="T:LocalNotifications.Plugin.Abstractions.LocalNotification">
+            <summary>
+            Notification options data used for creating native notification
+            </summary>
+        </member>
+        <member name="P:LocalNotifications.Plugin.Abstractions.LocalNotification.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            Notification identifier used for canceling not scheduled notification
+            </value>
+        </member>
+        <member name="P:LocalNotifications.Plugin.Abstractions.LocalNotification.Title">
+            <summary>
+            Gets or sets the notification title.
+            </summary>
+            <value>
+            The notification title.
+            </value>
+        </member>
+        <member name="P:LocalNotifications.Plugin.Abstractions.LocalNotification.Text">
+            <summary>
+            Gets or sets the notification text.
+            </summary>
+            <value>
+            The notification text.
+            </value>
+        </member>
+        <member name="P:LocalNotifications.Plugin.Abstractions.LocalNotification.NotifyTime">
+            <summary>
+            Gets or sets the notify time of notification.
+            </summary>
+            <value>
+            The notify time of notification.
+            </value>
+        </member>
+    </members>
+</doc>

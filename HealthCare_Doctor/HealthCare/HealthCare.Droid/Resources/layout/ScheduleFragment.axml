@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/titleBackground"
+            android:scaleType="centerCrop" />
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textColor="@android:color/black"
+            android:layout_gravity="left|bottom"
+            local:MvxBind="Text [Schedule_Title]"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="2dp"
+            android:textStyle="bold"
+            android:textSize="20dp" />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@color/ButtonGreenMainColor"
+            android:layout_gravity="bottom" />
+    </FrameLayout>
+<!--<com.alliance.calendar.CustomCalendar
+        android:id="@+id/CalendarControl"
+        android:layout_width="fill_parent"
+        android:layout_height="310dp"
+        android:layout_gravity="center" />
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Register"
+        android:gravity="center"
+        local:MvxBind="Click ShowExaminationCommand" /> -->
+    <com.telerik.widget.calendar.RadCalendarView
+        android:id="@+id/calendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+<!--<LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#2CBE71">
+        <TextView
+            android:id="@+id/currentDate"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center_horizontal"
+            android:textSize="30dp" />
+    -->
+<!--Add Button-->
+<!--
+    -->
+<!--    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Add"
+            local:MvxBind="Click SignUpCommand" /> -->
+<!--
+    -->
+<!--Edit Button-->
+<!--
+    -->
+<!--  <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Edit"
+            local:MvxBind="Click SignUpCommand" /> -->
+<!--
+    </LinearLayout>-->
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1">
+        <MvxListView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp"
+            android:id="@+id/scheduleList"
+            local:MvxBind="ItemsSource SelectedSchedule"
+            local:MvxItemTemplate="@layout/scheduletemplate"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:textSize="18dp"
+            android:id="@+id/EmptyTextView"
+            android:textColor="@android:color/black"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            local:MvxBind="Visible SelectedSchedule, Converter=ListVis; Text [Schedule_Empty]" />
+    </FrameLayout>
+</LinearLayout>

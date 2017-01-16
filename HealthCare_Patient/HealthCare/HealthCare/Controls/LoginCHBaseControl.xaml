@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+             xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+             BindingContext="{Binding VmSetting, Source={StaticResource Locator}}"
+             xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+             x:Class="HealthCare.Controls.LoginCHBaseControl"
+      Grid.RowSpan="2"
+      BackgroundColor="#b0000000"
+      Padding="10"
+      VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+      IsVisible="{Binding ShowPopup}">
+  <Grid.Resources>
+    <ResourceDictionary>
+
+      <OnPlatform x:TypeArguments="x:Double" x:Key="RowSpacing"
+                  iOS="15" Android="15" WinPhone="15" />
+
+      <OnPlatform x:TypeArguments="Thickness" x:Key="LogoPadding"
+                  iOS="30, 30, 30, 20" Android="20, 10, 20, 10" WinPhone="30, 10, 30, 20" />
+
+      <OnPlatform x:TypeArguments="Thickness" x:Key="BodyPadding"
+                  iOS="15" Android="10" WinPhone="15" />
+
+      <OnPlatform x:TypeArguments="x:Double" x:Key="LineWidthRequest"
+                  iOS="30" Android="30" WinPhone="150" />
+
+      <OnPlatform x:TypeArguments="x:Double" x:Key="PromotionImgWidth"
+                  iOS="24" Android="24" WinPhone="34" />
+
+      <OnPlatform x:TypeArguments="x:Double" x:Key="PromotionImgHeight"
+                  iOS="24" Android="24" WinPhone="34" />
+
+      <OnPlatform x:TypeArguments="x:Double" x:Key="EntryTextSize"
+                  iOS="13" Android="13" WinPhone="{x:Static helpers:HcStyles.EntryLoginFontSizeContent}" />
+
+      <OnPlatform x:TypeArguments="FontAttributes" x:Key="LabelFontAttributes"
+                  iOS="Bold" Android="Bold" WinPhone="None" />
+
+      <OnPlatform x:TypeArguments="x:Double" x:Key="BtnPromotionXConstact"
+                  iOS="0" Android="0" WinPhone="-10" />
+
+      <OnPlatform x:TypeArguments="x:Double" x:Key="BtnPromotionYConstact"
+                  iOS="{x:Static helpers:HcStyles.ButtonInverseHeight}"
+                  Android="{x:Static helpers:HcStyles.ButtonInverseHeight}"
+                  WinPhone="-68" />
+
+    </ResourceDictionary>
+  </Grid.Resources>
+  <Frame HasShadow="False" BackgroundColor="{x:Static helpers:HcStyles.GreenColor}"  VerticalOptions="Center" HorizontalOptions="Center"
+                  >
+  <StackLayout Orientation="Vertical"  Spacing="{StaticResource RowSpacing}" >
+    <ContentView >
+      <Label Text="{x:Static resx:AppResources.hc_record}" TextColor="White" FontAttributes="{StaticResource LabelFontAttributes}"
+            HorizontalOptions="Center"
+            Style="{StaticResource LabelTitleStyle}" />
+    </ContentView>
+    <Label Text="{x:Static resx:AppResources.enter_your_personal_health}" TextColor="White"
+          HorizontalOptions="Start"
+          Style="{StaticResource LabelContentStyle}" />
+    <controls:HcEntry Text="{Binding Email}" IsLogin="True"
+                      HideKeyboard="{Binding KeyboardHidden}"
+                      Source="ic_username.png" RuleColor="White" TextColor="White"
+                      PlaceHolder="Email" TextSize="{StaticResource EntryTextSize}" />
+    <controls:HcEntry  Text="{Binding Password}" IsLogin="True"
+                      HideKeyboard="{Binding KeyboardHidden}"
+                      Source="ic_password.png" RuleColor="White" TextColor="White" IsPassword="true"
+                      PlaceHolder="{x:Static resx:AppResources.login_password}" TextSize="{StaticResource EntryTextSize}" />
+    <Label Text="{x:Static resx:AppResources.not_have_account}" TextColor="White" FontAttributes="{StaticResource LabelFontAttributes}"
+           HorizontalOptions="End"
+           Style="{StaticResource LabelSubContentStyle}">
+      <Label.GestureRecognizers>
+        <TapGestureRecognizer Command="{Binding GoRegisterCommand}" />
+      </Label.GestureRecognizers>
+    </Label>
+    
+    <Grid  HorizontalOptions="FillAndExpand">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition></ColumnDefinition>
+        <ColumnDefinition></ColumnDefinition>
+      </Grid.ColumnDefinitions>
+      <controls:ButtonCustom  Grid.Column="0" Style="{StaticResource ButtonStyle}" Text="{x:Static resx:AppResources.login}" BackgroundColor="White"
+                          Command="{Binding LoginCommand}"
+                          FontAttributes="Bold" TextColor="{x:Static helpers:HcStyles.GreenButtonColor}" />
+      
+      <controls:ButtonCustom  Grid.Column="1" Style="{StaticResource ButtonStyle}" Text="{x:Static resx:AppResources.cancel}" BackgroundColor="White"
+                          Command="{Binding CancelCommand}"
+                          FontAttributes="Bold" TextColor="{x:Static helpers:HcStyles.GreenButtonColor}" />
+    </Grid>
+   
+  </StackLayout>
+  </Frame>
+</Grid>

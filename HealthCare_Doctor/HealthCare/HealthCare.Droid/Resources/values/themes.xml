@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+
+  <style name="Dialog">
+    <item name="android:textColorPrimary">@color/primary_text</item>
+    <item name="android:textColor">@color/primary_color</item>
+  </style>
+  
+  <style name="AppBaseTheme"
+         parent="Theme.AppCompat.Light.DarkActionBar">
+    <item name="windowNoTitle">true</item>
+    <item name="windowActionBar">false</item>
+    <item name="android:windowBackground">@color/background_window</item>
+    <!-- ...and here we setting appcompat’s color theming attrs -->
+    <item name="colorPrimary">@color/green</item>
+    <item name="colorPrimaryDark">@color/greenDark</item>
+    <item name="colorAccent">#FF29B76C</item>
+    <item name="android:textColorPrimary">@android:color/white</item>
+    <item name="android:textColorHint">#FFCCCCCC</item>
+	<item name="android:alertDialogTheme">@style/Theme.AppCompat.Dialog.Alert</item>
+  </style>
+
+  <style name="AppTheme"
+         parent="AppBaseTheme">
+    <item name="android:activatedBackgroundIndicator">@drawable/activated_background</item>
+  </style>
+
+</resources>

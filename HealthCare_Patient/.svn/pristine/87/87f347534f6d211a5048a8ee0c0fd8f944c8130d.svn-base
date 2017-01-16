@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+             xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+             xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+             xmlns:chpages="clr-namespace:HealthCare.Pages.CHBases;assembly=HealthCare"
+             xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+             PageType="{x:Type chpages:ShareViaMailPage}"
+             x:Class="HealthCare.Pages.CHBases.ShareViaCHBaseAccountPage"
+             Title="{x:Static resx:AppResources.share_via_chbase_account}"
+             BindingContext="{Binding VmShareViaEmail,Source={StaticResource Locator}}"
+             BackgroundColor="White">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="x:Double" x:Key="WebViewHeight"
+                  Android="600" WinPhone="494" iOS="600"/>
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+  <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}">
+    <controls:ChBaseWebview BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                            HeightRequest="{StaticResource WebViewHeight}" x:Name="WebView"
+             Navigating="WebView_OnNavigating"
+             Navigated="WebView_OnNavigated"/>
+  </StackLayout>
+</controls:TopBarContentPage>

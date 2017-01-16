@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:enums="clr-namespace:HealthCare.Enums;assembly=HealthCare"
+                            xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+                            xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+                            PageType="{x:Type pages:RegisterPage}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            x:Class="HealthCare.Pages.RegisterPage"
+                            Title="{x:Static resx:AppResources.register}"
+                            BindingContext="{Binding VmUser, Source={StaticResource Locator}}"
+                            BackgroundColor="White">
+
+    <controls:TopBarContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:Double" x:Key="SpacingRowMainContent"
+                        iOS="10" Android="10" WinPhone="8" />
+            <OnPlatform x:Key="PagePadding"
+                        x:TypeArguments="Thickness"
+                        iOS="12,12,12,0"
+                        Android="12,12,12,0"
+                        WinPhone="12,12,12,0" />
+            <OnPlatform x:Key="AvatarWidth"
+                        x:TypeArguments="x:Double"
+                        iOS="80"
+                        Android="80"
+                        WinPhone="140" />
+            <OnPlatform x:Key="AvatarHeight"
+                        x:TypeArguments="x:Double"
+                        iOS="80"
+                        Android="80"
+                        WinPhone="120" />
+            <OnPlatform x:TypeArguments="x:Double" x:Key="SpacingGender"
+                        iOS="25" Android="25" WinPhone="30" />
+
+            <OnPlatform x:TypeArguments="LayoutOptions" x:Key="MainStackHoriazontalOption"
+                        iOS="FillAndExpand" Android="FillAndExpand" WinPhone="CenterAndExpand" />
+
+            <OnIdiom x:TypeArguments="LayoutOptions" x:Key="TlPageHorizontalOption"
+                     Phone="{StaticResource MainStackHoriazontalOption}" Tablet="FillAndExpand" />
+
+            <OnIdiom x:TypeArguments="Thickness" x:Key="TlPagePadding"
+                     Phone="{StaticResource PagePadding}" Tablet="20,10" />
+
+            <OnIdiom x:TypeArguments="x:Double" x:Key="TlItemSpacing"
+                     Phone="8" Tablet="14" />
+
+
+        </ResourceDictionary>
+    </controls:TopBarContentPage.Resources>
+    <StackLayout VerticalOptions="StartAndExpand">
+        <ScrollView VerticalOptions="StartAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    Padding="{StaticResource PagePadding}">
+
+            <!-- Main content -->
+            <StackLayout HorizontalOptions="{StaticResource TlPageHorizontalOption}" Orientation="Vertical"
+                         Spacing="{StaticResource TlItemSpacing}"
+                         Padding="{StaticResource TlPagePadding}">
+                <StackLayout Orientation="Horizontal">
+
+                    <!-- avatar -->
+                    <Grid HeightRequest="{StaticResource AvatarHeight}"
+                          WidthRequest="{StaticResource AvatarWidth}">
+
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding AvatarTappedCommand}" />
+                        </Grid.GestureRecognizers>
+
+                        <Image Source="{Binding AvatarImageSource}"
+                               Aspect="AspectFill" />
+
+                        <StackLayout Orientation="Horizontal"
+                                     WidthRequest="{StaticResource AvatarWidth}"
+                                     VerticalOptions="End"
+                                     BackgroundColor="#80363636"
+                                     HorizontalOptions="FillAndExpand"
+                                     Padding="4">
+                            <Image Source="ic_camera.png"
+                                   Aspect="AspectFill" />
+
+                            <!--              <Label Text="{x:Static resx:AppResources.create_avatar}"
+                     TextColor="White"
+                     VerticalOptions="Center"
+                     FontSize="12"
+                     Style="{StaticResource LabelSubContentStyle}" />-->
+                        </StackLayout>
+
+                    </Grid>
+
+                    <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand"
+                                 HorizontalOptions="FillAndExpand">
+                        <controls:HcEntry Source="ic_person.png"
+                                          PlaceHolder="{x:Static resx:AppResources.last_name}"
+                                          Text="{Binding CurrentUser.LastName, Mode=TwoWay}" />
+
+                        <controls:HcEntry Source="ic_person.png"
+                                          PlaceHolder="{x:Static resx:AppResources.first_name}"
+                                          Text="{Binding CurrentUser.FirstName, Mode=TwoWay}" />
+                    </StackLayout>
+                </StackLayout>
+
+                <controls:HcEntry Source="ic_lock.png"
+                                  IsPassword="True"
+                                  PlaceHolder="{x:Static resx:AppResources.password}"
+                                  IsVisible="{Binding CanInputPassword}"
+                                  Text="{Binding CurrentUser.Password, Mode=TwoWay}" />
+
+                <controls:HcEntry Source="ic_lock.png"
+                                  IsPassword="True"
+                                  PlaceHolder="{x:Static resx:AppResources.password_verify}"
+                                  IsVisible="{Binding CanInputPassword}"
+                                  Text="{Binding CurrentUser.VerifyPassword, Mode=TwoWay}" />
+
+                <!--<controls:DatePickerWithImageBox Source="ic_calendar.png"
+                                         TextColor="{x:Static helpers:HcStyles.BlackTextColor}"
+                                         FontSize="{x:Static helpers:HcStyles.FontSizeContent}"
+                                         SelectedValue="{Binding CurrentUser.BirthDay, Mode=TwoWay}"
+                                         ValidateDateTimeType="BirthDay" />-->
+
+                <controls:HcEntry Source="ic_phone.png"
+                                  Keyboard="{x:Static Keyboard.Telephone}"
+                                  PlaceHolder="{x:Static resx:AppResources.phone_no}"
+                                  Text="{Binding CurrentUser.PhoneNo, Mode=TwoWay}" />
+
+                <!--<controls:HcEntry Source="ic_cc_number.png"
+                          Keyboard="{x:Static Keyboard.Numeric}"
+                          PlaceHolder="{x:Static resx:AppResources.id_no}"
+                          Text="{Binding CurrentUser.IdNo, Mode=TwoWay}" />-->
+
+                <controls:HcEntry Source="ic_mail_about.png"
+                                  Keyboard="{x:Static Keyboard.Email}"
+                                  PlaceHolder="{x:Static resx:AppResources.email}"
+                                  Text="{Binding CurrentUser.Email, Mode=TwoWay}" />
+
+                <!--<StackLayout Spacing="{StaticResource SpacingGender}"
+                     Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+          <Label Text="{x:Static resx:AppResources.gender}"
+                 Style="{StaticResource LabelContentStyle}" HorizontalOptions="StartAndExpand"
+                 VerticalOptions="Center" />
+
+          <controls:HcRadioButton x:TypeArguments="enums:Gender"
+                                  ListItem="{Binding ListGender}"
+                                  VerticalOptions="Center"
+                                  HorizontalOptions="EndAndExpand"
+                                  SelectedItem="{Binding CurrentUser.Gender, Mode=TwoWay}" />
+        </StackLayout>-->
+
+                <!--<controls:HcEntry Source="ic_address_about.png"
+                          PlaceHolder="{x:Static resx:AppResources.address}"
+                          Text="{Binding CurrentUser.Address, Mode=TwoWay}" />-->
+
+                <!--<StackLayout Orientation="Horizontal">
+          <StackLayout Orientation="Vertical" Spacing="{StaticResource SpacingRowMainContent}"
+                       VerticalOptions="FillAndExpand">
+            <Label Text="{x:Static resx:AppResources.city}"
+                   Style="{StaticResource LabelContentStyle}"
+                   VerticalOptions="CenterAndExpand" />
+
+            <Label Text="{x:Static resx:AppResources.district}"
+                   Style="{StaticResource LabelContentStyle}"
+                   VerticalOptions="CenterAndExpand" />
+          </StackLayout>
+          <StackLayout Orientation="Vertical" Spacing="{StaticResource SpacingRowMainContent}"
+                       HorizontalOptions="FillAndExpand"
+                       BindingContext="{Binding VmCommon, Source={StaticResource Locator}}">
+            <controls:HcPicker x:TypeArguments="models:CityModel" PickerStyle="1"
+                               ItemsSource="{Binding ListCity}"
+                               HorizontalOptions="FillAndExpand"
+                               SelectedItem="{Binding SelectedCity, Mode=TwoWay}"
+                               TitleText="{x:Static resx:AppResources.pick_city}"
+                               EmptyText="{x:Static resx:AppResources.empty}"
+                               WidthRequest="150">
+              <behaviors:Interaction.Behaviors>
+                <behaviors:BehaviorCollection>
+                  <behaviors:EventToCommand EventName="Loaded"
+                                            BindingContext="{Binding VmCommon, Source={StaticResource Locator}}"
+                                            Command="{Binding GetCitiesDistrictsCommand}" />
+                </behaviors:BehaviorCollection>
+              </behaviors:Interaction.Behaviors>
+
+            </controls:HcPicker>
+            <controls:HcPicker x:TypeArguments="models:DistrictModel" PickerStyle="1"
+                               ItemsSource="{Binding SelectedCity.Districts}"
+                               HorizontalOptions="FillAndExpand"
+                               TitleText="{x:Static resx:AppResources.pick_district}"
+                               SelectedItem="{Binding SelectedDistrict, Mode=TwoWay}"
+                               EmptyText="{x:Static resx:AppResources.empty}" />
+          </StackLayout>
+        </StackLayout>-->
+
+                <!--Button Register -->
+                <ContentView Padding="0, 20, 0, 20">
+                    <controls:ButtonCustom Text="{x:Static resx:AppResources.register}"
+                                           Style="{StaticResource ButtonStyle}">
+                        <behaviors:Interaction.Behaviors>
+                            <behaviors:BehaviorCollection>
+                                <behaviors:EventToCommand EventName="SingleClicked"
+                                                          Command="{Binding RegisterCommand}" />
+                            </behaviors:BehaviorCollection>
+                        </behaviors:Interaction.Behaviors>
+                    </controls:ButtonCustom>
+                </ContentView>
+
+            </StackLayout>
+
+        </ScrollView>
+    </StackLayout>
+</controls:TopBarContentPage>

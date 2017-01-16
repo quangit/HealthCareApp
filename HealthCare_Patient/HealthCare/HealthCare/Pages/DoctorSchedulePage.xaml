@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<controls:BaseAddCheckupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                             xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                             xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                             xmlns:viewCells="clr-namespace:HealthCare.Controls.ViewCells;assembly=HealthCare"
+                             xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+                             xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                             BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                             BindingContext="{Binding VmAddCheckup, Source={StaticResource Locator}}"
+                             NextCommand="{Binding VmDoctorSchedule.CheckupFlowGoNextCommand, Source={StaticResource Locator}}"
+                             CancelCommand="{Binding GoBackCommand}"
+                             x:Class="HealthCare.Pages.DoctorSchedulePage">
+
+  <controls:BaseAddCheckupPage.PageTitle>
+    <Binding Path="SelectedDoctor.FullName" StringFormat="{x:Static resx:AppResources.schedule_of}" />
+  </controls:BaseAddCheckupPage.PageTitle>
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="x:Double" x:Key="HospitalFontSize"
+                  iOS="23" Android="23" WinPhone="23" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="NameHospitalPadding"
+                  iOS="0,20,0,10" Android="0,20,0,10" WinPhone="0,16,0,10" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="CalendarPadding"
+                  iOS="10,0,10,0" Android="35,0,35,0" WinPhone="4,0,4,0" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="PageSidePadding"
+               iOS="18,0" Android="18,0" WinPhone="18,0" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+
+
+  <controls:BaseAddCheckupPage.PageContent>
+    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="{StaticResource PageSidePadding}">
+      <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+        <!--Picker-->
+        <ContentView BackgroundColor="Transparent" Padding="{StaticResource NameHospitalPadding}">
+          <controls:HcPicker
+              BindingContext="{Binding VmAddCheckup, Source={StaticResource Locator}}"
+              x:TypeArguments="models:ScheduleModel" PickerStyle="3"
+              FontSize="{x:Static helpers:HcStyles.FontSizeTitle}"
+              SelectedItem="{Binding SelectedSchedule, Mode=TwoWay}"
+              ItemsSource="{Binding VmDoctorSchedule.ListScheduleOfADate, Source={StaticResource Locator}}"
+              HorizontalOptions="FillAndExpand"
+              TitleText="{x:Static resx:AppResources.picker_schedule}"
+              EmptyText="{x:Static resx:AppResources.empty_schedule}" />
+        </ContentView>
+
+
+        <!--Calendar-->
+        <controls:HcCalendar BindingContext="{Binding VmDoctorSchedule, Source={StaticResource Locator}}"
+                             DatesEnable="{Binding ListScheduleDateTime}" x:Name="Calendar"
+                             SelecteDate="{Binding SelectedDate}"
+                             SelectedDateChangedCommand="{Binding SelectedDateChangedCommand}" />
+
+      </StackLayout>
+    </ScrollView>
+  </controls:BaseAddCheckupPage.PageContent>
+
+</controls:BaseAddCheckupPage>

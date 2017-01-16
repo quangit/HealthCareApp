@@ -1,0 +1,1 @@
+MainPackage=C:\Dropbox\Projects\Work\HealthCare - Doctor\HealthCare\Phase 2\HealthCare.Win\bin\x64\Release\HealthCare.Win_1.1.37.0_x64.appx

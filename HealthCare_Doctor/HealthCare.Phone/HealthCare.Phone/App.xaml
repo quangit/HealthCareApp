@@ -1,0 +1,37 @@
+﻿<Application x:Class="HealthCare.Phone.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+             xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+             xmlns:resource="clr-namespace:HealthCare.Core.Resources;assembly=HealthCare.Core"
+             xmlns:converters="clr-namespace:HealthCare.Phone.Converters"
+             xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit">
+
+    <!--Application Resources-->
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <converters:NativeConsentValueConverter x:Key="ConsentValueConverter"/>
+            <converters:NativeBoolVisValueConverter x:Key="BoolVisValueConverter" />
+            <converters:NativeReverseBoolVisValueConverter x:Key="ReverseBoolVisValueConverter" />
+            <converters:NativeWeekTopicStatus x:Key="WeekTopicStatusConverter" />
+            <converters:NativeMilisecondToDate x:Key="MilisecondToDateConverter" />
+            <converters:NativeListVisValueConverter x:Key="ListVisValueConverter"></converters:NativeListVisValueConverter>
+            <resource:LocalizedStrings xmlns:local="clr-namespace:HealthCare.Phone"
+                                    x:Key="LocalizedStrings" />
+
+         
+        </ResourceDictionary>
+    </Application.Resources>
+
+    <Application.ApplicationLifetimeObjects>
+        <!--Required object that handles lifetime events for the application-->
+        <shell:PhoneApplicationService Launching="Application_Launching"
+                                       Closing="Application_Closing"
+                                       Activated="Application_Activated"
+                                       Deactivated="Application_Deactivated" />
+    </Application.ApplicationLifetimeObjects>
+
+</Application>

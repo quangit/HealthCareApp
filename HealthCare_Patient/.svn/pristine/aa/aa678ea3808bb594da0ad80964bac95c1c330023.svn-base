@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+          xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+          x:Class="HealthCare.Controls.ViewCells.CheckCell">
+
+    <ContentView Padding="0,5,0,5">
+        <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderLightGrayColor}" Padding="1">
+            <Grid BackgroundColor="White">
+                <Image x:Name="idCheckIcon" Source="ic_checkcell.png" IsVisible="false"
+                       HorizontalOptions="End" VerticalOptions="Start" />
+                <ContentView x:Name="idContent" />
+            </Grid>
+        </ContentView>
+    </ContentView>
+</ViewCell>

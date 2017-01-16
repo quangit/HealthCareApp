@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:BaseAddCheckupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                             x:Class="HealthCare.Pages.PickDoctorPage"
+                             xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                             xmlns:cells="clr-namespace:HealthCare.Controls.ViewCells;assembly=HealthCare"
+                             xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                             xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+                             xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                             xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+                             xmlns:objects="clr-namespace:HealthCare.Objects;assembly=HealthCare"
+                             NextCommand="{Binding GoToSchedulePageCommand}"
+                             PageTitle="{x:Static resx:AppResources.pick_doctor}"
+                             CancelCommand="{Binding GoBackCommand}"
+                             BindingContext="{Binding VmAddCheckup, Source={StaticResource Locator}}">
+
+    <controls:BaseAddCheckupPage.Title>
+        <x:Static Member="resx:AppResources.pick_doctor" />
+    </controls:BaseAddCheckupPage.Title>
+
+    <controls:TopBarContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:Double" x:Key="HospitalFontSize"
+                        iOS="23" Android="23" WinPhone="23" />
+            <OnPlatform x:TypeArguments="x:Double" x:Key="LeftLineWidth"
+                        iOS="1.5" Android="1.5" WinPhone="2.5" />
+            <OnPlatform x:TypeArguments="Thickness" x:Key="NameHospitalPadding"
+                        iOS="0,20,0,10" Android="0,20,0,10" WinPhone="0,20,0,10" />
+            <OnPlatform x:TypeArguments="Thickness" x:Key="CheckupTypePickerPadding"
+                        iOS="35,0,35,0" Android="35,0,35,0" WinPhone="40,8,40,0" />
+            <OnPlatform x:TypeArguments="x:Double" x:Key="ListViewHeightConstant"
+                        iOS="0" Android="-64" WinPhone="0" />
+            <OnPlatform x:TypeArguments="x:Double" x:Key="LbMinimumWidth"
+                        iOS="80" Android="80" WinPhone="100" />
+            <OnPlatform x:TypeArguments="Thickness" x:Key="PageSidePadding"
+                        iOS="8,0" Android="18,0" WinPhone="18,0" />
+        </ResourceDictionary>
+    </controls:TopBarContentPage.Resources>
+
+
+    <controls:BaseAddCheckupPage.PageContent>
+        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand"
+                     Padding="{StaticResource PageSidePadding}">
+            <ContentView Padding="{StaticResource NameHospitalPadding}">
+                <Label HorizontalOptions="CenterAndExpand" FontAttributes="Bold"
+                       Style="{StaticResource LabelTitleStyle}" Text="{Binding SelectedHospital.Name}"
+                       MinimumWidthRequest="{StaticResource LbMinimumWidth}"
+                       TextColor="{x:Static helpers:HcStyles.DarkerGreenCardColor}"
+                       FontSize="{StaticResource HospitalFontSize}" />
+            </ContentView>
+            <ContentView Padding="{StaticResource CheckupTypePickerPadding}">
+                <controls:HcPicker
+                    x:TypeArguments="models:CheckupTypeModel" PickerStyle="3"
+                    FontSize="{x:Static helpers:HcStyles.FontSizeTitle}"
+                    ItemsSource="{Binding VmDoctor.ListCheckupTypeDisplay, Source={StaticResource Locator}}"
+                    HorizontalOptions="FillAndExpand"
+                    SelectedItem="{Binding CheckupTypeFilter, Mode=TwoWay}"
+                    SelectedItemChangedCommand="{Binding VmAddCheckup.FilterCommand, Source={StaticResource Locator}}"
+                    TitleText="{x:Static resx:AppResources.pick_checkuptype}"
+                    EmptyText="{x:Static resx:AppResources.empty_checkup_type}">
+                    <behaviors:Interaction.Behaviors>
+                        <behaviors:BehaviorCollection>
+                            <behaviors:EventToCommand EventName="Loaded"
+                                                      Command="{Binding VmAddCheckup.ResetSelectedDoctorCommand, Source={StaticResource Locator}}" />
+                        </behaviors:BehaviorCollection>
+                    </behaviors:Interaction.Behaviors>
+                </controls:HcPicker>
+            </ContentView>
+
+
+            <controls:HcListView x:TypeArguments="objects:ProxyDoctorModel"
+                                 ItemsSource="{Binding VmAddCheckup.ListDoctorFilterByCheckupTypeLoadMore, Source={StaticResource Locator}}"
+                                 ItemCount="{Binding VmAddCheckup.DoctorCount, Mode=TwoWay, Source={StaticResource Locator}}"
+                                 EmptyText="{x:Static resx:AppResources.empty}"
+                                 ItemClickCommand="{Binding ListViewDoctorClickedCommand}"
+                                 IsPullToRefreshEnabled="False"
+                                 IsLoadMoreEnabled="True"
+                                 LoadMoreCommand="{Binding VmAddCheckup.LoadMoreDoctorListCommand, Source={StaticResource Locator}}"
+                                 CanLoadMore="{Binding VmAddCheckup.IsCanLoadMore, Source={StaticResource Locator}, Mode=TwoWay}">
+                <controls:HcListView.ItemTemplate>
+                    <DataTemplate>
+                        <cells:CheckCell>
+                            <cells:CheckCell.Content>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+                                             VerticalOptions="FillAndExpand">
+                                    <ContentView WidthRequest="{StaticResource LeftLineWidth}"
+                                                 VerticalOptions="FillAndExpand"
+                                                 BackgroundColor="{x:Static helpers:HcStyles.GreenCardColor}" />
+                                    <StackLayout Padding="10" HorizontalOptions="FillAndExpand"
+                                                 Orientation="Vertical">
+                                        <Label Style="{StaticResource LabelContentStyle}"
+                                               Text="{Binding FullName}"
+                                               FontAttributes="Bold" />
+                                        <Label Style="{StaticResource LabelSubContentStyle}"
+                                               Text="{Binding CurrenCheckupType.Name}" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </cells:CheckCell.Content>
+                        </cells:CheckCell>
+                    </DataTemplate>
+                </controls:HcListView.ItemTemplate>
+            </controls:HcListView>
+
+
+        </StackLayout>
+    </controls:BaseAddCheckupPage.PageContent>
+
+</controls:BaseAddCheckupPage>

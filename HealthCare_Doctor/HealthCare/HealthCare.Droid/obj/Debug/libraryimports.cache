@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Paths>
+  <ManifestDocuments>
+    <ManifestDocument>obj\Debug\__library_projects__\Lyft.Scissors\library_project_imports\AndroidManifest.xml</ManifestDocument>
+    <ManifestDocument>obj\Debug\__library_projects__\Lyft.Scissors\library_project_imports\aapt\AndroidManifest.xml</ManifestDocument>
+    <ManifestDocument>obj\Debug\__library_projects__\Microsoft.Band.Android\library_project_imports\AndroidManifest.xml</ManifestDocument>
+    <ManifestDocument>obj\Debug\__library_projects__\Microsoft.Band.Android\library_project_imports\aapt\AndroidManifest.xml</ManifestDocument>
+    <ManifestDocument>obj\Debug\__library_projects__\Telerik.Xamarin.Android.Common\library_project_imports\AndroidManifest.xml</ManifestDocument>
+    <ManifestDocument>obj\Debug\__library_projects__\Telerik.Xamarin.Android.Input\library_project_imports\AndroidManifest.xml</ManifestDocument>
+    <ManifestDocument>obj\Debug\__library_projects__\Telerik.Xamarin.Android.Primitives\library_project_imports\AndroidManifest.xml</ManifestDocument>
+  </ManifestDocuments>
+  <NativeLibraries />
+  <Jars>
+    <Jar>obj\Debug\__library_projects__\Lyft.Scissors\library_project_imports\bin\classes.jar</Jar>
+    <Jar>obj\Debug\__library_projects__\Microsoft.Band.Android\library_project_imports\bin\classes.jar</Jar>
+    <Jar>obj\Debug\__library_projects__\Square.OkHttp\library_project_imports\okhttp-2.5.0.jar</Jar>
+    <Jar>obj\Debug\__library_projects__\Square.OkIO\library_project_imports\okio-1.6.0.jar</Jar>
+    <Jar>obj\Debug\__library_projects__\Telerik.Xamarin.Android.Common\library_project_imports\bin\Common.jar</Jar>
+    <Jar>obj\Debug\__library_projects__\Telerik.Xamarin.Android.Input\library_project_imports\bin\Input.jar</Jar>
+    <Jar>obj\Debug\__library_projects__\Telerik.Xamarin.Android.Primitives\library_project_imports\bin\Primitives.jar</Jar>
+  </Jars>
+</Paths>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="X5k-f2-b5h">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="gAE-YM-kbH">
+            <objects>
+                <viewController id="X5k-f2-b5h" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yd7-JS-zBw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="53" fixedFrame="YES" image="Default-736h.png">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XAI-xm-WK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="349" y="339"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Icon-60.png" width="180" height="180"/>
+        <image name="Icon-76.png" width="76" height="76"/>
+        <image name="Icon-Small.png" width="29" height="29"/>
+        <image name="Icon-Small-40.png" width="40" height="40"/>
+        <image name="logo.png" width="256" height="235"/>
+        <image name="round.png" width="100" height="100"/>
+        <image name="banner_promotion.png" width="408" height="87"/>
+        <image name="bg_login.png" width="768" height="1024"/>
+        <image name="btLogin.png" width="515" height="56"/>
+        <image name="ic_password.png" width="29" height="33"/>
+        <image name="ic_username.png" width="29" height="28"/>
+        <image name="logoHeathCare.png" width="425" height="79"/>
+        <image name="placeholder.png" width="1500" height="1500"/>
+        <image name="fb_btn.png" width="800" height="108"/>
+        <image name="checkbox_on.png" width="22" height="21"/>
+        <image name="checkbox_off.png" width="22" height="21"/>
+        <image name="fb.png" width="77" height="83"/>
+        <image name="ic_choray.png" width="108" height="99"/>
+        <image name="ic_giadinh.png" width="144" height="98"/>
+        <image name="ic_hoanmy.png" width="100" height="100"/>
+        <image name="line_saleoff_color1.png" width="98" height="98"/>
+        <image name="SplashScreenImage.jpg" width="720" height="1280"/>
+        <image name="bg_green_flat.png" width="770" height="944"/>
+        <image name="ic_add.png" width="67" height="67"/>
+        <image name="ic_calendar.png" width="32" height="35"/>
+        <image name="ic_check.png" width="64" height="64"/>
+        <image name="ic_circle.png" width="128" height="128"/>
+        <image name="ic_lock.png" width="29" height="33"/>
+        <image name="ic_person.png" width="29" height="28"/>
+        <image name="ic_phone.png" width="21" height="33"/>
+        <image name="ic_question_mark.png" width="128" height="128"/>
+        <image name="ic_radio_checked.png" width="32" height="33"/>
+        <image name="ic_radio_uncheck.png" width="33" height="33"/>
+        <image name="ic_rectangle.png" width="22" height="20"/>
+        <image name="ic_reload.png" width="113" height="96"/>
+        <image name="logoHeathCare_green.png" width="381" height="70"/>
+        <image name="line_saleoff_color2.png" width="98" height="98"/>
+        <image name="line_saleoff_color3.png" width="98" height="98"/>
+        <image name="line_saleoff_color4.png" width="98" height="98"/>
+        <image name="ic_back.png" width="23" height="36"/>
+        <image name="navibar.png" width="768" height="111"/>
+        <image name="bt_add.png" width="76" height="76"/>
+        <image name="bt_restore.png" width="76" height="76"/>
+        <image name="ic_blue.png" width="26" height="26"/>
+        <image name="ic_call.png" width="32" height="32"/>
+        <image name="ic_date.png" width="35" height="38"/>
+        <image name="ic_description.png" width="30" height="35"/>
+        <image name="ic_location.png" width="28" height="40"/>
+        <image name="ic_red.png" width="26" height="26"/>
+        <image name="ic_safeoff.png" width="127" height="128"/>
+        <image name="ic_yellow.png" width="26" height="26"/>
+        <image name="topbar.png" width="768" height="111"/>
+        <image name="tab_about.png" width="25" height="28"/>
+        <image name="tab_account.png" width="25" height="25"/>
+        <image name="tab_appointment.png" width="25" height="28"/>
+        <image name="ic_cc_jcb.png" width="1280" height="985"/>
+        <image name="ic_cc_mastercard.png" width="2000" height="1200"/>
+        <image name="ic_cc_visa.png" width="283" height="178"/>
+        <image name="ic_close.png" width="48" height="48"/>
+        <image name="ic_info.png" width="28" height="62"/>
+        <image name="ic_address_about.png" width="41" height="41"/>
+        <image name="ic_fax.png" width="45" height="35"/>
+        <image name="ic_mail_about.png" width="42" height="33"/>
+        <image name="ic_phone_about.png" width="44" height="41"/>
+        <image name="ic_close_history.png" width="48" height="48"/>
+        <image name="ic_calendar_brown.png" width="46" height="52"/>
+        <image name="ic_calendar_green.png" width="46" height="52"/>
+        <image name="ic_calendar_red.png" width="46" height="52"/>
+        <image name="ic_calendar_yellow.png" width="46" height="52"/>
+        <image name="ic_clock_green.png" width="51" height="52"/>
+        <image name="ic_pencil_red.png" width="29" height="29"/>
+        <image name="ic_pencil_yellow.png" width="29" height="29"/>
+        <image name="ic_purchase_yellow.png" width="36" height="36"/>
+        <image name="ic_tick_brown.png" width="49" height="48"/>
+        <image name="ic_exit_to_app_white_36dp.png" width="30" height="30"/>
+        <image name="ic_account_circle_white_36dp.png" width="30" height="30"/>
+        <image name="ic_profile.png" width="17" height="22"/>
+        <image name="ic_safeoff1.png" width="127" height="128"/>
+        <image name="ic_safeoff2.png" width="127" height="128"/>
+        <image name="ic_safeoff3.png" width="127" height="128"/>
+        <image name="ic_safeoff4.png" width="127" height="128"/>
+        <image name="ic_sign_out.png" width="20" height="20"/>
+        <image name="ic_cc_number.png" width="53" height="30"/>
+        <image name="ic_pencil_green.png" width="29" height="29"/>
+        <image name="ic_gender.png" width="128" height="128"/>
+        <image name="Default-568h.png" width="640" height="1136"/>
+        <image name="Default-667h.png" width="750" height="1334"/>
+        <image name="Default-736h.png" width="1242" height="2208"/>
+        <image name="Default.png" width="320" height="480"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:BaseAddCheckupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                             xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                             xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                             xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                             xmlns:cells="clr-namespace:HealthCare.Controls.ViewCells;assembly=HealthCare"
+                             xmlns:b="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+                             xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+                             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                             xmlns:viewModels="clr-namespace:HealthCare.ViewModels;assembly=HealthCare"
+                             x:Class="HealthCare.Pages.SearchHospitalPage"
+                             Title="{x:Static resx:AppResources.pick_hospital}"
+                             PageTitle="{x:Static resx:AppResources.pick_hospital}"
+                             BindingContext="{Binding VmAddCheckup, Source={StaticResource Locator}}"
+                             NextCommand="{Binding GoToPickDoctorPageCommand}"
+                             NextCommandParam="{Binding SelectedHospital.Id}"
+                             CancelCommand="{Binding GoBackCommand}"
+                             BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <!-- NOTE: InverseListSuggestionHeight = -(SearchControlHeight + ButtonGroupHeight) -->
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SearchControlFontSize"
+                  iOS="15" Android="15" WinPhone="18" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="SearchControlPadding"
+                  iOS="5,0,5,0" Android="5,0,5,0" WinPhone="8,0,8,0" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="SearchControlMargin"
+                  iOS="8,8" Android="8,8" WinPhone="8,20" />
+      <!--<OnPlatform x:TypeArguments="GridLength" x:Key="SearchGridColumWidth1"
+                  iOS="38" Android="38" WinPhone="58" />-->
+      <OnPlatform x:TypeArguments="GridLength" x:Key="SearchGridColumWidth1"
+                  iOS="38" Android="38" WinPhone="90" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="SearchGridColumWidth2"
+                  iOS="58" Android="80" WinPhone="120" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="HeightRowPromotion"
+                  iOS="40" Android="50" WinPhone="68" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="TitleFontSize"
+                  iOS="{x:Static viewModels:MoreSupportViewModel2.FontSizeTitle}"
+                  Android="{x:Static viewModels:MoreSupportViewModel2.FontSizeTitle}"
+                  WinPhone="{x:Static viewModels:MoreSupportViewModel2.FontSizeContent}" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="LabelNameWidth"
+                  iOS="100" Android="100" WinPhone="200" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SearchControlHeight"
+                  iOS="48" Android="50" WinPhone="100" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SearchControlHeightAndPadding"
+                  iOS="52" Android="54" WinPhone="112" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonFontSize"
+                  iOS="{x:Static helpers:HcStyles.ButtonFontSize}"
+                  Android="{x:Static helpers:HcStyles.ButtonFontSize}"
+                  WinPhone="{x:Static helpers:HcStyles.FontSizeContent}" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="GridColumnDefinition"
+                  iOS="*" Android="*" WinPhone="*" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="ButtonClearSearchColumnDefined"
+                  iOS="24" Android="24" WinPhone="24" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonClearSize"
+                  iOS="32" Android="32" WinPhone="42" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonSearchSize"
+                  iOS="16" Android="16" WinPhone="26" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="GridButtonHeightRequestInvert2"
+                  iOS="-48" Android="-58" WinPhone="-115" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="AddButtonPadding"
+                  iOS="0" Android="0" WinPhone="0,-8" />
+      <!--<OnPlatform x:TypeArguments="x:Double" x:Key="ButtonSize"
+                iOS="32" Android="42" WinPhone="{x:Static helpers:HcStyles.ButtonHeight}" />-->
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonSize"
+                  iOS="32" Android="42" WinPhone="{x:Static helpers:HcStyles.ButtonHeight}" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="LogoHospitalSize"
+                  iOS="74" Android="74" WinPhone="100" />
+      <OnPlatform x:TypeArguments="Style" x:Key="LabelStyle"
+                  iOS="{StaticResource LabelTitleStyle}" Android="{StaticResource LabelTitleStyle}"
+                  WinPhone="{StaticResource LabelContentStyle}" />
+
+      <OnPlatform x:TypeArguments="Thickness" x:Key="PagePadding"
+            iOS="0,0,0,8" Android="0,0,0,8" WinPhone="0,8" />
+
+      <OnPlatform x:TypeArguments="Thickness" x:Key="PageSidePadding"
+              iOS="8,0" Android="18,0" WinPhone="18,0" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+
+  <b:Interaction.Behaviors>
+    <b:BehaviorCollection>
+      <b:EventToCommand EventName="Appearing"
+                        Command="{Binding VmHospital.LoadAllHospitalCommand, Source={StaticResource Locator}}" />
+      <b:EventToCommand EventName="Appearing"
+                        Command="{Binding VmAddCheckup.ResetSelectedsCommand, Source={StaticResource Locator}}" />
+    </b:BehaviorCollection>
+  </b:Interaction.Behaviors>
+
+  <controls:BaseAddCheckupPage.PageContent>
+    <StackLayout Padding="{StaticResource PagePadding}">
+      <RelativeLayout >
+
+
+        <!-- Search Entry -->
+        <ContentView VerticalOptions="StartAndExpand" Padding="{StaticResource SearchControlMargin}"
+                     HorizontalOptions="Center" BindingContext="{Binding VmHospital, Source={StaticResource Locator}}"
+                     BackgroundColor="White"
+                     RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                     RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=5}"
+                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                         Property=Width,
+                                                         Factor=1}"
+                     RelativeLayout.HeightConstraint="{ConstraintExpression Type=Constant, 
+                                                Constant={StaticResource SearchControlHeight}}">
+
+          <ContentView HorizontalOptions="FillAndExpand">
+            <Grid Padding="{StaticResource SearchControlPadding}">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <!--<ColumnDefinition Width="{StaticResource SearchGridColumWidth1}" />-->
+              </Grid.ColumnDefinitions>
+
+              <Frame HasShadow="False" HorizontalOptions="FillAndExpand"
+                     OutlineColor="{Binding SearchBorderColor}" Padding="1">
+                <Grid BackgroundColor="Transparent" Padding="{StaticResource SearchControlPadding}">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{StaticResource GridColumnDefinition}" />
+                    <ColumnDefinition Width="{StaticResource ButtonClearSearchColumnDefined}" />
+                    <ColumnDefinition Width="2" />
+                    <ColumnDefinition Width="{StaticResource ButtonClearSearchColumnDefined}" />
+                  </Grid.ColumnDefinitions>
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                  </Grid.RowDefinitions>
+
+                  <controls:EntryLogin Text="{Binding Keyword, Mode=TwoWay}"
+                                       Placeholder="{x:Static resx:AppResources.hospital_search_placeholder}"
+                                       HorizontalOptions="FillAndExpand"
+                                       Grid.Column="0" IsPassword="False"
+                                       TextColor="{x:Static helpers:HcStyles.BlackTextColor}"
+                                       PlaceHolderColor="{x:Static helpers:HcStyles.LightBlackTextColor}"
+                                       FontSize="{StaticResource SearchControlFontSize}" IsLogin="False"
+                                       IsFocused="{Binding IsFocusSearch, Mode=TwoWay}">
+                    <b:Interaction.Behaviors>
+                      <b:BehaviorCollection>
+                        <b:EventToCommand EventName="TextChanged"
+                                                  Command="{Binding VmHospital.TextChangeCommand, Source={StaticResource Locator}}" />
+                      </b:BehaviorCollection>
+                    </b:Interaction.Behaviors>
+                  </controls:EntryLogin>
+
+                  <Image Source="ic_clear_search.png" HeightRequest="{StaticResource ButtonClearSize}"
+                         Grid.Column="1" IsVisible="{Binding IsShowClearSearch, Mode=TwoWay}"
+                         WidthRequest="{StaticResource ButtonSearchSize}"
+                         HorizontalOptions="End">
+                    <Image.GestureRecognizers>
+                      <TapGestureRecognizer Command="{Binding ClearSearchCommand}" />
+                    </Image.GestureRecognizers>
+                  </Image>
+
+
+                  <Image Source="ic_search.png" HeightRequest="{StaticResource ButtonClearSize}"
+                         Grid.Column="3"
+                         WidthRequest="{StaticResource ButtonSearchSize}"
+                         HorizontalOptions="End">
+                    <Image.GestureRecognizers>
+                      <TapGestureRecognizer
+                          Command="{Binding VmHospital.GetListHospitalCommand, Source={StaticResource Locator}}" />
+                    </Image.GestureRecognizers>
+                  </Image>
+
+                </Grid>
+              </Frame>
+
+              <!--<StackLayout Grid.Column="1" Padding="{StaticResource AddButtonPadding}">
+                <Button BackgroundColor="Transparent"  Image="ic_button_add.png" BorderWidth="0" BorderColor="Transparent"
+                         HeightRequest="{StaticResource ButtonSize}" WidthRequest="{StaticResource ButtonSize}"
+                         HorizontalOptions="Center"
+                         Command="{Binding VmAskDoctor.AskCommand, Source={StaticResource Locator}}"/>
+              </StackLayout>-->
+
+            </Grid>
+          </ContentView>
+        </ContentView>
+
+
+        <StackLayout Orientation="Vertical"
+                     Padding="{StaticResource PageSidePadding}"
+             RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+             RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, 
+                                                Constant={StaticResource SearchControlHeightAndPadding}}"
+             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                         Property=Width,
+                                                         Factor=1}"
+             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                         Property=Height,
+                                                         Constant={StaticResource GridButtonHeightRequestInvert2},
+                                                         Factor=1}">
+
+
+          <!--RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+
+          RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+
+          RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+          Property=Width, Factor=1}"
+          RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+          Property=Height, Factor=1}"-->
+
+          <controls:HcListView x:TypeArguments="models:HospitalModel"
+                             ItemCount="{Binding VmHospital.HospitalCount, Mode=TwoWay, Source={StaticResource Locator}}"
+                             ItemsSource="{Binding VmHospital.ListAllOfHospitalLoadMore, Source={StaticResource Locator}}"
+                             IsPullToRefreshEnabled="False"
+                             IsLoadMoreEnabled="True"
+                             LoadMoreCommand="{Binding VmHospital.LoadMoreHospitalCommand, Source={StaticResource Locator}}"
+                             CanLoadMore="{Binding VmHospital.IsCanLoadMore, Source={StaticResource Locator}}"
+                             EmptyText="{x:Static resx:AppResources.empty}"
+                             ItemClickCommand="{Binding ListViewHospitalClickCommand}">
+            <controls:HcListView.ItemTemplate>
+              <DataTemplate>
+                <cells:CheckCell>
+                  <cells:CheckCell.Content>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                      <forms:CachedImage
+                            DownsampleToViewSize="true"
+                            TransparencyEnabled="False"
+                            Source="{Binding Photos.Logo, Converter={StaticResource UriToImageLoaderConverter}}"
+                            HeightRequest="{StaticResource LogoHospitalSize}"
+                            WidthRequest="{StaticResource LogoHospitalSize}" />
+                      <Label Style="{StaticResource LabelStyle}" Text="{Binding AsString}"
+                             VerticalOptions="Center"
+                             TextColor="{x:Static helpers:HcStyles.DarkerGreenCardColor}"
+                             FontAttributes="Bold" />
+                    </StackLayout>
+                  </cells:CheckCell.Content>
+                </cells:CheckCell>
+              </DataTemplate>
+            </controls:HcListView.ItemTemplate>
+          </controls:HcListView>
+
+        </StackLayout>
+
+      </RelativeLayout>
+    </StackLayout>
+  </controls:BaseAddCheckupPage.PageContent>
+
+</controls:BaseAddCheckupPage>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
+  <Identity Name="CLAS.CLASHealthCare" Publisher="CN=A76C02E1-070A-46AF-BFB5-248A5DA9108B" Version="1.0.6.1" />
+  <mp:PhoneIdentity PhoneProductId="73ce26c7-cadf-47c3-95d5-549d336f2f43" PhonePublisherId="11046542-269a-47a7-a84d-7dcb955ba801" />
+  <Properties>
+    <DisplayName>Healthcare</DisplayName>
+    <PublisherDisplayName>CLAS HEALTHCARE CO</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.3.1</OSMinVersion>
+    <OSMaxVersionTested>6.3.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="x73ce26c7ycadfy47c3y95d5y549d336f2f43x" Executable="AGHost.exe" EntryPoint="MainPage.xaml">
+      <m3:VisualElements DisplayName="BacSi24x7" Square150x150Logo="Assets\SquareTile150x150.png" Square44x44Logo="Assets\Logo.png" Description="CLAS Healthcare" ForegroundText="light" BackgroundColor="#464646" ToastCapable="true">
+        <m3:DefaultTile Square71x71Logo="Assets\SquareTile71x71.png">
+        </m3:DefaultTile>
+        <m3:SplashScreen Image="Assets\Splashscreen.png" />
+      </m3:VisualElements>
+      <Extensions>
+        <Extension Category="windows.backgroundTasks" EntryPoint="AgHost.BackgroundTask">
+          <BackgroundTasks>
+            <Task Type="systemEvent" />
+            <Task Type="pushNotification" />
+            <m2:Task Type="location" />
+          </BackgroundTasks>
+        </Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Extensions>
+    <Extension Category="windows.activatableClass.inProcessServer">
+      <InProcessServer>
+        <Path>AgHostSvcs.dll</Path>
+        <ActivatableClass ActivatableClassId="AgHost.BackgroundTask" ThreadingModel="both" />
+      </InProcessServer>
+    </Extension>
+  </Extensions>
+  <Capabilities>
+    <Capability Name="internetClientServer" />
+    <Capability Name="picturesLibrary" />
+    <DeviceCapability Name="location" />
+  </Capabilities>
+</Package>

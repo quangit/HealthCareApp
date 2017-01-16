@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthCare.Controls.EntryHealthCare"
+             xmlns:local="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+             xmlns:views="clr-namespace:HealthCare;assembly=HealthCare"
+             xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+             BackgroundColor="{x:Static local:AppStyles.BaseBackground}"
+             Spacing="0"
+             Orientation="Vertical">
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                 Padding=" 10, 0, 10, 0"
+                 Spacing="10" Orientation="Horizontal">
+        <Image x:Name="nImage" Source="ic_cvv_num" HorizontalOptions="Start" WidthRequest="36" HeightRequest="32" />
+        <controls:EntryLogin x:Name="nEntry" Placeholder="placeholdertext" HorizontalOptions="FillAndExpand"
+                             BackgroundColor="#00000000" TextColor="Black" IsPassword="False" PlaceHolderColor="Black"
+                             FontSize="15"
+                             IsLogin="False" />
+    </StackLayout>
+    <ContentView BackgroundColor="{x:Static local:AppStyles.GreenColor}" HeightRequest="1" HorizontalOptions="Fill" />
+</StackLayout>

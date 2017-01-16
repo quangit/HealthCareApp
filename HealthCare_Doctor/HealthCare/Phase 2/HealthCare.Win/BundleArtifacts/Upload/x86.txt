@@ -1,0 +1,2 @@
+MainPackage=C:\Dropbox\Projects\Work\HealthCare - Doctor\HealthCare\Phase 2\HealthCare.Win\bin\x86\Release\Upload\HealthCare.Win_1.1.37.0_x86.appx
+SymbolPackage=C:\Dropbox\Projects\Work\HealthCare - Doctor\HealthCare\Phase 2\HealthCare.Win\AppPackages\HealthCare.Win_1.1.37.0\HealthCare.Win_1.1.37.0_x86.appxsym

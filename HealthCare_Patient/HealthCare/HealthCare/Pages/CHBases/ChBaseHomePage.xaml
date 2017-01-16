@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<controls:TabbedPageCustom xmlns="http://xamarin.com/schemas/2014/forms"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                           x:Class="HealthCare.Pages.CHBases.ChBaseHomePage"
+                           BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                           xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                           xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                           BindingContext="{Binding VmToolbar, Source={StaticResource Locator}}"
+                           xmlns:pages="clr-namespace:HealthCare.Pages.CHBases;assembly=HealthCare"
+                           Title="{x:Static resx:AppResources.chbase_title}"
+                           xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                           xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare">
+
+  
+  
+  
+  
+
+  <TabbedPage.Children>
+    <pages:CHBaseMedicalHistoryPage />
+    <pages:CHBaseMeicalReadingsPage />
+    <pages:CHBaseShareHealthInfomationPage />
+  </TabbedPage.Children>
+
+
+  <!--<TabbedPage.ToolbarItems>
+    <ToolbarItem Text="{x:Static resx:AppResources.promotion}" Icon="ic_promotion_toolbar.png" Command="{Binding GoPromotionCommand}" />
+    <ToolbarItem Text="{x:Static resx:AppResources.refresh}" Icon="ic_refresh.png" Command="{Binding RefreshCommand}" />
+    <ToolbarItem Text="{x:Static resx:AppResources.setting}" Icon="ic_setting.png" Command="{Binding GoSettingCommand}" />
+  </TabbedPage.ToolbarItems>-->
+
+</controls:TabbedPageCustom>

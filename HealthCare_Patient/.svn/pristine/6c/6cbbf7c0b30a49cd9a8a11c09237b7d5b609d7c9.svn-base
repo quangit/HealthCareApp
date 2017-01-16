@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:enums="clr-namespace:HealthCare.Enums;assembly=HealthCare"
+                            xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+                            xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            xmlns:cells="clr-namespace:HealthCare.Controls.ViewCells;assembly=HealthCare"
+                            x:Class="HealthCare.Pages.AskDoctorPage"
+                            BackgroundColor="White"
+                            Title="{x:Static resx:AppResources.more_support}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:viewModels="clr-namespace:HealthCare.ViewModels;assembly=HealthCare"
+                            xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                            xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+                            PageType="{x:Type pages:AskDoctorPage}"
+                            BindingContext="{Binding VmMoreSupport2, Source={StaticResource Locator}}"
+                            Icon="doctor_icon.png">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <!-- NOTE: InverseListSuggestionHeight = -(SearchControlHeight + ButtonGroupHeight) -->
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SearchControlFontSize"
+                  iOS="15" Android="15" WinPhone="18" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="SearchControlPadding"
+                  iOS="5,0,5,0" Android="5,0,5,0" WinPhone="8,0,8,0" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="SearchControlMargin"
+                  iOS="18,0,18,0" Android="18,0,18,0" WinPhone="4,20" />
+      <!--<OnPlatform x:TypeArguments="GridLength" x:Key="SearchGridColumWidth1"
+                  iOS="38" Android="38" WinPhone="58" />-->
+      <OnPlatform x:TypeArguments="GridLength" x:Key="SearchGridColumWidth1"
+                  iOS="38" Android="38" WinPhone="90" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="SearchGridColumWidth2"
+                  iOS="58" Android="80" WinPhone="120" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="HeightRowPromotion"
+                  iOS="40" Android="50" WinPhone="68" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="TitleFontSize"
+                  iOS="{x:Static viewModels:MoreSupportViewModel2.FontSizeTitle}"
+                  Android="{x:Static viewModels:MoreSupportViewModel2.FontSizeTitle}"
+                  WinPhone="{x:Static viewModels:MoreSupportViewModel2.FontSizeContent}" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="LabelNameWidth"
+                  iOS="100" Android="100" WinPhone="200" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SearchControlHeight"
+                  iOS="38" Android="38" WinPhone="100" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SearchControlHeightAndPadding"
+                  iOS="44" Android="44" WinPhone="112" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonFontSize"
+                  iOS="{x:Static helpers:HcStyles.ButtonFontSize}"
+                  Android="{x:Static helpers:HcStyles.ButtonFontSize}"
+                  WinPhone="{x:Static helpers:HcStyles.FontSizeContent}" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="GridColumnDefinition"
+                  iOS="*" Android="*" WinPhone="*" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="ButtonClearSearchColumnDefined"
+                  iOS="24" Android="24" WinPhone="24" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonClearSize"
+                  iOS="32" Android="32" WinPhone="42" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonSearchSize"
+                  iOS="16" Android="16" WinPhone="26" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="GridButtonHeightRequestInvert"
+                  iOS="-48" Android="-48" WinPhone="-115" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="AddButtonPadding"
+                  iOS="0" Android="0" WinPhone="0,-8" />
+      <!--<OnPlatform x:TypeArguments="x:Double" x:Key="ButtonSize"
+                iOS="32" Android="42" WinPhone="{x:Static helpers:HcStyles.ButtonHeight}" />-->
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonSize"
+                  iOS="32" Android="42" WinPhone="{x:Static helpers:HcStyles.ButtonHeight}" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+  <RelativeLayout>
+
+    <!-- Search Entry -->
+    <ContentView VerticalOptions="StartAndExpand" Padding="{StaticResource SearchControlMargin}"
+                 HorizontalOptions="Center"
+                 BackgroundColor="White"
+                 RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=5}"
+                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                         Property=Width,
+                                                         Factor=1}"
+                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=Constant, 
+                                                Constant={StaticResource SearchControlHeight}}">
+
+      <ContentView HorizontalOptions="FillAndExpand">
+        <Grid Padding="{StaticResource SearchControlPadding}">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="{StaticResource SearchGridColumWidth1}" />
+          </Grid.ColumnDefinitions>
+
+          <Frame HasShadow="False" HorizontalOptions="FillAndExpand"
+                 OutlineColor="{Binding SearchBorderColor}" Padding="1">
+            <Grid BackgroundColor="Transparent" Padding="{StaticResource SearchControlPadding}">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{StaticResource GridColumnDefinition}" />
+                <ColumnDefinition Width="{StaticResource ButtonClearSearchColumnDefined}" />
+                <ColumnDefinition Width="2" />
+                <ColumnDefinition Width="{StaticResource ButtonClearSearchColumnDefined}" />
+              </Grid.ColumnDefinitions>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+              </Grid.RowDefinitions>
+
+              <controls:EntryLogin Text="{Binding Keyword, Mode=TwoWay}"
+                                   Placeholder="{x:Static resx:AppResources.search_question}"
+                                   HorizontalOptions="FillAndExpand"
+                                   Grid.Column="0" IsPassword="False"
+                                   TextColor="{x:Static helpers:HcStyles.BlackTextColor}"
+                                   PlaceHolderColor="{x:Static helpers:HcStyles.LightBlackTextColor}"
+                                   FontSize="{StaticResource SearchControlFontSize}" IsLogin="False"
+                                   IsFocused="{Binding IsFocusSearch, Mode=TwoWay}">
+                <behaviors:Interaction.Behaviors>
+                  <behaviors:BehaviorCollection>
+                    <behaviors:EventToCommand EventName="TextChanged"
+                                              Command="{Binding VmMoreSupport2.TextChangeCommand, Source={StaticResource Locator}}" />
+                  </behaviors:BehaviorCollection>
+                </behaviors:Interaction.Behaviors>
+              </controls:EntryLogin>
+
+              <Image Source="ic_clear_search.png" HeightRequest="{StaticResource ButtonClearSize}"
+                     Grid.Column="1" IsVisible="{Binding IsShowClearSearch, Mode=TwoWay}"
+                     WidthRequest="{StaticResource ButtonSearchSize}"
+                     HorizontalOptions="End">
+                <Image.GestureRecognizers>
+                  <TapGestureRecognizer Command="{Binding ClearSearchCommand}" />
+                </Image.GestureRecognizers>
+              </Image>
+
+
+              <Image Source="ic_search.png" HeightRequest="{StaticResource ButtonClearSize}"
+                     Grid.Column="3"
+                     WidthRequest="{StaticResource ButtonSearchSize}"
+                     HorizontalOptions="End">
+                <Image.GestureRecognizers>
+                  <TapGestureRecognizer
+                      Command="{Binding VmMoreSupport2.GetQuestionListCommand, Source={StaticResource Locator}}" />
+                </Image.GestureRecognizers>
+              </Image>
+
+            </Grid>
+          </Frame>
+
+          <StackLayout Grid.Column="1" Padding="{StaticResource AddButtonPadding}">
+            <Button BackgroundColor="Transparent"  Image="ic_button_add.png" BorderWidth="0" BorderColor="Transparent"
+                     HeightRequest="{StaticResource ButtonSize}" WidthRequest="{StaticResource ButtonSize}"
+                     HorizontalOptions="Center"
+                     Command="{Binding VmAskDoctor.AskCommand, Source={StaticResource Locator}}"/>
+          </StackLayout>
+
+        </Grid>
+      </ContentView>
+    </ContentView>
+
+
+    <StackLayout Orientation="Vertical"
+                 RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, 
+                                                Constant={StaticResource SearchControlHeightAndPadding}}"
+                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                         Property=Width,
+                                                         Factor=1}"
+                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                         Property=Height,
+                                                         Constant={StaticResource GridButtonHeightRequestInvert},
+                                                         Factor=1}">
+
+      <!-- List Of Doctor -->
+      <controls:HcListView ItemsSource="{Binding ListQuestion}"
+                           x:TypeArguments="models:SupportQuestionModel"
+                           IsPullToRefreshEnabled="True"
+                           ItemClickCommand="{Binding QuestionItemClickedCommand}"
+                           IsLoadMoreEnabled="True"
+                           LoadMoreCommand="{Binding GetQuestionListLoadMoreCommand}"
+                           CanLoadMore="{Binding IsCanLoadMore, Mode=TwoWay}"
+                           IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                           RefreshCommand="{Binding RefreshCommand}"
+                           ItemCount="{Binding ItemCount, Mode=TwoWay}">
+
+        <controls:HcListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <ContentView BackgroundColor="White" Padding="4">
+                <StackLayout BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                             Padding="{x:Static helpers:HcStyles.ViewCellPadding}">
+                  <StackLayout Orientation="Horizontal">
+                    <!--Left content-->
+                    <Grid HorizontalOptions="Start">
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                      </Grid.ColumnDefinitions>
+                      <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                      </Grid.RowDefinitions>
+
+                      <!--<controls:ImageCircle HeightRequest="{StaticResource HeightRowPromotion}"
+                                            WidthRequest="{StaticResource HeightRowPromotion}"
+                                            Source="{Binding PatientAvatarImageSource}"
+                                            Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"
+                                            VerticalOptions="Start"
+                                            Aspect="AspectFill" />-->
+                      <!--<controls:ImageRounderCorner HeightRequest="{StaticResource HeightRowPromotion}"
+                                            WidthRequest="{StaticResource HeightRowPromotion}"
+                                            Uri="{Binding PatientAvatarImageSource}"
+                                            Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"
+                                            VerticalOptions="Start"/>-->
+
+                      <forms:CachedImage HeightRequest="{StaticResource HeightRowPromotion}"
+                                         WidthRequest="{StaticResource HeightRowPromotion}"
+                                         DownsampleToViewSize="True" 
+                                         TransparencyEnabled="False"
+                                         Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"
+                                         Aspect="AspectFill"
+                                         Transformations="{Binding Path=VmMoreSupport2.ListTranforms, Source={StaticResource Locator}}"
+                                         Source="{Binding PatientAvatarImageSource}" />
+
+
+                      <Label
+                          Text="{Binding FullName, Converter={StaticResource StringNullConverter}, ConverterParameter={x:Reference lbPatientFullName}}"
+                          x:Name="lbPatientFullName"
+                          Style="{StaticResource LabelTitleStyle}"
+                          FontSize="{StaticResource TitleFontSize}"
+                          LineBreakMode="TailTruncation"
+                          WidthRequest="{StaticResource LabelNameWidth}"
+                          FontAttributes="Bold"
+                          Grid.Column="1" Grid.Row="0" />
+
+                      <Label
+                          Text="{Binding BasicInfo, Converter={StaticResource StringNullConverter}, ConverterParameter={x:Reference lbPatientBasicInfo}}"
+                          x:Name="lbPatientBasicInfo"
+                          Style="{StaticResource LabelSubContentStyle}"
+                          FontSize="{x:Static viewModels:MoreSupportViewModel2.FontSizeSubContent}"
+                          WidthRequest="{StaticResource LabelNameWidth}"
+                          Grid.Column="1" Grid.Row="1" />
+
+                      <Label
+                          Text="{Binding WhenCreated, Converter={StaticResource LocalTimeZoneConverter},
+                                      StringFormat='{0:dd/MM/yyyy hh:mm tt}'}"
+                          Style="{StaticResource LabelSubContentStyle}"
+                          FontSize="{x:Static viewModels:MoreSupportViewModel2.FontSizeSubContent}"
+                          TextColor="{x:Static helpers:HcStyles.LightGrayTextColor}"
+                          FontAttributes="None"
+                          Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" />
+                    </Grid>
+
+                    <!--Right content-->
+                    <Grid HorizontalOptions="EndAndExpand" IsVisible="{Binding IsReplied}">
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                      </Grid.ColumnDefinitions>
+                      <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                      </Grid.RowDefinitions>
+
+                      <!--<controls:ImageCircle HeightRequest="{StaticResource HeightRowPromotion}"
+                                            WidthRequest="{StaticResource HeightRowPromotion}"
+                                            Source="{Binding DoctorAvatarImageSource}"
+                                            Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+                                            VerticalOptions="Start"
+                                            HorizontalOptions="End"
+                                            Aspect="AspectFill" />-->
+                      <!--<controls:ImageRounderCorner
+                                                HeightRequest="{StaticResource HeightRowPromotion}"
+                                                WidthRequest="{StaticResource HeightRowPromotion}"
+                                                Uri="{Binding DoctorAvatarImageSource}"
+                                                Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+                                                VerticalOptions="Start"
+                                                HorizontalOptions="End" />-->
+
+                      <forms:CachedImage HeightRequest="{StaticResource HeightRowPromotion}"
+                                         Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+                                         WidthRequest="{StaticResource HeightRowPromotion}"
+                                         VerticalOptions="Start"
+                                         HorizontalOptions="End"
+                                         DownsampleToViewSize="true"
+                                         TransparencyEnabled="False"
+                                         Transformations="{Binding Path=VmMoreSupport2.ListTranforms, Source={StaticResource Locator}}"
+                                         Source="{Binding DoctorAvatarImageSource}" />
+
+                      <Label
+                          Text="{Binding LastestDoctorFullNameFake, Converter={StaticResource StringNullConverter}, ConverterParameter={x:Reference lbLatestDoctorFullName}}"
+                          x:Name="lbLatestDoctorFullName"
+                          Style="{StaticResource LabelTitleStyle}"
+                          FontSize="{StaticResource TitleFontSize}"
+                          LineBreakMode="TailTruncation"
+                          FontAttributes="Bold"
+                          XAlign="End"
+                          Grid.Column="0" Grid.Row="0"
+                          WidthRequest="{StaticResource LabelNameWidth}"
+                          HorizontalOptions="End" />
+
+                      <Label
+                          Text="{Binding ReplyCountString2}"
+                          Style="{StaticResource LabelSubContentStyle}"
+                          FontSize="{x:Static viewModels:MoreSupportViewModel2.FontSizeSubContent}"
+                          XAlign="End"
+                          WidthRequest="{StaticResource LabelNameWidth}"
+                          HorizontalOptions="End"
+                          Grid.Column="0" Grid.Row="1" />
+
+
+                      <Label
+                          Text="{Binding LatestReplyTime, Converter={StaticResource LocalTimeZoneConverter},
+                                      StringFormat='{0:dd/MM/yyyy hh:mm tt}'}"
+                          Style="{StaticResource LabelSubContentStyle}"
+                          TextColor="{x:Static helpers:HcStyles.LightGrayTextColor}"
+                          FontSize="{x:Static viewModels:MoreSupportViewModel2.FontSizeSubContent}"
+                          HorizontalOptions="End"
+                          XAlign="End"
+                          FontAttributes="None"
+                          Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" />
+                    </Grid>
+                  </StackLayout>
+
+
+                  <ContentView Padding="4">
+                    <Label
+                        Text="{Binding SymptomFake, Converter={StaticResource StringNullConverter}, ConverterParameter={x:Reference lbSymptomFake}}"
+                        x:Name="lbSymptomFake"
+                        Style="{StaticResource LabelTitleStyle}"
+                        FontSize="{StaticResource TitleFontSize}"
+                        LineBreakMode="WordWrap" />
+                  </ContentView>
+
+                </StackLayout>
+              </ContentView>
+            </ViewCell>
+
+          </DataTemplate>
+        </controls:HcListView.ItemTemplate>
+      </controls:HcListView>
+    </StackLayout>
+
+
+  </RelativeLayout>
+
+</controls:TopBarContentPage>

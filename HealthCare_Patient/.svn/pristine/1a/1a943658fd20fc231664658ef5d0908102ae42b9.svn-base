@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthCare.Pages.LoginPage"
+             BindingContext="{Binding VmLogin, Source={StaticResource Locator}}"
+             xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+             xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+             xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+             BackgroundColor="#74c371">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <OnPlatform x:TypeArguments="x:Double" x:Key="RowSpacing"
+                        iOS="15" Android="15" WinPhone="15" />
+
+            <OnPlatform x:TypeArguments="Thickness" x:Key="LogoPadding"
+                        iOS="30, 30, 30, 20" Android="20, 10, 20, 10" WinPhone="30, 10, 30, 20" />
+
+            <OnPlatform x:TypeArguments="Thickness" x:Key="BodyPadding"
+                        iOS="25" Android="30" WinPhone="25" />
+
+            <OnPlatform x:TypeArguments="x:Double" x:Key="LineWidthRequest"
+                        iOS="30" Android="30" WinPhone="150" />
+
+            <OnPlatform x:TypeArguments="x:Double" x:Key="PromotionImgWidth"
+                        iOS="24" Android="24" WinPhone="34" />
+
+            <OnPlatform x:TypeArguments="x:Double" x:Key="PromotionImgHeight"
+                        iOS="24" Android="24" WinPhone="34" />
+
+            <OnPlatform x:TypeArguments="x:Double" x:Key="EntryTextSize"
+                        iOS="13" Android="13" WinPhone="{x:Static helpers:HcStyles.EntryLoginFontSizeContent}" />
+
+            <OnPlatform x:TypeArguments="FontAttributes" x:Key="LabelFontAttributes"
+                        iOS="Bold" Android="Bold" WinPhone="None" />
+
+            <OnPlatform x:TypeArguments="x:Double" x:Key="BtnPromotionXConstact"
+                        iOS="0" Android="0" WinPhone="-10" />
+
+            <OnPlatform x:TypeArguments="x:Double" x:Key="BtnPromotionYConstact"
+                        iOS="{x:Static helpers:HcStyles.ButtonInverseHeight}"
+                        Android="-40"
+                        WinPhone="-68" />
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+<!--    <behaviors:Interaction.Behaviors>
+        <behaviors:BehaviorCollection>
+            <behaviors:EventToCommand EventName="Appearing" Command="{Binding LoadDataCommand}" />
+        </behaviors:BehaviorCollection>
+    </behaviors:Interaction.Behaviors>-->
+<ScrollView>
+    <RelativeLayout>
+
+        <!-- background -->
+        <Image Source="bg_login.png" Aspect="AspectFill"
+               RelativeLayout.XConstraint="{ConstraintExpression Type=Constant,Factor=0,
+                                        Constant=-100}"
+               RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Factor=0,
+                                        Constant=-100}"
+               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                        Property=Width, Constant=200,
+                                        Factor=1 }"
+               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                        Property=Height,Constant=100,
+                                        Factor=1}" />
+        <!-- body -->
+        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand"
+                     Spacing="{StaticResource RowSpacing}" Padding="{StaticResource BodyPadding}">
+
+            <ContentView Padding="{StaticResource LogoPadding}">
+                <Image Source="sologan_n_logo.png" />
+            </ContentView>
+            <controls:HcEntry Text="{Binding UserName}" IsLogin="True"
+                              HideKeyboard="{Binding KeyboardHidden}"
+                              Source="ic_username.png" RuleColor="White" TextColor="White"
+                              PlaceHolder="{x:Static resx:AppResources.login_user_name}" TextSize="{StaticResource EntryTextSize}" />
+            <controls:HcEntry Text="{Binding Password}" IsLogin="True"
+                              HideKeyboard="{Binding KeyboardHidden}"
+                              Source="ic_password.png" RuleColor="White" TextColor="White" IsPassword="true"
+                              PlaceHolder="{x:Static resx:AppResources.login_password}" TextSize="{StaticResource EntryTextSize}" />
+            <Label Text="{x:Static resx:AppResources.forgot_password}" TextColor="White" FontAttributes="{StaticResource LabelFontAttributes}"
+                   HorizontalOptions="End"
+                   Style="{StaticResource LabelSubContentStyle}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoForgotPasswordCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+            <controls:ButtonCustom Style="{StaticResource ButtonStyle}" Text="{x:Static resx:AppResources.login}" BackgroundColor="White"
+                                   Command="{Binding LoginCommand}"
+                                   FontAttributes="Bold" TextColor="{x:Static helpers:HcStyles.GreenButtonColor}" />
+            <controls:HcImageButton HeightRequest="{x:Static helpers:HcStyles.ImageButtonHeight}"
+                                    Command="{Binding LoginFbCommand}"
+                                    Text="{x:Static resx:AppResources.login_fb}" TextColor="White"
+                                    BgColor="{x:Static helpers:HcStyles.BlueFacebook}"
+                                    Image="fb.png" BorderRadius="0" ImageWidth="24" ImageHeight="24" />
+            <ContentView BackgroundColor="White" WidthRequest="{StaticResource LineWidthRequest}" HeightRequest="1"
+                         HorizontalOptions="CenterAndExpand" />
+            <Label Text="{x:Static resx:AppResources.not_have_account}" TextColor="White"
+                   FontAttributes="{StaticResource LabelFontAttributes}"
+                   HorizontalOptions="Center"
+                   Style="{StaticResource LabelSubContentStyle}" />
+            <controls:ButtonCustom Style="{StaticResource ButtonStyle}" Text="{x:Static resx:AppResources.register}" BackgroundColor="White"
+                                   Command="{Binding GoRegisterCommand}"
+                                   FontAttributes="Bold" TextColor="{x:Static helpers:HcStyles.GreenButtonColor}" />
+        </StackLayout>
+
+
+        <controls:HcImageButton
+            Command="{Binding GoPromotionCommand}"
+            LineBreakMode="MiddleTruncation"
+            Text="{Binding PromotionCount}" TextColor="{x:Static helpers:HcStyles.BlackTextColor}"
+            BgColor="{x:Static helpers:HcStyles.WhitePromotionButtonColor}"
+            Image="ic_promotion.png" BorderRadius="0" ImageWidth="{StaticResource PromotionImgWidth}"
+            ImageHeight="{StaticResource PromotionImgHeight}"
+            RelativeLayout.XConstraint="{ConstraintExpression Type=Constant,
+                                                Constant={StaticResource BtnPromotionXConstact}}"
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                Property=Height,
+                                                Factor=1,
+                                                Constant={StaticResource BtnPromotionYConstact}}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                Property=Width,
+                                                Factor=0.5625 }"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=Constant,
+                                                Constant={x:Static helpers:HcStyles.ButtonHeight}}" />
+    </RelativeLayout>
+  </ScrollView>
+</ContentPage>

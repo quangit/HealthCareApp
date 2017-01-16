@@ -1,0 +1,1055 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ResourceFlowDirection" xml:space="preserve">
+    <value>LeftToRight</value>
+    <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
+  </data>
+  <data name="ResourceLanguage" xml:space="preserve">
+    <value>en-US</value>
+    <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>MY APPLICATION</value>
+  </data>
+  <data name="AppBarButtonText" xml:space="preserve">
+    <value>add</value>
+  </data>
+  <data name="AppBarMenuItemText" xml:space="preserve">
+    <value>Menu Item</value>
+  </data>
+  <data name="accecpt" xml:space="preserve">
+    <value>Chấp nhận</value>
+  </data>
+  <data name="address" xml:space="preserve">
+    <value>Địa chỉ hiện tại</value>
+  </data>
+  <data name="add_checkup" xml:space="preserve">
+    <value>Thêm phiếu khám</value>
+  </data>
+  <data name="add_checkup_confirm" xml:space="preserve">
+    <value>Xác nhận phiếu khám</value>
+  </data>
+  <data name="add_checkup_failure" xml:space="preserve">
+    <value>Thêm phiếu khám thất bại</value>
+  </data>
+  <data name="add_checkup_success" xml:space="preserve">
+    <value>Thêm phiếu khám thành công</value>
+  </data>
+  <data name="age" xml:space="preserve">
+    <value>Tuổi</value>
+  </data>
+  <data name="all" xml:space="preserve">
+    <value>Tất cả</value>
+  </data>
+  <data name="app_policy" xml:space="preserve">
+    <value>1. Tôi/Người thân của tôi thực sự có nhu cầu khám chữa bệnh. Việc đặt hẹn trên ứng dụng CLAS Healthcare chỉ phục vụ cho mục đích khám chữa bệnh của tôi/người thân của tôi.
+2. CLAS Healthcare không chịu trách nhiệm đối với lỗi sai các thông tin do tôi cung cấp khi đăng ký khám chữa bệnh.
+3. CLAS Healthcare cung cấp dịch vụ đặt lịch khám chữa bệnh. Do vậy CLAS Healthcare không chịu trách nhiệm về việc chuẩn đoán hay thủ thuật điều trị nào do các Bác sĩ / Bệnh viện/ Phòng khám tham gia trong hệ thống thực hiện.</value>
+  </data>
+  <data name="birth_day" xml:space="preserve">
+    <value>Ngày sinh</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
+  <data name="cannot_access_photo_lib" xml:space="preserve">
+    <value>Không thể truy cập thư viện ảnh</value>
+  </data>
+  <data name="card_add_success" xml:space="preserve">
+    <value>Thêm thẻ và xác nhận thành công</value>
+  </data>
+  <data name="cc_add_failure" xml:space="preserve">
+    <value>Lỗi ngoài mong đợi, thẻ đang chờ xác nhận đã bị thất lạc</value>
+  </data>
+  <data name="cc_add_new" xml:space="preserve">
+    <value>Thêm mới thẻ</value>
+  </data>
+  <data name="cc_add_new_success" xml:space="preserve">
+    <value>Chúc mừng! bạn đã thêm thẻ thành công</value>
+  </data>
+  <data name="cc_detail" xml:space="preserve">
+    <value>Chi tiết thẻ</value>
+  </data>
+  <data name="cc_info" xml:space="preserve">
+    <value>Thông tin tài khoản thẻ</value>
+  </data>
+  <data name="cc_num" xml:space="preserve">
+    <value>Số thẻ thanh toán</value>
+  </data>
+  <data name="cc_otp_description" xml:space="preserve">
+    <value>Mã xác nhận sẽ được gửi qua tin nhắn đến số điện thoại của bạn, vui lòng nhập đúng mã để thêm thẻ thanh toán</value>
+  </data>
+  <data name="cc_otp_pin" xml:space="preserve">
+    <value>Nhập mã Pin/Otp</value>
+  </data>
+  <data name="cc_password_payment" xml:space="preserve">
+    <value>Mật khẩu thanh toán</value>
+  </data>
+  <data name="certificate" xml:space="preserve">
+    <value>Chứng nhận</value>
+  </data>
+  <data name="change_password" xml:space="preserve">
+    <value>Đổi mật khẩu tài khoản</value>
+  </data>
+  <data name="change_password_description" xml:space="preserve">
+    <value>Mật khẩu được dùng để xác thực mỗi khi bạn thực hiện đăng nhập</value>
+  </data>
+  <data name="change_password_success" xml:space="preserve">
+    <value>Đổi mật khẩu tài khoản thành công</value>
+  </data>
+  <data name="change_password_title" xml:space="preserve">
+    <value>Đổi mật khẩu</value>
+  </data>
+  <data name="checkup" xml:space="preserve">
+    <value>Phiếu khám</value>
+  </data>
+  <data name="checkup_address" xml:space="preserve">
+    <value>Địa chỉ:</value>
+  </data>
+  <data name="checkup_change_schedule_success" xml:space="preserve">
+    <value>Đổi lịch khám thành công</value>
+  </data>
+  <data name="checkup_checkup_type" xml:space="preserve">
+    <value>Chuyên khoa:</value>
+  </data>
+  <data name="checkup_city" xml:space="preserve">
+    <value>Thành phố:</value>
+  </data>
+  <data name="checkup_delete" xml:space="preserve">
+    <value>Xóa phiếu</value>
+  </data>
+  <data name="checkup_delete_success" xml:space="preserve">
+    <value>Xóa phiếu khám thành công</value>
+  </data>
+  <data name="checkup_detail" xml:space="preserve">
+    <value>Chi tiết phiếu khám</value>
+  </data>
+  <data name="checkup_district" xml:space="preserve">
+    <value>Quận huyện:</value>
+  </data>
+  <data name="checkup_doctor" xml:space="preserve">
+    <value>Bác sĩ:</value>
+  </data>
+  <data name="checkup_edit_schedule" xml:space="preserve">
+    <value>Sửa lịch</value>
+  </data>
+  <data name="checkup_email" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+  <data name="checkup_exam_place" xml:space="preserve">
+    <value>Nơi khám:</value>
+  </data>
+  <data name="checkup_firstname" xml:space="preserve">
+    <value>Họ:</value>
+  </data>
+  <data name="checkup_id_no" xml:space="preserve">
+    <value>Chứng minh thư:</value>
+  </data>
+  <data name="checkup_myselft" xml:space="preserve">
+    <value>Tôi</value>
+  </data>
+  <data name="checkup_patient_name" xml:space="preserve">
+    <value>Tên bệnh nhân:</value>
+  </data>
+  <data name="checkup_payment" xml:space="preserve">
+    <value>Thanh toán</value>
+  </data>
+  <data name="checkup_phone_no" xml:space="preserve">
+    <value>Số điện thoại:</value>
+  </data>
+  <data name="checkup_policy" xml:space="preserve">
+    <value>Điều khoản sử dụng:</value>
+  </data>
+  <data name="checkup_result" xml:space="preserve">
+    <value>Kết luận:</value>
+  </data>
+  <data name="checkup_schedule" xml:space="preserve">
+    <value>Lịch khám:</value>
+  </data>
+  <data name="checkup_status_accepted" xml:space="preserve">
+    <value>Đã thanh toán</value>
+  </data>
+  <data name="checkup_status_payment_pending" xml:space="preserve">
+    <value>Chưa thanh toán</value>
+  </data>
+  <data name="checkup_status_pending" xml:space="preserve">
+    <value>Chờ xét duyệt</value>
+  </data>
+  <data name="checkup_symptom" xml:space="preserve">
+    <value>Lý do khám bệnh:</value>
+  </data>
+  <data name="city" xml:space="preserve">
+    <value>Thành phố</value>
+  </data>
+  <data name="clas_hospital" xml:space="preserve">
+    <value>Khám tại nhà</value>
+  </data>
+  <data name="confirm" xml:space="preserve">
+    <value>Xác nhận</value>
+  </data>
+  <data name="confirm_cancel_checkup" xml:space="preserve">
+    <value>Bạn có muốn hủy phiếu khám này?</value>
+  </data>
+  <data name="confirm_delete_checkup" xml:space="preserve">
+    <value>Bạn có muốn xóa phiếu khám này?</value>
+  </data>
+  <data name="confirm_logout" xml:space="preserve">
+    <value>Bạn có muốn đăng xuất?</value>
+  </data>
+  <data name="contact" xml:space="preserve">
+    <value>Liên hệ</value>
+  </data>
+  <data name="copy_right" xml:space="preserve">
+    <value>© Customer Loyalty and Acquistion Services Co., Ltd.</value>
+  </data>
+  <data name="create_avatar" xml:space="preserve">
+    <value>Tạo ảnh đại diện</value>
+  </data>
+  <data name="credit_card" xml:space="preserve">
+    <value>Thẻ thanh toán</value>
+  </data>
+  <data name="deactivated" xml:space="preserve">
+    <value>Đã xóa</value>
+  </data>
+  <data name="deleted" xml:space="preserve">
+    <value>(Đã xóa)</value>
+  </data>
+  <data name="detail" xml:space="preserve">
+    <value>Chi tiết</value>
+  </data>
+  <data name="district" xml:space="preserve">
+    <value>Quận/huyện</value>
+  </data>
+  <data name="doctor" xml:space="preserve">
+    <value>Bác sĩ</value>
+  </data>
+  <data name="doctor_location" xml:space="preserve">
+    <value>Vị trí bác sĩ</value>
+  </data>
+  <data name="doctor_location_error" xml:space="preserve">
+    <value>Vị trí bác sỹ này không khả dụng</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="empty" xml:space="preserve">
+    <value>Dữ liệu trống</value>
+  </data>
+  <data name="empty_address" xml:space="preserve">
+    <value>Địa chỉ không được rỗng</value>
+  </data>
+  <data name="empty_age" xml:space="preserve">
+    <value>Tuổi không được trống</value>
+  </data>
+  <data name="empty_cc_num" xml:space="preserve">
+    <value>Mã số thẻ không được rỗng</value>
+  </data>
+  <data name="empty_cc_pin_otp" xml:space="preserve">
+    <value>Vui lòng nhập mã PIN hoặc OTP</value>
+  </data>
+  <data name="empty_checkup" xml:space="preserve">
+    <value>Bạn chưa có phiếu khám nào
+Bấm + để thêm phiếu khám</value>
+  </data>
+  <data name="empty_checkup_schedule" xml:space="preserve">
+    <value>Vui lòng chọn một lịch khám</value>
+  </data>
+  <data name="empty_checkup_type" xml:space="preserve">
+    <value>Không có loại khám nào</value>
+  </data>
+  <data name="empty_city" xml:space="preserve">
+    <value>Không có thành phố nào</value>
+  </data>
+  <data name="empty_confirm_password" xml:space="preserve">
+    <value>Xác nhận mật khẩu không được rỗng</value>
+  </data>
+  <data name="empty_district" xml:space="preserve">
+    <value>Không có quận/huyện nào</value>
+  </data>
+  <data name="empty_doctor_search" xml:space="preserve">
+    <value>Không tìm thấy bác sỹ nào</value>
+  </data>
+  <data name="empty_doctor_selected" xml:space="preserve">
+    <value>Bạn chưa chọn bác sỹ nào</value>
+  </data>
+  <data name="empty_first_name" xml:space="preserve">
+    <value>Tên và chữ lót không được trống</value>
+  </data>
+  <data name="empty_hospial_name" xml:space="preserve">
+    <value>Tên bệnh viện không được trống</value>
+  </data>
+  <data name="empty_hospital" xml:space="preserve">
+    <value>Không có bệnh viện nào</value>
+  </data>
+  <data name="empty_hospital_selected" xml:space="preserve">
+    <value>Bạn chưa chọn bệnh viện</value>
+  </data>
+  <data name="empty_last_name" xml:space="preserve">
+    <value>Họ không được trống</value>
+  </data>
+  <data name="empty_new_password" xml:space="preserve">
+    <value>Mật khẩu mới không được rỗng</value>
+  </data>
+  <data name="empty_old_password" xml:space="preserve">
+    <value>Mật khẩu cũ không được rỗng</value>
+  </data>
+  <data name="empty_password" xml:space="preserve">
+    <value>Vui lòng nhập mật khẩu</value>
+  </data>
+  <data name="empty_patient_name" xml:space="preserve">
+    <value>Tên bệnh nhân không được trống</value>
+  </data>
+  <data name="empty_payment_card" xml:space="preserve">
+    <value>Vui lòng chọn thẻ để thanh toán</value>
+  </data>
+  <data name="empty_payment_enter_password" xml:space="preserve">
+    <value>Vui lòng nhập mật khẩu thanh toán của bạn</value>
+  </data>
+  <data name="empty_schedule" xml:space="preserve">
+    <value>Không có lịch khám nào</value>
+  </data>
+  <data name="empty_schedule_selected" xml:space="preserve">
+    <value>Bạn chưa chọn lịch khám nào</value>
+  </data>
+  <data name="empty_user_name" xml:space="preserve">
+    <value>Vui lòng nhập mã bệnh nhân, số điện thoại hoặc email</value>
+  </data>
+  <data name="experience" xml:space="preserve">
+    <value>Kinh nghiệm</value>
+  </data>
+  <data name="female" xml:space="preserve">
+    <value>Nữ</value>
+  </data>
+  <data name="first_name" xml:space="preserve">
+    <value>Chữ lót và tên</value>
+  </data>
+  <data name="forgot_password" xml:space="preserve">
+    <value>Quên mật khẩu</value>
+  </data>
+  <data name="forgot_password_email" xml:space="preserve">
+    <value>Email reset mật khẩu</value>
+  </data>
+  <data name="forgot_password_title" xml:space="preserve">
+    <value>Hãy nhập email để đặt lại mật khẩu, hệ thống sẽ tự động gửi email đến địa chỉ của bạn.</value>
+  </data>
+  <data name="from" xml:space="preserve">
+    <value>Từ</value>
+  </data>
+  <data name="gender" xml:space="preserve">
+    <value>Giới tính</value>
+  </data>
+  <data name="go_back" xml:space="preserve">
+    <value>Quay lại</value>
+  </data>
+  <data name="go_next" xml:space="preserve">
+    <value>Tiếp theo</value>
+  </data>
+  <data name="hospital" xml:space="preserve">
+    <value>Bệnh viện/phòng khám</value>
+  </data>
+  <data name="hospital_info" xml:space="preserve">
+    <value>Thông tin bệnh viện</value>
+  </data>
+  <data name="id_no" xml:space="preserve">
+    <value>Chứng minh thư</value>
+  </data>
+  <data name="info" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="invalid_data" xml:space="preserve">
+    <value>Không tìm thấy</value>
+  </data>
+  <data name="language" xml:space="preserve">
+    <value>Ngôn ngữ</value>
+  </data>
+  <data name="last_name" xml:space="preserve">
+    <value>Họ</value>
+  </data>
+  <data name="limit_account_checkup_add_message" xml:space="preserve">
+    <value>Mỗi ngày bạn chỉ được đăng ký tối đa {0} phiếu khám</value>
+  </data>
+  <data name="limit_device_register_message" xml:space="preserve">
+    <value>Thiết bị này đã đăng ký thành công tối đa {0} tài khoản</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>Đăng nhập</value>
+  </data>
+  <data name="login_access_denied" xml:space="preserve">
+    <value>Bạn không có quyền truy cập vào ứng dụng</value>
+  </data>
+  <data name="login_fb" xml:space="preserve">
+    <value>Đăng nhập qua Facebook</value>
+  </data>
+  <data name="login_password" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="login_title" xml:space="preserve">
+    <value>Đăng nhập</value>
+  </data>
+  <data name="login_user_name" xml:space="preserve">
+    <value>Mã BN/Số ĐT/Email</value>
+  </data>
+  <data name="logout" xml:space="preserve">
+    <value>Đăng xuất</value>
+  </data>
+  <data name="male" xml:space="preserve">
+    <value>Nam</value>
+  </data>
+  <data name="marrital_status" xml:space="preserve">
+    <value>Tình trạng hôn nhân</value>
+  </data>
+  <data name="medical_record" xml:space="preserve">
+    <value>Sổ tay y bạ</value>
+  </data>
+  <data name="more_support" xml:space="preserve">
+    <value>Yêu cầu tư vấn thêm</value>
+  </data>
+  <data name="more_support_send" xml:space="preserve">
+    <value>Gửi yêu cầu tư vấn thêm</value>
+  </data>
+  <data name="more_support_sent" xml:space="preserve">
+    <value>Yêu cầu được gửi thành công</value>
+  </data>
+  <data name="network_not_available" xml:space="preserve">
+    <value>Vui lòng kiểm tra kết nối mạng</value>
+  </data>
+  <data name="notification_description" xml:space="preserve">
+    <value>Bật để nhận thông báo từ hệ thống khi có thay đổi về các lịch khám của bạn.</value>
+  </data>
+  <data name="notification_setting" xml:space="preserve">
+    <value>Cấu hình thông báo</value>
+  </data>
+  <data name="not_found_camera" xml:space="preserve">
+    <value>Không tìm thấy máy ảnh nào</value>
+  </data>
+  <data name="not_have_account" xml:space="preserve">
+    <value>Bạn chưa có tài khoản?</value>
+  </data>
+  <data name="not_selected_doctor_search" xml:space="preserve">
+    <value>Hãy tìm kiếm và chọn 1 bác sĩ</value>
+  </data>
+  <data name="occupation" xml:space="preserve">
+    <value>Nghề nghiệp</value>
+  </data>
+  <data name="out_of_date" xml:space="preserve">
+    <value>Quá hạn khám</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="password_confirm_not_match" xml:space="preserve">
+    <value>Xác nhận mật khẩu không khớp</value>
+  </data>
+  <data name="password_current" xml:space="preserve">
+    <value>Mật khẩu hiện thời</value>
+  </data>
+  <data name="password_invalid_format" xml:space="preserve">
+    <value>Mật khẩu phải chứa ít nhất 8 ký tự, trong đó phải có ít nhất 1 ký tự thường, 1 ký tự hoa, 1 ký tự số</value>
+  </data>
+  <data name="password_new" xml:space="preserve">
+    <value>Mật khẩu mới</value>
+  </data>
+  <data name="password_new_duplication_old" xml:space="preserve">
+    <value>Mật khẩu mới không được trùng với mật khẩu cũ</value>
+  </data>
+  <data name="password_verify" xml:space="preserve">
+    <value>Xác nhận mật khẩu</value>
+  </data>
+  <data name="patient_name" xml:space="preserve">
+    <value>Tên bệnh nhân</value>
+  </data>
+  <data name="patient_other" xml:space="preserve">
+    <value>Người khác</value>
+  </data>
+  <data name="payment" xml:space="preserve">
+    <value>Thanh toán</value>
+  </data>
+  <data name="payment_applied_promotion" xml:space="preserve">
+    <value>Bạn vừa được áp dụng khuyến mãi {0}%" + ", nên số tiền vừa trả xong là {1} VNĐ</value>
+  </data>
+  <data name="payment_cc_pick_title" xml:space="preserve">
+    <value>Chọn thẻ thanh toán tại đây</value>
+  </data>
+  <data name="payment_cc_title" xml:space="preserve">
+    <value>Thẻ thanh toán</value>
+  </data>
+  <data name="payment_change_password" xml:space="preserve">
+    <value>Đổi mật khẩu thanh toán</value>
+  </data>
+  <data name="payment_change_password_success" xml:space="preserve">
+    <value>Đổi mật khẩu thanh toán thành công</value>
+  </data>
+  <data name="payment_info" xml:space="preserve">
+    <value>Thông tin thanh toán</value>
+  </data>
+  <data name="payment_schedule_fee" xml:space="preserve">
+    <value>Phí xếp lịch</value>
+  </data>
+  <data name="payment_set_password" xml:space="preserve">
+    <value>Đặt mật khẩu thanh toán</value>
+  </data>
+  <data name="payment_set_password_description" xml:space="preserve">
+    <value>Mật khẩu thanh toán được dùng cho mỗi lần thực hiện thanh toán cho phiếu khám</value>
+  </data>
+  <data name="payment_set_password_success" xml:space="preserve">
+    <value>Đặt mật khẩu thanh toán thành công</value>
+  </data>
+  <data name="payment_success" xml:space="preserve">
+    <value>Thanh toán phí khám thành công. Quý khách vui lòng đến trước giờ khám 15 phút. Lưu ý: Trường hợp có cấp cứu giờ khám của Quý khách có thể sẽ được điều chỉnh. Trân trọng cảm ơn.</value>
+  </data>
+  <data name="payment_title" xml:space="preserve">
+    <value>Thanh toán phiếu khám</value>
+  </data>
+  <data name="payment_total_fee" xml:space="preserve">
+    <value>Tổng tiền</value>
+  </data>
+  <data name="payment_treatment_fee" xml:space="preserve">
+    <value>Phí khám bệnh</value>
+  </data>
+  <data name="paymet_enter_password" xml:space="preserve">
+    <value>Nhập mật khẩu thanh toán</value>
+  </data>
+  <data name="phone_no" xml:space="preserve">
+    <value>Số điện thoại</value>
+  </data>
+  <data name="pick_doctor" xml:space="preserve">
+    <value>Chọn bác sỹ</value>
+  </data>
+  <data name="pick_hospital" xml:space="preserve">
+    <value>Chọn bệnh viện</value>
+  </data>
+  <data name="pick_photo" xml:space="preserve">
+    <value>Chọn từ thư viện</value>
+  </data>
+  <data name="pick_schedule" xml:space="preserve">
+    <value>Chọn lịch khám</value>
+  </data>
+  <data name="profile_title" xml:space="preserve">
+    <value>Thông tin tài khoản</value>
+  </data>
+  <data name="profile_update_success" xml:space="preserve">
+    <value>Cập nhật thông tin cá nhân thành công</value>
+  </data>
+  <data name="profile_user_code" xml:space="preserve">
+    <value>Mã bệnh nhân:</value>
+  </data>
+  <data name="promotion" xml:space="preserve">
+    <value>Tin khuyến mãi</value>
+  </data>
+  <data name="promotion_detail" xml:space="preserve">
+    <value>Nội dung khuyến mãi</value>
+  </data>
+  <data name="promotion_number" xml:space="preserve">
+    <value>Khuyến mãi ({0})</value>
+  </data>
+  <data name="promotion_time" xml:space="preserve">
+    <value>Thời gian khuyến mãi</value>
+  </data>
+  <data name="refresh" xml:space="preserve">
+    <value>Làm mới</value>
+  </data>
+  <data name="register" xml:space="preserve">
+    <value>Đăng ký</value>
+  </data>
+  <data name="register_success" xml:space="preserve">
+    <value>Chúc mừng, bạn đã đăng ký thành công, kiểm tra email để kích hoạt tài khoản</value>
+  </data>
+  <data name="rejected" xml:space="preserve">
+    <value>Bị từ chối</value>
+  </data>
+  <data name="reset_password_success" xml:space="preserve">
+    <value>Đặt lại mật khẩu thành công, vui lòng kiểm tra email!</value>
+  </data>
+  <data name="rs_failure_address_empty" xml:space="preserve">
+    <value>Địa chỉ không được để trống</value>
+  </data>
+  <data name="rs_failure_birthday_empty" xml:space="preserve">
+    <value>Ngày sinh không được để trống</value>
+  </data>
+  <data name="rs_failure_busy_doctor" xml:space="preserve">
+    <value>Bác sỹ này đang bận</value>
+  </data>
+  <data name="rs_failure_cannot_delete_ref_data" xml:space="preserve">
+    <value>Không thể xóa vì có dữ liệu liên quan</value>
+  </data>
+  <data name="rs_failure_card_enter_otp" xml:space="preserve">
+    <value>Mời nhập OTP cho thẻ</value>
+  </data>
+  <data name="rs_failure_card_enter_pin" xml:space="preserve">
+    <value>Mời nhập PIN cho thẻ</value>
+  </data>
+  <data name="rs_failure_card_existed" xml:space="preserve">
+    <value>Thẻ này đã tồn tại</value>
+  </data>
+  <data name="rs_failure_card_id_empty" xml:space="preserve">
+    <value>ID thẻ không được để trống</value>
+  </data>
+  <data name="rs_failure_card_incorrect_pin" xml:space="preserve">
+    <value>PIN không chính xác</value>
+  </data>
+  <data name="rs_failure_card_not_found" xml:space="preserve">
+    <value>Không tìm thấy thẻ</value>
+  </data>
+  <data name="rs_failure_checkup_finished" xml:space="preserve">
+    <value>Phiếu khám đã hoàn thành</value>
+  </data>
+  <data name="rs_failure_checkup_id_empty" xml:space="preserve">
+    <value>ID Phiếu khám không được để trống</value>
+  </data>
+  <data name="rs_failure_checkup_not_found" xml:space="preserve">
+    <value>Không tìm thấy phiếu khám</value>
+  </data>
+  <data name="rs_failure_checkup_paymented" xml:space="preserve">
+    <value>Phiếu khám đã được thanh toán</value>
+  </data>
+  <data name="rs_failure_checkup_type_empty" xml:space="preserve">
+    <value>Loại khám không được để trống</value>
+  </data>
+  <data name="rs_failure_checkup_type_in_use" xml:space="preserve">
+    <value>Chuyên khoa này đang được sử dụng</value>
+  </data>
+  <data name="rs_failure_checkup_type_not_found" xml:space="preserve">
+    <value>Không tìm thấy loại khám</value>
+  </data>
+  <data name="rs_failure_city_empty" xml:space="preserve">
+    <value>Thành phố không được để trống</value>
+  </data>
+  <data name="rs_failure_content_empty" xml:space="preserve">
+    <value>Nội dung không được để trống</value>
+  </data>
+  <data name="rs_failure_data_in_use" xml:space="preserve">
+    <value>Dữ liệu này đang được sử dụng</value>
+  </data>
+  <data name="rs_failure_deactive_reference" xml:space="preserve">
+    <value>Lỗi vô hiệu hóa</value>
+  </data>
+  <data name="rs_failure_disable_user" xml:space="preserve">
+    <value>Tài khoản của bạn chưa được kích hoạt</value>
+  </data>
+  <data name="rs_failure_doctor_id_empty" xml:space="preserve">
+    <value>ID Bác sỹ không được để trống</value>
+  </data>
+  <data name="rs_failure_doctor_not_found" xml:space="preserve">
+    <value>Không tìm thấy bác sỹ</value>
+  </data>
+  <data name="rs_failure_email_empty" xml:space="preserve">
+    <value>Email không được để trống</value>
+  </data>
+  <data name="rs_failure_email_existed" xml:space="preserve">
+    <value>Email này đã được sử dụng</value>
+  </data>
+  <data name="rs_failure_exception" xml:space="preserve">
+    <value>Lỗi ngoài mong đợi</value>
+  </data>
+  <data name="rs_failure_facebookid_existed" xml:space="preserve">
+    <value>FacebookId này đã được sử dụng</value>
+  </data>
+  <data name="rs_failure_facebook_id_empty" xml:space="preserve">
+    <value>ID facebook không được để trống</value>
+  </data>
+  <data name="rs_failure_fb_access_token_invalid" xml:space="preserve">
+    <value>Phiên đăng nhập Facebook đã hết hạn</value>
+  </data>
+  <data name="rs_failure_firstname_empty" xml:space="preserve">
+    <value>Tên không được để trống</value>
+  </data>
+  <data name="rs_failure_first_name_empty" xml:space="preserve">
+    <value>Họ không được để trống</value>
+  </data>
+  <data name="rs_failure_gender_empty" xml:space="preserve">
+    <value>Giới tính không được để trống</value>
+  </data>
+  <data name="rs_failure_gtm_time_not_empty" xml:space="preserve">
+    <value>Mốc giờ không được trống</value>
+  </data>
+  <data name="rs_failure_gtm_time_not_valid" xml:space="preserve">
+    <value>Mốc giờ không hợp lệ</value>
+  </data>
+  <data name="rs_failure_hash_expired" xml:space="preserve">
+    <value>Mã hash đã hết hạn</value>
+  </data>
+  <data name="rs_failure_hospitalid_empty" xml:space="preserve">
+    <value>ID Bệnh viện không được để trống</value>
+  </data>
+  <data name="rs_failure_hospital_not_found" xml:space="preserve">
+    <value>Không tìm thấy bệnh viện nào</value>
+  </data>
+  <data name="rs_failure_hospital_not_registered_payment" xml:space="preserve">
+    <value>Bệnh viện chưa thiết lập việc thanh toán</value>
+  </data>
+  <data name="rs_failure_hospital_registered" xml:space="preserve">
+    <value>Bệnh viện này đã được kết nối</value>
+  </data>
+  <data name="rs_failure_idno_empty" xml:space="preserve">
+    <value>Chứng minh thư không được để trống</value>
+  </data>
+  <data name="rs_failure_idno_existed" xml:space="preserve">
+    <value>Chứng minh thư đã tồn tại</value>
+  </data>
+  <data name="rs_failure_id_empty" xml:space="preserve">
+    <value>ID không được để trống</value>
+  </data>
+  <data name="rs_failure_invalid_appointment_date" xml:space="preserve">
+    <value>Ngày đăng ký không hợp lệ, vui lòng chọn ngày khác</value>
+  </data>
+  <data name="rs_failure_invalid_card" xml:space="preserve">
+    <value>Thẻ không hợp lệ</value>
+  </data>
+  <data name="rs_failure_invalid_checkup_type" xml:space="preserve">
+    <value>Loại khám không hợp lệ</value>
+  </data>
+  <data name="rs_failure_invalid_doctor" xml:space="preserve">
+    <value>Bác sỹ không hợp lệ</value>
+  </data>
+  <data name="rs_failure_invalid_email" xml:space="preserve">
+    <value>Email không hợp lệ</value>
+  </data>
+  <data name="rs_failure_invalid_enddate" xml:space="preserve">
+    <value>Ngày kết thúc không hợp lệ</value>
+  </data>
+  <data name="rs_failure_invalid_gender" xml:space="preserve">
+    <value>Giới tính không hợp lệ</value>
+  </data>
+  <data name="rs_failure_invalid_hospital" xml:space="preserve">
+    <value>Bệnh viện không hợp lệ</value>
+  </data>
+  <data name="rs_failure_invalid_idno" xml:space="preserve">
+    <value>Chứng minh thư không hợp lệ</value>
+  </data>
+  <data name="rs_failure_invalid_location" xml:space="preserve">
+    <value>Vị trí không hợp lệ</value>
+  </data>
+  <data name="rs_failure_invalid_old_password" xml:space="preserve">
+    <value>Mật khẩu cũ không chính xác</value>
+  </data>
+  <data name="rs_failure_invalid_params" xml:space="preserve">
+    <value>Thiếu thông tin</value>
+  </data>
+  <data name="rs_failure_invalid_password_length" xml:space="preserve">
+    <value>Độ dài mật khẩu không hợp lệ</value>
+  </data>
+  <data name="rs_failure_invalid_patient" xml:space="preserve">
+    <value>Bệnh nhân không hợp lệ</value>
+  </data>
+  <data name="rs_failure_invalid_patient_type" xml:space="preserve">
+    <value>Loại bênh nhân không hợp lệ</value>
+  </data>
+  <data name="rs_failure_invalid_payment_password" xml:space="preserve">
+    <value>Mật khẩu thanh toán không chính xác</value>
+  </data>
+  <data name="rs_failure_invalid_phone" xml:space="preserve">
+    <value>Số điện thoại không hợp lệ</value>
+  </data>
+  <data name="rs_failure_invalid_price" xml:space="preserve">
+    <value>Giá tiền không hợp lệ</value>
+  </data>
+  <data name="rs_failure_invalid_roles" xml:space="preserve">
+    <value>Role không hợp lệ</value>
+  </data>
+  <data name="rs_failure_invalid_service_type" xml:space="preserve">
+    <value>Loại dịch vụ không hợp lệ</value>
+  </data>
+  <data name="rs_failure_invalid_startdate" xml:space="preserve">
+    <value>Ngày bắt đầu không hợp lệ</value>
+  </data>
+  <data name="rs_failure_invalid_username" xml:space="preserve">
+    <value>Tên đăng nhập không hợp lệ</value>
+  </data>
+  <data name="rs_failure_invalid_user_type" xml:space="preserve">
+    <value>Loại người dùng không hợp lệ</value>
+  </data>
+  <data name="rs_failure_invalid_zero_money" xml:space="preserve">
+    <value>Số tiền không hợp lệ (zero_money)</value>
+  </data>
+  <data name="rs_failure_lastname_empty" xml:space="preserve">
+    <value>Họ không được để trống</value>
+  </data>
+  <data name="rs_failure_last_name_empty" xml:space="preserve">
+    <value>Tên không được để trống</value>
+  </data>
+  <data name="rs_failure_login_fail" xml:space="preserve">
+    <value>Đăng nhập không thành công, kiểm tra số điện thoại và mật khẩu</value>
+  </data>
+  <data name="rs_failure_name_empty" xml:space="preserve">
+    <value>Tên không được để trống</value>
+  </data>
+  <data name="rs_failure_name_existed" xml:space="preserve">
+    <value>Tên đã được sử dụng</value>
+  </data>
+  <data name="rs_failure_not_enough_money_for_payment" xml:space="preserve">
+    <value>Số dư trong thẻ không đủ để thanh toán</value>
+  </data>
+  <data name="rs_failure_no_doctor_for_checkup_type" xml:space="preserve">
+    <value>Không tìm thấy bác sỹ cho loại khám này</value>
+  </data>
+  <data name="rs_failure_object_not_found" xml:space="preserve">
+    <value>Không tìm thấy</value>
+  </data>
+  <data name="rs_failure_overlap_time" xml:space="preserve">
+    <value>Lịch khám này đã được sử dụng</value>
+  </data>
+  <data name="rs_failure_password_empty" xml:space="preserve">
+    <value>Mật khẩu không được để trống</value>
+  </data>
+  <data name="rs_failure_patient_id_empty" xml:space="preserve">
+    <value>ID bệnh nhân không được để trống</value>
+  </data>
+  <data name="rs_failure_patient_type_empty" xml:space="preserve">
+    <value>Loại bệnh nhân không được để trống</value>
+  </data>
+  <data name="rs_failure_payment_password_not_set" xml:space="preserve">
+    <value>Chưa thiết lập mật khẩu thanh toán</value>
+  </data>
+  <data name="rs_failure_permission_deny" xml:space="preserve">
+    <value>Không có quyền truy cập</value>
+  </data>
+  <data name="rs_failure_phone_empty" xml:space="preserve">
+    <value>Số điện thoại không được để trống</value>
+  </data>
+  <data name="rs_failure_phone_existed" xml:space="preserve">
+    <value>Số điện thoại này đã được sử dụng</value>
+  </data>
+  <data name="rs_failure_photo_empty" xml:space="preserve">
+    <value>Ảnh không được để trống</value>
+  </data>
+  <data name="rs_failure_pin_or_otp_empty" xml:space="preserve">
+    <value>PIN hoặc OTP không được để trống</value>
+  </data>
+  <data name="rs_failure_promotion_not_found" xml:space="preserve">
+    <value>Không tìm thấy khuyến mãi</value>
+  </data>
+  <data name="rs_failure_scb_mid_empty" xml:space="preserve">
+    <value>MID của thẻ SCB không được để trống</value>
+  </data>
+  <data name="rs_failure_scb_tid_empty" xml:space="preserve">
+    <value>TID của thẻ SCB không được để trống</value>
+  </data>
+  <data name="rs_failure_service_type_empty" xml:space="preserve">
+    <value>Loại dịch vụ không được để trống</value>
+  </data>
+  <data name="rs_failure_session_invalid" xml:space="preserve">
+    <value>Phiên làm việc hết hạn</value>
+  </data>
+  <data name="rs_failure_small_money" xml:space="preserve">
+    <value>Không thể thanh toán với số tiền quá nhỏ</value>
+  </data>
+  <data name="rs_failure_store_mid_not_found" xml:space="preserve">
+    <value>Không tìm thấy MID cửa hàng</value>
+  </data>
+  <data name="rs_failure_store_registered" xml:space="preserve">
+    <value>Cửa hàng đã đăng ký rồi</value>
+  </data>
+  <data name="rs_failure_symptom_empty" xml:space="preserve">
+    <value>Triệu chứng không được để trống</value>
+  </data>
+  <data name="rs_failure_type_empty" xml:space="preserve">
+    <value>Loại không được để trống</value>
+  </data>
+  <data name="rs_failure_username_empty" xml:space="preserve">
+    <value>Tên đăng nhập không được để trống</value>
+  </data>
+  <data name="rs_failure_username_existed" xml:space="preserve">
+    <value>Tên người dùng đã được sử dụng</value>
+  </data>
+  <data name="rs_failure_user_existed" xml:space="preserve">
+    <value>Người dùng này đã được sử dụng</value>
+  </data>
+  <data name="rs_failure_user_not_found" xml:space="preserve">
+    <value>Người dùng không tồn tại</value>
+  </data>
+  <data name="rs_success" xml:space="preserve">
+    <value>Thành công</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>Lưu</value>
+  </data>
+  <data name="schedule_of" xml:space="preserve">
+    <value>Lịch khám của {0}</value>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>Tìm kiếm</value>
+  </data>
+  <data name="searching" xml:space="preserve">
+    <value>Đang tìm gợi ý ...</value>
+  </data>
+  <data name="search_hint" xml:space="preserve">
+    <value>Hãy nhập triệu chứng bệnh, tên bác sĩ hoặc chuyên khoa mà bạn muốn khám phù hợp theo địa phương</value>
+  </data>
+  <data name="search_placeholder" xml:space="preserve">
+    <value>Triệu chứng, bác sĩ, chuyên khoa</value>
+  </data>
+  <data name="send" xml:space="preserve">
+    <value>Gửi đi</value>
+  </data>
+  <data name="setting" xml:space="preserve">
+    <value>Tuỳ chỉnh</value>
+  </data>
+  <data name="short_day" xml:space="preserve">
+    <value>n</value>
+  </data>
+  <data name="short_hour" xml:space="preserve">
+    <value>h</value>
+  </data>
+  <data name="short_minute" xml:space="preserve">
+    <value>p</value>
+  </data>
+  <data name="short_month" xml:space="preserve">
+    <value>th</value>
+  </data>
+  <data name="suggest_not_found" xml:space="preserve">
+    <value>Không có gợi ý nào</value>
+  </data>
+  <data name="symptom" xml:space="preserve">
+    <value>Triệu chứng</value>
+  </data>
+  <data name="take_photo" xml:space="preserve">
+    <value>Chụp ảnh</value>
+  </data>
+  <data name="time_left" xml:space="preserve">
+    <value>Còn lại:</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>Đến</value>
+  </data>
+  <data name="user_city_deleted" xml:space="preserve">
+    <value>Thành phố của bạn đã không còn tồn tại nữa, Vui lòng cập nhật thông tin</value>
+  </data>
+  <data name="user_district_deleted" xml:space="preserve">
+    <value>Quận, huyện của bạn đã không còn tồn tại nữa, Vui lòng cập nhật thông tin</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>Phiên bản 1.1</value>
+  </data>
+  <data name="view_location" xml:space="preserve">
+    <value>Xem vị trí</value>
+  </data>
+  <data name="view_more" xml:space="preserve">
+    <value>Xem thêm</value>
+  </data>
+  <data name="work_place" xml:space="preserve">
+    <value>Nơi làm việc</value>
+  </data>
+  <data name="your_position" xml:space="preserve">
+    <value>Vị trí của bạn</value>
+  </data>
+  <data name="invalid_chbase_account" xml:space="preserve">
+    <value>Tài khoản CHBase không đúng với tài khoản đã kết nối</value>
+  </data>
+</root>

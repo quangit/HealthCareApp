@@ -1,0 +1,1152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{03A0A8ED-1640-40D3-B5C4-94E6ADBA3ED6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HealthCare</RootNamespace>
+    <AssemblyName>HealthCare</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ImageGallery.cs" />
+    <Compile Include="Conveters\DateTimeToStringConverter.cs" />
+    <Compile Include="DependencyServices\INetworkInfo.cs" />
+    <Compile Include="Models\ChBaseModel\BloodGlucoseModel.cs" />
+    <Compile Include="Models\ChBaseModel\BloodPressureModel.cs" />
+    <Compile Include="Models\ChBaseModel\ChBaseHealthInfoModel.cs" />
+    <Compile Include="Models\ChBaseModel\DetailPackageFeeModel.cs" />
+    <Compile Include="Models\ChBaseModel\FeeModel.cs" />
+    <Compile Include="Models\ChBaseModel\ImmunizationModel.cs" />
+    <Compile Include="Models\ChBaseModel\CHBaseHomePageFeatureModel.cs" />
+    <Compile Include="Models\ChBaseModel\CHBasePatientInfoModel.cs" />
+    <Compile Include="Models\ChBaseModel\ResultPurchaseModel.cs" />
+    <Compile Include="Models\GalleryImage.cs" />
+    <Compile Include="Pages\CHBases\AddBloodGlucosePage.xaml.cs">
+      <DependentUpon>AddBloodGlucosePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\AddBloodPressurePage.xaml.cs">
+      <DependentUpon>AddBloodPressurePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\AddHeightPage.xaml.cs">
+      <DependentUpon>AddHeightPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\AddImmunizationPage.xaml.cs">
+      <DependentUpon>AddImmunizationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\AddMedicationPage.xaml.cs">
+      <DependentUpon>AddMedicationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\AddProcedurePage.xaml.cs">
+      <DependentUpon>AddProcedurePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\AddWeightPage.xaml.cs">
+      <DependentUpon>AddWeightPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\BloodGlucosePage.xaml.cs">
+      <DependentUpon>BloodGlucosePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\BloodPressurePage.xaml.cs">
+      <DependentUpon>BloodPressurePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\CHBaseDetailPage.xaml.cs">
+      <DependentUpon>CHBaseDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BusyControl.cs" />
+    <Compile Include="Controls\ButtonCustom.cs" />
+    <Compile Include="Controls\ButtonHealthCare.cs" />
+    <Compile Include="Controls\ButtonRadiusControl.xaml.cs">
+      <DependentUpon>ButtonRadiusControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CalendarView.cs" />
+    <Compile Include="Controls\CenterRelativeLayout.cs" />
+    <Compile Include="Controls\ChBaseWebview.cs" />
+    <Compile Include="Controls\CheckBox.cs" />
+    <Compile Include="Controls\CreditCardView.xaml.cs">
+      <DependentUpon>CreditCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DatePickerCustom.cs" />
+    <Compile Include="Controls\DatePickerWithImageBox.cs" />
+    <Compile Include="Controls\EntryCustom.cs" />
+    <Compile Include="Controls\EntryHealthCare.xaml.cs">
+      <DependentUpon>EntryHealthCare.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EntryLogin.cs" />
+    <Compile Include="Controls\HcCalendar.xaml.cs">
+      <DependentUpon>HcCalendar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HcFilterButton.xaml.cs">
+      <DependentUpon>HcFilterButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HcListView.cs" />
+    <Compile Include="Controls\HcMap.cs" />
+    <Compile Include="Controls\HealthCareCheckBox.xaml.cs">
+      <DependentUpon>HealthCareCheckBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ImageButtonCustom.cs" />
+    <Compile Include="Controls\ImageCircle.cs" />
+    <Compile Include="Controls\ImagePlaceHolder.cs" />
+    <Compile Include="Controls\ImagePlaceHolderCell.cs" />
+    <Compile Include="Controls\ImageRounderCorner.xaml.cs">
+      <DependentUpon>ImageRounderCorner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LabelCustom.cs" />
+    <Compile Include="Controls\ListViewCustom.cs" />
+    <Compile Include="Controls\LoadingContentPage.cs" />
+    <Compile Include="Controls\LoginCHBaseControl.xaml.cs">
+      <DependentUpon>LoginCHBaseControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PickerCustom.cs" />
+    <Compile Include="Controls\PlaceholderEditor.cs" />
+    <Compile Include="Controls\QADetailControl.cs" />
+    <Compile Include="Controls\RatingControl.cs" />
+    <Compile Include="Controls\TimePickerCustom.cs" />
+    <Compile Include="Controls\TopBarContentPage.cs" />
+    <Compile Include="Controls\ViewCells\CHBaseViewCell.xaml.cs">
+      <DependentUpon>CHBaseViewCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WebViewCustom.cs" />
+    <Compile Include="Controls\WebViewJavascript.cs" />
+    <Compile Include="Controls\WebViewVtcPay.cs" />
+    <Compile Include="Conveters\ArrayToFirstItemConverter.cs" />
+    <Compile Include="Conveters\BoolRevertConverter.cs" />
+    <Compile Include="Conveters\BoolToOpacityConverter.cs" />
+    <Compile Include="Conveters\ColumnCheckupConverter.cs" />
+    <Compile Include="Conveters\EnumDescriptionConverter.cs" />
+    <Compile Include="Conveters\HideCardIdConverter.cs" />
+    <Compile Include="Conveters\JsonConverters\BirthDaySetConverterAttribute.cs" />
+    <Compile Include="Conveters\JsonConverters\MaritalStatusConverterAttribute.cs" />
+    <Compile Include="Conveters\JsonConverters\LocationConverterAttribute.cs" />
+    <Compile Include="Conveters\JsonConverters\NullConverterAttribute.cs" />
+    <Compile Include="Conveters\JsonConverters\PromotionConverter.cs" />
+    <Compile Include="Conveters\JsonConverters\PromotionHospitalConverterAttribute.cs" />
+    <Compile Include="Conveters\LocalTimeZoneConverter.cs" />
+    <Compile Include="Conveters\NullToTrueConverter.cs" />
+    <Compile Include="Conveters\PaymentConverter.cs" />
+    <Compile Include="Conveters\PaymentDesConverter.cs" />
+    <Compile Include="Conveters\StringNullConverter.cs" />
+    <Compile Include="Conveters\ThemeColorConverter.cs" />
+    <Compile Include="Conveters\TimeLeftConverter.cs" />
+    <Compile Include="Conveters\UriToImageConverter.cs" />
+    <Compile Include="Conveters\UriToImageLoaderConverter.cs" />
+    <Compile Include="DependencyServices\ICertificate.cs" />
+    <Compile Include="DependencyServices\IChBaseHash.cs" />
+    <Compile Include="DependencyServices\IClearCacheWebView.cs" />
+    <Compile Include="DependencyServices\IDialPhone.cs" />
+    <Compile Include="DependencyServices\IImageResize.cs" />
+    <Compile Include="DependencyServices\ILocalize.cs" />
+    <Compile Include="DependencyServices\ILocalNotifier.cs" />
+    <Compile Include="DependencyServices\IPhotoEdit.cs" />
+    <Compile Include="DependencyServices\IPushNotificationRegister.cs" />
+    <Compile Include="DependencyServices\ISHA256.cs" />
+    <Compile Include="Enums\ActiveType.cs" />
+    <Compile Include="Enums\PersonStatus.cs" />
+    <Compile Include="Helpers\ChBaseHelper.cs" />
+    <Compile Include="Helpers\ChBaseParser.cs" />
+    <Compile Include="Helpers\Exceptions\DataIntegrityException.cs" />
+    <Compile Include="Helpers\Common.cs" />
+    <Compile Include="Helpers\IgnorePropertyResolver.cs" />
+    <Compile Include="Helpers\ITripleDESCryptoService.cs" />
+    <Compile Include="Helpers\Localize.cs" />
+    <Compile Include="Helpers\MyAnimation.cs" />
+    <Compile Include="Helpers\NotifyPropertyChanged.cs" />
+    <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Helpers\TranslateExtension.cs" />
+    <Compile Include="ModelApis\ApiCheckupModel.cs" />
+    <Compile Include="ModelApis\ApiPaymentPromotionModel.cs" />
+    <Compile Include="ModelApis\DoctorApiModel.cs" />
+    <Compile Include="ModelApis\IApiModel.cs" />
+    <Compile Include="Models\AmountWithPromotionModel.cs" />
+    <Compile Include="Models\ChBaseModel\HeightModel.cs" />
+    <Compile Include="Models\ChBaseModel\MedicationModel.cs" />
+    <Compile Include="Models\ChBaseModel\PersonModel.cs" />
+    <Compile Include="Models\ChBaseModel\ProcedureModel.cs" />
+    <Compile Include="Models\ChBaseModel\WeightModel.cs" />
+    <Compile Include="Models\ChBaseModel\CHBaseDetailUIModel.cs" />
+    <Compile Include="Models\CreditCardModel.cs" />
+    <Compile Include="Models\DoctorModel.cs" />
+    <Compile Include="Models\HospitalModel.cs" />
+    <Compile Include="Models\PromotionModel.cs" />
+    <Compile Include="Models\Suggestion.cs" />
+    <Compile Include="Models\SupportAnswerModel.cs" />
+    <Compile Include="Models\SupportQuestionModel.cs" />
+    <Compile Include="Objects\ProxyAddCheckupModel.cs" />
+    <Compile Include="ModelApis\ScheduleApiModel.cs" />
+    <Compile Include="Objects\ProxyCheckupApiModel.cs" />
+    <Compile Include="Pages\AddCheckupConfirmPage.xaml.cs">
+      <DependentUpon>AddCheckupConfirmPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddCheckupPage.xaml.cs">
+      <DependentUpon>AddCheckupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddQuestionPage.xaml.cs">
+      <DependentUpon>AddQuestionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AskDoctorDetailPage.xaml.cs">
+      <DependentUpon>AskDoctorDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AskDoctorPage.xaml.cs">
+      <DependentUpon>AskDoctorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CardDetailPage.xaml.cs">
+      <DependentUpon>CardDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\ChBaseHomePage.xaml.cs">
+      <DependentUpon>ChBaseHomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\CHBaseMedicalHistoryPage.xaml.cs">
+      <DependentUpon>CHBaseMedicalHistoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\CHBaseMeicalReadingsPage.xaml.cs">
+      <DependentUpon>CHBaseMeicalReadingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\CHBaseShareHealthInfomationPage.xaml.cs">
+      <DependentUpon>CHBaseShareHealthInfomationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\DetailTransfer.xaml.cs">
+      <DependentUpon>DetailTransfer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\HeightPage.xaml.cs">
+      <DependentUpon>HeightPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\ImmunizationPage.xaml.cs">
+      <DependentUpon>ImmunizationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\MedicationPage.xaml.cs">
+      <DependentUpon>MedicationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\PaymentCheckupRecordPage.xaml.cs">
+      <DependentUpon>PaymentCheckupRecordPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\ProcedurePage.xaml.cs">
+      <DependentUpon>ProcedurePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\ShareViaCHBaseAccountPage.xaml.cs">
+      <DependentUpon>ShareViaCHBaseAccountPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\ShareViaMailPage.xaml.cs">
+      <DependentUpon>ShareViaMailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\VtcPayPaymentPage.xaml.cs">
+      <DependentUpon>VtcPayPaymentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CHBases\WeightPage.xaml.cs">
+      <DependentUpon>WeightPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConfigurationPage.xaml.cs">
+      <DependentUpon>ConfigurationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ConfirmCreditCardPage.xaml.cs">
+      <DependentUpon>ConfirmCreditCardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DoctorDetailPage.xaml.cs">
+      <DependentUpon>DoctorDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DoctorLocationPage.xaml.cs">
+      <DependentUpon>DoctorLocationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DoctorSchedulePage.xaml.cs">
+      <DependentUpon>DoctorSchedulePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ForgotPasswordPage.xaml.cs">
+      <DependentUpon>ForgotPasswordPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HealthRecordInformationPage.xaml.cs">
+      <DependentUpon>HealthRecordInformationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LoginChBasePage.xaml.cs">
+      <DependentUpon>LoginChBasePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RegCHBasePage.xaml.cs">
+      <DependentUpon>RegCHBasePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HealthVaultPage.xaml.cs">
+      <DependentUpon>HealthVaultPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ImagePopupPage.xaml.cs">
+      <DependentUpon>ImagePopupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MoreSupportPage.xaml.cs">
+      <DependentUpon>MoreSupportPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OTPPage.xaml.cs">
+      <DependentUpon>OTPPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PaymentPage.xaml.cs">
+      <DependentUpon>PaymentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PhotoEditPage.xaml.cs">
+      <DependentUpon>PhotoEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PickCreditCardPage.xaml.cs">
+      <DependentUpon>PickCreditCardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PromotionPage.xaml.cs">
+      <DependentUpon>PromotionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ReadMorePage.xaml.cs">
+      <DependentUpon>ReadMorePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SearchHospitalPage.xaml.cs">
+      <DependentUpon>SearchHospitalPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TestPage.xaml.cs">
+      <DependentUpon>TestPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\VnPayPaymentPage.xaml.cs">
+      <DependentUpon>VnPayPaymentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\VtcPayPaymentPage.xaml.cs">
+      <DependentUpon>VtcPayPaymentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DependencyServices\IFacebookHelper.cs" />
+    <Compile Include="Resx\AppResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resx\AppResources.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resx\AppResources.vi-VN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.vi-VN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\SacombankService.cs" />
+    <Compile Include="Validators\CHBasesValidator\BloodGlucoseValidator.cs" />
+    <Compile Include="Validators\CHBasesValidator\WeightValidator .cs" />
+    <Compile Include="Validators\CHBasesValidator\HeightValidator.cs" />
+    <Compile Include="Validators\CHBasesValidator\BloodPressureValidator.cs" />
+    <Compile Include="Validators\CHBasesValidator\ImmunizationValidator.cs" />
+    <Compile Include="Validators\CHBasesValidator\ProcedureValidator.cs" />
+    <Compile Include="Validators\CHBasesValidator\MedicationValidator.cs" />
+    <Compile Include="Validators\CityValidator.cs" />
+    <Compile Include="Validators\DoctorValidator.cs" />
+    <Compile Include="Validators\HospitalValidator.cs" />
+    <Compile Include="Validators\ProcedureValidator.cs" />
+    <Compile Include="Validators\SuggestionValidator.cs" />
+    <Compile Include="Validators\UserValidator.cs" />
+    <Compile Include="ViewModels\AddCheckupViewModel.cs" />
+    <Compile Include="ViewModels\AskDoctorViewModel.cs" />
+    <Compile Include="ViewModels\CHBases\BloodGlucoseViewModel.cs" />
+    <Compile Include="ViewModels\CHBases\CHBaseDetailViewModel.cs" />
+    <Compile Include="ViewModels\CHBases\CHBaseHomePageViewModel.cs" />
+    <Compile Include="ViewModels\CHBases\BloodPressureViewModel.cs" />
+    <Compile Include="ViewModels\CHBases\ChBaseViewModel.cs" />
+    <Compile Include="ViewModels\CHBases\HeightViewModel.cs" />
+    <Compile Include="ViewModels\CHBases\ImmunizationViewModel.cs" />
+    <Compile Include="ViewModels\CHBases\MedicationViewModel.cs" />
+    <Compile Include="ViewModels\CHBases\PaymentViewModel.cs" />
+    <Compile Include="ViewModels\CHBases\ProcedureViewModel.cs" />
+    <Compile Include="ViewModels\CHBases\ShareViaEmailViewModel.cs" />
+    <Compile Include="ViewModels\CHBases\WeightViewModel.cs" />
+    <Compile Include="ViewModels\DoctorLocationViewModel.cs" />
+    <Compile Include="ViewModels\DoctorScheduleViewModel.cs" />
+    <Compile Include="ViewModels\FakeDataViewModel.cs" />
+    <Compile Include="ViewModels\HealthRecordInformationViewModel.cs" />
+    <Compile Include="ViewModels\MoreSupportViewModel.cs" />
+    <Compile Include="ViewModels\MoreSupportViewModel2.cs" />
+    <Compile Include="ViewModels\PasswordViewModel.cs" />
+    <Compile Include="ViewModels\PhotoEditViewModel.cs" />
+    <Compile Include="ViewModels\PromotionViewModel.cs" />
+    <Compile Include="ViewModels\SearchViewModel.cs" />
+    <Compile Include="ViewModels\TopBarViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelLocator.cs" />
+    <Compile Include="Pages\RegisterPage.xaml.cs">
+      <DependentUpon>RegisterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\HcStyles.cs" />
+    <Compile Include="Controls\HcEntry.xaml.cs">
+      <DependentUpon>HcEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PromotionDetailPage.xaml.cs">
+      <DependentUpon>PromotionDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity.cs" />
+    <Compile Include="Models\PersonModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Enums\CheckupStatus.cs" />
+    <Compile Include="Enums\FeeType.cs" />
+    <Compile Include="Enums\Gender.cs" />
+    <Compile Include="Enums\Role.cs" />
+    <Compile Include="Enums\SortField.cs" />
+    <Compile Include="Enums\SortType.cs" />
+    <Compile Include="Enums\Description.cs" />
+    <Compile Include="Enums\MaritalStatus.cs" />
+    <Compile Include="Enums\PatientType.cs" />
+    <Compile Include="Models\ScheduleModel.cs" />
+    <Compile Include="Models\CheckupModel.cs" />
+    <Compile Include="Models\CheckupTypeModel.cs" />
+    <Compile Include="Models\CityModel.cs" />
+    <Compile Include="Models\DistrictModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="WebServices\ChBaseWS.cs" />
+    <Compile Include="WebServices\CustomRetryPolicyFactory.cs" />
+    <Compile Include="WebServices\HttpRequestExceptionWithStatus.cs" />
+    <Compile Include="WebServices\HttpTransientErrorDetectionStrategy.cs" />
+    <Compile Include="WebServices\Interfaces\IChBaseWS.cs" />
+    <Compile Include="WebServices\Interfaces\ICardWS.cs" />
+    <Compile Include="WebServices\Interfaces\ICheckupWS.cs" />
+    <Compile Include="WebServices\Interfaces\IMoreSupportWS.cs" />
+    <Compile Include="WebServices\Interfaces\IPatientCHBaseWS.cs" />
+    <Compile Include="WebServices\Interfaces\IUserWS.cs" />
+    <Compile Include="AppConstant.cs" />
+    <Compile Include="WebServices\Interfaces\ICommonWS.cs" />
+    <Compile Include="WebServices\Interfaces\ISearchWS.cs" />
+    <Compile Include="Enums\KeywordType.cs" />
+    <Compile Include="Objects\ProxyHospitalModel.cs" />
+    <Compile Include="Objects\ProxyDoctorModel.cs" />
+    <Compile Include="Objects\SystemConfig.cs" />
+    <Compile Include="Objects\LocalNotification.cs" />
+    <Compile Include="WebServices\Interfaces\IHospitalWS.cs" />
+    <Compile Include="WebServices\Interfaces\IDoctorWS.cs" />
+    <Compile Include="Services\HcDialogService.cs" />
+    <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Services\Interfaces\IHcDialogService.cs" />
+    <Compile Include="Services\Interfaces\INavigationService.cs" />
+    <Compile Include="Objects\ApiResponse.cs" />
+    <Compile Include="Helpers\Exceptions\ApiException.cs" />
+    <Compile Include="Helpers\Exceptions\NetworkException.cs" />
+    <Compile Include="WebServices\MoreSupportWS.cs" />
+    <Compile Include="WebServices\PatientCHBaseWS.cs" />
+    <Compile Include="WebServices\PromotionWS.cs" />
+    <Compile Include="Helpers\JsonUtils.cs" />
+    <Compile Include="WebServices\RetryDelegatingHandler.cs" />
+    <Compile Include="WebServices\UserWS.cs" />
+    <Compile Include="Validators\AbstractValidator.cs" />
+    <Compile Include="Validators\ValidationResult.cs" />
+    <Compile Include="Validators\PromotionValidator.cs" />
+    <Compile Include="Validators\CheckupValidator.cs" />
+    <Compile Include="Validators\CheckupTypeValidator.cs" />
+    <Compile Include="Validators\CreditCardValidator.cs" />
+    <Compile Include="Validators\ScheduleValidator.cs" />
+    <Compile Include="Validators\PersonValidator.cs" />
+    <Compile Include="WebServices\BaseFakeWebService.cs" />
+    <Compile Include="WebServices\BaseWebService.cs" />
+    <Compile Include="Pages\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="Helpers\SimpleIocV2.cs" />
+    <Compile Include="Controls\ListViewExtented.cs" />
+    <Compile Include="Controls\HcImageButton.xaml.cs">
+      <DependentUpon>HcImageButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WebServices\CommonWS.cs" />
+    <Compile Include="Behaviors\Behavior.cs" />
+    <Compile Include="Behaviors\BehaviorCollection.cs" />
+    <Compile Include="Behaviors\BehaviorOfT.cs" />
+    <Compile Include="Behaviors\IBehavior.cs" />
+    <Compile Include="Behaviors\Infrastructure.cs" />
+    <Compile Include="Behaviors\Interaction.cs" />
+    <Compile Include="Behaviors\RelativeContextExtension.cs" />
+    <Compile Include="Behaviors\EventToCommand.cs" />
+    <Compile Include="Behaviors\TextChangedBehavior.cs" />
+    <Compile Include="ViewModels\CommonViewModel.cs" />
+    <Compile Include="Conveters\SayHelloConverter.cs" />
+    <Compile Include="Conveters\TimeStampToDateTimeConverter.cs" />
+    <Compile Include="Validators\CommonValidator.cs" />
+    <Compile Include="ViewModels\CheckupViewModel.cs" />
+    <Compile Include="ViewModels\CreditCardViewModel.cs" />
+    <Compile Include="WebServices\PaymentWS.cs" />
+    <Compile Include="WebServices\Interfaces\IPaymentWS.cs" />
+    <Compile Include="WebServices\CheckupWS.cs" />
+    <Compile Include="WebServices\DoctorWS.cs" />
+    <Compile Include="WebServices\HospitalWS.cs" />
+    <Compile Include="WebServices\SearchWS.cs" />
+    <Compile Include="Pages\CheckupPage.xaml.cs">
+      <DependentUpon>CheckupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SearchPage.xaml.cs">
+      <DependentUpon>SearchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CreditCardPage.xaml.cs">
+      <DependentUpon>CreditCardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ToolbarViewModel.cs" />
+    <Compile Include="Pages\SettingPage.xaml.cs">
+      <DependentUpon>SettingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HomeTabbedPage.xaml.cs">
+      <DependentUpon>HomeTabbedPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HcRadioButton.cs" />
+    <Compile Include="Helpers\EventArgs.cs" />
+    <Compile Include="Helpers\EventExtensions.cs" />
+    <Compile Include="Controls\HcPicker.cs" />
+    <Compile Include="Controls\BasePickerCustom.cs" />
+    <Compile Include="Conveters\JsonConverters\DateTimeConverterAttribute.cs" />
+    <Compile Include="Conveters\JsonConverters\GenderConverterAttribute.cs" />
+    <Compile Include="ViewModels\HospitalViewModel.cs" />
+    <Compile Include="ViewModels\SettingViewModel.cs" />
+    <Compile Include="Pages\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ViewCells\CheckupViewCell.xaml.cs">
+      <DependentUpon>CheckupViewCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EntryImage.cs" />
+    <Compile Include="Controls\ContentControl.xaml.cs">
+      <DependentUpon>ContentControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TabbedPageCustom.cs" />
+    <Compile Include="Controls\BorderFrame.cs" />
+    <Compile Include="Controls\ViewCells\CreditCardViewCell.xaml.cs">
+      <DependentUpon>CreditCardViewCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PickHospitalPage.xaml.cs">
+      <DependentUpon>PickHospitalPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ViewCells\CheckCell.xaml.cs">
+      <DependentUpon>CheckCell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BaseAddCheckupPage.xaml.cs">
+      <DependentUpon>BaseAddCheckupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PickDoctorPage.xaml.cs">
+      <DependentUpon>PickDoctorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\DoctorViewModel.cs" />
+    <Compile Include="Objects\ProxyCheckupModel.cs" />
+    <Compile Include="Pages\CheckupDetailPage.xaml.cs">
+      <DependentUpon>CheckupDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MapPage.xaml.cs">
+      <DependentUpon>MapPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TopBarControl.xaml.cs">
+      <DependentUpon>TopBarControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MedicalRecordPage.xaml.cs">
+      <DependentUpon>MedicalRecordPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddCardPage.xaml.cs">
+      <DependentUpon>AddCardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PasswordPage.xaml.cs">
+      <DependentUpon>PasswordPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HospitalDetailPage.xaml.cs">
+      <DependentUpon>HospitalDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WebServices\VnPayService.cs" />
+    <Compile Include="WebServices\Interfaces\IPromotionWs.cs" />
+    <Compile Include="Services\VtcPayService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\RegisterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\HcEntry.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\PromotionDetailPage.xaml" />
+    <EmbeddedResource Include="Pages\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\HcImageButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\CheckupPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\SearchPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\CreditCardPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\SettingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\HomeTabbedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ProfilePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ViewCells\CheckupViewCell.xaml" />
+    <EmbeddedResource Include="Controls\ContentControl.xaml" />
+    <EmbeddedResource Include="Controls\ViewCells\CreditCardViewCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\PickHospitalPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ViewCells\CheckCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BaseAddCheckupPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\PickDoctorPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\CheckupDetailPage.xaml" />
+    <EmbeddedResource Include="Pages\MapPage.xaml" />
+    <EmbeddedResource Include="Controls\TopBarControl.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MedicalRecordPage.xaml" />
+    <EmbeddedResource Include="Pages\AddCardPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\PasswordPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\HospitalDetailPage.xaml" />
+    <EmbeddedResource Include="Resx\AppResources.en.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.en.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resx\AppResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resx\AppResources.vi-VN.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.vi-VN.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\..\packages\Xamarin.Forms.1.4.2.6359\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.1.4.2.6359\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="ExifLib">
+      <HintPath>..\..\packages\ExifLib.PCL.1.0.1\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
+    </Reference>
+    <Reference Include="PushNotification.Plugin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.PushNotification.1.0.8\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\PushNotification.Plugin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushNotification.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.PushNotification.1.0.8\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\PushNotification.Plugin.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight">
+      <HintPath>..\..\packages\MvvmLightLibs.5.2.0.0\lib\portable-net45+wp8+wpa81+netcore45+monoandroid1+xamarin.ios10\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras">
+      <HintPath>..\..\packages\MvvmLightLibs.5.2.0.0\lib\portable-net45+wp8+wpa81+netcore45+monoandroid1+xamarin.ios10\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.7.0.1\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat">
+      <HintPath>..\..\packages\Splat.1.6.2\lib\Portable-net45+win+wpa81+wp80\Splat.dll</HintPath>
+    </Reference>
+    <Reference Include="Connectivity.Plugin">
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.2\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Connectivity.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Connectivity.Plugin.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.2\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Connectivity.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="LocalNotifications.Plugin">
+      <HintPath>..\..\packages\Xam.Plugin.LocalNotifications.1.0.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\LocalNotifications.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="LocalNotifications.Plugin.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugin.LocalNotifications.1.0.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\LocalNotifications.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Refractored.Xam.Settings">
+      <HintPath>..\..\packages\Xam.Plugins.Settings.1.5.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10\Refractored.Xam.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Refractored.Xam.Settings.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugins.Settings.1.5.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10\Refractored.Xam.Settings.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Auth">
+      <HintPath>..\..\packages\Xamarin.Auth.0.0.2-alpha\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+XamarinIOS10\Xamarin.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Core">
+      <HintPath>..\..\packages\XLabs.Core.2.0.5610.2\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\XLabs.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Forms">
+      <HintPath>..\..\packages\XLabs.Forms.2.0.5610.2\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\XLabs.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Ioc">
+      <HintPath>..\..\packages\XLabs.IoC.2.0.5610.2\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\XLabs.Ioc.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Platform">
+      <HintPath>..\..\packages\XLabs.Platform.2.0.5610.2\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\XLabs.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Serialization">
+      <HintPath>..\..\packages\XLabs.Serialization.2.0.5610.2\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\XLabs.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="Media.Plugin">
+      <HintPath>..\..\packages\Xam.Plugin.Media.1.0.3\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Media.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Media.Plugin.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugin.Media.1.0.3\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Media.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Geolocator.Plugin, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\libs\Geolocator.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Geolocator.Plugin.Abstractions, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\libs\Geolocator.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xamarin.Forms.1.5.1.6471\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Maps, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xamarin.Forms.Maps.1.5.1.6471\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Maps.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xamarin.Forms.1.5.1.6471\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xamarin.Forms.1.5.1.6471\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="crypto, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Portable.BouncyCastle.1.7.0.2\lib\portable-net4+sl5+wp8+win8+wpa81+MonoTouch10+MonoAndroid10+xamarinmac20+xamarinios10\crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.2.0.6\lib\portable-net45+netcore45+wpa81+wp8+MonoTouch10+MonoAndroid10+xamarinmac20+xamarinios10\FFImageLoading.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Forms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.Forms.2.0.6\lib\portable-net45+netcore45+wpa81+wp8+MonoTouch10+MonoAndroid10+xamarinmac20+xamarinios10\FFImageLoading.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Transformations, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.Transformations.2.0.6\lib\portable-net45+netcore45+wpa81+wp8+MonoTouch10+MonoAndroid10+xamarinmac20+xamarinios10\FFImageLoading.Transformations.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Chart, Version=2015.3.1028.151, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Telerik.UI.for.Xamarin.2015.3.1028\lib\portable-net45+netcore45+WP80+MonoAndroid10+MonoTouch10\Telerik.XamarinForms.Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Common, Version=2015.3.1028.151, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Telerik.UI.for.Xamarin.2015.3.1028\lib\portable-net45+netcore45+WP80+MonoAndroid10+MonoTouch10\Telerik.XamarinForms.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataControls, Version=2015.3.1028.151, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Telerik.UI.for.Xamarin.2015.3.1028\lib\portable-net45+netcore45+WP80+MonoAndroid10+MonoTouch10\Telerik.XamarinForms.DataControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Input, Version=2015.3.1028.151, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Telerik.UI.for.Xamarin.2015.3.1028\lib\portable-net45+netcore45+WP80+MonoAndroid10+MonoTouch10\Telerik.XamarinForms.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Primitives, Version=2015.3.1028.151, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Telerik.UI.for.Xamarin.2015.3.1028\lib\portable-net45+netcore45+WP80+MonoAndroid10+MonoTouch10\Telerik.XamarinForms.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\..\packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.UserDialogs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Acr.UserDialogs.4.3.4\lib\portable-win+net45+wp8+win8+wpa81\Acr.UserDialogs.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.UserDialogs.Interface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Acr.UserDialogs.4.3.4\lib\portable-win+net45+wp8+win8+wpa81\Acr.UserDialogs.Interface.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="PluginsHelp\ConnectivityReadme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\PromotionPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\CreditCardView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\EntryHealthCare.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\HealthCareCheckBox.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Import Project="..\..\packages\Xamarin.Forms.1.5.1.6455-pre1\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.1.5.1.6455-pre1\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\AddCheckupPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\DoctorSchedulePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\AddCheckupConfirmPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\HcFilterButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CardDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\PaymentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\DoctorLocationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\PickCreditCardPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\ForgotPasswordPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\MoreSupportPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\DoctorDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\ConfirmCreditCardPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\ConfigurationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\TestPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\HcCalendar.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\VnPayPaymentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\AskDoctorPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\ButtonRadiusControl.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\ImageRounderCorner.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\AddQuestionPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\AskDoctorDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ImagePopupPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\PhotoEditPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ReadMorePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\OTPPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\SearchHospitalPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\HealthVaultPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\RegCHBasePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\LoginCHBaseControl.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\VtcPayPaymentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\LoginChBasePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\HealthRecordInformationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CHBases\AddBloodGlucosePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\CHBases\AddBloodPressurePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\CHBases\AddImmunizationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\CHBases\AddMedicationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\CHBases\AddProcedurePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\CHBases\ShareViaMailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\ViewCells\CHBaseViewCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CHBases\CHBaseDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CHBases\ChBaseHomePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\CHBases\CHBaseMedicalHistoryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CHBases\AddHeightPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\CHBases\AddWeightPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CHBases\ProcedurePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CHBases\ImmunizationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CHBases\HeightPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CHBases\WeightPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CHBases\BloodGlucosePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CHBases\BloodPressurePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CHBases\ShareViaCHBaseAccountPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CHBases\CHBaseMeicalReadingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CHBases\CHBaseShareHealthInfomationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CHBases\MedicationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CHBases\PaymentCheckupRecordPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CHBases\DetailTransfer.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\CHBases\VtcPayPaymentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="..\..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets'))" />
+  </Target>
+</Project>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+             xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+             VerticalOptions="Start"
+             HorizontalOptions="FillAndExpand"
+             x:Class="HealthCare.Controls.TopBarControl">
+
+  <ContentView.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="x:Double" x:Key="Spacing"
+                  iOS="4" Android="4" WinPhone="4" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="ContentPadding"
+                  iOS="10,0,10,0" Android="10,-10,10,0" WinPhone="24,0,24,0" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="TopRuleHeight"
+                  iOS="8" Android="8" WinPhone="12" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="LogoPadding"
+                  iOS="10,10,10,5" Android="5,13,5,5" WinPhone="24,15,24,5" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="BottomRuleHeight"
+                  iOS="1" Android="1" WinPhone="1" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="LogoImageHeight"
+                  iOS="64" Android="64" WinPhone="80" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="OperatorSize"
+                  iOS="42" Android="42" WinPhone="54" />
+
+    </ResourceDictionary>
+  </ContentView.Resources>
+
+
+  <Grid BackgroundColor="White">
+
+    <!-- background -->
+    <Image Source="top_bar_bg.png" Aspect="AspectFill" />
+
+    <!--- Foreground -->
+    <StackLayout HorizontalOptions="FillAndExpand"
+                 Orientation="Vertical" Spacing="0" Padding="0" VerticalOptions="FillAndExpand">
+      <!-- topline -->
+      <ContentView x:Name="stlTopLine"
+                   IsVisible="false"
+                   HeightRequest="{StaticResource TopRuleHeight}"
+                   VerticalOptions="StartAndExpand"
+                   BackgroundColor="{x:Static helpers:HcStyles.GreenColor}" />
+      <!-- main content -->
+      <StackLayout Orientation="Horizontal" Padding="{StaticResource LogoPadding}"
+                   VerticalOptions="CenterAndExpand">
+        <Image Source="banner_logo.png"
+               x:Name="imgIcon"
+               HeightRequest="{StaticResource LogoImageHeight}"
+               HorizontalOptions="Start"
+               Aspect="AspectFit" />
+        <StackLayout VerticalOptions="Center" HorizontalOptions="EndAndExpand">
+          <Image Source="ic_call_header.png" WidthRequest="{StaticResource OperatorSize}"
+                 HeightRequest="{StaticResource OperatorSize}" />
+          <Label Text="08 6274 7451"
+                 TextColor="Red"
+                 Style="{StaticResource LabelContentStyle}" />
+
+          <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding VmTopBar.PhoneCallCommand, Source={StaticResource Locator}}" NumberOfTapsRequired="1"/>
+          </StackLayout.GestureRecognizers>
+        </StackLayout>
+      </StackLayout>
+
+      <!-- Bottom content -->
+      <StackLayout Padding="{StaticResource ContentPadding}" VerticalOptions="EndAndExpand"
+                   Orientation="Vertical">
+        <Label x:Name="lbTitle"
+               HorizontalOptions="Start"
+               FontAttributes="None"
+               IsVisible="false"
+               LineBreakMode="TailTruncation"
+               Style="{StaticResource LabelSubTitleStyle}" />
+        <ContentView x:Name="stlBottomLine"
+                     IsVisible="false"
+                     BackgroundColor="{x:Static helpers:HcStyles.GreenColor}"
+                     HeightRequest="{StaticResource BottomRuleHeight}" />
+      </StackLayout>
+    </StackLayout>
+  </Grid>
+</ContentView>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<packages>
+  <package id="Acr.UserDialogs" version="4.3.4" targetFramework="wp81" />
+  <package id="CommonServiceLocator" version="1.3" targetFramework="wp81" />
+  <package id="ExifLib.PCL" version="1.0.1" targetFramework="wp8" />
+  <package id="Facebook" version="7.0.6" targetFramework="wp81" />
+  <package id="Facebook.Client" version="1.0.4" targetFramework="wp8" />
+  <package id="FFImageLoading.Windows" version="2.0.6" targetFramework="wp81" />
+  <package id="Microsoft.Bcl" version="1.1.10" targetFramework="wp8" />
+  <package id="Microsoft.Bcl.Build" version="1.0.14" targetFramework="wp8" />
+  <package id="Microsoft.Net.Http" version="2.2.29" targetFramework="wp8" />
+  <package id="MvvmLightLibs" version="5.2.0.0" targetFramework="wp81" />
+  <package id="Newtonsoft.Json" version="7.0.1" targetFramework="wp8" />
+  <package id="PhoneThemeManager.Source" version="2.1.2" targetFramework="wp8" />
+  <package id="Portable.BouncyCastle" version="1.8.1.1" targetFramework="wp81" />
+  <package id="Splat" version="1.6.2" targetFramework="wp81" />
+  <package id="System.Collections" version="4.0.11" targetFramework="wp81" />
+  <package id="System.Diagnostics.Debug" version="4.0.11" targetFramework="wp81" />
+  <package id="System.Globalization" version="4.0.11" targetFramework="wp81" />
+  <package id="System.IO" version="4.1.0" targetFramework="wp81" />
+  <package id="System.Linq" version="4.1.0" targetFramework="wp81" />
+  <package id="System.Reflection" version="4.1.0" targetFramework="wp81" />
+  <package id="System.Reflection.Extensions" version="4.0.1" targetFramework="wp81" />
+  <package id="System.Runtime" version="4.1.0" targetFramework="wp81" />
+  <package id="System.Runtime.Extensions" version="4.1.0" targetFramework="wp81" />
+  <package id="System.Text.Encoding" version="4.0.11" targetFramework="wp81" />
+  <package id="System.Threading" version="4.0.11" targetFramework="wp81" />
+  <package id="System.Threading.Tasks" version="4.0.11" targetFramework="wp81" />
+  <package id="Telerik.UI.for.Xamarin" version="2015.3.1028" targetFramework="wp81" />
+  <package id="WindowsAzure.Messaging.Managed" version="0.1.7.9" targetFramework="wp81" />
+  <package id="WPControls" version="1.5.2" targetFramework="wp8" />
+  <package id="WPtoolkit" version="4.2013.08.16" targetFramework="wp81" />
+  <package id="WPtoolkit.Kinnara" version="4.2014.11.22" targetFramework="wp81" />
+  <package id="WriteableBitmapEx" version="1.5.0.0" targetFramework="wp81" />
+  <package id="Xam.Plugin.Connectivity" version="1.0.2" targetFramework="wp8" />
+  <package id="Xam.Plugin.Media" version="1.0.3" targetFramework="wp81" />
+  <package id="Xam.Plugins.Settings" version="1.5.1" targetFramework="wp8" />
+  <package id="Xamarin.Auth" version="0.0.2-alpha" targetFramework="wp8" />
+  <package id="Xamarin.FFImageLoading.Forms" version="2.0.6" targetFramework="wp81" />
+  <package id="Xamarin.FFImageLoading.Transformations" version="2.0.6" targetFramework="wp81" />
+  <package id="Xamarin.Forms" version="1.5.1.6471" targetFramework="wp81" />
+  <package id="Xamarin.Forms.Maps" version="1.5.1.6471" targetFramework="wp81" />
+</packages>

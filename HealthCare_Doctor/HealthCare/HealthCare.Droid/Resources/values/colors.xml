@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="background_window">#FFF</color>
+	<color name="green">#689F38</color>
+	<color name="greenDark">#3E5F22</color>
+	<color name="banana">#FFCC00</color>
+	<color name="main">#FF3F9FE0</color>
+	<color name="TintColor">#E20D50</color>
+	<color name="pakaze">#EE0B57</color>
+	<color name="ButtonColor">#F0F4F7</color>
+	<color name="InfoTextColor">#5A5A5A</color>
+	<color name="titleLocationColor">#02a7c4</color>
+
+
+	<color name="clear">#00ffffff</color>
+	<color name="transparent">#00000000</color>
+	<color name="transparent_white">#80FFFFFF</color>
+	<color name="transparent_black">#80000000</color>
+	<color name="white">#FFFFFF</color>
+	<color name="white_pressed">#E5E5E5</color>
+	<color name="light_gray">#ABBAC2</color>
+	<color name="text_gray">#6B767D</color>
+	<color name="coral_blue">#1DAEFA</color>
+	<color name="coral_blue_pressed">#1A9CE1</color>
+	<color name="dark_blue">#125D9D</color>
+	<color name="dark_blue_pressed">#10538D</color>
+	<color name="mid_circle_blue">#177DC2</color>
+	<color name="select_moment_blue">#4EA2DB</color>
+	<color name="select_moment_blue_pressed">#2D91D4</color>
+	<color name="ppe_button_blue">#2E8BCF</color>
+	<color name="cancel_blue">#125D9D</color>
+	<color name="smartwatch_color">#4ea2db</color>
+	<color name="black">#ff000000</color>
+	<color name="teal">#1398b5</color>
+
+  <color name="ButtonRedColor">#F26522</color>
+  <color name="ButtonGreenMainColor">#2CBE71</color>
+  <color name="ButtonGreenColor">#97C93D</color>
+  <color name="ButtonYellowColor">#FBC116</color>
+  <color name="ButtonSkypeColor">#12A5F4</color>
+
+  <color name="ConfBackColor">#F3F3F3</color>
+  <color name="GrayTextColor">#8A8A8A</color>
+
+  <color name="primary_text">#212121</color>
+  <color name="primary_color">#2196f3</color>
+
+</resources>

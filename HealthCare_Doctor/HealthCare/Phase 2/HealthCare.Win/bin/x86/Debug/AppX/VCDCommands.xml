@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.2">
+  <CommandSet xml:lang="en-us"
+              Name="AdventureWorksCommandSet_en-us">
+    <AppName>Health Care</AppName>
+    <Example> Show my schedule </Example>
+    <Command Name="findNextCMETopic">
+      <Example>Health Care, CME Topic</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> [What's] [my] [next] CME topics</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> [What's] [my] [next] CME topic</ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> [What's] [my] [next] {builtin:AppName} CME topics</ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> [What's] [my] [next] {builtin:AppName} CME topic</ListenFor>
+      <Feedback> Looking for your next CME Topic</Feedback>
+      <VoiceCommandService Target="KVoiceCommandService"/>
+    </Command>
+
+    <Command Name="showCheckup">
+      <Example> Health Care, show my checkups</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> [show] my checkups [view]</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> [show] my checkup [view]</ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> [show] my {builtin:AppName} checkups [view]</ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> [show] my {builtin:AppName} checkup [view]</ListenFor>
+      <Feedback>Showing your checkups</Feedback>
+      <Navigate Target="Checkups"/>
+    </Command>
+
+
+    <Command Name="showCMELib">
+      <Example> Health Care, show my CME Library</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> [show] [my] CME Library [view]</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> [show] [my] CME Library [view]</ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> [show] [my] {builtin:AppName} CME Library [view]</ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> [show] [my] {builtin:AppName} CME Library [view]</ListenFor>
+      <Feedback>Showing your CME Library</Feedback>
+      <Navigate Target="CME Library"/>
+    </Command>
+
+
+    <Command Name="showSchedule">
+      <Example> Health Care, show my Schedule</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> [show] my Schedule [view]</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> [show] my Schedules [view]</ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> [show] my {builtin:AppName}  Schedule [view]</ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> [show] my {builtin:AppName}  Schedules [view]</ListenFor>
+      <Feedback>Showing your Schedules</Feedback>
+      <Navigate Target="Schedule"/>
+    </Command>
+
+    <Command Name="showQuestions">
+      <Example> Health Care, show patient's questions</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> [show] patient's question [view]</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> [show] patient question [view]</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> [show] patient questions [view]</ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> [show] [my] {builtin:AppName} patient's question [view]</ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> [show] [my] {builtin:AppName} patient question [view]</ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> [show] [my] {builtin:AppName} patient question [view]</ListenFor>
+      <Feedback>Showing your patient's questions</Feedback>
+      <Navigate Target="Schedule"/>
+    </Command>
+    
+    <!--<Command Name="findCmeLibrary">
+      <Example>Health Care, Cme Library</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> [Show] [my] CME Library</ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> [Show] [my] {builtin:AppName} CME Library</ListenFor>
+      <Feedback> Looking for your CME Library</Feedback>
+      <VoiceCommandService Target="KVoiceCommandService"/>
+    </Command>-->
+
+  </CommandSet>
+</VoiceCommands>

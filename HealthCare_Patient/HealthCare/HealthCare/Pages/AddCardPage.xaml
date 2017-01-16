@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            x:Class="HealthCare.Pages.AddCardPage"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:enums="clr-namespace:HealthCare.Enums;assembly=HealthCare"
+                            xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+                            xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            PageType="{x:Type pages:AddCardPage}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            xmlns:controls1="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+                            Title="{x:Static resx:AppResources.cc_add_new}"
+                            BindingContext="{Binding VmCreditCard, Source={StaticResource Locator}}"
+                            BackgroundColor="White">
+
+    <controls:TopBarContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="Thickness" x:Key="MainContentPadding"
+                        iOS="30" Android="30" WinPhone="30" />
+            <OnPlatform x:TypeArguments="x:Double" x:Key="RowSpacing"
+                        iOS="10" Android="10" WinPhone="10" />
+        </ResourceDictionary>
+    </controls:TopBarContentPage.Resources>
+    <!--<ScrollView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="10*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Orientation="Vertical" Grid.Column="1" Padding="{StaticResource MainContentPadding}"
+                         Spacing="{StaticResource RowSpacing}">
+                <controls:HcEntry Source="ic_cc_number.png"
+                                  PlaceHolder="{x:Static resx:AppResources.cc_num}"
+                                  Keyboard="{x:Static Keyboard.Numeric}"
+                                  Text="{Binding NewCard.CardId, Mode=TwoWay}" />
+                <StackLayout Orientation="Vertical"
+                             Spacing="{StaticResource RowSpacing}">
+                    <controls:HcEntry Source="ic_person.png"
+                                      PlaceHolder="{x:Static resx:AppResources.last_name}"
+                                      Text="{Binding NewCard.LastName, Mode=TwoWay}" />
+                    <controls:HcEntry Source="ic_person.png"
+                                      PlaceHolder="{x:Static resx:AppResources.first_name}"
+                                      Text="{Binding NewCard.FirstName, Mode=TwoWay}" />
+                    <controls:HcEntry Source="ic_address_about.png"
+                                      PlaceHolder="{x:Static resx:AppResources.address}"
+                                      Text="{Binding NewCard.Address, Mode=TwoWay}" />
+                    <controls:HcEntry Source="ic_cc_number.png"
+                                      PlaceHolder="{x:Static resx:AppResources.id_no}"
+                                      Keyboard="{x:Static Keyboard.Numeric}"
+                                      Text="{Binding NewCard.IdNo, Mode=TwoWay}" />
+                    <controls:HcEntry Source="ic_mail_about.png"
+                                      PlaceHolder="{x:Static resx:AppResources.email}"
+                                      Text="{Binding NewCard.Email, Mode=TwoWay}" />
+                    <controls:HcEntry Source="ic_phone.png"
+                                      PlaceHolder="{x:Static resx:AppResources.phone_no}"
+                                      Keyboard="{x:Static Keyboard.Telephone}"
+                                      Text="{Binding NewCard.PhoneNo, Mode=TwoWay}" />
+                    <controls:DatePickerWithImageBox Source="ic_calendar.png"
+                                                     SelectedValue="{Binding NewCard.BirthDay,
+                                               Mode=OneWayToSource,
+                                               Converter={StaticResource TimeStampConverter}}"
+                                                     ValidateDateTimeType="BirthDay" />
+                </StackLayout>
+
+                --><!--Button Add Card--><!-- 
+                <ContentView Padding="0, 20, 0, 20">
+                    <controls:ButtonCustom Text="{x:Static resx:AppResources.cc_add_new}"
+                                           Style="{StaticResource ButtonStyle}">
+                        <behaviors:Interaction.Behaviors>
+                            <behaviors:BehaviorCollection>
+                                <behaviors:EventToCommand EventName="SingleClicked"
+                                                          Command="{Binding AddCardCommand}" />
+                            </behaviors:BehaviorCollection>
+                        </behaviors:Interaction.Behaviors>
+                    </controls:ButtonCustom>
+                </ContentView>
+
+            </StackLayout>
+        </Grid>
+    </ScrollView>-->
+  
+  <controls:WebViewCustom  x:Name="WebView" Source="{Binding UrlAddCard, Mode=OneWay}"  Navigating="WebView_OnNavigating">
+    <behaviors:Interaction.Behaviors>
+      <behaviors:BehaviorCollection>
+        <behaviors:EventToCommand EventName="Navigated"
+                                  Command="{Binding AddCardWebViewNavigatedCommand}" />
+      </behaviors:BehaviorCollection>
+    </behaviors:Interaction.Behaviors>
+  </controls:WebViewCustom>
+</controls:TopBarContentPage>

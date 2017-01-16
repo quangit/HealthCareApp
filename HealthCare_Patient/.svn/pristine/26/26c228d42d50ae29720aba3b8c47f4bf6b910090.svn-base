@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            x:Class="HealthCare.Pages.PromotionDetailPage"
+                            PageType="{x:Type pages:PromotionDetailPage}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            Title="{x:Static resx:AppResources.promotion_detail}"
+                            BindingContext="{Binding VmPromotion.SelectedItem, Source={StaticResource Locator}}"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:Key="PromotionPercentPadding"
+                  x:TypeArguments="Thickness"
+                  iOS="0,10,12,0"
+                  Android="0,10,12,0"
+                  WinPhone="0,10,12,0" />
+      <OnPlatform x:Key="MainContentPadding"
+                  x:TypeArguments="Thickness"
+                  iOS="24,20,24,0"
+                  Android="24,20,24,0"
+                  WinPhone="24,20,24,0" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ImageHeightPromotion"
+                  iOS="96" Android="96" WinPhone="110" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="TitleFontSize"
+        iOS="{x:Static helpers:HcStyles.FontSizeTitle}"
+        Android="{x:Static helpers:HcStyles.FontSizeTitle}"
+        WinPhone="{x:Static helpers:HcStyles.FontSizeContent}" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="PercentCircleSize"
+               iOS="42" Android="42" WinPhone="80"/>
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+
+  <Grid BackgroundColor="Transparent">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+    <StackLayout Padding="{StaticResource MainContentPadding}" BackgroundColor="Transparent">
+      <StackLayout Orientation="Vertical" BackgroundColor="White" VerticalOptions="FillAndExpand">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"
+                     Padding="0,12,0,0">
+          <Image
+              Source="{Binding Hospital.Photos.Logo, Converter={StaticResource UriToImageLoaderConverter}}"
+              HeightRequest="{StaticResource ImageHeightPromotion}"
+              WidthRequest="{StaticResource ImageHeightPromotion}"
+              Aspect="AspectFit" />
+          <Label Text="{Binding Name}" Style="{x:Static helpers:HcStyles.LabelTitleStyle}"
+                 FontSize="{StaticResource TitleFontSize}"
+                 FontAttributes="Bold" TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                 LineBreakMode="MiddleTruncation"
+                 HorizontalOptions="Center" VerticalOptions="Center" />
+        </StackLayout>
+        <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="10*" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackLayout Orientation="Vertical" Padding="0, 20, 0, 30" Spacing="12" Grid.Column="1">
+              <controls:ContentControl Title="{x:Static resx:AppResources.promotion_time}"
+                                       Icon="ic_date.png">
+                <controls:ContentControl.ViewContent>
+                  <Grid>
+                    <Grid.RowDefinitions>
+                      <RowDefinition Height="Auto" />
+                      <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="Auto" />
+                      <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{x:Static resx:AppResources.from}"
+                           Style="{x:Static helpers:HcStyles.LabelContentStyle}" Grid.Row="0"
+                           Grid.Column="0" />
+                    <Label Text="{x:Static resx:AppResources.to}"
+                           Style="{x:Static helpers:HcStyles.LabelContentStyle}" Grid.Row="1"
+                           Grid.Column="0" />
+                    <Label
+                        Text="{Binding StartDateTime, Converter={StaticResource LocalTimeZoneConverter}, 
+                           StringFormat='{0:dd/MM/yyyy}'}"
+                        Style="{x:Static helpers:HcStyles.LabelContentStyle}" Grid.Row="0"
+                        Grid.Column="1" />
+                    <Label
+                        Text="{Binding EndDateTime,Converter={StaticResource LocalTimeZoneConverter},
+                           StringFormat='{0:dd/MM/yyyy}'}"
+                        Style="{x:Static helpers:HcStyles.LabelContentStyle}" Grid.Row="1"
+                        Grid.Column="1" />
+                  </Grid>
+                </controls:ContentControl.ViewContent>
+              </controls:ContentControl>
+              <controls:ContentControl Title="{x:Static resx:AppResources.detail}"
+                                       Icon="ic_description.png">
+                <controls:ContentControl.ViewContent>
+                  <StackLayout>
+                    <Label Text="{Binding Content}"
+                           Style="{x:Static helpers:HcStyles.LabelContentStyle}"
+                           LineBreakMode="WordWrap" />
+                  </StackLayout>
+                </controls:ContentControl.ViewContent>
+              </controls:ContentControl>
+              <controls:ContentControl Title="{x:Static resx:AppResources.address}"
+                                       Icon="ic_location.png">
+                <controls:ContentControl.ViewContent>
+                  <StackLayout>
+                    <Label Text="{Binding Hospital.Address}"
+                           Style="{x:Static helpers:HcStyles.LabelContentStyle}"
+                           LineBreakMode="WordWrap" />
+                  </StackLayout>
+                </controls:ContentControl.ViewContent>
+              </controls:ContentControl>
+              <controls:ContentControl Title="{x:Static resx:AppResources.contact}" Icon="ic_call.png">
+                <controls:ContentControl.ViewContent>
+                  <StackLayout>
+                    <Label
+                        Text="{Binding Hospital.PhoneNo, Converter={StaticResource ArrayToFirstItemConverter}}"
+                        Style="{x:Static helpers:HcStyles.LabelContentStyle}"
+                        LineBreakMode="WordWrap" />
+                  </StackLayout>
+                </controls:ContentControl.ViewContent>
+              </controls:ContentControl>
+            </StackLayout>
+          </Grid>
+        </ScrollView>
+      </StackLayout>
+    </StackLayout>
+
+    <Grid Padding="{StaticResource PromotionPercentPadding}"
+          VerticalOptions="FillAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="0">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
+      <RelativeLayout VerticalOptions="StartAndExpand" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="0" 
+                    WidthRequest="{StaticResource PercentCircleSize}"  HeightRequest="{StaticResource PercentCircleSize}">
+        <Image Source="ic_rounder.png" Aspect="AspectFill"
+               RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+
+               RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+
+               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                         Property=Width}"
+               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                         Property=Height}" />
+
+        <Label Text="{Binding DiscountPercent, StringFormat='{0}%'}" x:Name="lbPercent"
+               Style="{x:Static helpers:HcStyles.LabelTitleStyle}" TextColor="White" HorizontalOptions="Center"
+               VerticalOptions="Center" Opacity="0" />
+      </RelativeLayout>
+      <Label Text="{Binding DiscountPercent, StringFormat='{0}%'}"
+             Style="{x:Static helpers:HcStyles.LabelTitleStyle}" TextColor="White" HorizontalOptions="Center"
+             VerticalOptions="Center" />
+    </Grid>
+  </Grid>
+</controls:TopBarContentPage>

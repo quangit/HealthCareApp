@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            x:Class="HealthCare.Pages.CheckupDetailPage"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            PageType="{x:Type pages:CheckupDetailPage}"
+                            BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                            Title="{x:Static resx:AppResources.checkup_detail}"
+                            BindingContext="{Binding VmCheckup, Source={StaticResource Locator}}">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="x:Double" x:Key="TopLineHeight"
+                  iOS="2" Android="2" WinPhone="4" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonInfoSize"
+                  iOS="20" Android="24" WinPhone="30" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SeparatorLineHeight"
+                  iOS="1" Android="1" WinPhone="2" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="StackLevel1Padding"
+                  iOS="20,20,20,8" Android="20,20,24,8" WinPhone="24,24,24,8" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="StackTopBlockPadding"
+                  iOS="10,0,4,4" Android="10,0,4,4" WinPhone="8,0,8,8" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="StackLevel2Padding"
+                  iOS="8,0,8,10" Android="8,0,8,10" WinPhone="8,0,8,8" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="GridPadding"
+                  iOS="8,8" Android="8,8" WinPhone="8,4" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="TickDoneSize"
+                  iOS="28" Android="28" WinPhone="52" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonHeight2"
+                  iOS="20" Android="40" WinPhone="80" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonWidth"
+                  iOS="80" Android="80" WinPhone="140" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="RatingControlWidth"
+                  iOS="80" Android="60" WinPhone="200" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="GridLenghtButton"
+                  iOS="0.25*" Android="0.25*" WinPhone="0.15*" />
+
+      <OnPlatform x:TypeArguments="Thickness" x:Key="PaddingButton"
+                      iOS="0,0,0,16" Android="0,-10,0,10" WinPhone="0,-4" />
+
+      <OnPlatform x:TypeArguments="Thickness" x:Key="StackRattingPadding"
+                         iOS="0" Android="0,10,0,-10" WinPhone="0" />
+
+      <OnPlatform x:Key="SwithPadding" x:TypeArguments="Thickness"
+                 iOS="0" Android="0" WinPhone="0,-20" />"
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+
+  <ScrollView>
+    <StackLayout BackgroundColor="Transparent"
+                 VerticalOptions="FillAndExpand"
+                 Padding="{StaticResource StackLevel1Padding}">
+
+      <StackLayout BackgroundColor="White"
+                   VerticalOptions="Start">
+
+        <ContentView HorizontalOptions="FillAndExpand"
+                     HeightRequest="{StaticResource TopLineHeight}"
+                     BackgroundColor="{Binding SelectedItem.ViewColor}" />
+
+        <!--Top block-->
+        <StackLayout Orientation="Horizontal"
+                     Padding="{StaticResource StackTopBlockPadding}"
+                     BackgroundColor="Transparent">
+
+          <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+            <Label Text="{Binding SelectedItem.UserAsString}"
+                   FontAttributes="Bold" HorizontalOptions="CenterAndExpand"
+                   Style="{StaticResource LabelContentStyle}" />
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+              <!--<Label Text=" "
+                     FontAttributes="Bold" HorizontalOptions="CenterAndExpand"
+                     Style="{StaticResource LabelSubContentStyle}" />-->
+              <Label x:Name="lbAppointmentNo"
+                     Text="{Binding SelectedItem.AppointmentNoString}"
+                     FontAttributes="Bold"
+                     Style="{StaticResource LabelSubContentStyle}" />
+            </StackLayout>
+          </StackLayout>
+
+          <Image Source="ic_tick_done.png"
+                 HeightRequest="{StaticResource TickDoneSize}"
+                 WidthRequest="{StaticResource TickDoneSize}"
+                 IsVisible="{Binding SelectedItem.IsFinishedCheckup}"
+                 HorizontalOptions="End"
+                 Aspect="AspectFit" />
+        </StackLayout>
+
+        <StackLayout Orientation="Vertical"
+                     Padding="{StaticResource StackLevel2Padding}">
+
+
+          <!--First block-->
+          <Grid Padding="{StaticResource GridPadding}"
+                BackgroundColor="Transparent">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="{x:Static resx:AppResources.checkup_doctor}"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   FontAttributes="Bold"
+                   TextColor="{Binding SelectedItem.ViewColor}"
+                   Style="{StaticResource LabelContentStyle}" />
+
+            <Image Source="{Binding SelectedItem.TickImageSource}"
+                   Grid.Row="0"
+                   Grid.Column="2"
+                   IsVisible="{Binding SelectedItem.TickImageSource, Converter={StaticResource NullToFalseConverter}}"
+                   HeightRequest="{StaticResource TickDoneSize}"
+                   WidthRequest="{StaticResource TickDoneSize}"
+                   Aspect="AspectFit" />
+
+            <Label Text="{x:Static resx:AppResources.schedule}"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   FontAttributes="Bold"
+                   TextColor="{Binding SelectedItem.ViewColor}"
+                   Style="{StaticResource LabelContentStyle}" />
+
+            <!--Content-->
+            <Label Text="{Binding SelectedItem.Schedule.Doctor.FullName}"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   Style="{StaticResource LabelContentWordWrapStyle}" />
+
+            <Label Text="{Binding SelectedItem.ScheduleTimeString}"
+                   Grid.Row="2"
+                   Grid.Column="1"
+                   Grid.ColumnSpan="2"
+                   Style="{StaticResource LabelContentWordWrapStyle}" />
+
+            <!--Rating-->
+            <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Padding="{StaticResource StackRattingPadding}" Orientation="Horizontal" HorizontalOptions="CenterAndExpand"
+                  IsVisible="{Binding SelectedItem.IsFinishedCheckup}">
+              <!--<Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+              </Grid.ColumnDefinitions>-->
+              <controls:RatingControl Value="{Binding SelectedItem.Rating, Mode=TwoWay}" Grid.Column="0" HorizontalOptions="Start"
+                                      IsEnabled="{Binding SelectedItem.IsRated, Converter={StaticResource BoolRevertConverter}}"
+                                      WidthRequest="{StaticResource RatingControlWidth}" />
+              <controls:ButtonRadiusControl Text="{x:Static resx:AppResources.submit}"
+                                                          HorizontalOptions="Center"
+                                                          Padding="{StaticResource PaddingButton}"
+                                                          x:Name="btnSetRating"
+                                                          BgHeight="{StaticResource ButtonHeight2}"
+                                                          Grid.Column="1"
+                                                          Command="{Binding Path= VmCheckup.SetRatingCommand,Source={StaticResource Locator}}"
+                                                          IsVisible="{Binding SelectedItem.IsRated, Converter={StaticResource BoolRevertConverter}}"
+                                                          TextPadding="0" BgWidth="{StaticResource ButtonWidth}" />
+            </StackLayout>
+
+          </Grid>
+
+          <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderGrayColor}"
+                       HeightRequest="{StaticResource SeparatorLineHeight}"
+                       HorizontalOptions="FillAndExpand" />
+
+          <!--Second block-->
+          <Grid Padding="{StaticResource GridPadding}"
+                BackgroundColor="Transparent">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="{x:Static resx:AppResources.checkup_exam_place}"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   FontAttributes="Bold"
+                   TextColor="{Binding SelectedItem.ViewColor}"
+                   Style="{StaticResource LabelContentStyle}" />
+
+            <Image Source="ic_info_hospital.png"
+                   Grid.Row="0"
+                   WidthRequest="{StaticResource ButtonInfoSize}"
+                   HeightRequest="{StaticResource ButtonInfoSize}"
+                   Grid.Column="2"
+                   IsVisible="{Binding SelectedItem.CanViewHospitalDetail}"
+                   Aspect="AspectFit">
+
+              <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding GoToHospitalPageCommand}" />
+              </Image.GestureRecognizers>
+            </Image>
+
+            <Label Text="{x:Static resx:AppResources.checkup_checkup_type}"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   FontAttributes="Bold"
+                   TextColor="{Binding SelectedItem.ViewColor}"
+                   Style="{StaticResource LabelContentStyle}" />
+
+            <Label Text="{x:Static resx:AppResources.checkup_exam_place_room}"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   FontAttributes="Bold"
+                   IsVisible="{Binding SelectedItem.IsShowExamPlaceRoom}"
+                   TextColor="{Binding SelectedItem.ViewColor}"
+                   Style="{StaticResource LabelContentStyle}" />
+
+            <!--Content-->
+            <Label Text="{Binding SelectedItem.Schedule.Hospital.AsString}"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   Style="{StaticResource LabelContentWordWrapStyle}" />
+
+            <Label Text="{Binding SelectedItem.Schedule.CheckupType.Name}"
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   Style="{StaticResource LabelContentWordWrapStyle}" />
+
+            <Label Text="{Binding SelectedItem.Room.Name}"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    IsVisible="{Binding SelectedItem.IsShowExamPlaceRoom}"
+                    Style="{StaticResource LabelContentWordWrapStyle}" />
+          </Grid>
+
+          <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderGrayColor}"
+                       HeightRequest="{StaticResource SeparatorLineHeight}"
+                       HorizontalOptions="FillAndExpand" />
+
+          <!--Third block-->
+          <Grid Padding="{StaticResource GridPadding}"
+                BackgroundColor="Transparent">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="{x:Static resx:AppResources.checkup_status_title}"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"
+                   LineBreakMode="WordWrap"
+                   TextColor="{Binding SelectedItem.ViewColor}"
+                   IsVisible="{Binding SelectedItem.IsFinishedCheckup, Converter={StaticResource BoolRevertConverter}}"
+                   Style="{StaticResource LabelContentStyle}" />
+
+            <Label Text="{x:Static resx:AppResources.use_insurance}"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"
+                   LineBreakMode="WordWrap"
+                   TextColor="{Binding SelectedItem.ViewColor}"
+                   Style="{StaticResource LabelContentStyle}" />
+
+            <Label Text="{Binding SelectedItem.StatusString}"
+                  Grid.Row="0" Grid.Column="1"
+                  VerticalOptions="Center"
+                  HorizontalOptions="StartAndExpand"
+                  IsVisible="{Binding SelectedItem.IsFinishedCheckup, Converter={StaticResource BoolRevertConverter}}"
+                  Style="{StaticResource LabelContentWordWrapStyle}" />
+            <Label Text="{Binding SelectedItem.IsHealthInsuranceString}"
+                  Grid.Row="1" Grid.Column="1"
+                  VerticalOptions="Center"
+                  HorizontalOptions="StartAndExpand"
+                  Style="{StaticResource LabelContentWordWrapStyle}" />
+          </Grid>
+
+          <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderGrayColor}"
+                    HeightRequest="{StaticResource SeparatorLineHeight}"
+                    HorizontalOptions="FillAndExpand" />
+
+          <!--Fouth block-->
+          <Grid Padding="{StaticResource GridPadding}"
+                BackgroundColor="Transparent">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="{x:Static resx:AppResources.checkup_symptom}"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   FontAttributes="Bold"
+                   TextColor="{Binding SelectedItem.ViewColor}"
+                   Style="{StaticResource LabelContentStyle}" />
+
+            <!--Content-->
+            <Label Text="{Binding SelectedItem.Symptom}"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Style="{StaticResource LabelContentWordWrapStyle}" />
+
+          </Grid>
+
+          <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderGrayColor}"
+                       HeightRequest="{StaticResource SeparatorLineHeight}"
+                       HorizontalOptions="FillAndExpand"
+                       IsVisible="{Binding SelectedItem.IsShowResultBlock}" />
+
+          <!--Four block-->
+          <Grid Padding="{StaticResource GridPadding}"
+                BackgroundColor="Transparent"
+                IsVisible="{Binding SelectedItem.IsShowResultBlock}">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="{x:Static resx:AppResources.checkup_result}"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   FontAttributes="Bold"
+                   TextColor="{Binding SelectedItem.ViewColor}"
+                   Style="{StaticResource LabelContentStyle}" />
+
+            <!--Content-->
+            <Label Text="{Binding SelectedItem.Result}"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Style="{StaticResource LabelContentWordWrapStyle}" />
+
+          </Grid>
+
+        </StackLayout>
+
+
+        <controls:ButtonCustom Style="{StaticResource ButtonStyle}"
+                               Text="{x:Static resx:AppResources.checkup_payment}"
+                               IsVisible="{Binding SelectedItem.IsShowButtonBlockReverse}"
+                               Opacity="0"
+                               BackgroundColor="{Binding SelectedItem.ViewColor}" />
+
+
+        <!--Bottom block-->
+        <Grid Padding="{StaticResource GridPadding}"
+              BackgroundColor="Transparent"
+              IsVisible="{Binding SelectedItem.IsShowButtonBlock}">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="{StaticResource GridLenghtButton}" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+
+          <controls:ButtonCustom Style="{StaticResource ButtonStyle}"
+                                 Text="{Binding SelectedItem.DeleteString}"
+                                 Grid.Row="0"
+                                 Grid.Column="0"
+                                 IsVisible="{Binding SelectedItem.IsDeleteable}"
+                                 Command="{Binding DeleteCheckupCommand}"
+                                 BackgroundColor="{Binding SelectedItem.ViewColor}" />
+
+          <controls:ButtonCustom Style="{StaticResource ButtonStyle}"
+                                 Text="{x:Static resx:AppResources.checkup_edit_schedule}"
+                                 Grid.Row="0"
+                                 Grid.Column="2"
+                                 IsVisible="{Binding SelectedItem.IsEditable}"
+                                 Command="{Binding EditScheduleCommand}"
+                                 BackgroundColor="{Binding SelectedItem.ViewColor}" />
+
+          <controls:ButtonCustom Style="{StaticResource ButtonStyle}"
+                                 Text="{x:Static resx:AppResources.checkup_payment}"
+                                 Grid.Row="1"
+                                 Grid.Column="0"
+                                 Grid.ColumnSpan="3"
+                                 Command="{Binding GoPaymentCommand}"
+                                 IsVisible="{Binding SelectedItem.IsPayable}"
+                                 BackgroundColor="{Binding SelectedItem.ViewColor}" />
+        </Grid>
+
+      </StackLayout>
+    </StackLayout>
+  </ScrollView>
+</controls:TopBarContentPage>

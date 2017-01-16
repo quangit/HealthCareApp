@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+             x:Class="HealthCare.Pages.TestPage"
+             BindingContext="{Binding VmLogin, Source={StaticResource Locator}}"
+             xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+             BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+             xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+             xmlns:viewModels="clr-namespace:HealthCare.ViewModels;assembly=HealthCare"
+             xmlns:chBaseModel="clr-namespace:HealthCare.Models.ChBaseModel;assembly=HealthCare"
+             Title="{x:Static resx:AppResources.promotion}">
+
+  <ContentPage.Resources>
+    <ResourceDictionary>
+
+      <OnPlatform x:TypeArguments="Thickness" x:Key="GridPadding"
+                  iOS="8,8" Android="8,8" WinPhone="8,4" />
+
+      <DataTemplate x:Key="OneLineTemplate">
+        <ViewCell>
+          <ViewCell.View>
+
+
+            <Grid Padding="{StaticResource GridPadding}"
+                  BackgroundColor="Blue">
+              <!--<Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>-->
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+
+              <Label Text="{Binding Title1}"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     FontAttributes="Bold"
+                     TextColor="Red"
+                     Style="{StaticResource LabelContentStyle}" />
+
+              <!--Content-->
+              <Label Text="{Binding Value1}"
+                     Grid.Row="0"
+                     Grid.Column="1"
+                     Style="{StaticResource LabelContentWordWrapStyle}" />
+            </Grid>
+          </ViewCell.View>
+        </ViewCell>
+      </DataTemplate>
+
+      <DataTemplate x:Key="TwoLineTemplate">
+        <ViewCell>
+          <ViewCell.View>
+            <Grid Padding="{StaticResource GridPadding}"
+                  BackgroundColor="Yellow">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+
+              <Label Text="{Binding Title1}"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     FontAttributes="Bold"
+                     TextColor="Red"
+                     Style="{StaticResource LabelContentStyle}" />
+
+              <Label Text="{Binding Title2}"
+                     Grid.Row="1"
+                     Grid.Column="0"
+                     FontAttributes="Bold"
+                     TextColor="Red"
+                     Style="{StaticResource LabelContentStyle}" />
+
+              <!--Content-->
+              <Label Text="{Binding Value1}"
+                     Grid.Row="0"
+                     Grid.Column="1"
+                     Style="{StaticResource LabelContentWordWrapStyle}" />
+              <Label Text="{Binding Value2}"
+                     Grid.Row="1"
+                     Grid.Column="1"
+                     Style="{StaticResource LabelContentWordWrapStyle}" />
+            </Grid>
+          </ViewCell.View>
+        </ViewCell>
+      </DataTemplate>
+
+      <chBaseModel:CHBaseDetailTemplateSelector x:Key="ChBaseDetailTemplateSelector"
+                                               OneLineDataTemplate="{StaticResource OneLineTemplate}" TwoLineDataTemplate="{StaticResource TwoLineTemplate}"/>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  <controls:HcListView x:TypeArguments="chBaseModel:CHBaseDetailUIModel"
+                       CanLoadMore="False"
+                       ItemsSource="{Binding ListDetail}"
+                       ItemCount="10"
+                       
+                       EmptyText="Empty" >
+    <controls:HcListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <ViewCell.View>
+
+            <Grid Padding="{StaticResource GridPadding}"
+                  BackgroundColor="Blue">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+
+              <Label Text="{Binding Title1}"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     FontAttributes="Bold"
+                     TextColor="Red"
+                     Style="{StaticResource LabelContentStyle}" />
+
+              Content
+              <Label Text="{Binding Value1}"
+                     Grid.Row="0"
+                     Grid.Column="1"
+                     Style="{StaticResource LabelContentWordWrapStyle}" />
+            </Grid>
+          </ViewCell.View>
+        </ViewCell>
+      </DataTemplate>
+    </controls:HcListView.ItemTemplate>
+  </controls:HcListView>
+
+</ContentPage>

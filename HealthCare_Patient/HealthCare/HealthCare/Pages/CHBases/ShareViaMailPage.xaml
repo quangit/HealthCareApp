@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+             xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+             xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+             xmlns:chpages="clr-namespace:HealthCare.Pages.CHBases;assembly=HealthCare"
+             PageType="{x:Type chpages:ShareViaMailPage}"
+             x:Class="HealthCare.Pages.CHBases.ShareViaMailPage"
+             Title="{x:Static resx:AppResources.share_via_email}"
+             BindingContext="{Binding VmShareViaEmail,Source={StaticResource Locator}}"
+             BackgroundColor="White">
+
+  <StackLayout>
+    <!--<Label Style="{StaticResource LabelTitleStyle}" Text="Share via email"></Label>-->
+    <Grid Padding="5">
+      <Label  Style="{StaticResource LabelSubContentStyle}" Text="{x:Static resx:AppResources.note_in_share_via_email_page}"></Label>
+    </Grid>
+    <controls:HcEntry  Source="ic_mail_about.png" PlaceHolder="{x:Static resx:AppResources.email}" Text="{Binding Email}"></controls:HcEntry>
+    <StackLayout>
+      <Button Style="{StaticResource ButtonStyle}" Text="{x:Static resx:AppResources.share}" Command="{Binding ShareCommand}" HorizontalOptions="End" WidthRequest="200"></Button>
+    </StackLayout>
+  </StackLayout>
+</controls:TopBarContentPage>

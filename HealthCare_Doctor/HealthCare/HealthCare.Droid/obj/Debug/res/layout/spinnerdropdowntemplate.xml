@@ -1,0 +1,1 @@
+<TextView android:layout_width="match_parent" android:textColor="@android:color/black" android:layout_height="wrap_content" android:textSize="14dp" android:hint="Abc" local:MvxBind="Text value" xmlns:local="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android" />

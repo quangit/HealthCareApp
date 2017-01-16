@@ -1,0 +1,16 @@
+﻿<menu xmlns:android=
+      "http://schemas.android.com/apk/res/android"
+      xmlns:yourapp="http://schemas.android.com/apk/res-auto">
+  <item
+     android:id="@+id/calendar_add"
+     android:icon="@drawable/calendar_add"
+     yourapp:showAsAction="ifRoom"
+     android:title="Add">
+  </item>
+ <!-- <item
+     android:id="@+id/calendar_edit"
+     android:icon="@drawable/calendar_edit"
+     yourapp:showAsAction="ifRoom"
+     android:title="Edit"> 
+  </item> -->
+</menu>

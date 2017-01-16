@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LocalNotifications.Plugin</name>
+    </assembly>
+    <members>
+        <member name="T:LocalNotifications.Plugin.CrossLocalNotifications">
+            <summary>
+            Cross platform LocalNotifications implementation
+            </summary>
+        </member>
+        <member name="M:LocalNotifications.Plugin.CrossLocalNotifications.CreateLocalNotifier">
+            <summary>
+            Creates the local notifier.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

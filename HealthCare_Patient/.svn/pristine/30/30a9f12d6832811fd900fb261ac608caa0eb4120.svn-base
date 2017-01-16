@@ -1,0 +1,536 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{565B214E-9D25-4FAE-8273-1CD2CD91922B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>HealthCare.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>HealthCareiOS</AssemblyName>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>i386</MtouchArch>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchDebug>True</MtouchDebug>
+    <MtouchProfiling>False</MtouchProfiling>
+    <CodesignKey>iPhone Distribution: Customer Loyalty and Acquisition Services Company Limited (CVQHA34643)</CodesignKey>
+    <MtouchUseRefCounting>True</MtouchUseRefCounting>
+    <MtouchSdkVersion>9.2</MtouchSdkVersion>
+    <MtouchOptimizePNGs>True</MtouchOptimizePNGs>
+    <BuildIpa>False</BuildIpa>
+    <IpaIncludeArtwork>False</IpaIncludeArtwork>
+    <MtouchFastDev>False</MtouchFastDev>
+    <MtouchUseLlvm>False</MtouchUseLlvm>
+    <MtouchUseThumb>False</MtouchUseThumb>
+    <MtouchEnableBitcode>False</MtouchEnableBitcode>
+    <MtouchUseSGen>False</MtouchUseSGen>
+    <OptimizePNGs>True</OptimizePNGs>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchFloat32>False</MtouchFloat32>
+    <CodesignProvision>da7c73a9-d8d1-4abe-a034-6b1dbbae4c97</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Distribution: Customer Loyalty and Acquisition Services Company Limited (CVQHA34643)</CodesignKey>
+    <BuildIpa>True</BuildIpa>
+    <IpaPackageName>
+    </IpaPackageName>
+    <CodesignProvision>96ed8b7a-2373-446d-a0dc-6881ac95d72c</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>i386</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <CodesignKey>iPhone Distribution: Customer Loyalty and Acquisition Services Company Limited (CVQHA34643)</CodesignKey>
+    <CodesignProvision>96ed8b7a-2373-446d-a0dc-6881ac95d72c</CodesignProvision>
+    <MtouchSdkVersion>9.2</MtouchSdkVersion>
+    <MtouchDebug>False</MtouchDebug>
+    <MtouchProfiling>False</MtouchProfiling>
+    <MtouchFastDev>False</MtouchFastDev>
+    <MtouchUseLlvm>False</MtouchUseLlvm>
+    <MtouchUseThumb>False</MtouchUseThumb>
+    <MtouchEnableBitcode>False</MtouchEnableBitcode>
+    <MtouchUseSGen>False</MtouchUseSGen>
+    <MtouchUseRefCounting>False</MtouchUseRefCounting>
+    <OptimizePNGs>True</OptimizePNGs>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchFloat32>False</MtouchFloat32>
+    <BuildIpa>True</BuildIpa>
+    <IpaIncludeArtwork>False</IpaIncludeArtwork>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchProfiling>True</MtouchProfiling>
+    <CodesignKey>iPhone Distribution: Customer Loyalty and Acquisition Services Company Limited (CVQHA34643)</CodesignKey>
+    <MtouchDebug>True</MtouchDebug>
+    <MtouchSdkVersion>8.3</MtouchSdkVersion>
+    <MtouchOptimizePNGs>True</MtouchOptimizePNGs>
+    <CodesignProvision>5adaa905-ab16-47b9-9763-d0162c22d420</CodesignProvision>
+    <BuildIpa>True</BuildIpa>
+    <IpaIncludeArtwork>False</IpaIncludeArtwork>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Connectivity.Plugin">
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.2\lib\Xamarin.iOS10\Connectivity.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Connectivity.Plugin.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.1.0.2\lib\Xamarin.iOS10\Connectivity.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook">
+      <HintPath>..\..\Components\facebook-sdk-6.2.2\lib\ios-unified\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Geolocator.Plugin">
+      <HintPath>..\..\libs\ios\Geolocator.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Geolocator.Plugin.Abstractions">
+      <HintPath>..\..\libs\ios\Geolocator.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.Auth">
+      <HintPath>..\..\packages\Xamarin.Auth.0.0.2-alpha\lib\Xamarin.iOS10\Xamarin.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="Calabash">
+      <HintPath>..\..\packages\Xamarin.TestCloud.Agent.0.14.1\lib\Xamarin.iOS10\Calabash.dll</HintPath>
+    </Reference>
+    <Reference Include="ExifLib">
+      <HintPath>..\..\packages\ExifLib.PCL.1.0.1\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Ioc">
+      <HintPath>..\..\packages\XLabs.IoC.2.0.5679\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10\XLabs.Ioc.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Core">
+      <HintPath>..\..\packages\XLabs.Core.2.0.5679\lib\Xamarin.iOS10\XLabs.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Platform.iOS">
+      <HintPath>..\..\packages\XLabs.Platform.2.0.5679\lib\Xamarin.iOS10\XLabs.Platform.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Platform">
+      <HintPath>..\..\packages\XLabs.Platform.2.0.5679\lib\Xamarin.iOS10\XLabs.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Serialization">
+      <HintPath>..\..\packages\XLabs.Serialization.2.0.5679\lib\Xamarin.iOS10\XLabs.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Forms.iOS">
+      <HintPath>..\..\packages\XLabs.Forms.2.0.5679\lib\Xamarin.iOS10\XLabs.Forms.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Forms">
+      <HintPath>..\..\packages\XLabs.Forms.2.0.5679\lib\Xamarin.iOS10\XLabs.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Refractored.Xam.Settings">
+      <HintPath>..\..\packages\Xam.Plugins.Settings.1.5.2\lib\Xamarin.iOS10\Refractored.Xam.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Refractored.Xam.Settings.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugins.Settings.1.5.2\lib\Xamarin.iOS10\Refractored.Xam.Settings.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.Support.iOS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Acr.Support.1.0.2\lib\Xamarin.iOS10\Acr.Support.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.UserDialogs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Acr.UserDialogs.4.1.8\lib\Xamarin.iOS10\Acr.UserDialogs.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.UserDialogs.Interface, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Acr.UserDialogs.4.1.8\lib\Xamarin.iOS10\Acr.UserDialogs.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="BTProgressHUD, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Acr.UserDialogs.4.1.8\lib\Xamarin.iOS10\BTProgressHUD.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.2.0.37222, Culture=neutral, PublicKeyToken=e7570ab207bcb616">
+      <HintPath>..\..\packages\MvvmLightLibs.5.2.0.0\lib\xamarin.ios10\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.2.0.37222, Culture=neutral, PublicKeyToken=669f0b5e8f868abf">
+      <HintPath>..\..\packages\MvvmLightLibs.5.2.0.0\lib\xamarin.ios10\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.2.0.37259, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\MvvmLightLibs.5.2.0.0\lib\xamarin.ios10\GalaSoft.MvvmLight.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Media.Plugin, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xam.Plugin.Media.1.0.3\lib\Xamarin.iOS10\Media.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Media.Plugin.Abstractions, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xam.Plugin.Media.1.0.3\lib\Xamarin.iOS10\Media.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat, Version=1.6.2.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Splat.1.6.2\lib\Xamarin.iOS10\Splat.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Maps, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xamarin.Forms.Maps.1.4.4.6392\lib\Xamarin.iOS10\Xamarin.Forms.Maps.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Maps.iOS, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xamarin.Forms.Maps.1.4.4.6392\lib\Xamarin.iOS10\Xamarin.Forms.Maps.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="WebP.Touch">
+      <HintPath>..\..\packages\WebP.Touch.1.0.1\lib\Xamarin.iOS10\WebP.Touch.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Touch">
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.2.0.6\lib\Xamarin.iOS10\FFImageLoading.Touch.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading">
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.2.0.6\lib\Xamarin.iOS10\FFImageLoading.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Forms">
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.Forms.2.0.6\lib\Xamarin.iOS10\FFImageLoading.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Forms.Touch">
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.Forms.2.0.6\lib\Xamarin.iOS10\FFImageLoading.Forms.Touch.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Transformations">
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.Transformations.2.0.6\lib\Xamarin.iOS10\FFImageLoading.Transformations.dll</HintPath>
+    </Reference>
+    <Reference Include="PDRating">
+      <HintPath>..\..\Components\pdreview-2.0.2\lib\ios-unified\PDRating.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform.iOS">
+      <HintPath>..\..\packages\Xamarin.Forms.2.0.1.6505\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\..\packages\Xamarin.Forms.2.0.1.6505\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\..\packages\Xamarin.Forms.2.0.1.6505\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\..\packages\Xamarin.Forms.2.0.1.6505\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="BTProgressHUD">
+      <HintPath>..\..\Components\btprogresshud-1.20\lib\ios-unified\BTProgressHUD.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\Icon-60%403x.png" />
+    <BundleResource Include="Resources\Icon-76.png" />
+    <BundleResource Include="Resources\Icon-76%402x.png" />
+    <BundleResource Include="Resources\Icon-Small%402x.png" />
+    <BundleResource Include="Resources\Icon-Small-40.png" />
+    <BundleResource Include="Resources\Icon-Small-40%402x.png" />
+    <BundleResource Include="Resources\Icon-Small-40%403x.png" />
+    <BundleResource Include="Resources\ic_plus.png" />
+    <BundleResource Include="Resources\ic_search_white.png" />
+    <BundleResource Include="ic_rect.png" />
+    <Content Include="PluginsHelp\ConnectivityReadme.txt" />
+    <BundleResource Include="Resources\ic_arrow.png" />
+    <BundleResource Include="Resources\ic_arrow_dropdown.png" />
+    <BundleResource Include="Resources\ic_avatar_placeholder.png" />
+    <BundleResource Include="Resources\ic_button_add.png" />
+    <BundleResource Include="Resources\ic_camera.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\checkbox_off_green.png" />
+    <BundleResource Include="Resources\checkbox_on_green.png" />
+    <BundleResource Include="Resources\cancel.png" />
+    <Content Include="Resources\ic_cc_jcb_small.png" />
+    <Content Include="Resources\ic_cc_mastercard_small.png" />
+    <Content Include="Resources\ic_cc_visa_small.png" />
+    <BundleResource Include="Resources\ic_checkcell.png" />
+    <BundleResource Include="Resources\ic_clear_search.png" />
+    <BundleResource Include="Resources\ic_doctor.png" />
+    <BundleResource Include="Resources\ic_certificate.png" />
+    <Content Include="Resources\ic_expand_more_black_48dp.png" />
+    <Content Include="Resources\ic_expand_less_black_48dp.png" />
+    <Content Include="Resources\ic_close_history.png" />
+    <Content Include="Resources\ic_cvv_num.png" />
+    <Content Include="Resources\ic_date_payment.png" />
+    <BundleResource Include="Resources\ic_info_creditcard.png" />
+    <BundleResource Include="Resources\ic_info_hospital.png" />
+    <BundleResource Include="Resources\ic_Image_50.png" />
+    <Content Include="Resources\ic_key.png" />
+    <BundleResource Include="Resources\ic_logout.png" />
+    <BundleResource Include="Resources\ic_notebook.png" />
+    <BundleResource Include="Resources\ic_occupation.png" />
+    <BundleResource Include="Resources\ic_password_button.png" />
+    <BundleResource Include="Resources\ic_promotion.png" />
+    <BundleResource Include="Resources\ic_promotion_toolbar.png" />
+    <BundleResource Include="Resources\ic_refresh.png" />
+    <BundleResource Include="Resources\ic_rounder.png" />
+    <BundleResource Include="Resources\ic_setting.png" />
+    <BundleResource Include="Resources\ic_tick_accepted.png" />
+    <BundleResource Include="Resources\ic_tick_done.png" />
+    <BundleResource Include="Resources\ic_triangle_green.png" />
+    <BundleResource Include="Resources\ic_triangle_black.png" />
+    <BundleResource Include="Resources\ic_medkit.png" />
+    <BundleResource Include="Resources\ic_operator.png" />
+    <BundleResource Include="Resources\ic_search.png" />
+    <BundleResource Include="Resources\ic_language_doctor.png" />
+    <BundleResource Include="Resources\ic_plug.png" />
+    <BundleResource Include="Resources\ic_medical.png" />
+    <BundleResource Include="Resources\ic_medical_reading.png" />
+    <BundleResource Include="Resources\ic_share.png" />
+    <BundleResource Include="Resources\ic_sale_50.png" />
+    <Content Include="Resources\img_backofcard.png" />
+    <Content Include="Resources\ic_hospital.png" />
+    <Content Include="Resources\ic_chevron_right.png" />
+    <BundleResource Include="Resources\logoheathcare_green1.png" />
+    <Content Include="Resources\logo_scb_card.jpg" />
+    <Content Include="Resources\logo_scb_card.png" />
+    <BundleResource Include="Resources\logo_vietcombank.png" />
+    <Content Include="Resources\round.png" />
+    <Content Include="Resources\banner_promotion.png" />
+    <Content Include="Resources\bg_login.png" />
+    <Content Include="Resources\btLogin.png" />
+    <Content Include="Resources\icon.png" />
+    <Content Include="Resources\ic_password.png" />
+    <Content Include="Resources\ic_username.png" />
+    <Content Include="Resources\logoHeathCare.png" />
+    <Content Include="Resources\placeholder.png" />
+    <Content Include="Resources\fb_btn.png" />
+    <Content Include="Resources\checkbox_on.png" />
+    <Content Include="Resources\checkbox_off.png" />
+    <Content Include="Resources\fb.png" />
+    <Content Include="Resources\line_saleoff_color1.png" />
+    <Content Include="Resources\ic_add.png" />
+    <Content Include="Resources\ic_calendar.png" />
+    <Content Include="Resources\ic_check.png" />
+    <Content Include="Resources\ic_circle.png" />
+    <Content Include="Resources\ic_lock.png" />
+    <Content Include="Resources\ic_person.png" />
+    <Content Include="Resources\ic_phone.png" />
+    <Content Include="Resources\ic_radio_checked.png" />
+    <Content Include="Resources\ic_radio_uncheck.png" />
+    <Content Include="Resources\ic_rectangle.png" />
+    <Content Include="Resources\ic_reload.png" />
+    <Content Include="Resources\line_saleoff_color2.png" />
+    <Content Include="Resources\line_saleoff_color3.png" />
+    <Content Include="Resources\line_saleoff_color4.png" />
+    <Content Include="Resources\ic_back.png" />
+    <Content Include="Resources\bt_add.png" />
+    <Content Include="Resources\bt_restore.png" />
+    <Content Include="Resources\ic_blue.png" />
+    <Content Include="Resources\ic_call.png" />
+    <Content Include="Resources\ic_date.png" />
+    <Content Include="Resources\ic_description.png" />
+    <Content Include="Resources\ic_location.png" />
+    <Content Include="Resources\ic_red.png" />
+    <Content Include="Resources\ic_safeoff.png" />
+    <Content Include="Resources\ic_yellow.png" />
+    <Content Include="Resources\banner_promotion_shine.png" />
+    <Content Include="Resources\bt_add_press.png" />
+    <Content Include="Resources\bt_add_shine.png" />
+    <Content Include="Resources\bt_restore_press.png" />
+    <Content Include="Resources\ic_account_circle_white_36dp.png" />
+    <Content Include="Resources\ic_address_about.png" />
+    <Content Include="Resources\ic_alert.png" />
+    <Content Include="Resources\ic_ambulance.png" />
+    <Content Include="Resources\ic_calendar_brown.png" />
+    <Content Include="Resources\ic_calendar_green.png" />
+    <Content Include="Resources\ic_calendar_red.png" />
+    <Content Include="Resources\ic_calendar_yellow.png" />
+    <Content Include="Resources\ic_cc_jcb.png" />
+    <Content Include="Resources\ic_cc_mastercard.png" />
+    <Content Include="Resources\ic_cc_number.png" />
+    <Content Include="Resources\ic_cc_visa.png" />
+    <Content Include="Resources\ic_clock_green.png" />
+    <Content Include="Resources\ic_close.png" />
+    <Content Include="Resources\ic_close_press.png" />
+    <Content Include="Resources\ic_exit_to_app_white_36dp.png" />
+    <Content Include="Resources\ic_expand_more_black.png" />
+    <Content Include="Resources\ic_fax.png" />
+    <Content Include="Resources\ic_gender.png" />
+    <Content Include="Resources\ic_info.png" />
+    <Content Include="Resources\ic_mail_about.png" />
+    <Content Include="Resources\ic_pencil_green.png" />
+    <Content Include="Resources\ic_pencil_red.png" />
+    <Content Include="Resources\ic_pencil_yellow.png" />
+    <Content Include="Resources\ic_phone_about.png" />
+    <Content Include="Resources\ic_profile.png" />
+    <Content Include="Resources\ic_purchase_red.png" />
+    <Content Include="Resources\ic_purchase_yellow.png" />
+    <Content Include="Resources\ic_safeoff1.png" />
+    <Content Include="Resources\ic_safeoff2.png" />
+    <Content Include="Resources\ic_safeoff3.png" />
+    <Content Include="Resources\ic_safeoff4.png" />
+    <Content Include="Resources\ic_sign_out.png" />
+    <Content Include="Resources\ic_tick_brown.png" />
+    <BundleResource Include="Resources\sologan_n_logo.png" />
+    <Content Include="Resources\tab_about.png" />
+    <Content Include="Resources\tab_account.png" />
+    <BundleResource Include="Resources\tab_account_green.png" />
+    <Content Include="Resources\tab_appointment.png" />
+    <BundleResource Include="Resources\logo_scb_card.jpg" />
+    <BundleResource Include="Resources\logo_scb_card.png" />
+    <BundleResource Include="Resources\top_bar_bg.png" />
+    <BundleResource Include="Resources\top_bar_ic.png" />
+    <BundleResource Include="Resources\768x1004.png" />
+    <BundleResource Include="Resources\768x1004%402x.png" />
+    <BundleResource Include="Resources\avatar_doctor_female.jpg" />
+    <BundleResource Include="Resources\avatar_doctor_male.jpg" />
+    <BundleResource Include="Resources\avatar_patient_female.jpg" />
+    <BundleResource Include="Resources\avatar_patient_male.jpg" />
+    <BundleResource Include="Resources\banner_logo.png" />
+    <BundleResource Include="Resources\btnQuestion.png" />
+    <BundleResource Include="Resources\button_gui.png" />
+    <BundleResource Include="Resources\cameraIcon.png" />
+    <BundleResource Include="Resources\chosen.png" />
+    <BundleResource Include="Resources\crop.png" />
+    <BundleResource Include="Resources\doctor_icon.png" />
+    <BundleResource Include="Resources\filled.png" />
+    <BundleResource Include="Resources\ic_call_header.png" />
+    <BundleResource Include="Resources\Icon-60%402x.png" />
+    <BundleResource Include="Resources\Icon%402x.png" />
+    <BundleResource Include="Resources\skype_icon.png" />
+    <BundleResource Include="Resources\empty.png" />
+    <BundleResource Include="Resources\ic_notification.png" />
+    <BundleResource Include="Resources\logoheathcare_green.png" />
+    <Content Include="Resources\logoHeathCare_green.png" />
+    <Content Include="Resources\ic_hc_record.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <EmbeddedResource Include="HealthCareCHBase.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="Info.plist">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
+    <None Include="PluginsHelp\SettingsReadme.txt" />
+    <BundleResource Include="Resources\ic_username.png alias" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DependencyServices\ChBaseHash.cs" />
+    <Compile Include="DependencyServices\ClearCacheWebView.cs" />
+    <Compile Include="DependencyServices\FacebookHelperiOS.cs" />
+    <Compile Include="DependencyServices\ImageResize.cs" />
+    <Compile Include="DependencyServices\Localize.cs" />
+    <Compile Include="DependencyServices\LocalNotifier.cs" />
+    <Compile Include="DependencyServices\PushNotificationRegister.cs" />
+    <Compile Include="DependencyServices\SHA256.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\CalendarArrowView.cs" />
+    <Compile Include="Renderers\CalendarDayView.cs" />
+    <Compile Include="Renderers\CalendarMonthView.cs" />
+    <Compile Include="Renderers\CalendarViewRenderer.cs" />
+    <Compile Include="Renderers\ChBaseWebviewRenderer.cs" />
+    <Compile Include="Renderers\CheckBoxRenderer.cs" />
+    <Compile Include="Renderers\DatePickerCustomRenderer.cs" />
+    <Compile Include="Renderers\ListViewNonSeparatorRenderer.cs" />
+    <Compile Include="Renderers\EntryLoginRenderer.cs" />
+    <Compile Include="Renderers\ButtonCustomRenderer.cs" />
+    <Compile Include="Renderers\MonthGridView.cs" />
+    <Compile Include="Renderers\PickerCustomRenderer.cs" />
+    <Compile Include="Renderers\StyleDescriptor.cs" />
+    <Compile Include="Renderers\TimePickerRenderer.cs" />
+    <Compile Include="Renderers\WebViewJavascriptRenderer.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="Crop\ActionSheetPhoto.cs" />
+    <Compile Include="Crop\CropData.cs" />
+    <Compile Include="Crop\CropLib.cs" />
+    <Compile Include="DependencyServices\DialPhone.cs" />
+    <Compile Include="Renderers\Certificate.cs" />
+    <Compile Include="Renderers\CropperPageRenderer.cs" />
+    <Compile Include="Renderers\ImageCircleRenderer.cs" />
+    <Compile Include="Renderers\RatingRenderer.cs" />
+    <Compile Include="Renderers\WebViewCustomRenderer.cs" />
+    <Compile Include="Renderers\WebviewRenderer.cs" />
+    <Compile Include="Renderers\CropperView.cs" />
+    <Compile Include="Renderers\PlaceholderEditorRenderer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="ITunesArtwork" />
+    <ITunesArtwork Include="ITunesArtwork%402x" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\packages\Xamarin.Forms.1.3.3.6323\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.3.3.6323\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <ItemGroup>
+    <ProjectReference Include="..\HealthCare\HealthCare.csproj">
+      <Project>{03A0A8ED-1640-40D3-B5C4-94E6ADBA3ED6}</Project>
+      <Name>HealthCare</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="facebook-sdk">
+      <Version>6.2.2</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="btprogresshud">
+      <Version>1.20</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="pdreview">
+      <Version>2.0.2</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Import Project="..\..\packages\Xamarin.Forms.2.0.1.6505\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.0.1.6505\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+</Project>

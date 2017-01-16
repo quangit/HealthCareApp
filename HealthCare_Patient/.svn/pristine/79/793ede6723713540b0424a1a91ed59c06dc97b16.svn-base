@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthCare.Controls.ContentControl"
+             BackgroundColor="Transparent"
+             xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:Double" x:Key="IconSize"
+                        iOS="20" Android="20" WinPhone="24" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Image x:Name="imgIcon"
+               Aspect="AspectFit"
+               WidthRequest="{StaticResource IconSize}"
+               HeightRequest="{StaticResource IconSize}"
+               Grid.Row="0" Grid.Column="0"
+               Grid.RowSpan="2" />
+
+        <Label x:Name="lbTitle"
+               Style="{x:Static helpers:HcStyles.LabelContentStyle}"
+               TextColor="{x:Static helpers:HcStyles.GreenColor}"
+               FontAttributes="Bold"
+               Grid.Row="0" Grid.Column="1" />
+
+        <StackLayout BackgroundColor="{x:Static helpers:HcStyles.GreenColor}"
+                     HeightRequest="1"
+                     Grid.Row="1" Grid.Column="1" />
+
+        <ContentView x:Name="cvContent"
+                     Grid.Row="2" Grid.Column="1" />
+    </Grid>
+</ContentView>

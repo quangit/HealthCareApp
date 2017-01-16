@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            x:Class="HealthCare.Pages.SettingPage"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:enums="clr-namespace:HealthCare.Enums;assembly=HealthCare"
+                            xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+                            xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            PageType="{x:Type pages:SettingPage}"
+                            BindingContext="{Binding VmSetting, Source={StaticResource Locator}}"
+                            BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                            Title="{x:Static resx:AppResources.setting}">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="Thickness" x:Key="IconProfilePadding"
+                  iOS="20, 0, 20 ,0" Android="20, 0, 20 ,0" WinPhone="20, 0, 20 ,0" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="BorderPadding"
+                  iOS="0,0.5,0,0.5" Android="0,0.5,0,0.5" WinPhone="0,1,0,1" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="IconLogoutPadding"
+                  iOS="25, 0, 25 ,0" Android="25, 0, 25 ,0" WinPhone="25, 0, 25 ,0" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ArrowSize"
+                  iOS="15" Android="15" WinPhone="18" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="IntroductionFont"
+                  iOS="10.5" Android="10.5" WinPhone="10.5" />
+      <OnPlatform x:Key="ButtonOpacity" x:TypeArguments="x:Double"
+                  iOS="1" Android="1" WinPhone="0" />
+      <OnPlatform x:Key="GridRowSpacing" x:TypeArguments="x:Double"
+                  iOS="2" Android="2" WinPhone="16" />
+      <OnPlatform x:Key="GridType" x:TypeArguments="GridLength"
+                  iOS="*" Android="*" WinPhone="auto" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="HealthValutFontSize"
+                  iOS="{x:Static helpers:HcStyles.FontSizeTitle}" 
+                  Android="{x:Static helpers:HcStyles.FontSizeTitle}" 
+                  WinPhone="{x:Static helpers:HcStyles.FontSizeTitle}" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+  <RelativeLayout >
+    <ScrollView Padding="0,20,0,0"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+
+                RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                        Property=Width, Factor=1}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                        Property=Height, Factor=1}">
+      <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+
+        <!-- Main setting content -->
+        <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderLightGrayColor}"
+                     HorizontalOptions="FillAndExpand"
+                     Padding="{StaticResource BorderPadding}"
+                     VerticalOptions="Start">
+          <Grid ColumnSpacing="10" Padding="8, 20, 8, 20"
+                HorizontalOptions="FillAndExpand" BackgroundColor="White"
+                RowSpacing="{StaticResource GridRowSpacing}">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="auto" />
+              <RowDefinition Height="auto" />
+              <RowDefinition Height="auto" />
+              <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="2*" />
+              <ColumnDefinition Width="6*" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ContentView Grid.Column="0" Grid.Row="0" Padding="{StaticResource IconProfilePadding}">
+              <Image Source="ic_profile.png" />
+            </ContentView>
+            <ContentView Grid.Column="0" Grid.Row="1" Padding="{StaticResource IconProfilePadding}">
+              <Image Source="ic_notification.png" />
+            </ContentView>
+            <ContentView IsVisible="False" Grid.Column="0" Grid.Row="2" Padding="{StaticResource IconLogoutPadding}">
+              <Image Source="tab_account_green.png" />
+            </ContentView>
+            <ContentView Grid.Column="0" Grid.Row="3" Padding="{StaticResource IconLogoutPadding}">
+              <Image Source="ic_logout.png" />
+            </ContentView>
+
+
+            <Label Style="{StaticResource LabelTitleStyle}" Grid.Column="1" Grid.Row="0"
+                   HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                   Text="{x:Static resx:AppResources.profile_title}" />
+
+            <Label Style="{StaticResource LabelTitleStyle}" Grid.Column="1" Grid.Row="1"
+                   HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+                   Text="{x:Static resx:AppResources.notification_setting}" />
+
+            <Label Style="{StaticResource LabelTitleStyle}" Grid.Column="1" Grid.Row="2"
+                   IsVisible="False"
+                   HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                   Text="{x:Static resx:AppResources.payment_cc_title}" />
+
+            <Label Style="{StaticResource LabelTitleStyle}" Grid.Column="1" Grid.Row="3"
+                   HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                   Text="{x:Static resx:AppResources.logout}" />
+
+            <Image Source="ic_arrow.png" Grid.Column="2" Grid.Row="0"
+                   WidthRequest="{StaticResource ArrowSize}" HeightRequest="{StaticResource ArrowSize}" />
+            <Image Source="ic_arrow.png" Grid.Column="2" Grid.Row="1"
+                   WidthRequest="{StaticResource ArrowSize}" HeightRequest="{StaticResource ArrowSize}" />
+            <Image Source="ic_arrow.png" Grid.Column="2" Grid.Row="2"
+                   IsVisible="False"
+                   WidthRequest="{StaticResource ArrowSize}" HeightRequest="{StaticResource ArrowSize}" />
+
+            <Button Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Command="{Binding GoProfileCommand}"
+                    BackgroundColor="Transparent" Opacity="{StaticResource ButtonOpacity}" />
+            <Button Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1"
+                    Command="{Binding GoToConfigurationPageCommand}"
+                    BackgroundColor="Transparent" Opacity="{StaticResource ButtonOpacity}" />
+            <Button Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2"
+                    IsVisible="False"
+                    Command="{Binding GotoCreditCardPageCommand}"
+                    BackgroundColor="Transparent" Opacity="{StaticResource ButtonOpacity}" />
+            <Button Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" Command="{Binding LogoutCommand}"
+                    BackgroundColor="Transparent" Opacity="{StaticResource ButtonOpacity}" />
+          </Grid>
+        </ContentView>
+
+        <!--- application introduction -->
+        <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand" HorizontalOptions="Center"
+                     Spacing="3" Padding="5,5,5,30">
+          <Label Style="{StaticResource LabelSubContentStyle}" HorizontalOptions="Center"
+                 Text="" FontSize="{StaticResource IntroductionFont}" />
+          <Label Style="{StaticResource LabelSubContentStyle}" HorizontalOptions="Center"
+                 XAlign="Center"
+                 Text="{x:Static resx:AppResources.copy_right}"
+                 FontSize="{StaticResource IntroductionFont}" />
+        </StackLayout>
+
+      </StackLayout>
+    </ScrollView>
+  </RelativeLayout >
+  <!--<controls:LoginCHBaseControl  RowSpan="2" ></controls:LoginCHBaseControl>-->
+</controls:TopBarContentPage> 

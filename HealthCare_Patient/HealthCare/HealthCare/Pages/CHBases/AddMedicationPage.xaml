@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:enums="clr-namespace:HealthCare.Enums;assembly=HealthCare"
+                            xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+                            xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+                            PageType="{x:Type chBases:AddMedicationPage}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            xmlns:chBases="clr-namespace:HealthCare.Pages.CHBases;assembly=HealthCare"
+                            xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+                            x:Class="HealthCare.Pages.CHBases.AddMedicationPage"
+                            Title="{x:Static resx:AppResources.add_medication}"
+                            BindingContext="{Binding VmMedication, Source={StaticResource Locator}}"
+                            BackgroundColor="White">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:Key="PagePadding"
+                 x:TypeArguments="Thickness"
+                 iOS="-25,8,-25,8"
+                 Android="-30,8,-30,8"
+                 WinPhone="0,12,0,8" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="GridColumnWidth"
+                 iOS="10*" Android="10*" WinPhone="25*" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SpacingRowMainContent"
+                        iOS="10" Android="10" WinPhone="8" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+  <ScrollView VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand"
+              Padding="{StaticResource PagePadding}" >
+    <Grid Padding="0">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="{StaticResource GridColumnWidth}" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="10" Grid.Column="1">
+        <controls:HcEntry IsVisibleImage="False"
+                          PlaceHolder="{x:Static resx:AppResources.medication_name}"
+                          Text="{Binding MedicationAdding.Name, Mode=TwoWay}"/>
+        <controls:HcEntry IsVisibleImage="False"
+                          PlaceHolder="{x:Static resx:AppResources.medication_indication}"
+                          Text="{Binding MedicationAdding.Indication, Mode=TwoWay}"/>
+
+        <StackLayout Orientation="Horizontal">
+          <StackLayout Orientation="Vertical" Spacing="{StaticResource SpacingRowMainContent}"
+                       VerticalOptions="FillAndExpand">
+            <Label Text="{x:Static resx:AppResources.medication_datestart}"
+                   Style="{StaticResource LabelContentStyle}"
+                   VerticalOptions="CenterAndExpand" />
+
+            <Label Text="{x:Static resx:AppResources.medication_datedis}"
+                   Style="{StaticResource LabelContentStyle}"
+                   VerticalOptions="CenterAndExpand" />
+          </StackLayout>
+
+          <StackLayout Orientation="Vertical" Spacing="{StaticResource SpacingRowMainContent}"
+                         BindingContext="{Binding VmMedication, Source={StaticResource Locator}}"
+                         HorizontalOptions="FillAndExpand">
+            <controls:DatePickerWithImageBox HorizontalOptions="FillAndExpand"
+                                             SelectedValue="{Binding MedicationAdding.DateStarted ,Mode=TwoWay}"
+                                             IsSelected="True"
+                                             PlaceHolderText="{x:Static resx:AppResources.empty}"
+                                                ValidateDateTimeType="BirthDay"
+                                             />
+
+            <controls:DatePickerWithImageBox  SelectedValue="{Binding MedicationAdding.DateDiscontinued,Mode=TwoWay}"
+                                              IsSelected="True"
+                                              ValidateDateTimeType="BirthDay"
+                                              PlaceHolderText="{x:Static resx:AppResources.empty}"
+                                              HorizontalOptions="FillAndExpand"/>
+
+          </StackLayout>
+
+        </StackLayout>
+
+        <controls:HcEntry IsVisibleImage="False"
+                          PlaceHolder="{x:Static resx:AppResources.medication_dose}"
+                          Text="{Binding MedicationAdding.Dose, Mode=TwoWay}"/>
+        <controls:HcEntry IsVisibleImage="False"
+                          PlaceHolder="{x:Static resx:AppResources.medication_strength}"
+                          Text="{Binding MedicationAdding.Strength, Mode=TwoWay}"/>
+        <controls:HcEntry IsVisibleImage="False"
+                          PlaceHolder="{x:Static resx:AppResources.medication_often_taken}"
+                          Text="{Binding MedicationAdding.HowOftenTaken, Mode=TwoWay}"/>
+        <controls:HcEntry IsVisibleImage="False"
+                          PlaceHolder="{x:Static resx:AppResources.medication_taken}"
+                          Text="{Binding MedicationAdding.HowTaken, Mode=TwoWay}"/>
+        <controls:HcEntry IsVisibleImage="False"
+                          PlaceHolder="{x:Static resx:AppResources.medication_generic_name}"
+                          Text="{Binding MedicationAdding.GenericName, Mode=TwoWay}"/>
+        <controls:HcEntry IsVisibleImage="False"
+                          PlaceHolder="{x:Static resx:AppResources.medication_prescribed}"
+                          Text="{Binding MedicationAdding.Prescribed, Mode=TwoWay}"/>
+        <controls:HcEntry IsVisibleImage="False"
+                          PlaceHolder="{x:Static resx:AppResources.medication_prescribed_by}"
+                          Text="{Binding MedicationAdding.PrescribedBy, Mode=TwoWay}"/>
+
+        <StackLayout Orientation="Horizontal" Padding="{StaticResource PaddingRowMainContent}">
+          <controls:ButtonCustom  Text="{x:Static resx:AppResources.ok}"
+                                   Style="{StaticResource ButtonStyle}"
+                                  HorizontalOptions="FillAndExpand"
+                                  Command="{Binding SubmitAddCommand}"></controls:ButtonCustom>
+        </StackLayout>
+      </StackLayout>
+    </Grid>
+  </ScrollView>
+
+</controls:TopBarContentPage>

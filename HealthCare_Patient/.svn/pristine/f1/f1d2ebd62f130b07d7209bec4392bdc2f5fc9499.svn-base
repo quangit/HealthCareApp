@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            PageType="{x:Type controls:BaseAddCheckupPage}"
+                            x:Class="HealthCare.Controls.BaseAddCheckupPage"
+                            BindingContext="{Binding VmHospital, Source={StaticResource Locator}}"
+                            BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}">
+
+    <controls:TopBarContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonSpacing"
+                        iOS="20" Android="20" WinPhone="30" />
+            <OnPlatform x:TypeArguments="Thickness" x:Key="ButtonPadding"
+                        iOS="20,8,20,8" Android="20,8,20,8" WinPhone="20,4,20,4" />
+            <OnPlatform x:TypeArguments="x:Double" x:Key="ButtonHeight"
+                        iOS="32" Android="35" WinPhone="140" />
+            <OnPlatform x:TypeArguments="x:Double" x:Key="GridButtonHeightRequest"
+                        iOS="48" Android="48" WinPhone="{x:Static helpers:HcStyles.ButtonHeight}" />
+            <OnPlatform x:TypeArguments="x:Double" x:Key="GridButtonHeightRequestInvert"
+                        iOS="-48" Android="-48" WinPhone="{x:Static helpers:HcStyles.ButtonInverseHeight}" />
+            <OnPlatform x:TypeArguments="GridLength" x:Key="GridColumnWidth"
+                        iOS="50*" Android="30*" WinPhone="25*" />
+        </ResourceDictionary>
+    </controls:TopBarContentPage.Resources>
+
+    <RelativeLayout>
+        <Grid RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+
+              RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+
+              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                         Property=Width,
+                                                         Factor=1}"
+              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                         Property=Height,
+                                                         Constant={StaticResource GridButtonHeightRequestInvert},
+                                                         Factor=1}">
+            <!--<Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="{StaticResource GridColumnWidth}" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>-->
+            <ContentView x:Name="idContent"  />
+        </Grid>
+
+        <Grid Padding="{StaticResource ButtonPadding}" ColumnSpacing="{StaticResource ButtonSpacing}"
+              BindingContext="{Binding VmHospital, Source={StaticResource Locator}}"
+              BackgroundColor="White"
+              RelativeLayout.XConstraint="{ConstraintExpression Type=Constant,
+                                                Constant=0}"
+              RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                Property=Height,
+                                                Factor=1,
+                                                Constant={StaticResource GridButtonHeightRequestInvert}}"
+              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                Property=Width}"
+              RelativeLayout.HeightConstraint="{ConstraintExpression Type=Constant,
+                                                Constant={StaticResource GridButtonHeightRequest}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Style="{StaticResource ButtonStyle}" Text="{x:Static resx:AppResources.go_back}" Grid.Column="0"
+                    x:Name="btnCancel"
+                    HeightRequest="{StaticResource ButtonHeight}"
+                    Command="{Binding CancelCommand}"
+                    BackgroundColor="{x:Static helpers:HcStyles.DarkerGreenCardColor}" />
+            <Button Style="{StaticResource ButtonStyle}" Text="{x:Static resx:AppResources.go_next}" Grid.Column="1"
+                    x:Name="btnNext"
+                    HeightRequest="{StaticResource ButtonHeight}"
+                    BackgroundColor="{x:Static helpers:HcStyles.GreenButtonColor}"
+                    Command="{Binding NextCommand}" />
+        </Grid>
+    </RelativeLayout>
+
+</controls:TopBarContentPage>

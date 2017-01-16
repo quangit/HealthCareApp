@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<controls:BaseAddCheckupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                             xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                             xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                             xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                             xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+                             xmlns:healthCare="clr-namespace:HealthCare;assembly=HealthCare"
+                             BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                             BindingContext="{Binding VmAddCheckup, Source={StaticResource Locator}}"
+                             Title="{x:Static resx:AppResources.add_checkup}"
+                             NextCommand="{Binding GoToAddCheckupConfirmPageCommand}"
+                             CancelCommand="{Binding GoBackCommand}"
+                             x:Class="HealthCare.Pages.AddCheckupPage">
+
+  <controls:BaseAddCheckupPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SpacingRowMainContent"
+                  iOS="10" Android="10" WinPhone="8" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SeparatorLineHeight"
+                  iOS="1" Android="1" WinPhone="1" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="EditorHeightRequest"
+                  iOS="100" Android="100" WinPhone="180" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="ContentPadding"
+                  iOS="5,8" Android="0,8" WinPhone="8,0" />
+      <OnPlatform x:Key="IsShowPlaceHolder" x:TypeArguments="x:Boolean"
+                    iOS="False" Android="False" WinPhone="True" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="PageSidePadding"
+          iOS="18,0" Android="18,0" WinPhone="18,0" />
+      <OnPlatform x:Key="GridType" x:TypeArguments="GridLength"
+                  iOS="*" Android="*" WinPhone="Auto" />
+      <OnPlatform x:Key="GridTypeColumn2" x:TypeArguments="GridLength"
+                  iOS="Auto" Android="Auto" WinPhone="*" />
+      <OnPlatform x:Key="SwithPadding" x:TypeArguments="Thickness"
+                       iOS="0" Android="0" WinPhone="0,8" />"
+    </ResourceDictionary>
+  </controls:BaseAddCheckupPage.Resources>
+
+  <controls:BaseAddCheckupPage.PageContent>
+    <StackLayout Padding="{StaticResource PageSidePadding}">
+      <ScrollView>
+        <StackLayout BackgroundColor="White"
+                     Padding="20,0">
+          <StackLayout Orientation="Vertical">
+            <Grid BindingContext="{Binding VmAddCheckup.SelectedSchedule, Source={StaticResource Locator}}"
+                  Padding="{StaticResource ContentPadding}">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+
+              <Label Text="{x:Static resx:AppResources.checkup_doctor}"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     FontAttributes="Bold"
+                     TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                     Style="{StaticResource LabelContentStyle}" />
+
+              <Label Text="{x:Static resx:AppResources.checkup_schedule}"
+                     Grid.Row="1"
+                     Grid.Column="0"
+                     FontAttributes="Bold"
+                     TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                     Style="{StaticResource LabelContentStyle}" />
+
+              <!--Content-->
+              <Label Text="{Binding Doctor.FullName}"
+                     Grid.Row="0"
+                     Grid.Column="1"
+                     Style="{StaticResource LabelContentWordWrapStyle}" />
+
+              <Label Text="{Binding AsTime}"
+                     Grid.Row="1"
+                     Grid.Column="1"
+                     Style="{StaticResource LabelContentWordWrapStyle}" />
+            </Grid>
+
+            <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderGrayColor}"
+                         HeightRequest="{StaticResource SeparatorLineHeight}"
+                         HorizontalOptions="FillAndExpand" />
+
+            <Grid BindingContext="{Binding VmAddCheckup.SelectedSchedule, Source={StaticResource Locator}}"
+                  Padding="{StaticResource ContentPadding}">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+
+              <Label Text="{x:Static resx:AppResources.checkup_exam_place}"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     FontAttributes="Bold"
+                     TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                     Style="{StaticResource LabelContentStyle}" />
+
+              <Label Text="{x:Static resx:AppResources.checkup_checkup_type}"
+                     Grid.Row="1"
+                     Grid.Column="0"
+                     FontAttributes="Bold"
+                     TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                     Style="{StaticResource LabelContentStyle}" />
+
+              <!--Content-->
+              <Label Text="{Binding SelectedSchedule.Hospital.AsString}"
+                     BindingContext="{Binding VmAddCheckup, Source={StaticResource Locator}}"
+                     Grid.Row="0"
+                     Grid.Column="1"
+                     Style="{StaticResource LabelContentWordWrapStyle}" />
+
+              <Label Text="{Binding CheckupType.Name}"
+                     Grid.Row="1"
+                     Grid.Column="1"
+                     Style="{StaticResource LabelContentWordWrapStyle}" />
+            </Grid>
+
+            <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderGrayColor}"
+                         HeightRequest="{StaticResource SeparatorLineHeight}"
+                         HorizontalOptions="FillAndExpand" />
+
+            <StackLayout Orientation="Vertical"
+                         BindingContext="{Binding VmAddCheckup, Source={StaticResource Locator}}"
+                         Padding="{StaticResource ContentPadding}">
+
+              <Label Text="{x:Static resx:AppResources.checkup_symptom}"
+                     FontAttributes="Bold"
+                     TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                     Style="{StaticResource LabelContentStyle}" />
+
+              <!--<Label IsVisible="{StaticResource IsShowPlaceHolder}"
+                     Text="{x:Static resx:AppResources.if_more_support_vi}" TextColor="#7E7E7E"
+                     FontSize="{x:Static helpers:HcStyles.FontSizeSubContent}" />-->
+
+              <healthCare:PlaceholderEditor
+                  BackgroundColor="{x:Static helpers:HcStyles.BorderLightGrayColor}"
+                  HorizontalOptions="FillAndExpand"
+                  Placeholder="{x:Static resx:AppResources.if_more_support_vi}"
+                  VerticalOptions="FillAndExpand"
+                  Text="{Binding CheckupAdding.Symptom}"
+                  HeightRequest="{StaticResource EditorHeightRequest}" />
+
+            </StackLayout>
+
+            <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderGrayColor}"
+                         HeightRequest="{StaticResource SeparatorLineHeight}"
+                         HorizontalOptions="FillAndExpand" />
+
+            <Grid BindingContext="{Binding VmAddCheckup, Source={StaticResource Locator}}"
+                  Padding="{StaticResource ContentPadding}">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{StaticResource GridType}" />
+                <ColumnDefinition Width="{StaticResource GridTypeColumn2}" />
+              </Grid.ColumnDefinitions>
+
+              <Label Text="{x:Static resx:AppResources.use_insurance}"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     FontAttributes="Bold"
+                     LineBreakMode="WordWrap"
+                     VerticalOptions="Center"
+                     TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                     Style="{StaticResource LabelContentStyle}"/>
+
+              <!--Content-->
+              <!--<Label Text="{Binding SelectedSchedule.Hospital.AsString}"
+                     BindingContext="{Binding VmAddCheckup, Source={StaticResource Locator}}"
+                     Grid.Row="0"
+                     Grid.Column="1"
+                     Style="{StaticResource LabelContentWordWrapStyle}" />-->
+              <ContentView Grid.Row="0" Grid.Column="1" Padding="{StaticResource SwithPadding}">
+                <!--<Switch IsToggled="{Binding CheckupAdding.IsHealthInsurance, Mode=TwoWay}"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"/>-->
+                <controls:CheckBox Checked="{Binding CheckupAdding.IsHealthInsurance, Mode=TwoWay}"
+                                   HorizontalOptions="End"
+                                   x:Name="checkBox"
+                                   VerticalOptions="Center"/>
+              </ContentView>
+            </Grid>
+
+            <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderGrayColor}"
+                         HeightRequest="{StaticResource SeparatorLineHeight}"
+                         HorizontalOptions="FillAndExpand"/>
+
+            <Grid BindingContext="{Binding VmAddCheckup.SelectedSchedule, 
+                  Source={StaticResource Locator}}"
+                  Padding="{StaticResource ContentPadding}">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+
+              <Label Text="{x:Static resx:AppResources.checkup_patient}"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     FontAttributes="Bold"
+                     VerticalOptions="Center"
+                     TextColor="{x:Static helpers:HcStyles.GreenColor}"
+                     Style="{StaticResource LabelContentStyle}" />
+
+              <!--Content-->
+              <controls:HcPicker Grid.Row="0" Grid.Column="1"
+                                 BindingContext="{Binding VmAddCheckup, Source={StaticResource Locator}}"
+                                 x:TypeArguments="models:UserModel" PickerStyle="4"
+                                 FontSize="{x:Static helpers:HcStyles.FontSizeSubContent}"
+                                 ItemsSource="{Binding ListUser}"
+                                 HorizontalOptions="FillAndExpand"
+                                 SelectedItem="{Binding SelectedUser, Mode=OneWayToSource}"
+                                 EmptyText="{x:Static resx:AppResources.empty}"
+                                 TitleText="{x:Static resx:AppResources.pick_related_user}" />
+
+            </Grid>
+
+            <StackLayout Orientation="Vertical"
+                         Padding="{StaticResource ContentPadding}">
+              <controls:HcEntry Source="ic_person.png"
+                                CanEdit="{Binding IsAddRelatedAccount, Mode=TwoWay}"
+                                PlaceHolder="{x:Static resx:AppResources.patient_name}"
+                                Text="{Binding SelectedUser.FirstName, Mode=TwoWay}" />
+              <controls:HcEntry Source="ic_address_about.png"
+                                CanEdit="{Binding IsAddRelatedAccount, Mode=TwoWay}"
+                                PlaceHolder="{x:Static resx:AppResources.address}"
+                                Text="{Binding SelectedUser.Address, Mode=TwoWay}" />
+              <controls:HcEntry Source="ic_phone.png"
+                                CanEdit="{Binding IsAddRelatedAccount, Mode=TwoWay}"
+                                PlaceHolder="{x:Static resx:AppResources.phone_no}"
+                                Keyboard="{x:Static Keyboard.Telephone}"
+                                Text="{Binding SelectedUser.PhoneNo, Mode=TwoWay}" />
+              <controls:HcEntry Source="ic_cc_number.png"
+                                CanEdit="{Binding IsAddRelatedAccount, Mode=TwoWay}"
+                                PlaceHolder="{x:Static resx:AppResources.id_no}"
+                                Keyboard="{x:Static Keyboard.Numeric}"
+                                Text="{Binding SelectedUser.IdNo, Mode=TwoWay}" />
+              <controls:HcEntry Source="ic_mail_about.png"
+                                CanEdit="{Binding IsAddRelatedAccount, Mode=TwoWay}"
+                                PlaceHolder="{x:Static resx:AppResources.email}"
+                                Keyboard="{x:Static Keyboard.Email}"
+                                Text="{Binding SelectedUser.Email, Mode=TwoWay}" />
+
+              <StackLayout Orientation="Horizontal"
+                           IsVisible="{Binding VmAddCheckup.IsAddRelatedAccount, Source={StaticResource Locator}, Mode=TwoWay}"
+                           BindingContext="{Binding VmCommon, Source={StaticResource Locator}}">
+                <StackLayout Orientation="Vertical" Spacing="{StaticResource SpacingRowMainContent}"
+                             VerticalOptions="FillAndExpand">
+                  <Label Text="{x:Static resx:AppResources.city}"
+                         Style="{StaticResource LabelContentStyle}"
+                         VerticalOptions="CenterAndExpand" />
+
+                  <Label Text="{x:Static resx:AppResources.district}"
+                         Style="{StaticResource LabelContentStyle}"
+                         VerticalOptions="CenterAndExpand" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Spacing="{StaticResource SpacingRowMainContent}"
+                             HorizontalOptions="FillAndExpand">
+                  <controls:HcPicker x:TypeArguments="models:CityModel" PickerStyle="1"
+                                     ItemsSource="{Binding ListCity}"
+                                     HorizontalOptions="FillAndExpand"
+                                     SelectedItem="{Binding VmAddCheckup.SelectedCity, Source={StaticResource Locator}, Mode=TwoWay}"
+                                     EmptyText="{x:Static resx:AppResources.empty_city}"
+                                     TitleText="{x:Static resx:AppResources.pick_city}"
+                                     WidthRequest="150" />
+                  <controls:HcPicker x:TypeArguments="models:DistrictModel" PickerStyle="1"
+                                     ItemsSource="{Binding VmAddCheckup.SelectedCity.Districts, Source={StaticResource Locator}}"
+                                     HorizontalOptions="FillAndExpand"
+                                     SelectedItem="{Binding VmAddCheckup.SelectedDistrict, Source={StaticResource Locator}, Mode=TwoWay}"
+                                     EmptyText="{x:Static resx:AppResources.empty_district}"
+                                     TitleText="{x:Static resx:AppResources.pick_district}" />
+                </StackLayout>
+              </StackLayout>
+
+            </StackLayout>
+
+            <ContentView HeightRequest="20" />
+          </StackLayout>
+        </StackLayout>
+      </ScrollView>
+    </StackLayout>
+  </controls:BaseAddCheckupPage.PageContent>
+</controls:BaseAddCheckupPage>

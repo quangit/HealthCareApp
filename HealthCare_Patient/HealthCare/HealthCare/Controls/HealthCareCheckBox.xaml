@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthCare.Controls.HealthCareCheckBox"
+             Orientation="Horizontal">
+    <Image x:Name="idImg" Source="checkbox_on.png" VerticalOptions="Center" />
+    <Label x:Name="idText" Text="Ghi nhớ đăng nhập" VerticalOptions="Center" />
+</StackLayout>

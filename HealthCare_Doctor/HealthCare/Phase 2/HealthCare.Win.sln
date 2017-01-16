@@ -1,0 +1,102 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCare.Win", "HealthCare.Win\HealthCare.Win.csproj", "{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCare.Core", "HealthCare.Core\HealthCare.Core.csproj", "{B281093E-5798-4783-96DC-5365327C2B9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCare.Win.VoiceCommands", "HealthCare.Win.Service\HealthCare.Win.VoiceCommands.csproj", "{8DAB74E8-1E82-4AC9-833B-72A44BB5D4E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Debug|Any CPU.Build.0 = Debug|x86
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Debug|Any CPU.Deploy.0 = Debug|x86
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Debug|ARM.ActiveCfg = Debug|ARM
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Debug|ARM.Build.0 = Debug|ARM
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Debug|ARM.Deploy.0 = Debug|ARM
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Debug|x64.ActiveCfg = Debug|x64
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Debug|x64.Build.0 = Debug|x64
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Debug|x64.Deploy.0 = Debug|x64
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Debug|x86.ActiveCfg = Debug|x86
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Debug|x86.Build.0 = Debug|x86
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Debug|x86.Deploy.0 = Debug|x86
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Release|Any CPU.ActiveCfg = Release|x86
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Release|ARM.ActiveCfg = Release|ARM
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Release|ARM.Build.0 = Release|ARM
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Release|ARM.Deploy.0 = Release|ARM
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Release|x64.ActiveCfg = Release|x64
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Release|x64.Build.0 = Release|x64
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Release|x64.Deploy.0 = Release|x64
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Release|x86.ActiveCfg = Release|x86
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Release|x86.Build.0 = Release|x86
+		{D30E70D9-3E6F-48CA-ACBD-1ED17F63FD5D}.Release|x86.Deploy.0 = Release|x86
+		{B281093E-5798-4783-96DC-5365327C2B9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B281093E-5798-4783-96DC-5365327C2B9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B281093E-5798-4783-96DC-5365327C2B9C}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{B281093E-5798-4783-96DC-5365327C2B9C}.Debug|ARM.Build.0 = Debug|Any CPU
+		{B281093E-5798-4783-96DC-5365327C2B9C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B281093E-5798-4783-96DC-5365327C2B9C}.Debug|x64.Build.0 = Debug|Any CPU
+		{B281093E-5798-4783-96DC-5365327C2B9C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B281093E-5798-4783-96DC-5365327C2B9C}.Debug|x86.Build.0 = Debug|Any CPU
+		{B281093E-5798-4783-96DC-5365327C2B9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B281093E-5798-4783-96DC-5365327C2B9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B281093E-5798-4783-96DC-5365327C2B9C}.Release|ARM.ActiveCfg = Release|Any CPU
+		{B281093E-5798-4783-96DC-5365327C2B9C}.Release|ARM.Build.0 = Release|Any CPU
+		{B281093E-5798-4783-96DC-5365327C2B9C}.Release|x64.ActiveCfg = Release|Any CPU
+		{B281093E-5798-4783-96DC-5365327C2B9C}.Release|x64.Build.0 = Release|Any CPU
+		{B281093E-5798-4783-96DC-5365327C2B9C}.Release|x86.ActiveCfg = Release|Any CPU
+		{B281093E-5798-4783-96DC-5365327C2B9C}.Release|x86.Build.0 = Release|Any CPU
+		{8DAB74E8-1E82-4AC9-833B-72A44BB5D4E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DAB74E8-1E82-4AC9-833B-72A44BB5D4E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DAB74E8-1E82-4AC9-833B-72A44BB5D4E4}.Debug|ARM.ActiveCfg = Debug|ARM
+		{8DAB74E8-1E82-4AC9-833B-72A44BB5D4E4}.Debug|ARM.Build.0 = Debug|ARM
+		{8DAB74E8-1E82-4AC9-833B-72A44BB5D4E4}.Debug|x64.ActiveCfg = Debug|x64
+		{8DAB74E8-1E82-4AC9-833B-72A44BB5D4E4}.Debug|x64.Build.0 = Debug|x64
+		{8DAB74E8-1E82-4AC9-833B-72A44BB5D4E4}.Debug|x86.ActiveCfg = Debug|x86
+		{8DAB74E8-1E82-4AC9-833B-72A44BB5D4E4}.Debug|x86.Build.0 = Debug|x86
+		{8DAB74E8-1E82-4AC9-833B-72A44BB5D4E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DAB74E8-1E82-4AC9-833B-72A44BB5D4E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DAB74E8-1E82-4AC9-833B-72A44BB5D4E4}.Release|ARM.ActiveCfg = Release|ARM
+		{8DAB74E8-1E82-4AC9-833B-72A44BB5D4E4}.Release|ARM.Build.0 = Release|ARM
+		{8DAB74E8-1E82-4AC9-833B-72A44BB5D4E4}.Release|x64.ActiveCfg = Release|x64
+		{8DAB74E8-1E82-4AC9-833B-72A44BB5D4E4}.Release|x64.Build.0 = Release|x64
+		{8DAB74E8-1E82-4AC9-833B-72A44BB5D4E4}.Release|x86.ActiveCfg = Release|x86
+		{8DAB74E8-1E82-4AC9-833B-72A44BB5D4E4}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://hieunn.visualstudio.com/defaultcollection
+		SccProjectUniqueName0 = HealthCare.Win\\HealthCare.Win.csproj
+		SccProjectName0 = ../../../HealthCare.Win
+		SccAuxPath0 = https://hieunn.visualstudio.com/defaultcollection
+		SccLocalPath0 = HealthCare.Win
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName1 = HealthCare.Core\\HealthCare.Core.csproj
+		SccProjectName1 = ../../../HealthCare.Core
+		SccAuxPath1 = https://hieunn.visualstudio.com/defaultcollection
+		SccLocalPath1 = HealthCare.Core
+		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectUniqueName2 = HealthCare.Win.Service\\HealthCare.Win.VoiceCommands.csproj
+		SccProjectName2 = ../../../HealthCare.Win.VoiceCommands
+		SccAuxPath2 = https://hieunn.visualstudio.com/defaultcollection
+		SccLocalPath2 = HealthCare.Win.Service
+		SccProvider2 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+EndGlobal

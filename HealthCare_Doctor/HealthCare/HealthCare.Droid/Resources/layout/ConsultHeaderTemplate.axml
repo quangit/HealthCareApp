@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <MvxImageView
+            android:id="@+id/landscapeImage"
+            android:layout_width="fill_parent"
+            android:layout_height="200dp"
+            local:MvxBind="ImageUrl Request.LandscapeImage"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp">
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <MvxImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center"
+                        local:MvxBind="ImageUrl Request.PatientPhoto" />
+                    <ImageView
+                        android:src="@drawable/rounded_frame"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+                </FrameLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="5dp">
+                <!--patient Name-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        tools:text="Subject"
+                        android:textStyle="bold"
+                        local:MvxBind="Text Request.PatientName"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/InfoTextColor"
+                        android:layout_marginRight="5dp" />
+                <!--Age and gender -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12dp"
+                        tools:text="Time"
+                        local:MvxBind="Text Request.PatientDesc"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/InfoTextColor" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="10dp"
+                        tools:text="Time"
+                        android:gravity="right"
+                        local:MvxBind="Text Request.WhenCreated, Converter = MilisecondToDate"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/InfoTextColor" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="right"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="5dp">
+                <!--conferences-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        tools:text="Subject"
+                        android:textStyle="bold"
+                        android:gravity="right"
+                        local:MvxBind="Text Request.LatestDoctorFullName"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/InfoTextColor" />
+                <!--times-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="10dp"
+                        tools:text="Time"
+                        android:gravity="right"
+                        local:MvxBind="Text Request.ReplyCountStr"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/InfoTextColor" />
+                </LinearLayout>
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <MvxImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitXY"
+                        android:layout_gravity="center"
+                        local:MvxBind="ImageUrl Request.LatestDoctorPhoto" />
+                    <ImageView
+                        android:src="@drawable/rounded_frame"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginBottom="20dp">
+        <!--Title-->
+            <TextView
+                android:id="@+id/quest"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textColor="@color/ButtonGreenMainColor"
+                local:MvxBind="Text [ConsultView_Content]"
+                android:textStyle="bold"
+                android:textSize="17dp" />
+        <!--Content-->
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:background="@drawable/rounded_back">
+                <TextView
+                    tools:text="abc"
+                    android:background="@color/ConfBackColor"
+                    android:id="@+id/contentText"
+                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:textColor="@android:color/black"
+                    local:MvxBind="Text Request.Symptom"
+                    android:scrollbars="vertical"
+                    android:maxLines="8"
+                    android:textSize="15dp"
+                    android:layout_margin="10dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

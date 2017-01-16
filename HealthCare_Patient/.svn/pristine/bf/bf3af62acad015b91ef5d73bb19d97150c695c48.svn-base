@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HealthCare.Droid.Renderers.Calendar.MonoDroid.TimesSquare.CalendarRowView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <HealthCare.Droid.Renderers.Calendar.MonoDroid.TimesSquare.CalendarCellView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CalendarCell.CalendarDate" />
+    <HealthCare.Droid.Renderers.Calendar.MonoDroid.TimesSquare.CalendarCellView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CalendarCell.CalendarDate" />
+    <HealthCare.Droid.Renderers.Calendar.MonoDroid.TimesSquare.CalendarCellView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CalendarCell.CalendarDate" />
+    <HealthCare.Droid.Renderers.Calendar.MonoDroid.TimesSquare.CalendarCellView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CalendarCell.CalendarDate" />
+    <HealthCare.Droid.Renderers.Calendar.MonoDroid.TimesSquare.CalendarCellView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CalendarCell.CalendarDate" />
+    <HealthCare.Droid.Renderers.Calendar.MonoDroid.TimesSquare.CalendarCellView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CalendarCell.CalendarDate" />
+    <HealthCare.Droid.Renderers.Calendar.MonoDroid.TimesSquare.CalendarCellView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CalendarCell.CalendarDate" />
+</HealthCare.Droid.Renderers.Calendar.MonoDroid.TimesSquare.CalendarRowView>

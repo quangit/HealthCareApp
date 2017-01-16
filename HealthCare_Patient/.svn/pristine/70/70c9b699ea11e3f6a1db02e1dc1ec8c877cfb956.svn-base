@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:enums="clr-namespace:HealthCare.Enums;assembly=HealthCare"
+                            xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+                            xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+                            PageType="{x:Type chBases:AddBloodPressurePage}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            xmlns:chBases="clr-namespace:HealthCare.Pages.CHBases;assembly=HealthCare"
+                            xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+                            x:Class="HealthCare.Pages.CHBases.AddBloodPressurePage"
+                            Title="{x:Static resx:AppResources.blood_pressure}"
+                            BindingContext="{Binding VmBloodPressure, Source={StaticResource Locator}}"
+                            BackgroundColor="White">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:Key="PagePadding"
+                 x:TypeArguments="Thickness"
+                 iOS="0,8,0,8"
+                 Android="0,8,0,8"
+                 WinPhone="0,12,0,8" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+  <ScrollView VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand"
+              Padding="{StaticResource PagePadding}" >
+    <StackLayout Padding="5">
+      <controls:HcEntry IsVisibleImage ="False" Text="{Binding Systolic , Mode=TwoWay}" Padding="0"  PlaceHolder="{x:Static resx:AppResources.systolic} "/>
+      <controls:HcEntry IsVisibleImage ="False" Text="{Binding Diastolic , Mode=TwoWay}" PlaceHolder="{x:Static resx:AppResources.diastolic}" />
+      <controls:HcEntry IsVisibleImage ="False" Text="{Binding Pulse , Mode=TwoWay}" PlaceHolder="{x:Static resx:AppResources.pulse}" />
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+          <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" VerticalOptions="Center" Style="{StaticResource LabelContentStyle}" Text="{x:Static resx:AppResources.irregular_heartbeat_detected}"></Label>
+        <Switch Grid.Column="1"  IsToggled="{Binding IsIrregularHeartbeat, Mode=TwoWay}"
+           HorizontalOptions="End"  VerticalOptions="Center"/>
+      </Grid>
+      <StackLayout Orientation="Horizontal" Padding="{StaticResource PaddingRowMainContent}">
+        <controls:ButtonCustom  Text="{x:Static resx:AppResources.ok}"
+                                 Style="{StaticResource ButtonStyle}"
+                                HorizontalOptions="FillAndExpand"
+                                Command="{Binding AddBloodPressureCommand}"></controls:ButtonCustom>
+      </StackLayout>
+    </StackLayout>
+    
+    
+  </ScrollView>
+
+</controls:TopBarContentPage>

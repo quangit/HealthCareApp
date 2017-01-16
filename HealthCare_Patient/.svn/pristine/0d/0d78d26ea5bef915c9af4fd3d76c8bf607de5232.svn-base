@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+          xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+          xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+          xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+          x:Class="HealthCare.Controls.ViewCells.CheckupViewCell">
+
+  <Grid Padding="{x:Static helpers:HcStyles.ViewCellPadding}">
+
+    <Grid.Resources>
+      <ResourceDictionary>
+        <OnPlatform x:TypeArguments="x:Double" x:Key="CellHeight"
+                    iOS="100" Android="120" WinPhone="164" />
+
+        <OnPlatform x:TypeArguments="x:Double" x:Key="IconAlertSize"
+                    iOS="12" Android="12" WinPhone="16" />
+
+        <OnPlatform x:TypeArguments="x:Double" x:Key="LeftLineWidth"
+                    iOS="2" Android="2" WinPhone="4" />
+        <OnPlatform x:TypeArguments="Thickness" x:Key="CellPaddingInside"
+                    iOS="8" Android="8" WinPhone="16" />
+        <OnPlatform x:TypeArguments="GridLength" x:Key="SymptomRowHeight"
+                    iOS="14" Android="14" WinPhone="23" />
+        <OnPlatform x:TypeArguments="x:Double" x:Key="HeightRowPromotion"
+                    iOS="40" Android="50" WinPhone="76" />
+        <OnPlatform x:TypeArguments="GridLength" x:Key="GridLenght"
+                    iOS="50" Android="60" WinPhone="76" />
+        <OnPlatform x:TypeArguments="Thickness" x:Key="SymptomPadding"
+                    iOS="0,0,0,0" Android="0,0,0,0" WinPhone="0,0,0,0" />
+        <OnPlatform x:TypeArguments="x:Double" x:Key="RatingControlWidth"
+                   iOS="240" Android="200" WinPhone="180" />
+      </ResourceDictionary>
+    </Grid.Resources>
+
+    <Grid BackgroundColor="White" HeightRequest="{StaticResource CellHeight}"
+          ColumnSpacing="0"
+          x:Name="GridContainer"
+          RowSpacing="0">
+
+
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+      <ContentView x:Name="LeftLine"
+                   Grid.Column="0"
+                   Grid.Row="0"
+                   WidthRequest="{StaticResource LeftLineWidth}"
+                   BackgroundColor="{x:Static helpers:HcStyles.CheckupPaymentPendingColor}" />
+      <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderLightGrayColor}"
+                   Padding="0,1,1,1" Grid.Row="0" Grid.Column="1">
+        <Grid Padding="{StaticResource CellPaddingInside}" BackgroundColor="White" x:Name="GridContent">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{StaticResource GridLenght}" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+
+          <Label x:Name="lbDoctorName"
+                 Grid.Row="0"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="2"
+                 Text="{Binding Schedule.Doctor.FullName}"
+                 FontAttributes="Bold"
+                 Style="{StaticResource LabelContentStyle}"
+                 LineBreakMode="MiddleTruncation"
+                 TextColor="{x:Static helpers:HcStyles.CheckupPaymentPendingColor}" />
+
+          <Label x:Name="lbTime"
+                 Grid.Row="0"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 XAlign="End"
+                 Text="{Binding Schedule.StartDateTime, StringFormat='{0:dd/MM/yyyy HH:mm}', 
+                            Converter={StaticResource LocalTimeZoneConverter}}"
+                 Style="{StaticResource LabelSubContentStyle}"
+                 HorizontalOptions="End" />
+
+          <StackLayout x:Name="stlRecjectedMessage"
+                       Orientation="Horizontal"
+                       Grid.Row="0"
+                       Grid.Column="2"
+                       HorizontalOptions="End" IsVisible="False">
+            <Image Source="ic_alert.png"
+                   HeightRequest="{StaticResource IconAlertSize}"
+                   WidthRequest="{StaticResource IconAlertSize}"
+                   Aspect="AspectFit" />
+            <Label Text="{x:Static resx:AppResources.checkup_status_cancelled}"
+                   TextColor="{x:Static helpers:HcStyles.CheckupPendingColor}"
+                   Style="{StaticResource LabelSubContentStyle}" />
+          </StackLayout>
+
+          <!--<controls:ImageCircle HeightRequest="{StaticResource HeightRowPromotion}"
+                                WidthRequest="{StaticResource HeightRowPromotion}"
+                                Source="{Binding Schedule.Doctor.Avatar}"
+                                Grid.Column="0" Grid.Row="1"
+                                VerticalOptions="Start"
+                                RadiusX="1.5"
+                                RadiusY="1.8"
+                                Aspect="AspectFill" />-->
+          <!--<controls:ImageRounderCorner
+              HeightRequest="{StaticResource HeightRowPromotion}"
+              WidthRequest="{StaticResource HeightRowPromotion}"
+              Uri="{Binding Schedule.Doctor.Avatar}"
+              Grid.Column="0" Grid.Row="1"
+              VerticalOptions="Start" />-->
+          <forms:CachedImage HeightRequest="{StaticResource HeightRowPromotion}"
+                             WidthRequest="{StaticResource HeightRowPromotion}"
+                             DownsampleToViewSize="True"
+                             TransparencyEnabled="False"
+                             RetryCount="3"
+                             Grid.Column="0" Grid.Row="1"
+                             Transformations="{Binding Path=VmMoreSupport2.ListTranforms, Source={StaticResource Locator}}"
+                             Source="{Binding Schedule.Doctor.Avatar}" />
+
+          <ContentView Grid.Row="1"
+                       Grid.Column="1" Grid.ColumnSpan="2" Padding="{StaticResource SymptomPadding}">
+            <Label x:Name="lbSymptom"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   Text="{Binding SymptomFake}"
+                   XAlign="Center"
+                   LineBreakMode="TailTruncation"
+                   Style="{StaticResource LabelContentStyle}" />
+          </ContentView>
+
+          <!--<StackLayout x:Name="stlRatingNone"
+                                  Orientation="Horizontal"
+                                  Grid.Row="2"
+                                  Grid.Column="1"
+                                  Grid.ColumnSpan="2"
+                                  IsVisible="{Binding IsFinishedCheckup}">
+
+            <StackLayout Orientation="Horizontal"
+                         IsVisible="{Binding IsRated, Converter={StaticResource BoolRevertConverter}}"
+                         HorizontalOptions="End">
+              <Image Source="ic_alert.png"
+                     HeightRequest="{StaticResource IconAlertSize}"
+                     WidthRequest="{StaticResource IconAlertSize}"
+                     Aspect="AspectFit" />
+              <Label x:Name="lbRatingNone"
+                     Text="{x:Static resx:AppResources.need_rating}"
+                     Style="{StaticResource LabelSubContentStyle}" />
+            </StackLayout>
+
+            <controls:RatingControl IsVisible="{Binding IsRated}"
+                                    Value="{Binding Rating}"
+                                    HorizontalOptions="EndAndExpand"
+                                    WidthRequest="{StaticResource RatingControlWidth}"
+                                    IsEnabled="False"/>
+          </StackLayout>-->
+
+          <!--<StackLayout x:Name="stlTimeLeft"
+                       Orientation="Horizontal"
+                       Grid.Row="2"
+                       Grid.Column="2"
+                       HorizontalOptions="End">
+            <Image Source="ic_alert.png"
+                   HeightRequest="{StaticResource IconAlertSize}"
+                   WidthRequest="{StaticResource IconAlertSize}"
+                   Aspect="AspectFit" />
+            <Label x:Name="lbTimeLeft"
+                   Text="{Binding Schedule.StartDateTime, Converter={StaticResource TimeLeftConverter}}"
+                   Style="{StaticResource LabelSubContentStyle}" />
+          </StackLayout>-->
+        </Grid>
+      </ContentView>
+    </Grid>
+  </Grid>
+</ViewCell>

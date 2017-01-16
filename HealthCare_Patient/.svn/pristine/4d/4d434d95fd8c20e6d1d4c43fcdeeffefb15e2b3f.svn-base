@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:local="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:HealthCare.ViewModels;assembly=HealthCare"
+             xmlns:converters="clr-namespace:HealthCare.Conveters;assembly=HealthCare" x:Class="HealthCare.App">
+  <Application.Resources>
+    <ResourceDictionary>
+      <viewModels:ViewModelLocator x:Key="Locator" />
+      <converters:UriToImageConverter x:Key="UriToImageConverter" />
+      <converters:UriToImageLoaderConverter x:Key="UriToImageLoaderConverter" />
+      <converters:TimeStampToDateTimeConverter x:Key="TimeStampConverter" />
+      <converters:TimeLeftConverter x:Key="TimeLeftConverter" />
+      <converters:NullToTrueConverter x:Key="NullToTrueConverter" />
+      <converters:ColumnCheckupConverter x:Key="ColumnCheckupConverter" />
+      <converters:NullToTrueConverter x:Key="NullToFalseConverter" IsInvert="True" />
+      <converters:StringNullConverter x:Key="StringNullConverter" IsFadeText="True"/>
+      <converters:StringNullConverter x:Key="StringNullWithoutFadeConverter" IsFadeText="False" />
+      <converters:HideCardIdConverter x:Key="HideCardIdConverter" />
+      <converters:BoolToOpacityConverter x:Key="BoolToOpacityConverter" />
+      <converters:PaymentConverter x:Key="PaymentConverter" />
+      <converters:PaymentDesConverter x:Key="PaymentDesConverter" />
+
+      <converters:EnumDescriptionConverter x:Key="EnumDescriptionConverter" />
+      <converters:ArrayToFirstItemConverter x:Key="ArrayToFirstItemConverter" />
+      <converters:LocalTimeZoneConverter x:Key="LocalTimeZoneConverter" />
+      
+      <converters:BoolRevertConverter x:Key="BoolRevertConverter" />
+      <converters:DateTimeToStringConverter x:Key="DateTimeToStringConverter" />
+
+      <OnPlatform x:TypeArguments="Thickness" x:Key="PaddingRowMainContent"
+                    iOS="10" Android="10" WinPhone="8" />
+
+      <Style x:Key="LabelGreenStyle" TargetType="Label" BasedOn="{x:Static local:HcStyles.LabelGreenStyle}" />
+      <Style x:Key="LabelTitleStyle" TargetType="Label" BasedOn="{x:Static local:HcStyles.LabelTitleStyle}" />
+      <Style x:Key="LabelSubTitleStyle" TargetType="Label" BasedOn="{x:Static local:HcStyles.LabelSubTitleStyle}" />
+      <Style x:Key="LabelContentStyle" TargetType="Label" BasedOn="{x:Static local:HcStyles.LabelContentStyle}" />
+      <Style x:Key="LabelContentWordWrapStyle" TargetType="Label"
+             BasedOn="{x:Static local:HcStyles.LabelContentWordWrapStyle}" />
+      <Style x:Key="LabelSubContentStyle" TargetType="Label"
+             BasedOn="{x:Static local:HcStyles.LabelSubContentStyle}" />
+      <Style x:Key="ButtonStyle" TargetType="Button" BasedOn="{x:Static local:HcStyles.ButtonStyle}" />
+      <Style x:Key="ButtonSearchBottomStyle" TargetType="Button" BasedOn="{x:Static local:HcStyles.ButtonForBottomSearchStyle}" />
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>

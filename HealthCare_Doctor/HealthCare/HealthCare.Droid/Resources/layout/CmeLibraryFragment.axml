@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+    <!--<ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/search"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical" />-->
+        <EditText
+            android:layout_width="fill_parent"
+            android:background="@drawable/textView_border"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:padding="5dp"
+            android:layout_gravity="center_vertical"
+            android:textColor="#000000"
+            android:drawableLeft="@drawable/search"
+            android:layout_marginLeft="5dp"
+            android:textColorHint="#CCCCCC"
+            local:MvxBind="Text CmeCategoriesSearch; Hint [CmeLibrary_Title]" />
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <Mvx.MvxGridView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="auto_fit"
+            android:columnWidth="100dp"
+            android:stretchMode="columnWidth"
+            android:gravity="center"
+            local:MvxBind="ItemsSource CmeCategories; ItemClick CmeCommand"
+            android:verticalSpacing="0dp"
+            android:horizontalSpacing="00dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:id="@+id/cmeGridview"
+            local:MvxItemTemplate="@layout/cmelibitemtemplate" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:id="@+id/EmptyTextView"
+            android:textColor="@android:color/black"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textStyle="bold"
+            tools:text="abc"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            local:MvxBind="Visible CmeCategories, Converter=ListVis; Text [Cme_CategoryEmpty]" />
+    </FrameLayout>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ButtonGreenMainColor">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cmeclasssearch"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_centerInParent="true"
+            android:background="?android:selectableItemBackground"
+            android:layout_marginRight="5dp"
+            android:layout_gravity="center"
+            android:id="@+id/searchbutton" />
+    </RelativeLayout>
+</LinearLayout>

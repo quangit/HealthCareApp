@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+    xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+    xmlns:enums="clr-namespace:HealthCare.Enums;assembly=HealthCare"
+    xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+    xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+    xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+    PageType="{x:Type pages:DoctorLocationPage}"
+    xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+    BindingContext="{Binding VmSearch, Source={StaticResource Locator}}"
+    Title="{x:Static resx:AppResources.doctor_location}" BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+    x:Class="HealthCare.Pages.DoctorLocationPage">
+
+    <controls:TopBarContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="Thickness" x:Key="MainContentPadding"
+                        iOS="10" Android="10" WinPhone="10" />
+            <OnPlatform x:Key="AvatarWidth" x:TypeArguments="x:Double"
+                        iOS="80" Android="80" WinPhone="140" />
+            <OnPlatform x:Key="AvatarHeight" x:TypeArguments="x:Double"
+                        iOS="80" Android="80" WinPhone="120" />
+        </ResourceDictionary>
+    </controls:TopBarContentPage.Resources>
+
+    <behaviors:Interaction.Behaviors>
+        <behaviors:BehaviorCollection>
+            <behaviors:EventToCommand EventName="Appearing"
+                                      Command="{Binding VmDoctorLocation.GetCurrentLocationCommand, Source={StaticResource Locator}}" />
+        </behaviors:BehaviorCollection>
+    </behaviors:Interaction.Behaviors>
+
+    <RelativeLayout>
+        <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderLightGrayColor}" Padding="1"
+                     RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=10}"
+                     RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=10}"
+                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                         Property=Width,
+                                                         Factor=1,
+                                                         Constant=-20}"
+                     RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                         Property=Height,
+                                                         Factor=1,
+                                                         Constant=-20}">
+            <StackLayout Orientation="Vertical" BackgroundColor="White">
+
+                <StackLayout Orientation="Horizontal" Padding="{StaticResource MainContentPadding}" Spacing="15">
+                    <Image
+                        Source="{Binding SelectedDoctor.Photo, Converter={StaticResource UriToImageLoaderConverter}}"
+                        Aspect="AspectFill"
+                        HeightRequest="{StaticResource AvatarHeight}"
+                        WidthRequest="{StaticResource AvatarWidth}" HorizontalOptions="Start" />
+                    <StackLayout Orientation="Vertical"
+                                 VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+                        <Label Style="{StaticResource LabelTitleStyle}" Text="{x:Static resx:AppResources.doctor}" FontAttributes="Bold"
+                               TextColor="{x:Static helpers:HcStyles.GreenColor}" />
+                        <Label Style="{StaticResource LabelTitleStyle}"
+                               Text="{Binding SelectedDoctor.FullName}" />
+                    </StackLayout>
+                </StackLayout>
+                <controls:HcMap DoctorAddress="{Binding MappedDoctorAddress}"
+                                DoctorName="{Binding SelectedDoctor.FullName}"
+                                DoctorPosition="{Binding SelectedDoctor.Location, Mode=TwoWay}"
+                                PatientPosition="{Binding VmDoctorLocation.CurrentLocation, Source={StaticResource Locator}}"
+                                VerticalOptions="FillAndExpand" />
+            </StackLayout>
+        </ContentView>
+    </RelativeLayout>
+</controls:TopBarContentPage>

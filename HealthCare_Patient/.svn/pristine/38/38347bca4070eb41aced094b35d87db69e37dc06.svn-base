@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:enums="clr-namespace:HealthCare.Enums;assembly=HealthCare"
+                            xmlns:models="clr-namespace:HealthCare.Models;assembly=HealthCare"
+                            xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+                            PageType="{x:Type chBases:AddMedicationPage}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            xmlns:chBases="clr-namespace:HealthCare.Pages.CHBases;assembly=HealthCare"
+                            xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+                            x:Class="HealthCare.Pages.CHBases.AddBloodGlucosePage"
+                            Title="{x:Static resx:AppResources.add_glucose}"
+                            BindingContext="{Binding VmBloodGlucose, Source={StaticResource Locator}}"
+                            BackgroundColor="White">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:Key="PagePadding"
+                 x:TypeArguments="Thickness"
+                 iOS="-25,8,-25,8"
+                 Android="-30,8,-30,8"
+                 WinPhone="0,12,0,8" />
+      <OnPlatform x:TypeArguments="GridLength" x:Key="GridColumnWidth"
+                 iOS="10*" Android="10*" WinPhone="25*" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="SpacingRowMainContent"
+                        iOS="10" Android="10" WinPhone="8" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+  <ScrollView VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand"
+              Padding="{StaticResource PagePadding}" >
+    <Grid Padding="0">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="{StaticResource GridColumnWidth}" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="0" Grid.Column="1">
+        <controls:HcEntry IsVisibleImage ="False" Text="{Binding Value , Mode=TwoWay}" Padding="0"  PlaceHolder="{x:Static resx:AppResources.glucose_value} "/>
+        <controls:HcEntry IsVisibleImage ="False" Text="{Binding Type , Mode=TwoWay}"   PlaceHolder="{x:Static resx:AppResources.glucose_type}" />
+        <controls:HcEntry IsVisibleImage ="False" Text="{Binding MeasurementContext , Mode=TwoWay}" PlaceHolder="{x:Static resx:AppResources.glucose_context}" />
+
+        <StackLayout Orientation="Horizontal">
+          <StackLayout Orientation="Vertical" Spacing="{StaticResource SpacingRowMainContent}"
+                       VerticalOptions="FillAndExpand">
+            <Label Text="{x:Static resx:AppResources.glucose_comparison}"
+                   Style="{StaticResource LabelContentStyle}"
+                   VerticalOptions="CenterAndExpand" />
+          </StackLayout>
+
+          <StackLayout Orientation="Vertical" Spacing="{StaticResource SpacingRowMainContent}"
+                         
+                         HorizontalOptions="FillAndExpand">
+            <Picker SelectedIndex="{Binding SelectItemComparison}">
+              <Picker.Items>
+                <x:String>1</x:String>
+                <x:String>2</x:String>
+                <x:String>3</x:String>
+                <x:String>4</x:String>
+                <x:String>5</x:String>
+              </Picker.Items>
+            </Picker>
+
+            <!--<controls:HcPicker x:TypeArguments="" PickerStyle="1"
+                              HorizontalOptions="FillAndExpand"
+                              ItemsSource=""
+                              TitleText="{x:Static resx:AppResources.glucose_comparison}"
+                              EmptyText="{x:Static resx:AppResources.empty}">
+              --><!--SelectedItem="{Binding SelectedCity, Mode=TwoWay}"
+              ItemsSource="{Binding ListCity, Mode=TwoWay}"--><!--
+            </controls:HcPicker>-->
+
+          </StackLayout>
+        </StackLayout>
+
+
+        <StackLayout Orientation="Horizontal">
+          <StackLayout Orientation="Vertical" Spacing="0"
+                       VerticalOptions="FillAndExpand">
+            <Label Text="{x:Static resx:AppResources.glucose_control_test}"
+                   Style="{StaticResource LabelContentStyle}"
+                   VerticalOptions="CenterAndExpand" />
+            <Label Text="{x:Static resx:AppResources.glucose_range_device}"
+                   Style="{StaticResource LabelContentStyle}"
+                   VerticalOptions="CenterAndExpand" />
+          </StackLayout>
+
+          <StackLayout Orientation="Vertical" Spacing="0"
+                         HorizontalOptions="FillAndExpand">
+
+            <Switch IsToggled="{Binding IsControlTest, Mode=TwoWay}"
+               HorizontalOptions="End"  VerticalOptions="Center"/>
+
+            <Switch IsToggled="{Binding IsOutsideOperatingTemp, Mode=TwoWay}"
+               HorizontalOptions="End"  VerticalOptions="Center"/>
+
+          </StackLayout>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" Padding="{StaticResource PaddingRowMainContent}">
+          <controls:ButtonCustom  Text="{x:Static resx:AppResources.ok}"
+                                   Style="{StaticResource ButtonStyle}"
+                                  HorizontalOptions="FillAndExpand"
+                                  Command="{Binding AddBloodGlucoseCommand}"></controls:ButtonCustom>
+        </StackLayout>
+      </StackLayout>
+    </Grid>
+  </ScrollView>
+
+</controls:TopBarContentPage>

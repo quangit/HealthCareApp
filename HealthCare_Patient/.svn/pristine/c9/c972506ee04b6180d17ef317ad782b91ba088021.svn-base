@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            x:Class="HealthCare.Pages.RegCHBasePage"
+                            BindingContext="{Binding VmSetting, Source={StaticResource Locator}}"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            PageType="{x:Type pages:SettingPage}"
+                            xmlns:pages="clr-namespace:HealthCare.Pages;assembly=HealthCare"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:behaviors="clr-namespace:HealthCare.Behaviors;assembly=HealthCare"
+                            BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                            Title="{x:Static resx:AppResources.hc_record}">
+
+  <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}">
+    <WebView   BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}" HeightRequest="600" x:Name="WebView"
+             Navigating="WebView_OnNavigating"
+             Navigated="WebView_OnNavigated"/>
+  </StackLayout>
+</controls:TopBarContentPage>

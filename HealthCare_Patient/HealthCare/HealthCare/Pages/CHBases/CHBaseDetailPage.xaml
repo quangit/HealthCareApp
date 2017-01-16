@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<controls:TopBarContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+                            xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+                            xmlns:chBaseModel="clr-namespace:HealthCare.Models.ChBaseModel;assembly=HealthCare"
+                            xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+                            xmlns:chBases="clr-namespace:HealthCare.Pages.CHBases;assembly=HealthCare"
+                            xmlns:system="clr-namespace:System;assembly=System.Runtime"
+                            Title="{Binding VmChBaseDetail.Title, Source={StaticResource Locator}}"
+                            BackgroundColor="{x:Static helpers:HcStyles.BaseBackground}"
+                            PageType="{x:Type chBases:ImmunizationPage}"
+                            BindingContext="{Binding VmChBaseDetail, Source={StaticResource Locator}}"
+                            x:Class="HealthCare.Pages.CHBases.CHBaseDetailPage">
+
+  <controls:TopBarContentPage.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:TypeArguments="x:Double" x:Key="TopLineHeight"
+                  iOS="2" Android="2" WinPhone="4" />
+      <OnPlatform x:TypeArguments="Thickness" x:Key="StackLevel1Padding"
+                  iOS="20,20,20,8" Android="20,20,24,8" WinPhone="24,24,24,8" />
+
+      <OnPlatform x:TypeArguments="Thickness" x:Key="GridPadding"
+                  iOS="8,8" Android="8,8" WinPhone="30,4" />
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ListViewHeight"
+                        Android="600" WinPhone="470" iOS="580"/>
+      <OnPlatform x:TypeArguments="x:Double" x:Key="ScrollHeight"
+                        Android="560" WinPhone="424" iOS="560"/>
+      <OnPlatform x:TypeArguments="Thickness" x:Key="ButtonPadding"
+                 iOS="15,4" Android="15,8" WinPhone="18,4" />
+      <DataTemplate x:Key="OneLineTemplate">
+        <ViewCell>
+          <ViewCell.View>
+
+            <Grid Padding="{StaticResource GridPadding}"
+                  BackgroundColor="Transparent">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+
+              <Label Text="{Binding Title}"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     FontAttributes="Bold"
+                     TextColor="{x:Static helpers:HcStyles.CheckupAcceptedColor}"
+                     Style="{StaticResource LabelContentStyle}" />
+
+              <!--Content-->
+              <Label Text="{Binding Value}"
+                     Grid.Row="0"
+                     Grid.Column="1"
+                     XAlign="End"
+                     Style="{StaticResource LabelContentWordWrapStyle}" />
+            </Grid>
+          </ViewCell.View>
+        </ViewCell>
+      </DataTemplate>
+
+      <DataTemplate x:Key="OneLineOneValueTemplate">
+        <ViewCell>
+          <ViewCell.View>
+
+            <Grid Padding="{StaticResource GridPadding}"
+                  BackgroundColor="Transparent">
+
+              <!--<Label Text="{Binding Title}"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     FontAttributes="Bold"
+                     TextColor="{x:Static helpers:HcStyles.CheckupAcceptedColor}"
+                     Style="{StaticResource LabelContentStyle}" />-->
+
+              <!--Content-->
+              <Label Text="{Binding Value}"
+                     Grid.Row="0"
+                     FontAttributes="Bold"
+                     HorizontalOptions="CenterAndExpand"
+                     Style="{StaticResource LabelContentWordWrapStyle}" />
+            </Grid>
+          </ViewCell.View>
+        </ViewCell>
+      </DataTemplate>
+
+      <DataTemplate x:Key="TwoLineTemplate">
+        <ViewCell>
+          <ViewCell.View>
+            <Grid Padding="{StaticResource GridPadding}"
+                  BackgroundColor="Transparent">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+              </Grid.RowDefinitions>
+
+              <Label Text="{Binding Title}"
+                     Grid.Row="0"
+                     FontAttributes="Bold"
+                     TextColor="{x:Static helpers:HcStyles.CheckupAcceptedColor}"
+                     Style="{StaticResource LabelContentStyle}" />
+
+              <!--Content-->
+              <Label Text="{Binding Value}"
+                     Grid.Row="1"
+                     Style="{StaticResource LabelContentWordWrapStyle}" />
+            </Grid>
+          </ViewCell.View>
+        </ViewCell>
+      </DataTemplate>
+
+      <chBaseModel:CHBaseDetailTemplateSelector x:Key="ChBaseDetailTemplateSelector"
+                                                OneLineDataTemplate="{StaticResource OneLineTemplate}"
+                                                OneLineOneTextDataTemplate="{StaticResource OneLineOneValueTemplate}"
+                                                TwoLineDataTemplate="{StaticResource TwoLineTemplate}" />
+    </ResourceDictionary>
+  </controls:TopBarContentPage.Resources>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition></RowDefinition>
+      <RowDefinition Height="Auto"></RowDefinition>
+    </Grid.RowDefinitions>
+    <Grid  BackgroundColor="Transparent"
+                 VerticalOptions="Start"
+                 Padding="{StaticResource StackLevel1Padding}">
+
+      <StackLayout BackgroundColor="White"
+                   VerticalOptions="Start">
+        <ContentView HorizontalOptions="FillAndExpand"
+                     HeightRequest="{StaticResource TopLineHeight}"
+                     BackgroundColor="{x:Static helpers:HcStyles.CheckupAcceptedColor}" />
+
+        <controls:HcListView x:TypeArguments="chBaseModel:CHBaseDetailUIModel"
+                             CanLoadMore="False"
+                             Orientation="Vertical"
+                             HeightRequest="{StaticResource ListViewHeight}"
+                             ItemsSource="{Binding ListItemDetail}"
+                             ItemCount="10"
+                             TemplateSelector="{StaticResource ChBaseDetailTemplateSelector}"
+                             EmptyText="Empty" />
+
+
+        <controls:ImageGallery IsVisible="{Binding IsProcedure}" VerticalOptions="Start" Padding="10, 0, 10, 10" ItemsSource="{Binding Images}">
+          <controls:ImageGallery.ItemTemplate>
+            <DataTemplate>
+              <Grid  HeightRequest="150"
+                WidthRequest="150">
+                <Image
+                  HeightRequest="150"
+                  WidthRequest="150"
+                  Source="{Binding Source}"
+                  Aspect="AspectFit">
+                </Image>
+                <!--<Grid Padding="0,-10,10,0">
+                  <Image HeightRequest="50"
+               WidthRequest="50" VerticalOptions="Start" HorizontalOptions="End"  Source="cancel.png">
+                    <Image.GestureRecognizers>
+                      <TapGestureRecognizer
+                        Command="{Binding VmProcedure.RemoveImageCommand, Source={StaticResource Locator}}"
+                        CommandParameter="{Binding ImageId}" />
+                    </Image.GestureRecognizers>
+                  </Image>
+                </Grid>-->
+
+              </Grid>
+            </DataTemplate>
+          </controls:ImageGallery.ItemTemplate>
+        </controls:ImageGallery>
+
+      </StackLayout>
+    </Grid>
+    <Grid Row="1">
+
+
+      <Grid Padding="{StaticResource ButtonPadding}"
+            HorizontalOptions="FillAndExpand"
+           BackgroundColor="Transparent">
+
+        <controls:ButtonCustom Style="{StaticResource ButtonStyle}"
+                               Text="{x:Static resx:AppResources.delete}"
+                               BackgroundColor="{x:Static helpers:HcStyles.CheckupAcceptedColor}" Command="{Binding DeleteCommand}"/>
+      </Grid>
+
+    </Grid>
+  </Grid>
+
+</controls:TopBarContentPage>

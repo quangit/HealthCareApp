@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+          xmlns:resx="clr-namespace:HealthCare.Resx;assembly=HealthCare"
+          x:Class="HealthCare.Controls.ViewCells.CreditCardViewCell">
+
+  <Grid Padding="{x:Static helpers:HcStyles.ViewCellPadding}">
+    <Grid BackgroundColor="White" ColumnSpacing="0" RowSpacing="0">
+
+      <Grid.Resources>
+        <ResourceDictionary>
+          <OnPlatform x:TypeArguments="x:Double" x:Key="IconInfoSize"
+                      iOS="52" Android="52" WinPhone="100" />
+          <OnPlatform x:TypeArguments="x:Double" x:Key="LogoBankSize"
+                      iOS="55" Android="40" WinPhone="64" />
+          <OnPlatform x:TypeArguments="x:Double" x:Key="LeftLineWidth"
+                      iOS="2" Android="2" WinPhone="4" />
+          <OnPlatform x:TypeArguments="Thickness" x:Key="CellPaddingInside"
+                      iOS="8" Android="8" WinPhone="16" />
+          <OnPlatform x:TypeArguments="x:Double" x:Key="CardNumberFontSize"
+                      iOS="18" Android="18" WinPhone="20" />
+          <OnPlatform x:TypeArguments="x:Double" x:Key="CardDesFontSize"
+                      iOS="12" Android="12" WinPhone="14" />   
+          <OnPlatform x:TypeArguments="GridLength" x:Key="ViewCellHeight"
+                      iOS="80" Android="80" WinPhone="100" />
+          <OnIdiom x:TypeArguments="Thickness" x:Key="CardPadding"
+                     Phone="8,0" Tablet="8" />
+
+        </ResourceDictionary>
+      </Grid.Resources>
+
+      <Grid.RowDefinitions>
+        <RowDefinition Height="{StaticResource ViewCellHeight}" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+      <ContentView x:Name="LeftLine"
+                   Grid.Column="0"
+                   Grid.Row="0"
+                   WidthRequest="{StaticResource LeftLineWidth}"
+                   BackgroundColor="{x:Static helpers:HcStyles.GreenCardColor}" />
+      <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderLightGrayColor}"
+                   Padding="0,1,1,1" Grid.Row="0" Grid.Column="1">
+        <Grid Padding="{StaticResource CellPaddingInside}" BackgroundColor="White">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="4*" />
+          </Grid.ColumnDefinitions>
+
+          <ContentView Padding="{StaticResource CardPadding}" Grid.Column="0" Grid.RowSpan="2" Grid.Row="0">
+            <Image Source="ic_info_creditcard.png" WidthRequest="{StaticResource IconInfoSize}" />
+          </ContentView>
+          <Label Style="{StaticResource LabelTitleStyle}"
+                 Text="{Binding CardId, Converter={StaticResource HideCardIdConverter}}"
+                 Grid.Column="1" Grid.Row="0" VerticalOptions="EndAndExpand"
+                 IsVisible="{Binding IsChoosePayByOtherMethod, Converter={StaticResource BoolRevertConverter}}"
+                 FontSize="{StaticResource CardNumberFontSize}" />
+          <Label Style="{StaticResource LabelTitleStyle}" 
+                 Text="{Binding CardId, Converter={StaticResource PaymentConverter}}" 
+                 Grid.Column="1" Grid.Row="1"
+                 FontSize="{StaticResource CardNumberFontSize}"
+                 FontAttributes="Bold" VerticalOptions="StartAndExpand"
+                 IsVisible="{Binding IsChoosePayByOtherMethod, Converter={StaticResource BoolRevertConverter}}"
+                 TextColor="{x:Static helpers:HcStyles.DarkerGreenCardColor}" />
+
+          <Label Style="{StaticResource LabelTitleStyle}"
+                 Text="{Binding CardId, Converter={StaticResource PaymentConverter}}"
+                 Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+                 FontSize="{StaticResource CardNumberFontSize}"
+                 FontAttributes="Bold" VerticalOptions="Center"
+                 IsVisible="{Binding IsChoosePayByOtherMethod}"
+                 TextColor="{x:Static helpers:HcStyles.DarkerGreenCardColor}" />
+          
+          <!--<Image Source="{Binding Logo}" IsVisible="False" WidthRequest="{StaticResource LogoBankSize}"
+                 Grid.Column="2" Grid.RowSpan="2" Grid.Row="0" VerticalOptions="CenterAndExpand" 
+                 HorizontalOptions="CenterAndExpand" />-->
+          <!--<StackLayout Grid.Column="1" Grid.Row="2">
+            <Label Style="{StaticResource LabelTitleStyle}"
+                    Text="{Binding CardId, Converter={StaticResource PaymentDesConverter}}"
+                     VerticalOptions="EndAndExpand"
+                    FontSize="{StaticResource CardDesFontSize}" LineBreakMode="WordWrap" />
+          </StackLayout>-->
+        </Grid>
+      </ContentView>
+    </Grid>
+  </Grid>
+</ViewCell>

@@ -1,0 +1,166 @@
+﻿<UserControl x:Class="HealthCare.Phone.Views.HomeTab.CheckupsTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dataBoundListBox="clr-namespace:Telerik.Windows.Controls.DataBoundListBox;assembly=Telerik.Windows.Controls.Primitives"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+             FontFamily="{StaticResource PhoneFontFamilyNormal}"
+             FontSize="{StaticResource PhoneFontSizeNormal}"
+             Foreground="{StaticResource PhoneForegroundBrush}"
+             d:DesignHeight="480"
+             d:DesignWidth="480"
+             mc:Ignorable="d">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="/Assets/Header.png" Stretch="UniformToFill" />
+            </StackPanel.Background>
+
+            <TextBlock Margin="12"
+                       FontSize="{StaticResource PhoneFontSizeMedium}"
+                       FontWeight="Bold"
+                       Foreground="Black"
+                       Text="{Binding LocalizedResources.Checkups_Title,
+                                      Source={StaticResource LocalizedStrings}}" />
+            <Border Height="2"
+                    Margin="12,0"
+                    Background="{StaticResource MainBrush}" />
+        </StackPanel>
+        <telerikPrimitives:RadDataBoundListBox x:Name="CheckupList"
+                                               Grid.Row="1"
+                                               Margin="12,12,12,0"
+                                               Background="White"
+                                               DataVirtualizationMode="OnDemandAutomatic"
+                                               
+                                               IsPullToRefreshEnabled="True"
+                                               ItemsSource="{Binding Checkups}"
+                                               ItemLoadingContent="{x:Null}"
+                                               RefreshRequested="Checkup_OnRefreshRequested"
+                                               ShowPullToRefreshWhenNoData="True"
+                                               UseOptimizedManipulationRouting="False">
+            <telerikPrimitives:RadDataBoundListBox.EmptyContent>
+                <TextBlock Margin="12"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"
+                           Text="{Binding Source={StaticResource LocalizedStrings},
+                                                                      Path=LocalizedResources.Checkups_Empty}" />
+            </telerikPrimitives:RadDataBoundListBox.EmptyContent>
+            <telerikPrimitives:RadDataBoundListBox.ItemLoadingTemplate>
+                <DataTemplate>
+                    <Grid />
+                </DataTemplate>
+            </telerikPrimitives:RadDataBoundListBox.ItemLoadingTemplate>
+            <telerikPrimitives:RadDataBoundListBox.PullToRefreshIndicatorStyle>
+                <Style TargetType="dataBoundListBox:PullToRefreshIndicatorControl">
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                    <Setter Property="Background" Value="LightGray" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    <Setter Property="Margin" Value="6,6,6,12" />
+                </Style>
+            </telerikPrimitives:RadDataBoundListBox.PullToRefreshIndicatorStyle>
+
+            <telerikPrimitives:RadDataBoundListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,0,0,12"
+                          Background="{StaticResource GrayBrush}"
+                          Tap="ItemTapped">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid Margin="0,6,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Border Width="50"
+                                        Height="50"
+                                        Margin="6,0"
+                                        CornerRadius="10">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="{Binding Patient.Photo}" />
+                                    </Border.Background>
+                                </Border>
+                                <StackPanel Grid.Column="1" VerticalAlignment="Top">
+                                    <TextBlock FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                               FontSize="{StaticResource PhoneFontSizeSmall}"
+                                               FontWeight="Bold"
+                                               Foreground="Black"
+                                               Text="{Binding Patient.Name}" />
+                                    <TextBlock FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                               FontSize="14"
+                                               LineHeight="18"
+                                               MaxHeight="36"
+                                               FontWeight="Normal"
+                                               Foreground="Black"
+                                               Text="{Binding Patient.Address}" />
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Column="1"
+                                  Margin="0,6,0,0"
+                                  HorizontalAlignment="Right">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0" VerticalAlignment="Top">
+                                    <TextBlock FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                               FontSize="{StaticResource PhoneFontSizeSmall}"
+                                               FontWeight="Bold"
+                                               Foreground="Black"
+                                               Text="{Binding Doctor.Name}"
+                                               TextAlignment="Right" />
+                                    <TextBlock FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                               FontSize="14"
+                                               FontWeight="Normal"
+                                               Foreground="Black"
+                                               Text="{Binding Hospital.Name}"
+                                               TextAlignment="Right" />
+                                </StackPanel>
+                                <Border Grid.Column="1"
+                                        Width="50"
+                                        Height="50"
+                                        Margin="6,0"
+                                        CornerRadius="10">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="{Binding Doctor.Photo}" />
+                                    </Border.Background>
+                                </Border>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="1" MinHeight="60">
+                            <StackPanel Margin="0,6,0,0">
+                                <TextBlock HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontSize="{StaticResource PhoneFontSizeSmall}"
+                                           FontWeight="Light"
+                                           Foreground="#8A8A8A"
+                                           Text="{Binding Date}" />
+                                <TextBlock HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                           FontSize="{StaticResource PhoneFontSizeSmall}"
+                                           FontWeight="Bold"
+                                           Foreground="#8A8A8A"
+                                           Text="{Binding Symptom}"
+                                           TextAlignment="Center" />
+                            </StackPanel>
+
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </telerikPrimitives:RadDataBoundListBox.ItemTemplate>
+        </telerikPrimitives:RadDataBoundListBox>
+    </Grid>
+</UserControl>

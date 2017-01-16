@@ -1,0 +1,194 @@
+﻿<views:MvxPhonePage
+    x:Class="HealthCare.Phone.Views.WeekTopicFileView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:HealthCare.Phone.Controls"
+    xmlns:converters="clr-namespace:HealthCare.Phone.Converters"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+                    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:dataBoundListBox="clr-namespace:Telerik.Windows.Controls.DataBoundListBox;assembly=Telerik.Windows.Controls.Primitives"
+                    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+                    xmlns:views="clr-namespace:Cirrious.MvvmCross.WindowsPhone.Views;assembly=Cirrious.MvvmCross.WindowsPhone"
+      xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+             FontSize="{StaticResource PhoneFontSizeNormal}"
+             Foreground="{StaticResource PhoneForegroundBrush}"
+             d:DesignHeight="800"
+             d:DesignWidth="480"
+             mc:Ignorable="d" Orientation="Portrait">
+
+
+    <views:MvxPhonePage.Resources>
+        <converters:NativeWeekTopicStatus x:Key="WeekTopicStatus" />
+        <converters:NativeMilisecondToDate x:Key="MilisecondToDate" />
+
+    </views:MvxPhonePage.Resources>
+    
+    
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!--  TitlePanel contains the name of the application and page title  -->
+        <Grid x:Name="TopBar"
+              Height="60"
+              Background="{StaticResource MainBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="2" Orientation="Horizontal">
+
+                <Button x:Name="AppBarCall"
+                        Margin="12,0"
+                        Padding="12,0"
+                        Style="{StaticResource SimpleButtonStyle}"
+                        Tag="5">
+
+                    <Image Width="35"
+                           Height="35"
+                           Tap="Image_Tap"
+                           Source="/Assets/phone_sup.png" />
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Row="0"
+                        Grid.Column="1"
+                        Margin="12,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                <Image Height="40" Source="/Assets/logo_bs.png" />
+                <TextBlock Margin="12,6"
+                           Foreground="White"
+                           Style="{StaticResource PhoneTextTitle3Style}"
+                           Text="{Binding LocalizedResources.ApplicationTitle,
+                                          Source={StaticResource LocalizedStrings}}" />
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="1">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="/Assets/Header.png" Stretch="UniformToFill" />
+            </StackPanel.Background>
+
+            <TextBlock Margin="12"
+                       FontSize="{StaticResource PhoneFontSizeMedium}"
+                       FontWeight="Bold"
+                       Foreground="Black"
+                       Text="{Binding LocalizedResources.WeakTopicsFile_Title,
+                                      Source={StaticResource LocalizedStrings}}" />
+            <Border Height="2"
+                    Margin="12,0"
+                    Background="{StaticResource MainBrush}" />
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="2">
+            <Grid Height="Auto">
+                <StackPanel Margin="20,10">
+                    <TextBlock FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                       FontSize="{StaticResource PhoneFontSizeSmall}"
+                                       FontWeight="SemiBold"
+                                       Foreground="Black"
+                                       Text="{Binding Topic.Title}" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="6" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0"
+                                           Grid.Column="0"
+                                           FontSize="14"
+                                           Foreground="Gray"
+                                           Text="{Binding Source={StaticResource LocalizedStrings},
+                                                          Path=LocalizedResources.WeekTopics_Organisers}" />
+                        <TextBlock Grid.Row="0"
+                                           Grid.Column="2"
+                                           FontSize="14"
+                                           Foreground="Gray"
+                                           Text="{Binding Topic.Owner}" />
+
+
+                        <TextBlock Grid.Row="1"
+                                           Grid.Column="0"
+                                           FontSize="14"
+                                           Foreground="Gray"
+                                           Text="{Binding Source={StaticResource LocalizedStrings},
+                                                          Path=LocalizedResources.ScheduleAdding_StartTitle}" />
+                        <TextBlock Grid.Row="1"
+                                           Grid.Column="2"
+                                           FontSize="14"
+                                           Foreground="Gray"
+                                           Text="{Binding Topic.StartDateTime,
+                                                          Converter={StaticResource MilisecondToDate}}" />
+
+                        <TextBlock Grid.Row="2"
+                                           Grid.Column="0"
+                                           FontSize="14"
+                                           Foreground="Gray"
+                                           Text="{Binding Source={StaticResource LocalizedStrings},
+                                                          Path=LocalizedResources.ScheduleAdding_EndTitle}" />
+                        <TextBlock Grid.Row="2"
+                                           Grid.Column="2"
+                                           FontSize="14"
+                                           Foreground="Gray"
+                                           Text="{Binding Topic.EndDateTime,
+                                                          Converter={StaticResource MilisecondToDate}}" />
+                    </Grid>
+                </StackPanel>
+            </Grid>
+
+            <Border Height="2"
+                    Margin="12,0"
+                    Background="DarkGray" />
+
+
+            <telerikPrimitives:RadDataBoundListBox x:Name="WeekTopicList"
+                                               Grid.Row="2"
+                                               Margin="12,12,12,0"
+                                               ItemsSource="{Binding TopicFiles}"
+                                               ItemLoadingContent="{x:Null}"
+                                               UseOptimizedManipulationRouting="False">
+                <telerikPrimitives:RadDataBoundListBox.EmptyContent>
+                    <TextBlock Margin="12"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"
+                           Text="{Binding Source={StaticResource LocalizedStrings},
+                                                                      Path=LocalizedResources.WeekTopicFile_Empty}" />
+                </telerikPrimitives:RadDataBoundListBox.EmptyContent>
+                <telerikPrimitives:RadDataBoundListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal"
+                                      Tap="StackPanel_Tap"
+                                       Margin="0,10">
+                            <Image Width="70" Height="70" Source="/Assets/pdf.png"  />
+                            <TextBlock Margin="12"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"
+                            
+                           Text="{Binding FileName, Mode=TwoWay}" FontSize="24" />
+
+                        </StackPanel>
+                    </DataTemplate>
+                </telerikPrimitives:RadDataBoundListBox.ItemTemplate>                    
+            </telerikPrimitives:RadDataBoundListBox>
+        </StackPanel>
+
+
+
+    </Grid>
+
+</views:MvxPhonePage>

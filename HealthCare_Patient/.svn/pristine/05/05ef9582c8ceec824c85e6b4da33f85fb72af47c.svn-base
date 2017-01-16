@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthCare.Controls.HcEntry"
+             xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+             xmlns:views="clr-namespace:HealthCare;assembly=HealthCare"
+             xmlns:controls="clr-namespace:HealthCare.Controls;assembly=HealthCare"
+             Spacing="{StaticResource contentSpacing}"
+             Orientation="Vertical">
+
+    <StackLayout.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:Double" x:Key="contentSpacing"
+                        iOS="5" Android="0" WinPhone="-12" />
+        </ResourceDictionary>
+    </StackLayout.Resources>
+
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                 Padding=" 8, 0, 8, 0"
+                 Spacing="8" Orientation="Horizontal">
+
+        <Image x:Name="idImage"
+               Source="ic_cvv_num"
+               HorizontalOptions="Start"
+               WidthRequest="{x:Static helpers:HcStyles.ImageInEntryWidth}"
+               HeightRequest="{x:Static helpers:HcStyles.ImageInEntryHeight}" />
+
+        <controls:EntryLogin x:Name="idEntry"
+                             HorizontalOptions="FillAndExpand"
+                             Placeholder="Place_Holder"
+                             BackgroundColor="Transparent"
+                             TextColor="{x:Static helpers:HcStyles.BlackTextColor}"
+                             PlaceHolderColor="{x:Static helpers:HcStyles.LightBlackTextColor}"
+                             IsPassword="False"
+                             IsLogin="False"
+                             FontSize="{x:Static helpers:HcStyles.EntryLoginFontSizeContent}" />
+    </StackLayout>
+
+    <ContentView x:Name="idRule" BackgroundColor="{x:Static helpers:HcStyles.GreenLineColor}"
+                 HeightRequest="1" HorizontalOptions="Fill"
+                 Padding="0" />
+</StackLayout>

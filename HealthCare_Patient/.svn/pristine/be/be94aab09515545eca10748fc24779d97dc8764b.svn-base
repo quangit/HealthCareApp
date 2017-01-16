@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:helpers="clr-namespace:HealthCare.Helpers;assembly=HealthCare"
+          x:Class="HealthCare.Controls.ViewCells.CHBaseViewCell">
+
+  <ContentView Padding="0,5,0,5">
+    <ContentView.Resources>
+      <ResourceDictionary>
+        <OnPlatform x:TypeArguments="x:Double" x:Key="LeftLineWidth"
+                    iOS="1.5" Android="1.5" WinPhone="2.5" />
+      </ResourceDictionary>
+    </ContentView.Resources>
+
+    <ContentView BackgroundColor="{x:Static helpers:HcStyles.BorderLightGrayColor}" Padding="1">
+
+      <!--<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="White"
+                   VerticalOptions="FillAndExpand">
+        <ContentView WidthRequest="{StaticResource LeftLineWidth}"
+                     VerticalOptions="FillAndExpand"
+                     BackgroundColor="{x:Static helpers:HcStyles.GreenCardColor}" />
+        <StackLayout Padding="10" HorizontalOptions="FillAndExpand"
+                     Orientation="Vertical">
+          <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+            <Label Grid.Row="0"
+                   Grid.Column="0"
+                   Style="{StaticResource LabelContentStyle}"
+                   x:Name="lblTitle1"
+                   FontAttributes="Bold"
+                   IsVisible="False"
+                   Text="Name/Title 1" />
+            <Label Grid.Row="0"
+                   Grid.Column="1"
+                   Style="{StaticResource LabelSubContentStyle}"
+                   XAlign="End"
+                   x:Name="lblContent1"
+                   IsVisible="False"
+                   Text="Value 1" />
+
+          </StackLayout>
+
+          <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+
+            <Label Grid.Row="1"
+                   Grid.Column="0"
+                   Style="{StaticResource LabelContentStyle}"
+                   x:Name="lblTitle2"
+                   FontAttributes="Bold"
+                   IsVisible="False"
+                   Text="Name/Title 2" />
+            <Label Grid.Row="1"
+                   Grid.Column="1"
+                   Style="{StaticResource LabelSubContentStyle}"
+                   XAlign="End"
+                   x:Name="lblContent2"
+                   IsVisible="False"
+                   Text="Value 2" />
+          </StackLayout>
+        </StackLayout>
+      </StackLayout>-->
+
+
+      <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+                   BackgroundColor="White"
+                         VerticalOptions="FillAndExpand">
+        <ContentView WidthRequest="{StaticResource LeftLineWidth}"
+                     VerticalOptions="FillAndExpand"
+                     BackgroundColor="{x:Static helpers:HcStyles.GreenCardColor}" />
+
+        <Grid Padding="10" HorizontalOptions="FillAndExpand">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+
+          <Label Grid.Row="0"
+                 Grid.Column="0"
+                 Style="{StaticResource LabelContentStyle}"
+                 x:Name="lblTitle1"
+                 FontAttributes="Bold"
+                 IsVisible="False"
+                 Text="Name/Title 1" />
+
+          <Label Grid.Row="1"
+                 Grid.Column="0"
+                 Style="{StaticResource LabelContentStyle}"
+                 x:Name="lblTitle2"
+                 FontAttributes="Bold"
+                 IsVisible="False"
+                 Text="Name/Title 2" />
+
+          <Label Grid.Row="0"
+                 Grid.Column="1"
+                 Style="{StaticResource LabelSubContentStyle}"
+                 XAlign="End"
+                 x:Name="lblContent1"
+                 IsVisible="False"
+                 Text="Value 1" />
+
+          <Label Grid.Row="1"
+                 Grid.Column="1"
+                 Style="{StaticResource LabelSubContentStyle}"
+                 XAlign="End"
+                 x:Name="lblContent2"
+                 IsVisible="False"
+                 Text="Value 2" />
+
+        </Grid>
+      </StackLayout>
+    </ContentView>
+  </ContentView>
+
+</ViewCell>
