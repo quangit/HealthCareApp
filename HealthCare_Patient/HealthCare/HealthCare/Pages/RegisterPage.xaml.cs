@@ -1,5 +1,6 @@
 ﻿using HealthCare.Controls;
 using HealthCare.ViewModels;
+using Xamarin.Forms;
 
 namespace HealthCare.Pages
 {
@@ -15,5 +16,6 @@ namespace HealthCare.Pages
             UserViewModel.Instance.HandleHardwareBackButton();
             return true;
         }
+
     }
 }

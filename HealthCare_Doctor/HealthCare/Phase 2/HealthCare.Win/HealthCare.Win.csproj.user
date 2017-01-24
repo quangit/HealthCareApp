@@ -11,7 +11,7 @@
     <AuthenticationMode>Windows</AuthenticationMode>
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
     <DeviceId>721A4141-313A-42D6-9C47-7FE224046E9B</DeviceId>
-    <UseEmulator>true</UseEmulator>
+    <UseEmulator>false</UseEmulator>
     <UseSimulator>false</UseSimulator>
     <CreateCleanLayout>false</CreateCleanLayout>
   </PropertyGroup>

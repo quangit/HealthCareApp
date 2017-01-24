@@ -32,7 +32,18 @@ namespace HealthCare
             AppResources.Culture = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
 
             MainPage = new NavigationPage(new LoginPage()) { Style = HcStyles.NavigationPageStyle };
+            
         }
+
+        public void ReplaceRootPage()
+        {
+            MainPage = new NavigationPage(new Page
+            {
+                BackgroundColor = Color.Blue,
+            });
+        }
+
+        
 
         protected override void OnStart()
         {

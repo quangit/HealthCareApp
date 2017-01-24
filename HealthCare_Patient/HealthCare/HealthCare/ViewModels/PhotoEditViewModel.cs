@@ -58,7 +58,7 @@ namespace HealthCare.ViewModels
 
         public async void GoBack()
         {
-            CropEvent = null;
+            //CropEvent = null;
             if (Common.OS == TargetPlatform.WinPhone)
             {
                 Common.ShowLoading();

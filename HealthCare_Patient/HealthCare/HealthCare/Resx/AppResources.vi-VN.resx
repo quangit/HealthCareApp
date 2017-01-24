@@ -330,7 +330,7 @@
     <value>Thanh toán</value>
   </data>
   <data name="checkup_phone_no" xml:space="preserve">
-    <value>Số điện thoại:</value>
+    <value>SĐT di động:</value>
   </data>
   <data name="checkup_policy" xml:space="preserve">
     <value>Điều khoản sử dụng:</value>
@@ -411,7 +411,7 @@
     <value>Chi tiết</value>
   </data>
   <data name="diall_confirm" xml:space="preserve">
-    <value>Bạn có muốn kết nối đến tổng đài Bacsi24x7?</value>
+    <value>Bạn có muốn kết nối đến tổng đài Bacsi24x7 không?</value>
   </data>
   <data name="district" xml:space="preserve">
     <value>Quận/huyện</value>
@@ -490,7 +490,7 @@ Bấm + để thêm phiếu khám</value>
     <value>Bạn chưa chọn bệnh viện</value>
   </data>
   <data name="empty_last_name" xml:space="preserve">
-    <value>Họ và chữ lót không được trống</value>
+    <value>Họ và tên đệm không được trống</value>
   </data>
   <data name="empty_new_password" xml:space="preserve">
     <value>Mật khẩu mới không được rỗng</value>
@@ -604,7 +604,7 @@ Bấm + để thêm phiếu khám</value>
     <value>Ngôn ngữ</value>
   </data>
   <data name="last_name" xml:space="preserve">
-    <value>Họ và chữ lót</value>
+    <value>Họ và tên đệm</value>
   </data>
   <data name="later" xml:space="preserve">
     <value>Để sau</value>
@@ -799,7 +799,7 @@ Bấm + để thêm phiếu khám</value>
     <value>Nhập mật khẩu thanh toán</value>
   </data>
   <data name="phone_no" xml:space="preserve">
-    <value>Số điện thoại</value>
+    <value>SĐT di động</value>
   </data>
   <data name="picker_hospital" xml:space="preserve">
     <value>Chọn bệnh viện</value>
@@ -1114,7 +1114,7 @@ Bấm + để thêm phiếu khám</value>
     <value>Họ không được để trống</value>
   </data>
   <data name="rs_failure_last_name_empty" xml:space="preserve">
-    <value>Họ và chữ lót không được để trống</value>
+    <value>Họ và tên đệm không được để trống</value>
   </data>
   <data name="rs_failure_login_chbase_fail" xml:space="preserve">
     <value>Đăng nhập thất bại, kiểm tra Email và mật khẩu</value>
@@ -1765,5 +1765,29 @@ Vui lòng thanh toán hoặc gia hạn tài khoản để tận hưởng những
   </data>
   <data name="add_checkup_success_free" xml:space="preserve">
     <value>Lịch khám đã đặt thành công. Quý khách vui lòng đến trước giờ khám 15 phút. Lưu ý: Trường hợp có cấp cứu giờ khám của Quý khách có thể sẽ được điều chỉnh. Trân trọng cảm ơn.</value>
+  </data>
+  <data name="phone_call_fail" xml:space="preserve">
+    <value>Không thể thực  hiện cuộc gọi này !</value>
+  </data>
+  <data name="avatar_update_success" xml:space="preserve">
+    <value>Anh đại điện đã được thay đổi</value>
+  </data>
+  <data name="please_all_required_fields" xml:space="preserve">
+    <value>Vui lòng nhập đầy đủ thông tin vào các ô có dấu (*).</value>
+  </data>
+  <data name="password_dont_match" xml:space="preserve">
+    <value>Các mật khẩu này không khớp. Vui lòng nhập lại.</value>
+  </data>
+  <data name="password_must_least_6_characters" xml:space="preserve">
+    <value>Mật khẩu dài ít nhất 6 ký tự, bao gồm chữ cái và số.</value>
+  </data>
+  <data name="phone_number_invalid" xml:space="preserve">
+    <value>Số điện thoại không hợp lệ. Vui lòng nhập SĐT di động.</value>
+  </data>
+  <data name="email_already_in_user" xml:space="preserve">
+    <value>Email này đã tồn tại.</value>
+  </data>
+  <data name="email_not_activated" xml:space="preserve">
+    <value>Email này chưa được kích hoạt</value>
   </data>
 </root>

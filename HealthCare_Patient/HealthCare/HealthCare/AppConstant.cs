@@ -75,6 +75,7 @@ namespace HealthCare
         public const string RefreshDataUrl = "patient/refreshData";
         public const string GetCheckupListUrl = "patient/checkups";
         public const string GetSuggestionsUrl = "suggestionkeywords/search?keyword={0}&searchExactly=true";
+        public const string CheckExistedEmail = "public/checkExistedOrActivedEmail?email={0}";
 
         public const string GetDoctorBySearchUrl =
             "doctor/searchwithsuggestionkeyword?id={0}&type={1}&cityId={2}&districtId={3}&lat={4}&lng={5}&start={6}&length={7}";

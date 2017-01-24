@@ -47,7 +47,6 @@ namespace HealthCare.Droid.Renderers
             if (isFirstDesign)
             {
                 ActionBar actionBar = activity.ActionBar;
-
                 ColorDrawable colorDrawable = new ColorDrawable(Android.Graphics.Color.ParseColor(COLOR));
                 actionBar.SetStackedBackgroundDrawable(colorDrawable);
                 ActionBarTabsSetup(actionBar);

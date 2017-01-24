@@ -99,7 +99,7 @@ namespace HealthCare.Droid.DependencyServices.CropPhoto
                     SetResult(Result.Canceled);
                     if (bitmap != null)
                     {
-                        UserViewModel.Instance.SetAvatarByByteArray(PhotoEditDependencyService.BitmapToByteArray(bitmap));
+                       // UserViewModel.Instance.SetAvatarByByteArray(PhotoEditDependencyService.BitmapToByteArray(bitmap));
                     }
                     Finish();
                     return true;
@@ -110,10 +110,10 @@ namespace HealthCare.Droid.DependencyServices.CropPhoto
         public override void OnBackPressed()
         {
             base.OnBackPressed();
-            if (bitmap != null)
-            {
-                UserViewModel.Instance.SetAvatarByByteArray(PhotoEditDependencyService.BitmapToByteArray(bitmap));
-            }
+            //if (bitmap != null)
+            //{
+            //    UserViewModel.Instance.SetAvatarByByteArray(PhotoEditDependencyService.BitmapToByteArray(bitmap));
+            //}
         }
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -382,7 +382,8 @@ namespace HealthCare.Droid.DependencyServices.CropPhoto
             var byteArr = PhotoEditDependencyService.BitmapToByteArray(croppedImage);
             if (byteArr != null)
             {
-                UserViewModel.Instance.SetAvatarByByteArray(byteArr);
+                //UserViewModel.Instance.SetAvatarByByteArray(byteArr);
+                UserViewModel.Instance.UpdateAvatar(byteArr);
                 Finish();
             }
         }

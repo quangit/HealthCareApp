@@ -34,10 +34,13 @@ namespace HealthCare.WinPhone.Renderer
             PhotoEditViewModel.Instance.CropEvent += SaveImage;
         }
 
+        private bool isClickCrop;
+
         public CropUserControl(byte[] byteArray)
         {
             InitializeComponent();
             Init();
+            isClickCrop = true;
             PhotoEditViewModel.Instance.CropEvent += SaveImage;
             SetImageSource(byteArray);
         }
@@ -379,9 +382,13 @@ namespace HealthCare.WinPhone.Renderer
 
                     byteArray = stream.ToArray();
                 }
-
-                UserViewModel.Instance.SetAvatarByByteArray(byteArray);
-                PhotoEditViewModel.Instance.GoBack();
+                if (isClickCrop)
+                {
+                    isClickCrop = false;
+                    UserViewModel.Instance.UpdateAvatar(byteArray);
+                }
+                
+                //PhotoEditViewModel.Instance.GoBack();
             }
             catch (Exception ex)
             {

@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using HealthCare.Enums;
@@ -46,6 +47,14 @@ namespace HealthCare.WebServices
             //            await SendHttpRequest(HttpMethod.Get, resetUrl);
         }
 
+        public async Task<int> CheckExistEmail(string email)
+        {
+                var requestUrl = AppConstant.RootUrl + string.Format(AppConstant.CheckExistedEmail,
+                email);
+                var result = await SendHttpRequest(HttpMethod.Get, requestUrl);
+                return 3;
+        }
+
         public async Task ChangeUserPassword(string userId, string oldPassword, string newPassword)
         {
             var url = AppConstant.RootUrl + AppConstant.ChangeUserPasswordUrl;
@@ -67,10 +76,11 @@ namespace HealthCare.WebServices
             return true;
         }
         public async Task<UserModel> EditProfile(UserModel model, byte[] avatar)
-        {
+        {          
             var formData = model.UserModelToFormData();
             var data = await SendMultipartRequest(string.Format(AppConstant.EditProfileUrl, model.Id), "photo", avatar, formData);
-            return JsonUtils.ParseData<UserModel>(data, AppConstant.KeyProfile);
+            var user = JsonUtils.ParseData<UserModel>(data, AppConstant.KeyProfile);
+            return user;
         }
 
         public async Task<UserModel> Register(UserModel newAccount, byte[] avatar)

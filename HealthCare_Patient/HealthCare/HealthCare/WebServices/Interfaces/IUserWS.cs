@@ -13,7 +13,7 @@ namespace HealthCare.WebServices.Interfaces
         Task ChangeUserPassword(string userId, string oldPassword, string newPassword);
         Task<UserModel> EditProfile(UserModel model, byte[] avatar);
         Task<bool> ValidateSkype(string skypeId);
-
+        Task<int> CheckExistEmail(string email);
         Task<UserModel> Register(UserModel newAccount, byte[] avatar);
         Task<UserModel> RegisterWithFb(UserModel newAccount, byte[] avatar);
     }

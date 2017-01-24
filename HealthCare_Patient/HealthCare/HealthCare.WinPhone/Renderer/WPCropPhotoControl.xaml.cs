@@ -139,8 +139,8 @@ namespace HealthCare.WinPhone.Renderer
                         byteArray = stream.ToArray();
                     }
 
-                    UserViewModel.Instance.SetAvatarByByteArray(byteArray);
-                    PhotoEditViewModel.Instance.GoBack();
+                    UserViewModel.Instance.UpdateAvatar(byteArray);
+                    //PhotoEditViewModel.Instance.GoBack();
                 }
                 catch { PhotoEditViewModel.Instance.GoBack(); }
             }

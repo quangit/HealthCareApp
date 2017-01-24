@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Acr.UserDialogs;
@@ -39,6 +40,13 @@ namespace HealthCare.ViewModels
         private RelayCommand _changePwdCommand;
         private UserModel _selectedRelatedAccount;
         private ICommand _selectedRelatedAccountCommand;
+        private string notifyErrorRegistor;
+        private string notifyErrorPassword;
+        private string notifyErrorConfirmPassword;
+        private string notifyErrorPhoneNumber;
+        private string notifyErrorEmail;
+
+        private ValidateRegister validateEmptyRegister;
         public UserViewModel(INavigationService ns, IUserWS userWs, IChBaseWS chBaseWs, PersonValidator personValidator) : base(ns)
         {
             _userWs = userWs;
@@ -46,6 +54,69 @@ namespace HealthCare.ViewModels
             _personValidator = personValidator;
             ResetUser();
             _canGoBack = true;
+            ValidateEmptyRegister = new ValidateRegister();
+        }
+
+        public string NotifyErrorRegistor
+        {
+            get { return notifyErrorRegistor; }
+            set
+            {
+                notifyErrorRegistor = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public string NotifyErrorPassword
+        {
+            get { return notifyErrorPassword; }
+            set
+            {
+                notifyErrorPassword = value;
+                RaisePropertyChanged();
+            }
+        }
+        public string NotifyErrorConfirmPasscode
+        {
+            get { return notifyErrorConfirmPassword; }
+            set
+            {
+                notifyErrorConfirmPassword = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public string NotifyErrorPhoneNumber
+        {
+            get { return notifyErrorPhoneNumber; }
+            set
+            {
+                notifyErrorPhoneNumber = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public string NotifyErrorEmail
+        {
+            get { return notifyErrorEmail; }
+            set
+            {
+                notifyErrorEmail = value;
+                RaisePropertyChanged();
+            }
+        }
+
+
+
+
+        public ValidateRegister ValidateEmptyRegister
+        {
+            get { return validateEmptyRegister; }
+            set
+            {
+                validateEmptyRegister = value;
+                RaisePropertyChanged();
+            }
         }
 
         #region Properties
@@ -61,6 +132,235 @@ namespace HealthCare.ViewModels
                 _currentUser = value;
                 RaisePropertyChanged("CurrentUser");
             }
+        }
+
+        public string FormatName(string name)
+        {
+            if (string.IsNullOrEmpty(name)) return String.Empty;           
+            string reName = "";
+            string[] arrayString = name.Split(' ');
+            for (int i = 0; i < arrayString.Length; i++)
+            {
+                if (i > 0) reName += " ";
+                if (arrayString[i].Length > 0)
+                {
+                    string firstString = arrayString[i].Substring(0, 1);
+                    firstString = firstString.ToUpper();
+                    if (arrayString[i].Length > 1)
+                    {
+                        string lastString = arrayString[i].Substring(1);
+                        lastString = lastString.ToLower();
+                        reName += firstString + lastString;
+                    }
+                    else reName += firstString;
+                }                
+            }           
+            return reName;
+        }
+
+        public string LastName
+        {
+            get { return CurrentUser.LastName; }
+            set
+            {
+                if (Common.OS == TargetPlatform.Android)
+                {
+                    CurrentUser.LastName = value;
+                }
+                else
+                {
+                    CurrentUser.LastName = FormatName(value);
+                }                
+                ValidateEmptyRegister.MiddleNameColor = HcStyles.GreenLineColor;
+                NotifyErrorRegistor = string.Empty;             
+                RaisePropertyChanged();
+            }
+        }
+        public RelayCommand UnFocusedLastName => new RelayCommand(() =>
+        {
+            if (Common.OS == TargetPlatform.Android)
+            {
+                if (!string.IsNullOrEmpty(LastName))
+                {
+                    LastName = FormatName(LastName);
+                }
+            }         
+        });
+
+        public string FirstName
+        {
+            get { return CurrentUser.FirstName; }
+            set
+            {
+                if (Common.OS == TargetPlatform.Android)
+                {
+                    CurrentUser.FirstName = value;
+                }
+                else
+                {
+                    CurrentUser.FirstName = FormatName(value);
+                }               
+                    ValidateEmptyRegister.FirstNameColor = HcStyles.GreenLineColor;
+                    NotifyErrorRegistor = "";
+                    RaisePropertyChanged();          
+            }
+        }
+
+        public RelayCommand UnFocusedFirstName => new RelayCommand(() =>
+        {
+            if (Common.OS == TargetPlatform.Android)
+            {
+                if (!string.IsNullOrEmpty(FirstName))
+                {
+                    FirstName = FormatName(FirstName);
+                }
+            }
+        });
+
+        public string Password
+        {
+            get { return CurrentUser.Password; }
+            set
+            {
+                CurrentUser.Password = value;
+                ValidateEmptyRegister.PasswordColor = HcStyles.GreenLineColor;
+                NotifyErrorRegistor = string.Empty;
+                NotifyErrorPassword = string.Empty;
+                RaisePropertyChanged();
+            }
+        }
+
+        public RelayCommand UnFocusedPassword => new RelayCommand(() =>
+        {
+            if (!string.IsNullOrEmpty(Password))
+            {
+                string regexString = "^(?=.*[a-zA-Z])(?=.*[0-9]).+$";
+                Regex re = new Regex(regexString);
+                if ((Password.Length < 6)||(!re.IsMatch(Password)))
+                {
+                    ValidateEmptyRegister.PasswordColor = Color.Red;
+                    NotifyErrorPassword = AppResources.password_must_least_6_characters;
+                }
+            }
+        });
+
+        public RelayCommand UnFocusedConfirmPassword => new RelayCommand(() =>
+        {
+            if (!string.IsNullOrEmpty(VeryPassword))
+            {
+                if (!Password.Equals(VeryPassword))
+                {
+                    ValidateEmptyRegister.ConfirmPasscodeColor= Color.Red;
+                    NotifyErrorConfirmPasscode = AppResources.password_confirm_not_match;
+                }
+            }
+        });
+
+        public string VeryPassword
+        {
+            get { return CurrentUser.VerifyPassword; }
+            set
+            {
+                CurrentUser.VerifyPassword = value;
+                ValidateEmptyRegister.ConfirmPasscodeColor = HcStyles.GreenLineColor;
+                NotifyErrorRegistor = string.Empty;
+                NotifyErrorConfirmPasscode = string.Empty;
+                RaisePropertyChanged();
+            }
+        }
+
+        public string PhoneNumber
+        {
+            get { return CurrentUser.PhoneNo; }
+            set
+            {
+                if (value.Length <= 11)
+                {
+                    CurrentUser.PhoneNo = value;
+                    ValidateEmptyRegister.PhoneNumberColor = HcStyles.GreenLineColor;
+                    NotifyErrorRegistor = string.Empty;
+                    NotifyErrorPhoneNumber = string.Empty;
+                }              
+                RaisePropertyChanged();
+            }
+        }
+        public RelayCommand UnFocusedPhoneNumber => new RelayCommand(() =>
+        {
+            if (!string.IsNullOrEmpty(PhoneNumber))
+            {
+                if (!CheckPhoneNumber(PhoneNumber))
+                {
+                    ValidateEmptyRegister.PhoneNumberColor = HcStyles.GreenLineColor;
+                    NotifyErrorPhoneNumber = AppResources.phone_number_invalid;
+                }
+            }
+        });
+
+        public string Email
+        {
+            get { return CurrentUser.Email; }
+            set
+            {
+                CurrentUser.Email = value;
+                ValidateEmptyRegister.EmailColor = HcStyles.GreenLineColor;
+                NotifyErrorEmail = string.Empty;
+            }
+        }
+
+        public bool ValidateEmail(string email)
+        {
+            string match = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
+            Regex re = new Regex(match);
+            return re.IsMatch(email);
+        }
+
+        public RelayCommand UnFocusedEmail => new RelayCommand(async () =>
+        {
+            if (!string.IsNullOrEmpty(Email))
+            {
+                if (!ValidateEmail(Email))
+                {
+                    ValidateEmptyRegister.EmailColor = HcStyles.GreenLineColor;
+                    NotifyErrorEmail = AppResources.rs_failure_invalid_email;                 
+                }
+                else
+                {
+                    try
+                    {
+                        await _userWs.CheckExistEmail(Email);
+                    }
+                    catch (Exception e)
+                    {
+                        if (e.Message.Equals("FAILURE_USER_NOT_ACTIVED"))
+                        {
+                            NotifyErrorEmail = AppResources.email_not_activated;
+                        }
+                        if (e.Message.Equals("FAILURE_EMAIL_NOT_EXISTED"))
+                        {
+                        }
+                        if (e.Message.Equals("FAILURE_USER_ACTIVED"))
+                        {
+                            NotifyErrorEmail = AppResources.email_already_in_user;
+                        }
+                    }
+                    
+                }
+            }
+        });
+
+
+
+        public bool CheckPhoneNumber(string number)
+        {
+            if (number.Length == 10)
+            {
+                return number.Substring(0, 2).Equals("09") ? true : false;
+            }
+            if (number.Length == 11)
+            {
+                return number.Substring(0, 2).Equals("01") ? true : false;
+            }
+            return false;
         }
 
         public Uri HealthVaultUri
@@ -204,6 +504,29 @@ namespace HealthCare.ViewModels
             NavigationService.GoBack();
         }
 
+
+        public async void CallApiUpdateAvatar(byte[] avatarBytes)
+        {
+            UserModel userData =null;
+            try
+            {
+                //Common.ShowLoading();
+                var commonVm = CommonViewModel.Instance;              
+                userData = await _userWs.EditProfile(CurrentUser, AvatarByteArray);
+                //var userData = JsonUtils.ParseData<UserModel>(blockData, AppConstant.KeyProfile);
+                //SaveUserData(userData);
+                CurrentUser.Photo = userData.Photo;
+                //ResetAvatarResource();
+                await Common.AlertAsync(AppResources.avatar_update_success);
+            }
+            catch (Exception e)
+            {
+                //await Common.AlertAsync(e.Message);
+            }
+
+            //UserDialogs.Instance.HideLoading();
+        }
+
         public async void UpdateProfile(ImageRounderCorner image)
         {
             try
@@ -295,6 +618,24 @@ namespace HealthCare.ViewModels
             //    : ImageSource.FromUri(new Uri(avatarUrl, UriKind.Absolute));
         }
 
+        public void UpdateAvatar(byte[] avatarBytes)
+        {
+            try
+            {
+                if(CurrentUser.Id!=null) CallApiUpdateAvatar(avatarBytes);
+                SetAvatarByByteArray(avatarBytes);
+                if (Common.OS == TargetPlatform.WinPhone)
+                {
+                    PhotoEditViewModel.Instance.GoBack();
+                }
+            }
+            catch (Exception e)
+            {
+                PhotoEditViewModel.Instance.GoBack();
+            }
+                     
+        }
+
         public void SetAvatarByByteArray(byte[] avatarBytes)
         {
             if (avatarBytes == null) return;
@@ -334,15 +675,50 @@ namespace HealthCare.ViewModels
                 //CurrentUser.CityId = commonVm.SelectedCity.Id;
                 //CurrentUser.DistrictId = commonVm.SelectedDistrict.Id;
 
+                bool validateEmpty = true;
+                if (string.IsNullOrWhiteSpace(user.LastName))
+                {
+                    ValidateEmptyRegister.MiddleNameColor = Color.Red;
+                    validateEmpty = false;
+                }
+                if (string.IsNullOrWhiteSpace(user.FirstName))
+                {
+                    ValidateEmptyRegister.FirstNameColor = Color.Red;
+                    validateEmpty = false;
+                }
+                if (string.IsNullOrWhiteSpace(user.PhoneNo))
+                {
+                    ValidateEmptyRegister.PhoneNumberColor = Color.Red;
+                    validateEmpty = false;
+                }
+                if (string.IsNullOrWhiteSpace(user.Password))
+                {
+                    ValidateEmptyRegister.PasswordColor = Color.Red;
+                    validateEmpty = false;
+                }
+                if (string.IsNullOrWhiteSpace(user.VerifyPassword))
+                {
+                    ValidateEmptyRegister.ConfirmPasscodeColor = Color.Red;
+                    validateEmpty = false;
+                }
+                if (!validateEmpty)
+                {
+                    NotifyErrorRegistor = AppResources.please_all_required_fields;
+                    return;
+                }
+
+
                 var validateResult = CanInputPassword ?
                  _personValidator.ValidateWithVerifyPassword(CurrentUser)
                  : _personValidator.ValidateWithoutPassword(CurrentUser);
+                ValidateUser(CurrentUser);
+
+                
 
                 if (!validateResult.IsValid)
                 {
                     await Common.AlertAsync(validateResult.Errors[0]);
                     return;
-
                 }
 
                 if (string.IsNullOrWhiteSpace(CurrentUser.FacebookId))
@@ -378,6 +754,12 @@ namespace HealthCare.ViewModels
             {
                 await Common.AlertAsync(e.Message);
             }
+        }
+
+        public void ValidateUser(UserModel user)
+        {
+            if(string.IsNullOrWhiteSpace(CurrentUser.LastName))
+            ValidateEmptyRegister.MiddleNameColor = Color.Red;
         }
 
         /// <summary>
@@ -467,17 +849,13 @@ namespace HealthCare.ViewModels
             //NavigationService.NavigateTo(typeof(CropPage));
             var photoFolder = Common.OnPlatform("", "", "Camera Roll");
             var fileName = string.Format("HC_{0}.jpg", DateTime.Now.ToString("MMddyy_Hmmss"));
-
             _canGoBack = false;
-
             var result = await UserDialogs.Instance.ActionSheetAsync(
                 AppResources.create_avatar,
                 //Bug: 2 cancel and destuctive in WP have terrible style, don't show its in WP
                 Common.OS != TargetPlatform.WinPhone ? AppResources.cancel : null,
                 null, AppResources.pick_photo, AppResources.take_photo);
-
             _canGoBack = true; //enable goback if press hardware back button 
-
             try
             {
                 bool isPhotoPicked = false;
@@ -564,7 +942,11 @@ namespace HealthCare.ViewModels
                                 DependencyService.Get<IPhotoEdit>().LaunchEditorControl(AvatarByteArray);
                             else if (Common.OS == TargetPlatform.WinPhone)
                                 NavigationService.NavigateTo(typeof(PhotoEditPage));
-                            else SetAvatarByByteArray(AvatarByteArray);
+                            else
+                            {
+                                //SetAvatarByByteArray(AvatarByteArray);
+                                UpdateAvatar(AvatarByteArray);
+                            }                            
                         }
                     }
                 }
@@ -624,5 +1006,87 @@ namespace HealthCare.ViewModels
             => _avatarTappedCommand ?? (_avatarTappedCommand = new RelayCommand(GetAvatar));
 
         #endregion
+
+        
+    }
+    public class ValidateRegister : NotifyPropertyChanged
+    {
+        private Color middleNameColor;
+        private Color firstNameColor;
+        private Color passwordColor;
+        private Color confirmPasscodeColor;
+        private Color phoneNumberColor;
+        private Color emailColor;
+
+        public ValidateRegister()
+        {
+            MiddleNameColor = HcStyles.GreenLineColor;
+            FirstNameColor = HcStyles.GreenLineColor;
+            PasswordColor = HcStyles.GreenLineColor;
+            ConfirmPasscodeColor = HcStyles.GreenLineColor;
+            PhoneNumberColor = HcStyles.GreenLineColor;
+            EmailColor = HcStyles.GreenLineColor;
+        }
+
+        public Color MiddleNameColor
+        {
+            get { return middleNameColor; }
+            set
+            {
+                middleNameColor = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public Color FirstNameColor
+        {
+            get { return firstNameColor; }
+            set
+            {
+                firstNameColor = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public Color PasswordColor
+        {
+            get { return passwordColor; }
+            set
+            {
+                passwordColor = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public Color ConfirmPasscodeColor
+        {
+            get { return confirmPasscodeColor; }
+            set
+            {
+                confirmPasscodeColor = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public Color PhoneNumberColor
+        {
+            get { return phoneNumberColor; }
+            set
+            {
+                phoneNumberColor = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public Color EmailColor
+        {
+            get { return emailColor; }
+            set
+            {
+                emailColor = value;
+                RaisePropertyChanged();
+            }
+        }
+
     }
 }

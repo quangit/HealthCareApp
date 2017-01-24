@@ -38,8 +38,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ContentPageNoActionBar.cs" />
     <Compile Include="Controls\ImageGallery.cs" />
     <Compile Include="Conveters\DateTimeToStringConverter.cs" />
+    <Compile Include="Conveters\StringNullOrEmptyToBoolConverter.cs" />
     <Compile Include="DependencyServices\INetworkInfo.cs" />
     <Compile Include="Models\ChBaseModel\BloodGlucoseModel.cs" />
     <Compile Include="Models\ChBaseModel\BloodPressureModel.cs" />

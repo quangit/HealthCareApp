@@ -330,7 +330,7 @@
     <value>Payment</value>
   </data>
   <data name="checkup_phone_no" xml:space="preserve">
-    <value>Phone number:</value>
+    <value>Cell phone number:</value>
   </data>
   <data name="checkup_policy" xml:space="preserve">
     <value>Policy:</value>
@@ -800,7 +800,7 @@ Click + to add checkup</value>
     <value>Enter payment password</value>
   </data>
   <data name="phone_no" xml:space="preserve">
-    <value>Phone number</value>
+    <value>Cell phone number</value>
   </data>
   <data name="picker_hospital" xml:space="preserve">
     <value>Select a hospital</value>
@@ -1773,5 +1773,29 @@ Please do the payment or extending your account to enjoy remarkable features of 
   </data>
   <data name="add_checkup_success_free" xml:space="preserve">
     <value>Your appointment is successfully saved. Please arrive 15 minutes prior to the booked schedule. In case there is emergency, your appointment time could be adjusted. Thank you!</value>
+  </data>
+  <data name="phone_call_fail" xml:space="preserve">
+    <value>Phone call fail!</value>
+  </data>
+  <data name="avatar_update_success" xml:space="preserve">
+    <value>Avatar updated successfully</value>
+  </data>
+  <data name="please_all_required_fields" xml:space="preserve">
+    <value>Please ensure that all required fields (*) are completed.</value>
+  </data>
+  <data name="password_dont_match" xml:space="preserve">
+    <value>These passwords don't match. Please try again.</value>
+  </data>
+  <data name="password_must_least_6_characters" xml:space="preserve">
+    <value>Password must be at least 6 characters in length and contains both number and letter.</value>
+  </data>
+  <data name="phone_number_invalid" xml:space="preserve">
+    <value>Invalid phone number. Please enter your cell phone number.</value>
+  </data>
+  <data name="email_already_in_user" xml:space="preserve">
+    <value>The email you entered is already in use</value>
+  </data>
+  <data name="email_not_activated" xml:space="preserve">
+    <value>The email is not activated</value>
   </data>
 </root>

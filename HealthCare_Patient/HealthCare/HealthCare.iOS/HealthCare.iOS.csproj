@@ -40,7 +40,7 @@
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchDebug>True</MtouchDebug>
     <MtouchProfiling>False</MtouchProfiling>
-    <CodesignKey>iPhone Distribution: Customer Loyalty and Acquisition Services Company Limited (CVQHA34643)</CodesignKey>
+    <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchUseRefCounting>True</MtouchUseRefCounting>
     <MtouchSdkVersion>9.2</MtouchSdkVersion>
     <MtouchOptimizePNGs>True</MtouchOptimizePNGs>
@@ -55,7 +55,6 @@
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchFloat32>False</MtouchFloat32>
-    <CodesignProvision>da7c73a9-d8d1-4abe-a034-6b1dbbae4c97</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <Optimize>true</Optimize>
@@ -117,6 +116,15 @@
     <CodesignProvision>5adaa905-ab16-47b9-9763-d0162c22d420</CodesignProvision>
     <BuildIpa>True</BuildIpa>
     <IpaIncludeArtwork>False</IpaIncludeArtwork>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Connectivity.Plugin">
@@ -452,6 +460,7 @@
     <None Include="packages.config" />
     <None Include="PluginsHelp\SettingsReadme.txt" />
     <BundleResource Include="Resources\ic_username.png alias" />
+    <None Include="Properties\app.manifest" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DependencyServices\ChBaseHash.cs" />

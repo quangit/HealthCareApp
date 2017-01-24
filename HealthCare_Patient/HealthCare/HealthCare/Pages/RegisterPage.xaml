@@ -95,27 +95,42 @@
                     <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand"
                                  HorizontalOptions="FillAndExpand">
                         <controls:HcEntry Source="ic_person.png"
+                                          IsMandatory="True"
+                                          UnfocusedCommand="{Binding UnFocusedLastName}"
+                                          LineColor="{Binding ValidateEmptyRegister.MiddleNameColor}"
                                           PlaceHolder="{x:Static resx:AppResources.last_name}"
-                                          Text="{Binding CurrentUser.LastName, Mode=TwoWay}" />
+                                          Text="{Binding LastName, Mode=TwoWay}" />
 
                         <controls:HcEntry Source="ic_person.png"
+                                          IsMandatory="True"
+                                          UnfocusedCommand="{Binding UnFocusedFirstName}"
+                                          LineColor="{Binding ValidateEmptyRegister.FirstNameColor}"
                                           PlaceHolder="{x:Static resx:AppResources.first_name}"
-                                          Text="{Binding CurrentUser.FirstName, Mode=TwoWay}" />
+                                          Text="{Binding FirstName, Mode=TwoWay}" />
                     </StackLayout>
                 </StackLayout>
 
                 <controls:HcEntry Source="ic_lock.png"
+                                  IsMandatory="True"
                                   IsPassword="True"
+                                  UnfocusedCommand="{Binding UnFocusedPassword}"
+                                  LineColor="{Binding ValidateEmptyRegister.PasswordColor}"
                                   PlaceHolder="{x:Static resx:AppResources.password}"
                                   IsVisible="{Binding CanInputPassword}"
-                                  Text="{Binding CurrentUser.Password, Mode=TwoWay}" />
+                                  Text="{Binding Password, Mode=TwoWay}" />
+              
+              <Label TextColor="Red"  Text="{Binding NotifyErrorPassword}" IsVisible="{Binding NotifyErrorPassword,Converter={StaticResource StringNullOrEmptyToFalseConverter}}"></Label>
 
                 <controls:HcEntry Source="ic_lock.png"
                                   IsPassword="True"
+                                  IsMandatory="True"
+                                  UnfocusedCommand="{Binding UnFocusedConfirmPassword}"
+                                  LineColor="{Binding ValidateEmptyRegister.ConfirmPasscodeColor}"
                                   PlaceHolder="{x:Static resx:AppResources.password_verify}"
                                   IsVisible="{Binding CanInputPassword}"
-                                  Text="{Binding CurrentUser.VerifyPassword, Mode=TwoWay}" />
+                                  Text="{Binding VeryPassword, Mode=TwoWay}" />
 
+              <Label TextColor="Red"  Text="{Binding NotifyErrorConfirmPasscode}" IsVisible="{Binding NotifyErrorConfirmPasscode,Converter={StaticResource StringNullOrEmptyToFalseConverter}}"></Label>
                 <!--<controls:DatePickerWithImageBox Source="ic_calendar.png"
                                          TextColor="{x:Static helpers:HcStyles.BlackTextColor}"
                                          FontSize="{x:Static helpers:HcStyles.FontSizeContent}"
@@ -123,9 +138,13 @@
                                          ValidateDateTimeType="BirthDay" />-->
 
                 <controls:HcEntry Source="ic_phone.png"
+                                  IsMandatory="True"
+                                  UnfocusedCommand="{Binding UnFocusedPhoneNumber}"
                                   Keyboard="{x:Static Keyboard.Telephone}"
+                                  LineColor="{Binding ValidateEmptyRegister.PhoneNumberColor}"
                                   PlaceHolder="{x:Static resx:AppResources.phone_no}"
-                                  Text="{Binding CurrentUser.PhoneNo, Mode=TwoWay}" />
+                                  Text="{Binding PhoneNumber, Mode=TwoWay}" />
+              <Label TextColor="Red"  Text="{Binding NotifyErrorPhoneNumber}" IsVisible="{Binding NotifyErrorPhoneNumber,Converter={StaticResource StringNullOrEmptyToFalseConverter}}"></Label>
 
                 <!--<controls:HcEntry Source="ic_cc_number.png"
                           Keyboard="{x:Static Keyboard.Numeric}"
@@ -133,9 +152,13 @@
                           Text="{Binding CurrentUser.IdNo, Mode=TwoWay}" />-->
 
                 <controls:HcEntry Source="ic_mail_about.png"
+                                  UnfocusedCommand="{Binding UnFocusedEmail}"
                                   Keyboard="{x:Static Keyboard.Email}"
                                   PlaceHolder="{x:Static resx:AppResources.email}"
-                                  Text="{Binding CurrentUser.Email, Mode=TwoWay}" />
+                                  Text="{Binding Email, Mode=TwoWay}" />
+              <Label TextColor="Red"  Text="{Binding NotifyErrorEmail}" IsVisible="{Binding NotifyErrorEmail,Converter={StaticResource StringNullOrEmptyToFalseConverter}}"></Label>
+              
+              <Label Text="{Binding NotifyErrorRegistor}" TextColor="Red"></Label>
 
                 <!--<StackLayout Spacing="{StaticResource SpacingGender}"
                      Orientation="Horizontal" HorizontalOptions="FillAndExpand">

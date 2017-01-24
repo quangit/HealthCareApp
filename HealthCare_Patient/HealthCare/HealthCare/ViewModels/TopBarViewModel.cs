@@ -85,21 +85,20 @@ namespace HealthCare.ViewModels
         {
             get
             {
-                return _phoneCallCommand ??
-                    (_phoneCallCommand = new RelayCommand(async () =>
+                return _phoneCallCommand ??(_phoneCallCommand = new RelayCommand(async () =>
                     {
                         if (Common.OS == TargetPlatform.WinPhone)
                         {
                             if (!DependencyService.Get<IDialPhone>().MakePhoneCall("08 6274 7451"))
                             {
-                                await Common.AlertAsync("Phone call fail!");
+                                await Common.AlertAsync(AppResources.phone_call_fail);
                             }
                         }
-                        else if (await Common.ConfirmAsync(AppResources.diall_confirm))
+                        else if (await Common.ConfirmAsync(AppResources.diall_confirm,AppResources.yes,AppResources.no))
                         {
                             if (!DependencyService.Get<IDialPhone>().MakePhoneCall("08 6274 7451"))
                             {
-                                await Common.AlertAsync("Phone call fail!");
+                                await Common.AlertAsync(AppResources.phone_call_fail);
                             }
                         }
                     }));

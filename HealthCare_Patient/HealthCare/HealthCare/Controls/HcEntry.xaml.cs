@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Windows.Input;
 using HealthCare.Helpers;
+using Org.BouncyCastle.Cms;
 using Xamarin.Forms;
 
 namespace HealthCare.Controls
@@ -26,6 +28,13 @@ namespace HealthCare.Controls
                     ((HcEntry) bindable).idEntry.PlaceHolderColor = ((HcEntry) bindable).idEntry.TextColor = newValue;
                 });
 
+        public static readonly BindableProperty LineColorProperty =
+            BindableProperty.Create<HcEntry, Color>(p => p.LineColor, HcStyles.GreenLineColor, propertyChanged:
+                (bindable, value, newValue) =>
+                {
+                    ((HcEntry)bindable).idRule.BackgroundColor = newValue;
+                });
+
         public static readonly BindableProperty PlaceHolderProperty =
             BindableProperty.Create<HcEntry, string>(p => p.PlaceHolder, default(string), propertyChanged:
                 (bindable, value, newValue) => { ((HcEntry) bindable).idEntry.Placeholder = newValue; });
@@ -33,6 +42,20 @@ namespace HealthCare.Controls
         public static readonly BindableProperty IsLoginProperty =
             BindableProperty.Create<HcEntry, bool>(p => p.IsLogin, default(bool), propertyChanged:
                 (bindable, value, newValue) => { ((HcEntry) bindable).idEntry.IsLogin = newValue; });
+        public static readonly BindableProperty IsMandatoryProperty =
+            BindableProperty.Create<HcEntry, bool>(p => p.IsMandatory,false, propertyChanged:
+                (bindable, value, newValue) =>
+                {
+                    if (newValue)
+                    {
+                        ((HcEntry) bindable).starChar.Text = "*";
+                    }
+                    else
+                    {
+                        ((HcEntry) bindable).starChar.Text = " ";
+                    }
+                    //((HcEntry)bindable).starChar.IsVisible = newValue;
+                });
 
         public static readonly BindableProperty IsPasswordProperty =
             BindableProperty.Create<HcEntry, bool>(p => p.IsPassword, default(bool), propertyChanged:
@@ -49,6 +72,22 @@ namespace HealthCare.Controls
                     var entry = ((HcEntry) bindable).idEntry;
                     entry.Unfocus();
                 });
+        /// <summary>
+        ///     Identifies the <see cref="ItemClickCommand" /> bindable property.
+        /// </summary>
+        public static readonly BindableProperty UnfocusedCommandProperty =
+            BindableProperty.Create<HcEntry, ICommand>(p => p.UnfocusedCommand, default(ICommand),
+                BindingMode.Default);
+        /// <summary>
+        ///     Gets or sets the <see cref="ItemClickCommand" /> property. This is a bindable property.
+        /// </summary>
+        /// <value>
+        /// </value>
+        public ICommand UnfocusedCommand
+        {
+            get { return (ICommand)GetValue(UnfocusedCommandProperty); }
+            set { SetValue(UnfocusedCommandProperty, value); }
+        }
 
         public event EventHandler Loaded;
 
@@ -95,12 +134,28 @@ namespace HealthCare.Controls
                 idEntry.Placeholder = value;
             }
         }
+        public Color LineColor
+        {
+            get { return (Color)GetValue(LineColorProperty); }
+            set
+            {
+                SetValue(LineColorProperty, value);
+            }
+        }
 
         public bool IsLogin
         {
             get { return (bool) GetValue(IsLoginProperty); }
             set { SetValue(IsLoginProperty, value); }
         }
+
+        public bool IsMandatory
+        {
+            get { return (bool)GetValue(IsMandatoryProperty); }
+            set { SetValue(IsMandatoryProperty, value); }
+        }
+
+        
 
         public bool IsPassword
         {
@@ -166,6 +221,8 @@ namespace HealthCare.Controls
             Text = e.NewTextValue;
         }
 
+        
+
         #region CanEdit
 
         /// <summary>
@@ -194,5 +251,13 @@ namespace HealthCare.Controls
         }
 
         #endregion
+
+        private void IdEntry_OnUnfocused(object sender, FocusEventArgs e)
+        {
+            if ((UnfocusedCommand != null)&& (UnfocusedCommand.CanExecute(null)))
+            {
+                UnfocusedCommand.Execute(null);
+            }
+        }
     }
 }

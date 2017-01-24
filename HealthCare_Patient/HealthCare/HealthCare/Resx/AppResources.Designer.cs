@@ -379,6 +379,15 @@ namespace HealthCare.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Avatar updated successfully.
+        /// </summary>
+        internal static string avatar_update_success {
+            get {
+                return ResourceManager.GetString("avatar_update_success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date of birth.
         /// </summary>
         internal static string birth_day {
@@ -829,7 +838,7 @@ namespace HealthCare.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phone number:.
+        ///   Looks up a localized string similar to Cell phone number:.
         /// </summary>
         internal static string checkup_phone_no {
             get {
@@ -1266,6 +1275,24 @@ namespace HealthCare.Resx {
         internal static string email {
             get {
                 return ResourceManager.GetString("email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The email you entered is already in use.
+        /// </summary>
+        internal static string email_already_in_user {
+            get {
+                return ResourceManager.GetString("email_already_in_user", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The email is not activated.
+        /// </summary>
+        internal static string email_not_activated {
+            get {
+                return ResourceManager.GetString("email_not_activated", resourceCulture);
             }
         }
         
@@ -2702,12 +2729,30 @@ namespace HealthCare.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to These passwords don&apos;t match. Please try again..
+        /// </summary>
+        internal static string password_dont_match {
+            get {
+                return ResourceManager.GetString("password_dont_match", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Passwords must be at least 8 characters in length, and must have: a minimum of 1 lower case letter, 1 upper case letter and 1 numeric character
         ///.
         /// </summary>
         internal static string password_invalid_format {
             get {
                 return ResourceManager.GetString("password_invalid_format", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password must be at least 6 characters in length and contains both number and letter..
+        /// </summary>
+        internal static string password_must_least_6_characters {
+            get {
+                return ResourceManager.GetString("password_must_least_6_characters", resourceCulture);
             }
         }
         
@@ -2982,11 +3027,29 @@ namespace HealthCare.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phone number.
+        ///   Looks up a localized string similar to Phone call fail!.
+        /// </summary>
+        internal static string phone_call_fail {
+            get {
+                return ResourceManager.GetString("phone_call_fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cell phone number.
         /// </summary>
         internal static string phone_no {
             get {
                 return ResourceManager.GetString("phone_no", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid phone number. Please enter your cell phone number..
+        /// </summary>
+        internal static string phone_number_invalid {
+            get {
+                return ResourceManager.GetString("phone_number_invalid", resourceCulture);
             }
         }
         
@@ -3113,6 +3176,15 @@ namespace HealthCare.Resx {
         internal static string pin_code_cannot_empty {
             get {
                 return ResourceManager.GetString("pin_code_cannot_empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please ensure that all required fields (*) are completed..
+        /// </summary>
+        internal static string please_all_required_fields {
+            get {
+                return ResourceManager.GetString("please_all_required_fields", resourceCulture);
             }
         }
         

@@ -164,7 +164,7 @@ namespace HealthCare.Helpers
         {
             UserDialogs.Instance.HideLoading();
             if (!string.IsNullOrWhiteSpace(msg))
-                await UserDialogs.Instance.AlertAsync(msg);
+                await UserDialogs.Instance.AlertAsync(msg,null,AppResources.ok);
         }
 
         public static async void ShowMessage(string msg)
@@ -176,6 +176,8 @@ namespace HealthCare.Helpers
 
         public static async Task<bool> ConfirmAsync(string msg, string ok = null, string cancel = null)
         {
+            if (ok == null) ok = AppResources.ok;
+            if (cancel == null) cancel = AppResources.cancel;
             UserDialogs.Instance.HideLoading();
             if (!string.IsNullOrWhiteSpace(msg))
                 return await UserDialogs.Instance.ConfirmAsync(msg, null, ok, cancel);

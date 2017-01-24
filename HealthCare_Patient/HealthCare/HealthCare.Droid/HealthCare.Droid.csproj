@@ -221,6 +221,7 @@
     <Compile Include="DependencyServices\NextworkInfoAndroid.cs" />
     <Compile Include="DependencyServices\SHA256.cs" />
     <Compile Include="Renderers\ChBaseWebviewRenderer.cs" />
+    <Compile Include="Renderers\ContentPageNoActionBarRenderer.cs" />
     <Compile Include="Renderers\TabbedPageRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Renderers\Certificate.cs" />

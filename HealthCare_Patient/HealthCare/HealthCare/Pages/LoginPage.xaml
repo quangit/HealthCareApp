@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<controls:ContentPageNoActionBar xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HealthCare.Pages.LoginPage"
              BindingContext="{Binding VmLogin, Source={StaticResource Locator}}"
@@ -57,14 +57,14 @@
         <!-- background -->
         <Image Source="bg_login.png" Aspect="AspectFill"
                RelativeLayout.XConstraint="{ConstraintExpression Type=Constant,Factor=0,
-                                        Constant=-100}"
+                                        Constant=-200}"
                RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Factor=0,
-                                        Constant=-100}"
+                                        Constant=0}"
                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
                                         Property=Width, Constant=200,
                                         Factor=1 }"
                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
-                                        Property=Height,Constant=100,
+                                        Property=Height,Constant=0,
                                         Factor=1}" />
         <!-- body -->
         <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand"
@@ -128,4 +128,4 @@
                                                 Constant={x:Static helpers:HcStyles.ButtonHeight}}" />
     </RelativeLayout>
   </ScrollView>
-</ContentPage>
+</controls:ContentPageNoActionBar>

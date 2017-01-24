@@ -44,6 +44,8 @@ namespace HealthCare.ViewModels
                     SimpleIocV2.Default.Reset();
                     ((ViewModelLocator)App.Instance.Resources["Locator"]).InitHcServices();
                     NavigationService.ReplaceRootPage(typeof(LoginPage));
+                    //NavigationService.NavigateTo(typeof(LoginPage));
+                    //App.Instance.ReplaceRootPage();
                 }
             });
 
@@ -52,8 +54,7 @@ namespace HealthCare.ViewModels
               await LoginChbase();
             });
             CancelCommand = new RelayCommand(() =>
-            {
-               
+            {              
                 ShowPopup = false;
                 Email = Password = "";
                 if (WebViewJavascript != null)

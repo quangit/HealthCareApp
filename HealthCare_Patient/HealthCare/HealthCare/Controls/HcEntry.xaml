@@ -17,27 +17,30 @@
     </StackLayout.Resources>
 
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-                 Padding=" 8, 0, 8, 0"
-                 Spacing="8" Orientation="Horizontal">
+                 Padding=" 8, 0, 8, 0" 
+                 Spacing="2" Orientation="Horizontal">
 
         <Image x:Name="idImage"
                Source="ic_cvv_num"
                HorizontalOptions="Start"
                WidthRequest="{x:Static helpers:HcStyles.ImageInEntryWidth}"
                HeightRequest="{x:Static helpers:HcStyles.ImageInEntryHeight}" />
+        <Label x:Name="starChar"  Text=" "  TextColor="Red" ></Label>
 
         <controls:EntryLogin x:Name="idEntry"
                              HorizontalOptions="FillAndExpand"
                              Placeholder="Place_Holder"
                              BackgroundColor="Transparent"
+                             TextChanged="Entry_OnTextChanged"
                              TextColor="{x:Static helpers:HcStyles.BlackTextColor}"
                              PlaceHolderColor="{x:Static helpers:HcStyles.LightBlackTextColor}"
                              IsPassword="False"
                              IsLogin="False"
+                             Unfocused="IdEntry_OnUnfocused"
                              FontSize="{x:Static helpers:HcStyles.EntryLoginFontSizeContent}" />
     </StackLayout>
 
     <ContentView x:Name="idRule" BackgroundColor="{x:Static helpers:HcStyles.GreenLineColor}"
-                 HeightRequest="1" HorizontalOptions="Fill"
+                 HeightRequest="1" HorizontalOptions="Fill" 
                  Padding="0" />
 </StackLayout>

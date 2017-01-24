@@ -53,8 +53,14 @@
 	<string>Healthcare need your current position to help you locate the way to doctor</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Healthcare need your current position to help you locate the way to doctor</string>
+  <key>NSPhotoLibraryUsageDescription</key>
+  <string>This app needs access to the photo.</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+    <key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 		<key>NSExceptionDomains</key>

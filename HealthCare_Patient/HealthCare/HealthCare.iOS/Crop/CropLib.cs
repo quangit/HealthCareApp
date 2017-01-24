@@ -278,8 +278,8 @@ namespace HealthCare.iOS.Crop
                 uiimage0 = this.method_5();
                 uiimage0 = this.method_4(uiimage0, this.cropData_0.GetCroppingRectangleF());
             }
-            UserViewModel.Instance.SetAvatarByByteArray(uiimage0.ToBytes());
-            PhotoEditViewModel.Instance.GoBack();
+            UserViewModel.Instance.UpdateAvatar(uiimage0.ToBytes());
+            //PhotoEditViewModel.Instance.GoBack();
         }
 
         private void method_1()

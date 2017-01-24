@@ -307,8 +307,8 @@ namespace HealthCare.iOS.Renderers
                 cropperView.Origin = new CGPoint(imageView.Frame.Left, imageView.Frame.Top);
                 cropperView.Hidden = true;
 
-                UserViewModel.Instance.SetAvatarByByteArray(imageView.Image.ToBytes());
-                PhotoEditViewModel.Instance.GoBack();
+                UserViewModel.Instance.UpdateAvatar(imageView.Image.ToBytes());
+                //PhotoEditViewModel.Instance.GoBack();
             }
         }
     }
